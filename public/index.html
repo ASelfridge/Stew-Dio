@@ -4,6 +4,9 @@
     <head>
         <title>Starting Environment</title>
         <script src="js/aframe-v0.8.2.min.js"></script>
+		<script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+    	<script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
+		<script src="js/mobileControls.js"></script>
     </head>
     <body>
         <a-scene>
@@ -23,9 +26,8 @@
                         rotation="0 220 0">
             </a-entity>
             
-            <a-entity position="0 0 5">
-                <a-camera></a-camera>
-            </a-entity>
+            <a-entity id="sceneCamera" camera position="0 1.6 0" wasd-controls look-controls>
+      		</a-entity>
 
             <a-light type="point" color="yellow" position="10 5 0"></a-light>
             <a-light type="point" color="red" position="0 5 10"></a-light>
