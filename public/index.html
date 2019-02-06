@@ -4,6 +4,7 @@
     <head>
         <title>Starting Environment</title>
         <script src="js/aframe-v0.8.2.min.js"></script>
+        <script src="js/object-pickup.js"></script>
     </head>
     <body>
         <a-scene>
@@ -31,10 +32,21 @@
                 <a-asset-item id="bowl" src="assets/models/bowl.obj"></a-asset-item>
             </a-assets>
 
+<<<<<<< HEAD
 
             <!---------------- CAMERA ---------------->
             <a-entity position="0 1.5 5">
                 <a-camera></a-camera>
+=======
+            <a-entity   obj-model="obj: #cow"
+                        material="src: assets/textures/Cow.png"
+                        position="3 0 -1"
+                        rotation="0 220 0">
+            </a-entity>
+            
+            <a-entity camera look-controls position="0 1 5">
+                <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
+>>>>>>> added object-pickup component
             </a-entity>
 
     
@@ -45,8 +57,21 @@
 
             <!---------------- A-FRAME ENTITIES ---------------->
             
+<<<<<<< HEAD
             <!-- CUSTOMER SERVICE -->
             <a-entity obj-model="obj:#customerService" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
+=======
+            <a-entity   object-pickup
+                        click-drag
+                        id="box"
+                        position="-1 0.5 -3"
+                        rotation="0 45 0"
+                        scale="1 1 1"
+                        geometry="primitive: box; width: 1, height: 1; depth: 1"
+                        shadow="cast: true; receive: true"
+                        material="color: #EF2D5E; sphericalEnvMap: #skymap; roughness: 0.5; metalness: 0.0"
+                        >
+>>>>>>> added object-pickup component
             </a-entity>
 
             <a-entity obj-model="obj:#character" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
