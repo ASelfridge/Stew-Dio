@@ -1,65 +1,8 @@
 //Maya ASCII 2018 scene
-//Name: stagingEnvironment.ma
-//Last modified: Tue, Feb 05, 2019 10:50:17 PM
+//Name: stove_reference.ma
+//Last modified: Tue, Feb 05, 2019 10:44:17 PM
 //Codeset: 1252
-file -rdi 1 -ns "table_reference" -rfn "table_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/table_reference.ma";
-file -rdi 1 -ns "knife_reference" -rfn "knife_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/knife_reference.ma";
-file -rdi 1 -ns "ingredientStation_reference" -rfn "ingredientStation_referenceRN"
-		 -op "v=0;" -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/ingredientStation_reference.ma";
-file -rdi 1 -ns "floor_reference" -rfn "floor_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/floor_reference.ma";
-file -rdi 1 -ns "cuttingBoard_reference" -rfn "cuttingBoard_referenceRN" -op
-		 "v=0;" -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/cuttingBoard_reference.ma";
-file -rdi 1 -ns "customerService_reference" -rfn "customerService_referenceRN"
-		 -op "v=0;" -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/customerService_reference.ma";
-file -rdi 1 -ns "carrot_reference" -rfn "carrot_referenceRN" -op "v=0;" -typ
-		 "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/carrot_reference.ma";
-file -rdi 1 -ns "table_reference1" -rfn "table_referenceRN1" -op "v=0;" -typ
-		 "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/table_reference.ma";
-file -rdi 1 -ns "table_reference2" -rfn "table_referenceRN2" -op "v=0;" -typ
-		 "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/table_reference.ma";
-file -rdi 1 -ns "characterReference" -rfn "characterReferenceRN" -op "v=0;"
-		 -typ "mayaAscii" "F:/Desktop/temp/Stew-Dio/3DProduction/stagingEnvironment/scenes/characterReference.ma";
-file -rdi 1 -ns "pot_reference" -rfn "pot_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/pot_reference.ma";
-file -rdi 1 -ns "recipeBook_reference" -rfn "recipeBook_referenceRN" -op "v=0;"
-		 -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/recipeBook_reference.ma";
-file -rdi 1 -ns "stove_reference" -rfn "stove_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/stove_reference.ma";
-file -rdi 1 -ns "ladle_reference" -rfn "ladle_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/ladle_reference.ma";
-file -r -ns "table_reference" -dr 1 -rfn "table_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/table_reference.ma";
-file -r -ns "knife_reference" -dr 1 -rfn "knife_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/knife_reference.ma";
-file -r -ns "ingredientStation_reference" -dr 1 -rfn "ingredientStation_referenceRN"
-		 -op "v=0;" -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/ingredientStation_reference.ma";
-file -r -ns "floor_reference" -dr 1 -rfn "floor_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/floor_reference.ma";
-file -r -ns "cuttingBoard_reference" -dr 1 -rfn "cuttingBoard_referenceRN" -op "v=0;"
-		 -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/cuttingBoard_reference.ma";
-file -r -ns "customerService_reference" -dr 1 -rfn "customerService_referenceRN"
-		 -op "v=0;" -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/customerService_reference.ma";
-file -r -ns "carrot_reference" -dr 1 -rfn "carrot_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/carrot_reference.ma";
-file -r -ns "table_reference1" -dr 1 -rfn "table_referenceRN1" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/table_reference.ma";
-file -r -ns "table_reference2" -dr 1 -rfn "table_referenceRN2" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/table_reference.ma";
-file -r -ns "characterReference" -dr 1 -rfn "characterReferenceRN" -op "v=0;" -typ
-		 "mayaAscii" "F:/Desktop/temp/Stew-Dio/3DProduction/stagingEnvironment/scenes/characterReference.ma";
-file -r -ns "pot_reference" -dr 1 -rfn "pot_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/pot_reference.ma";
-file -r -ns "recipeBook_reference" -dr 1 -rfn "recipeBook_referenceRN" -op "v=0;"
-		 -typ "mayaAscii" "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/recipeBook_reference.ma";
-file -r -ns "stove_reference" -dr 1 -rfn "stove_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/stove_reference.ma";
-file -r -ns "ladle_reference" -dr 1 -rfn "ladle_referenceRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/Carleton/Year 3/Semester 2/IMD3901B/Term Project/Stew-Dio/3DProduction/stagingEnvironment//scenes/referenceObjects/ladle_reference.ma";
 requires maya "2018";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "2.0.1";
 requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
@@ -70,32 +13,32 @@ fileInfo "cutIdentifier" "201706261615-f9658c4cfc";
 fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
-	rename -uid "8F6EE310-4082-FFA0-60E3-88B6483FBD22";
+	rename -uid "226AC649-4B48-8547-D261-D2BDC18625BB";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 21.510310459538061 9.2102170375464709 12.501918496375831 ;
-	setAttr ".r" -type "double3" -14.7383527278103 1495.7999999998879 0 ;
+	setAttr ".t" -type "double3" 1.435461127679325 6.5530883348295816 17.841103791467731 ;
+	setAttr ".r" -type "double3" -6.3383527296125477 4.5999999999999064 4.9856761586716158e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
-	rename -uid "14B00E00-4843-9202-CC7D-FE9E01840F83";
+	rename -uid "DB91A330-41B5-83EF-87CF-619F77412736";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 24.019857481102665;
+	setAttr ".coi" 18.008840891881473;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 1.6935625418244979 3.9421121972640307 -0.19358238353858936 ;
+	setAttr ".tp" -type "double3" 0 4.564919045727259 0 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
-	rename -uid "39F7851F-417E-D5F7-52B4-F18C292E0B2F";
+	rename -uid "0B841922-40E2-AB22-9A71-0AA6D8098B21";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.008500927289935567 1000.1 -0.95255187815476972 ;
+	setAttr ".t" -type "double3" 0 1000.1 0 ;
 	setAttr ".r" -type "double3" -89.999999999999986 0 0 ;
 createNode camera -s -n "topShape" -p "top";
-	rename -uid "7326736C-4204-ED87-8E75-50AFDD440F6F";
+	rename -uid "DCE86CC3-4192-A70A-F64E-9FA87C9B9523";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
-	setAttr ".ow" 42.367040328703922;
+	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "top";
 	setAttr ".den" -type "string" "top_depth";
 	setAttr ".man" -type "string" "top_mask";
@@ -103,11 +46,11 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -s -n "front";
-	rename -uid "43ED5A4A-45FC-C176-F6EE-9FA6A413D309";
+	rename -uid "A09DF15C-42E6-E36F-5905-18A97D0ED73E";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0 0 1000.1 ;
 createNode camera -s -n "frontShape" -p "front";
-	rename -uid "F2E00254-40E8-2BE7-BFAC-3FA0848B72AE";
+	rename -uid "EAAC47AC-4D5A-6722-8769-C7AD1B8F9936";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
@@ -119,94 +62,429 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -s -n "side";
-	rename -uid "7B36EB94-46C1-E759-9600-E29F9B4AD529";
+	rename -uid "3DA22E2D-4563-C182-42C9-D292A4E0F7CE";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1000.1 0 0 ;
+	setAttr ".t" -type "double3" 1000.1001370639331 2.9948957279448138 0.067016821122607817 ;
 	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
 createNode camera -s -n "sideShape" -p "side";
-	rename -uid "D10BA793-4785-325C-7C84-B9A8B09B3237";
+	rename -uid "CEB1AA96-4BFF-4DA6-5028-9BA549257430";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
-	setAttr ".coi" 1000.1;
-	setAttr ".ow" 30;
+	setAttr ".coi" 1000.1001370639331;
+	setAttr ".ow" 12.332034913466071;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
+	setAttr ".tp" -type "double3" 0 2.9948957279448138 0.067016821122385772 ;
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "stagingEnvironment";
-	rename -uid "5FA00D09-4ACD-CC77-5BE9-EE974503731A";
-createNode transform -n "pPlane1" -p "stagingEnvironment";
-	rename -uid "44456113-4D71-EBBF-B9EF-88AD53C7C1C1";
-	setAttr ".s" -type "double3" 121.13085829001778 121.13085829001778 148.18682196635893 ;
-createNode mesh -n "pPlaneShape1" -p "pPlane1";
-	rename -uid "CC31989C-4330-20A6-E598-A3A6C483161D";
+createNode transform -n "stove_model:stove_grp";
+	rename -uid "560460BF-4605-9038-53A9-4E89AC213257";
+createNode transform -n "stove_model:stoveBody_geo" -p "stove_model:stove_grp";
+	rename -uid "2B8BB469-4326-9E25-DA98-EDAD6726674B";
+createNode mesh -n "stove_model:stoveBody_geoShape" -p "stove_model:stoveBody_geo";
+	rename -uid "5B07B361-4705-60BD-1AAC-D09985C16560";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5 0.46231776475906372 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 26 ".uvst[0].uvsp[0:25]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25 0.16268225 0.25 0.375 0.46231776 0.625 0.46231776 0.83731776
+		 0.25 0.625 0.78768224 0.83731776 0 0.16268225 0 0.375 0.78768224 0.375 0.46231776
+		 0.625 0.46231776 0.625 0.5 0.375 0.5;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 16 ".pt[0:15]" -type "float3"  -0.94277191 0.5 0.74436188 
+		0.94277191 0.5 0.74436188 -0.94277191 2.3881912 0.74436188 0.94277191 2.3881912 0.74436188 
+		-0.94277191 2.3881912 -0.74436188 0.94277191 2.3881912 -0.74436188 -0.94277191 0.5 
+		-0.74436188 0.94277191 0.5 -0.74436188 -0.94277191 2.3881912 -0.51996613 0.94277191 
+		2.3881912 -0.51996613 0.94277191 0.5 -0.51996613 -0.94277191 0.5 -0.51996613 -0.94277191 
+		2.8349838 -0.69826126 0.94277191 2.8349838 -0.69826126 0.94277191 2.8349838 -0.74436188 
+		-0.94277191 2.8349838 -0.74436188;
+	setAttr -s 16 ".vt[0:15]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 -0.5 0.5 -0.349271 0.5 0.5 -0.349271
+		 0.5 -0.5 -0.349271 -0.5 -0.5 -0.349271 -0.5 0.73662531 -0.349271 0.5 0.73662531 -0.349271
+		 0.5 0.73662531 -0.5 -0.5 0.73662531 -0.5;
+	setAttr -s 28 ".ed[0:27]"  0 1 0 2 3 0 4 5 1 6 7 0 0 2 0 1 3 0 2 8 0
+		 3 9 0 4 6 0 5 7 0 6 11 0 7 10 0 8 4 1 9 5 1 10 1 0 11 0 0 8 9 0 9 10 1 10 11 1 11 8 1
+		 8 12 0 9 13 0 12 13 0 5 14 0 13 14 0 4 15 0 15 14 0 12 15 0;
+	setAttr -s 14 -ch 56 ".fc[0:13]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 22 24 -27 -28
+		mu 0 4 22 23 24 25
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 18 -11
+		mu 0 4 6 7 18 21
+		f 4 17 -12 -10 -14
+		mu 0 4 17 19 10 11
+		f 4 10 19 12 8
+		mu 0 4 12 20 14 13
+		f 4 1 7 -17 -7
+		mu 0 4 2 3 16 15
+		f 4 -15 -18 -8 -6
+		mu 0 4 1 19 17 3
+		f 4 -19 14 -1 -16
+		mu 0 4 21 18 9 8
+		f 4 -20 15 4 6
+		mu 0 4 14 20 0 2
+		f 4 16 21 -23 -21
+		mu 0 4 15 16 23 22
+		f 4 13 23 -25 -22
+		mu 0 4 16 5 24 23
+		f 4 -3 25 26 -24
+		mu 0 4 5 4 25 24
+		f 4 -13 20 27 -26
+		mu 0 4 4 15 22 25;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "areaLight2" -p "stagingEnvironment";
-	rename -uid "035EBA3F-4750-7488-F15A-7CB91A77C24C";
-	setAttr ".t" -type "double3" 0 16.471528881348817 0 ;
-	setAttr ".r" -type "double3" -90.000000000000028 0 0 ;
-	setAttr ".s" -type "double3" 56.471576168596535 56.471576168596535 56.471576168596535 ;
-createNode areaLight -n "areaLightShape2" -p "areaLight2";
-	rename -uid "B2D73E73-4AD3-6ED3-7717-81BABFA582C8";
+createNode transform -n "stove_model:stoveBurnerLarge1_geo" -p "stove_model:stove_grp";
+	rename -uid "C2C20B08-4439-DECC-FC33-46950BF3CBD6";
+	setAttr ".rp" -type "double3" -0.70354297706664792 2.8881913323507717 -0.24110386318176674 ;
+	setAttr ".sp" -type "double3" -0.70354297706664792 2.8881913323507717 -0.24110386318176674 ;
+createNode mesh -n "stove_model:stoveBurnerLarge1_geoShape" -p "stove_model:stoveBurnerLarge1_geo";
+	rename -uid "D2A7FFD2-49E4-E97F-6EC7-D9ACDC79D03F";
 	setAttr -k off ".v";
-	setAttr ".in" 2000;
-createNode transform -n "areaLight1" -p "stagingEnvironment";
-	rename -uid "D0EE990F-431F-8F18-89FF-00ACEB7D0BE7";
-	setAttr ".t" -type "double3" 0 13.924234182712743 0 ;
-	setAttr ".r" -type "double3" -90.000000000000028 0 0 ;
-	setAttr ".s" -type "double3" 56.471576168596535 56.471576168596535 56.471576168596535 ;
-createNode areaLight -n "areaLightShape1" -p "areaLight1";
-	rename -uid "D9D04662-47C2-21D9-D80A-F1BF1D785C2D";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 28 ".uvst[0].uvsp[0:27]" -type "float2" 0.57812506 0.020933539
+		 0.42187503 0.020933509 0.34375 0.15624997 0.421875 0.29156646 0.578125 0.29156649
+		 0.65625 0.15625 0.375 0.3125 0.41666666 0.3125 0.45833331 0.3125 0.49999997 0.3125
+		 0.54166663 0.3125 0.58333331 0.3125 0.625 0.3125 0.375 0.68843985 0.41666666 0.68843985
+		 0.45833331 0.68843985 0.49999997 0.68843985 0.54166663 0.68843985 0.58333331 0.68843985
+		 0.625 0.68843985 0.57812506 0.70843351 0.42187503 0.70843351 0.34375 0.84375 0.421875
+		 0.97906649 0.578125 0.97906649 0.65625 0.84375 0.5 0.15000001 0.5 0.83749998;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 14 ".pt[0:13]" -type "float3"  -15.707838 33.329971 25.747084 
+		14.300739 33.329971 25.747089 29.305037 33.329971 -0.24109936 14.300749 33.329971 
+		-26.229294 -15.70783 33.329971 -26.229294 -30.71212 33.329971 -0.24110365 -15.707838 
+		-27.553589 25.747084 14.300739 -27.553589 25.747089 29.305037 -27.553589 -0.24109936 
+		14.300749 -27.553589 -26.229294 -15.70783 -27.553589 -26.229294 -30.71212 -27.553589 
+		-0.24110365 -0.70354271 33.329971 -0.24110365 -0.70354271 -27.553589 -0.24110365;
+	setAttr -s 14 ".vt[0:13]"  15.2400074 -30.47999954 -26.39645195 -15.23999405 -30.47999954 -26.39645767
+		 -30.47999954 -30.47999954 -4.5418737e-06 -15.24000359 -30.47999954 26.39645386 15.23999882 -30.47999954 26.39645576
+		 30.47999954 -30.47999954 0 15.2400074 30.47999954 -26.39645195 -15.23999405 30.47999954 -26.39645767
+		 -30.47999954 30.47999954 -4.5418737e-06 -15.24000359 30.47999954 26.39645386 15.23999882 30.47999954 26.39645576
+		 30.47999954 30.47999954 0 0 -30.47999954 0 0 30.47999954 0;
+	setAttr -s 30 ".ed[0:29]"  0 1 0 1 2 0 2 3 0 3 4 0 4 5 0 5 0 0 6 7 0
+		 7 8 0 8 9 0 9 10 0 10 11 0 11 6 0 0 6 0 1 7 0 2 8 0 3 9 0 4 10 0 5 11 0 12 0 1 12 1 1
+		 12 2 1 12 3 1 12 4 1 12 5 1 6 13 1 7 13 1 8 13 1 9 13 1 10 13 1 11 13 1;
+	setAttr -s 18 -ch 60 ".fc[0:17]" -type "polyFaces" 
+		f 4 0 13 -7 -13
+		mu 0 4 6 7 14 13
+		f 4 1 14 -8 -14
+		mu 0 4 7 8 15 14
+		f 4 2 15 -9 -15
+		mu 0 4 8 9 16 15
+		f 4 3 16 -10 -16
+		mu 0 4 9 10 17 16
+		f 4 4 17 -11 -17
+		mu 0 4 10 11 18 17
+		f 4 5 12 -12 -18
+		mu 0 4 11 12 19 18
+		f 3 -1 -19 19
+		mu 0 3 1 0 26
+		f 3 -2 -20 20
+		mu 0 3 2 1 26
+		f 3 -3 -21 21
+		mu 0 3 3 2 26
+		f 3 -4 -22 22
+		mu 0 3 4 3 26
+		f 3 -5 -23 23
+		mu 0 3 5 4 26
+		f 3 -6 -24 18
+		mu 0 3 0 5 26
+		f 3 6 25 -25
+		mu 0 3 24 23 27
+		f 3 7 26 -26
+		mu 0 3 23 22 27
+		f 3 8 27 -27
+		mu 0 3 22 21 27
+		f 3 9 28 -28
+		mu 0 3 21 20 27
+		f 3 10 29 -29
+		mu 0 3 20 25 27
+		f 3 11 24 -30
+		mu 0 3 25 24 27;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".ai_translator" -type "string" "polymesh";
+createNode transform -n "stove_model:stoveBurnerLarge2_geo1" -p "stove_model:stove_grp";
+	rename -uid "74C347E6-40F7-D175-6714-BC88C7A40B2D";
+	setAttr ".rp" -type "double3" 0.68908002034754534 2.8881913323507717 0.61330411172299126 ;
+	setAttr ".sp" -type "double3" 0.68908002034754534 2.8881913323507717 0.61330411172299126 ;
+createNode mesh -n "stove_model:stoveBurnerLarge2_geoShape1" -p "stove_model:stoveBurnerLarge2_geo1";
+	rename -uid "E132805D-46FA-B376-A216-728F234EE72E";
 	setAttr -k off ".v";
-	setAttr ".in" 2000;
-createNode transform -n "directionalLight1" -p "stagingEnvironment";
-	rename -uid "BE654EB6-4A8D-63F5-F9E0-01BD27E5EBD9";
-	setAttr ".t" -type "double3" 0 5.6124477635603665 -24.36808281731669 ;
-	setAttr ".r" -type "double3" 0 -179.99999999999994 0 ;
-createNode directionalLight -n "directionalLightShape1" -p "directionalLight1";
-	rename -uid "8C6A13A7-4578-8550-00FF-85B780AF99D1";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 28 ".uvst[0].uvsp[0:27]" -type "float2" 0.57812506 0.020933539
+		 0.42187503 0.020933509 0.34375 0.15624997 0.421875 0.29156646 0.578125 0.29156649
+		 0.65625 0.15625 0.375 0.3125 0.41666666 0.3125 0.45833331 0.3125 0.49999997 0.3125
+		 0.54166663 0.3125 0.58333331 0.3125 0.625 0.3125 0.375 0.68843985 0.41666666 0.68843985
+		 0.45833331 0.68843985 0.49999997 0.68843985 0.54166663 0.68843985 0.58333331 0.68843985
+		 0.625 0.68843985 0.57812506 0.70843351 0.42187503 0.70843351 0.34375 0.84375 0.421875
+		 0.97906649 0.578125 0.97906649 0.65625 0.84375 0.5 0.15000001 0.5 0.83749998;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 14 ".pt[0:13]" -type "float3"  -14.315217 33.329971 26.601492 
+		15.693362 33.329971 26.601498 30.697657 33.329971 0.61330795 15.693372 33.329971 
+		-25.374887 -14.315207 33.329971 -25.374887 -29.319498 33.329971 0.61330414 -14.315217 
+		-27.553589 26.601492 15.693362 -27.553589 26.601498 30.697657 -27.553589 0.61330795 
+		15.693372 -27.553589 -25.374887 -14.315207 -27.553589 -25.374887 -29.319498 -27.553589 
+		0.61330414 0.68907928 33.329971 0.61330414 0.68907928 -27.553589 0.61330414;
+	setAttr -s 14 ".vt[0:13]"  15.2400074 -30.47999954 -26.39645195 -15.23999405 -30.47999954 -26.39645767
+		 -30.47999954 -30.47999954 -4.5418737e-06 -15.24000359 -30.47999954 26.39645386 15.23999882 -30.47999954 26.39645576
+		 30.47999954 -30.47999954 0 15.2400074 30.47999954 -26.39645195 -15.23999405 30.47999954 -26.39645767
+		 -30.47999954 30.47999954 -4.5418737e-06 -15.24000359 30.47999954 26.39645386 15.23999882 30.47999954 26.39645576
+		 30.47999954 30.47999954 0 0 -30.47999954 0 0 30.47999954 0;
+	setAttr -s 30 ".ed[0:29]"  0 1 0 1 2 0 2 3 0 3 4 0 4 5 0 5 0 0 6 7 0
+		 7 8 0 8 9 0 9 10 0 10 11 0 11 6 0 0 6 0 1 7 0 2 8 0 3 9 0 4 10 0 5 11 0 12 0 1 12 1 1
+		 12 2 1 12 3 1 12 4 1 12 5 1 6 13 1 7 13 1 8 13 1 9 13 1 10 13 1 11 13 1;
+	setAttr -s 18 -ch 60 ".fc[0:17]" -type "polyFaces" 
+		f 4 0 13 -7 -13
+		mu 0 4 6 7 14 13
+		f 4 1 14 -8 -14
+		mu 0 4 7 8 15 14
+		f 4 2 15 -9 -15
+		mu 0 4 8 9 16 15
+		f 4 3 16 -10 -16
+		mu 0 4 9 10 17 16
+		f 4 4 17 -11 -17
+		mu 0 4 10 11 18 17
+		f 4 5 12 -12 -18
+		mu 0 4 11 12 19 18
+		f 3 -1 -19 19
+		mu 0 3 1 0 26
+		f 3 -2 -20 20
+		mu 0 3 2 1 26
+		f 3 -3 -21 21
+		mu 0 3 3 2 26
+		f 3 -4 -22 22
+		mu 0 3 4 3 26
+		f 3 -5 -23 23
+		mu 0 3 5 4 26
+		f 3 -6 -24 18
+		mu 0 3 0 5 26
+		f 3 6 25 -25
+		mu 0 3 24 23 27
+		f 3 7 26 -26
+		mu 0 3 23 22 27
+		f 3 8 27 -27
+		mu 0 3 22 21 27
+		f 3 9 28 -28
+		mu 0 3 21 20 27
+		f 3 10 29 -29
+		mu 0 3 20 25 27
+		f 3 11 24 -30
+		mu 0 3 25 24 27;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".ai_translator" -type "string" "polymesh";
+createNode transform -n "stove_model:stoveBurnerSmall1_geo" -p "stove_model:stove_grp";
+	rename -uid "DCC4E8CC-4122-3A10-727F-B5A3EAA3B9A8";
+	setAttr ".rp" -type "double3" 0.69320220305703428 2.8881913323507717 -0.24110386318176674 ;
+	setAttr ".sp" -type "double3" 0.69320220305703428 2.8881913323507717 -0.24110386318176674 ;
+createNode mesh -n "stove_model:stoveBurnerSmall1_geoShape" -p "stove_model:stoveBurnerSmall1_geo";
+	rename -uid "F02E5704-4FF8-47CC-7009-21AFDF5FB0EF";
 	setAttr -k off ".v";
-	setAttr ".in" 10;
-createNode transform -n "preperationArea";
-	rename -uid "1F85621B-4147-7233-4373-3F9EB1D73FF6";
-	setAttr ".t" -type "double3" 2.7642624153580124 0 -12.002682206276784 ;
-	setAttr ".r" -type "double3" 0 -72 0 ;
-	setAttr ".s" -type "double3" 1.5983277089401777 1.5983277089401775 1.5983277089401777 ;
-	setAttr ".rp" -type "double3" 10.304072386042799 1.556401558791265 -3.786612876649643 ;
-	setAttr ".rpt" -type "double3" -3.5186560564611833 0 12.416240333768854 ;
-	setAttr ".sp" -type "double3" 6.4467833025776944 0.97376873971814382 -2.3691091979882382 ;
-	setAttr ".spt" -type "double3" 3.8572890834651052 0.58263281907312103 -1.4175036786614048 ;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 28 ".uvst[0].uvsp[0:27]" -type "float2" 0.57812506 0.020933539
+		 0.42187503 0.020933509 0.34375 0.15624997 0.421875 0.29156646 0.578125 0.29156649
+		 0.65625 0.15625 0.375 0.3125 0.41666666 0.3125 0.45833331 0.3125 0.49999997 0.3125
+		 0.54166663 0.3125 0.58333331 0.3125 0.625 0.3125 0.375 0.68843985 0.41666666 0.68843985
+		 0.45833331 0.68843985 0.49999997 0.68843985 0.54166663 0.68843985 0.58333331 0.68843985
+		 0.625 0.68843985 0.57812506 0.70843351 0.42187503 0.70843351 0.34375 0.84375 0.421875
+		 0.97906649 0.578125 0.97906649 0.65625 0.84375 0.5 0.15000001 0.5 0.83749998;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 14 ".pt[0:13]" -type "float3"  -14.374963 33.329971 25.857708 
+		15.761354 33.329971 25.857716 30.829519 33.329971 -0.24109936 15.761364 33.329971 
+		-26.33992 -14.374955 33.329971 -26.339922 -29.443115 33.329971 -0.24110365 -14.374963 
+		-27.553589 25.857708 15.761354 -27.553589 25.857716 30.829519 -27.553589 -0.24109936 
+		15.761364 -27.553589 -26.33992 -14.374955 -27.553589 -26.339922 -29.443115 -27.553589 
+		-0.24110365 0.69320297 33.329971 -0.24110365 0.69320297 -27.553589 -0.24110365;
+	setAttr -s 14 ".vt[0:13]"  15.2400074 -30.47999954 -26.39645195 -15.23999405 -30.47999954 -26.39645767
+		 -30.47999954 -30.47999954 -4.5418737e-06 -15.24000359 -30.47999954 26.39645386 15.23999882 -30.47999954 26.39645576
+		 30.47999954 -30.47999954 0 15.2400074 30.47999954 -26.39645195 -15.23999405 30.47999954 -26.39645767
+		 -30.47999954 30.47999954 -4.5418737e-06 -15.24000359 30.47999954 26.39645386 15.23999882 30.47999954 26.39645576
+		 30.47999954 30.47999954 0 0 -30.47999954 0 0 30.47999954 0;
+	setAttr -s 30 ".ed[0:29]"  0 1 0 1 2 0 2 3 0 3 4 0 4 5 0 5 0 0 6 7 0
+		 7 8 0 8 9 0 9 10 0 10 11 0 11 6 0 0 6 0 1 7 0 2 8 0 3 9 0 4 10 0 5 11 0 12 0 1 12 1 1
+		 12 2 1 12 3 1 12 4 1 12 5 1 6 13 1 7 13 1 8 13 1 9 13 1 10 13 1 11 13 1;
+	setAttr -s 18 -ch 60 ".fc[0:17]" -type "polyFaces" 
+		f 4 0 13 -7 -13
+		mu 0 4 6 7 14 13
+		f 4 1 14 -8 -14
+		mu 0 4 7 8 15 14
+		f 4 2 15 -9 -15
+		mu 0 4 8 9 16 15
+		f 4 3 16 -10 -16
+		mu 0 4 9 10 17 16
+		f 4 4 17 -11 -17
+		mu 0 4 10 11 18 17
+		f 4 5 12 -12 -18
+		mu 0 4 11 12 19 18
+		f 3 -1 -19 19
+		mu 0 3 1 0 26
+		f 3 -2 -20 20
+		mu 0 3 2 1 26
+		f 3 -3 -21 21
+		mu 0 3 3 2 26
+		f 3 -4 -22 22
+		mu 0 3 4 3 26
+		f 3 -5 -23 23
+		mu 0 3 5 4 26
+		f 3 -6 -24 18
+		mu 0 3 0 5 26
+		f 3 6 25 -25
+		mu 0 3 24 23 27
+		f 3 7 26 -26
+		mu 0 3 23 22 27
+		f 3 8 27 -27
+		mu 0 3 22 21 27
+		f 3 9 28 -28
+		mu 0 3 21 20 27
+		f 3 10 29 -29
+		mu 0 3 20 25 27
+		f 3 11 24 -30
+		mu 0 3 25 24 27;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".ai_translator" -type "string" "polymesh";
+createNode transform -n "stove_model:stoveBurnerSmall2_geo" -p "stove_model:stove_grp";
+	rename -uid "EFC90553-4EE9-42CA-4938-EF979FA9D0CE";
+	setAttr ".rp" -type "double3" -0.70354297706664792 2.8881913323507717 0.6222726724728751 ;
+	setAttr ".sp" -type "double3" -0.70354297706664792 2.8881913323507717 0.6222726724728751 ;
+createNode mesh -n "stove_model:stoveBurnerSmall2_geoShape" -p "stove_model:stoveBurnerSmall2_geo";
+	rename -uid "B516216E-4E71-6BE4-2CEB-5A8BB390F8C5";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 28 ".uvst[0].uvsp[0:27]" -type "float2" 0.57812506 0.020933539
+		 0.42187503 0.020933509 0.34375 0.15624997 0.421875 0.29156646 0.578125 0.29156649
+		 0.65625 0.15625 0.375 0.3125 0.41666666 0.3125 0.45833331 0.3125 0.49999997 0.3125
+		 0.54166663 0.3125 0.58333331 0.3125 0.625 0.3125 0.375 0.68843985 0.41666666 0.68843985
+		 0.45833331 0.68843985 0.49999997 0.68843985 0.54166663 0.68843985 0.58333331 0.68843985
+		 0.625 0.68843985 0.57812506 0.70843351 0.42187503 0.70843351 0.34375 0.84375 0.421875
+		 0.97906649 0.578125 0.97906649 0.65625 0.84375 0.5 0.15000001 0.5 0.83749998;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 14 ".pt[0:13]" -type "float3"  -15.771852 33.329971 26.721333 
+		14.364752 33.329971 26.72134 29.433058 33.329971 0.62227631 14.364761 33.329971 -25.476789 
+		-15.771843 33.329971 -25.476791 -30.840145 33.329971 0.62227249 -15.771852 -27.553589 
+		26.721333 14.364752 -27.553589 26.72134 29.433058 -27.553589 0.62227631 14.364761 
+		-27.553589 -25.476789 -15.771843 -27.553589 -25.476791 -30.840145 -27.553589 0.62227249 
+		-0.70354271 33.329971 0.62227249 -0.70354271 -27.553589 0.62227249;
+	setAttr -s 14 ".vt[0:13]"  15.2400074 -30.47999954 -26.39645195 -15.23999405 -30.47999954 -26.39645767
+		 -30.47999954 -30.47999954 -4.5418737e-06 -15.24000359 -30.47999954 26.39645386 15.23999882 -30.47999954 26.39645576
+		 30.47999954 -30.47999954 0 15.2400074 30.47999954 -26.39645195 -15.23999405 30.47999954 -26.39645767
+		 -30.47999954 30.47999954 -4.5418737e-06 -15.24000359 30.47999954 26.39645386 15.23999882 30.47999954 26.39645576
+		 30.47999954 30.47999954 0 0 -30.47999954 0 0 30.47999954 0;
+	setAttr -s 30 ".ed[0:29]"  0 1 0 1 2 0 2 3 0 3 4 0 4 5 0 5 0 0 6 7 0
+		 7 8 0 8 9 0 9 10 0 10 11 0 11 6 0 0 6 0 1 7 0 2 8 0 3 9 0 4 10 0 5 11 0 12 0 1 12 1 1
+		 12 2 1 12 3 1 12 4 1 12 5 1 6 13 1 7 13 1 8 13 1 9 13 1 10 13 1 11 13 1;
+	setAttr -s 18 -ch 60 ".fc[0:17]" -type "polyFaces" 
+		f 4 0 13 -7 -13
+		mu 0 4 6 7 14 13
+		f 4 1 14 -8 -14
+		mu 0 4 7 8 15 14
+		f 4 2 15 -9 -15
+		mu 0 4 8 9 16 15
+		f 4 3 16 -10 -16
+		mu 0 4 9 10 17 16
+		f 4 4 17 -11 -17
+		mu 0 4 10 11 18 17
+		f 4 5 12 -12 -18
+		mu 0 4 11 12 19 18
+		f 3 -1 -19 19
+		mu 0 3 1 0 26
+		f 3 -2 -20 20
+		mu 0 3 2 1 26
+		f 3 -3 -21 21
+		mu 0 3 3 2 26
+		f 3 -4 -22 22
+		mu 0 3 4 3 26
+		f 3 -5 -23 23
+		mu 0 3 5 4 26
+		f 3 -6 -24 18
+		mu 0 3 0 5 26
+		f 3 6 25 -25
+		mu 0 3 24 23 27
+		f 3 7 26 -26
+		mu 0 3 23 22 27
+		f 3 8 27 -27
+		mu 0 3 22 21 27
+		f 3 9 28 -28
+		mu 0 3 21 20 27
+		f 3 10 29 -29
+		mu 0 3 20 25 27
+		f 3 11 24 -30
+		mu 0 3 25 24 27;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".ai_translator" -type "string" "polymesh";
+createNode materialInfo -n "materialInfo2";
+	rename -uid "C464E2F6-4305-3915-41F0-D584ADCA10FE";
+createNode shadingEngine -n "blinn1SG";
+	rename -uid "CF93491A-49EC-1BEB-DA5F-DBAA088BF841";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode blinn -n "blinn1";
+	rename -uid "06E34945-4657-654D-7498-BBBC386AD48E";
+	setAttr ".c" -type "float3" 0.92150003 0.68229997 0.53719997 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "68226FDA-417E-6554-C720-B5A7887FD12D";
-	setAttr -s 11 ".lnk";
-	setAttr -s 11 ".slnk";
+	rename -uid "9F16D89F-495D-3897-D07C-1EA694DB4CA0";
+	setAttr -s 4 ".lnk";
+	setAttr -s 4 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "DC377E8B-4B88-1095-D4DB-70A439A93A3A";
+	rename -uid "87C02220-4BB3-B0B4-79CA-D0B1B4E3F930";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "4BA4500C-4C3C-2F00-20E3-8EA726E38589";
+	rename -uid "75C9718A-40FF-372B-5E2C-78BCBFF25EC4";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "D9CB7F56-4EC7-7408-9F65-E9974D092420";
+	rename -uid "6ADA536F-4A8C-5718-D198-7F8A53A6503D";
 createNode displayLayer -n "defaultLayer";
-	rename -uid "ED850C5C-4589-93E4-08FF-208B8B64977E";
+	rename -uid "4BDF8ABF-4DA2-56F9-0FF0-29847D64A5C2";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "67AEFAD3-4CDD-31E2-1EE7-D1936CF9257F";
+	rename -uid "F85C609A-4261-83F2-A0CE-3BAC0192D9D9";
 createNode renderLayer -n "defaultRenderLayer";
-	rename -uid "AAFE42FD-48C8-3EA0-E7D1-15A04F373B0A";
+	rename -uid "40F63A99-4370-2E76-91C0-9282E70FBB7D";
 	setAttr ".g" yes;
 createNode script -n "uiConfigurationScriptNode";
-	rename -uid "3862FEA4-4584-0B90-48A5-8CB1B317C162";
+	rename -uid "02F9EB85-4491-992A-E142-0587C43E210A";
 	setAttr ".b" -type "string" (
-		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n"
+		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n"
 		+ "            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n"
 		+ "            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n"
 		+ "            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n"
@@ -250,555 +528,23 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	rename -uid "34109481-4C60-64E2-99D0-A78451B91C84";
+	rename -uid "C08F0BFD-414F-B0E5-3258-A581F6CB7506";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
-createNode reference -n "table_referenceRN";
-	rename -uid "E43C32E4-45EF-E1EE-F2A0-6D8827ED8C23";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"table_referenceRN"
-		"table_referenceRN" 0
-		"table_referenceRN" 23
-		0 "|table_reference:table_GRP" "|preperationArea" "-s -r "
-		2 "|preperationArea|table_reference:table_GRP" "translate" " -type \"double3\" 0 0 8.86837265589665691"
-		
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legR_GEO1" 
-		"translate" " -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legR_GEO1" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legR_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legR_GEO2" 
-		"translate" " -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legR_GEO2" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legR_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legL_GEO2" 
-		"translate" " -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legL_GEO2" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legL_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legL_GEO1" 
-		"translate" " -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legL_GEO1" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:legL_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO3" "translate" 
-		" -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO3" "rotate" 
-		" -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO3" "scale" 
-		" -type \"double3\" 1 1 1"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO2" "translate" 
-		" -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO2" "rotate" 
-		" -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO2" "scale" 
-		" -type \"double3\" 1 1 1"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO1" "translate" 
-		" -type \"double3\" 6.37778280371270689 0 -11.24768939527053746"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO1" "rotate" 
-		" -type \"double3\" 0 0 0"
-		2 "|preperationArea|table_reference:table_GRP|table_reference:top_GEO1" "scale" 
-		" -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "knife_referenceRN";
-	rename -uid "67C20B10-40A1-A934-D07F-1F8352FB585F";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"knife_referenceRN"
-		"knife_referenceRN" 0
-		"knife_referenceRN" 3
-		2 "|knife_reference:pCube1" "translate" " -type \"double3\" 9.77337149236423031 3.14158468654178069 -4.12146968121502777"
-		
-		2 "|knife_reference:pCube1" "rotate" " -type \"double3\" -117.87867148701452891 -1.90803940453283927 90.51778349298625415"
-		
-		2 "|knife_reference:pCube1" "scale" " -type \"double3\" 0.17672360520536723 0.17672360520536717 1.23752048335038722";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "ingredientStation_referenceRN";
-	rename -uid "276FD9FC-401F-10C6-013A-9AACE3A39198";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"ingredientStation_referenceRN"
-		"ingredientStation_referenceRN" 0
-		"ingredientStation_referenceRN" 90
-		2 "|ingredientStation_reference:ingredientStation_GRP" "translate" " -type \"double3\" 6.34080580047565601 0 7.40278282935681009"
-		
-		2 "|ingredientStation_reference:ingredientStation_GRP" "rotate" " -type \"double3\" 0 216 0"
-		
-		2 "|ingredientStation_reference:ingredientStation_GRP" "scale" " -type \"double3\" 1.59832770894017773 1.59832770894017751 1.59832770894017773"
-		
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP10|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP9|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP8|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP7|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP6|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP5|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP4|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP3|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP2|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:ingredient_GRP1|ingredientStation_reference:ingredient_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO10" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO9" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO8" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO7" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO6" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO5" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO4" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:ingredients_GRP|ingredientStation_reference:bowl_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:legR_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:legR_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:legL_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:legL_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:top_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:top_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|ingredientStation_reference:ingredientStation_GRP|ingredientStation_reference:table_GRP|ingredientStation_reference:top_GEO1" 
-		"scale" " -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "floor_referenceRN";
-	rename -uid "CC97B20A-42DA-B1BF-943C-47B9BCCE849B";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"floor_referenceRN"
-		"floor_referenceRN" 0
-		"floor_referenceRN" 30
-		2 "|floor_reference:floor_GRP" "translate" " -type \"double3\" 0 -2.80619256367954195 0"
-		
-		2 "|floor_reference:floor_GRP" "scale" " -type \"double3\" 1.79162264860178166 1.59832770894017751 1.59832770894017751"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO1" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO2" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO3" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO4" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO5" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO6" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO7" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO8" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO9" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO10" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO11" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO12" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO13" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO14" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO15" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO16" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO17" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO18" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO19" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO20" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO21" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO22" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO23" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO24" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO25" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO26" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO27" "scale" " -type \"double3\" 1 1 1.04431172370777503"
-		
-		2 "|floor_reference:floor_GRP|floor_reference:floor_GEO28" "scale" " -type \"double3\" 1 1 1.04431172370777503";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "cuttingBoard_referenceRN";
-	rename -uid "B2201749-47FE-3756-E7D0-098A5253B192";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"cuttingBoard_referenceRN"
-		"cuttingBoard_referenceRN" 0
-		"cuttingBoard_referenceRN" 5
-		0 "|cuttingBoard_reference:cuttingBoard_GRP" "|preperationArea" "-s -r "
-		2 "|preperationArea|cuttingBoard_reference:cuttingBoard_GRP" "translate" 
-		" -type \"double3\" 0 1.99817821943525598 8.1938014605138747"
-		2 "|preperationArea|cuttingBoard_reference:cuttingBoard_GRP|cuttingBoard_reference:cuttingBoard_GEO" 
-		"translate" " -type \"double3\" 6.37778280371270689 -0.11152524196809033 -10.89042303733665484"
-		
-		2 "|preperationArea|cuttingBoard_reference:cuttingBoard_GRP|cuttingBoard_reference:cuttingBoard_GEO" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|cuttingBoard_reference:cuttingBoard_GRP|cuttingBoard_reference:cuttingBoard_GEO" 
-		"scale" " -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "customerService_referenceRN";
-	rename -uid "FBEEA982-4B40-35CC-95D3-ED9FBBB70B23";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"customerService_referenceRN"
-		"customerService_referenceRN" 0
-		"customerService_referenceRN" 13
-		2 "|customerService_reference:customerService_GRP" "translate" " -type \"double3\" 0 0 -10.78432645632851106"
-		
-		2 "|customerService_reference:customerService_GRP" "scale" " -type \"double3\" 2.16700938188694403 1.59832770894017751 1.59832770894017751"
-		
-		2 "|customerService_reference:customerService_GRP|customerService_reference:legR1_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:legR2_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:legL2_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:legL1_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:tableTop3_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:tableTop2_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:tableTop2_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:signBeam2_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:signBeam1_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:tableCloth_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|customerService_reference:customerService_GRP|customerService_reference:sign_GEO" 
-		"scale" " -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "carrot_referenceRN";
-	rename -uid "3B6683B1-4517-378E-4A50-26AAAF42163A";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"carrot_referenceRN"
-		"carrot_referenceRN" 0
-		"carrot_referenceRN" 19
-		0 "|carrot_reference:carrot_GRP" "|preperationArea" "-s -r "
-		2 "|preperationArea|carrot_reference:carrot_GRP" "translate" " -type \"double3\" 0.49582526984500619 1.92156169250577857 8.55172049437545745"
-		
-		2 "|preperationArea|carrot_reference:carrot_GRP" "rotate" " -type \"double3\" 0 23.9381999810186521 0"
-		
-		2 "|preperationArea|carrot_reference:carrot_GRP" "scale" " -type \"double3\" 0.25294179464258537 0.25294179464258537 0.25294179464258537"
-		
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO1" 
-		"translate" " -type \"double3\" 41.08830989048659887 0 -30.41178723299658415"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO1" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO1" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO3" 
-		"translate" " -type \"double3\" 41.08830989048659887 0 -30.41178723299658415"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO3" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO3" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO2" 
-		"translate" " -type \"double3\" 41.08830989048659887 0 -30.41178723299658415"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO2" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO2" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO" 
-		"translate" " -type \"double3\" 41.08830989048659887 0 -30.41178723299658415"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:sprout_GEO" 
-		"scale" " -type \"double3\" 1 1 1"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:carrot_GEO" 
-		"translate" " -type \"double3\" 41.08830989048659887 0 -30.41178723299658415"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:carrot_GEO" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|preperationArea|carrot_reference:carrot_GRP|carrot_reference:carrot_GEO" 
-		"scale" " -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "table_referenceRN1";
-	rename -uid "821BDA5D-4C83-6D18-21ED-2DA0032754E5";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"table_referenceRN1"
-		"table_referenceRN1" 0
-		"table_referenceRN1" 10
-		2 "|table_reference1:table_GRP" "translate" " -type \"double3\" -6.37450149220985995 0 7.40232368507206395"
-		
-		2 "|table_reference1:table_GRP" "rotate" " -type \"double3\" 0 144 0"
-		2 "|table_reference1:table_GRP" "scale" " -type \"double3\" 1.59832770894017795 1.59832770894017751 1.59832770894017795"
-		
-		2 "|table_reference1:table_GRP|table_reference1:legR_GEO1" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference1:table_GRP|table_reference1:legR_GEO2" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference1:table_GRP|table_reference1:legL_GEO2" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference1:table_GRP|table_reference1:legL_GEO1" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference1:table_GRP|table_reference1:top_GEO3" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference1:table_GRP|table_reference1:top_GEO2" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference1:table_GRP|table_reference1:top_GEO1" "scale" " -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "table_referenceRN2";
-	rename -uid "DD58CC2B-4706-FF43-2B95-178EF5C76220";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"table_referenceRN2"
-		"table_referenceRN2" 0
-		"table_referenceRN2" 10
-		2 "|table_reference2:table_GRP" "translate" " -type \"double3\" -9.59150693679056943 0 -3.48101776115225192"
-		
-		2 "|table_reference2:table_GRP" "rotate" " -type \"double3\" 0 72 0"
-		2 "|table_reference2:table_GRP" "scale" " -type \"double3\" 1.59832770894017773 1.59832770894017751 1.59832770894017773"
-		
-		2 "|table_reference2:table_GRP|table_reference2:legR_GEO1" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference2:table_GRP|table_reference2:legR_GEO2" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference2:table_GRP|table_reference2:legL_GEO2" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference2:table_GRP|table_reference2:legL_GEO1" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference2:table_GRP|table_reference2:top_GEO3" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference2:table_GRP|table_reference2:top_GEO2" "scale" " -type \"double3\" 1 1 1"
-		
-		2 "|table_reference2:table_GRP|table_reference2:top_GEO1" "scale" " -type \"double3\" 1 1 1";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode polyPlane -n "polyPlane1";
-	rename -uid "11DD5FB6-4D92-27B7-05B9-06B1F9787952";
-	setAttr ".cuv" 2;
-createNode reference -n "characterReferenceRN";
-	rename -uid "C4414B0F-42E2-EC94-9F54-3CB64443A825";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"characterReferenceRN"
-		"characterReferenceRN" 0
-		"characterReferenceRN" 1
-		2 "|characterReference:scaleReference_geo" "translate" " -type \"double3\" 0 0 -2.13254367898383856";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode aiOptions -s -n "defaultArnoldRenderOptions";
-	rename -uid "F7F07D0E-476D-723B-1584-D2BA3491B931";
-	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
-	setAttr ".version" -type "string" "2.0.1";
-createNode aiAOVFilter -s -n "defaultArnoldFilter";
-	rename -uid "4E156476-437C-1A59-1BCC-05A254361F38";
-	setAttr ".ai_translator" -type "string" "gaussian";
-createNode aiAOVDriver -s -n "defaultArnoldDriver";
-	rename -uid "E5802C1E-45E3-5AAD-A7C4-419EEDB06BB5";
-	setAttr ".ai_translator" -type "string" "exr";
-createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
-	rename -uid "C5DD7495-459E-CEE3-753B-8F8E56A9D9A3";
-	setAttr ".output_mode" 0;
-	setAttr ".ai_translator" -type "string" "maya";
-createNode reference -n "pot_referenceRN";
-	rename -uid "2F2B2A20-41D8-7868-EF3F-68B73387724C";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"pot_referenceRN"
-		"pot_referenceRN" 0
-		"pot_referenceRN" 2
-		2 "|pot_reference:left" "translate" " -type \"double3\" -1000.10035011203115118 -0.22456195317359912 -0.8061427518238673"
-		
-		2 "|pot_reference:pot_grp" "translate" " -type \"double3\" 0 0 0";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "recipeBook_referenceRN";
-	rename -uid "5787AFF5-49CC-8AFF-EE19-2286D55E312F";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"recipeBook_referenceRN"
-		"recipeBook_referenceRN" 0
-		"recipeBook_referenceRN" 3
-		2 "|recipeBook_reference:left" "translate" " -type \"double3\" -1000.10035011203115118 -0.22456195317359912 -0.8061427518238673"
-		
-		2 "|recipeBook_reference:recipeBook_grp" "translate" " -type \"double3\" -9.59356908265819186 3.03820641596965579 -3.59701053721606812"
-		
-		2 "|recipeBook_reference:recipeBook_grp" "rotate" " -type \"double3\" 0 71.63233174974664053 0";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
-createNode reference -n "stove_referenceRN";
-	rename -uid "68D6CDEF-4676-1F0C-E993-20AA8BF45F78";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"stove_referenceRN"
-		"stove_referenceRN" 0
-		"stove_referenceRN" 5
-		2 "|stove_reference:stove_model:stove_grp" "translate" " -type \"double3\" -6.23806893111278438 0 6.91183990226511025"
-		
-		2 "|stove_reference:stove_model:stove_grp" "rotate" " -type \"double3\" 0 144.27914588039914179 0"
-		
-		2 "|stove_reference:stove_model:stove_grp" "scale" " -type \"double3\" 1.05096853474221641 1.05096853474221641 1.05096853474221641"
-		
-		2 "|stove_reference:stove_model:stove_grp|stove_reference:stove_model:stoveBody_geo" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|stove_reference:stove_model:stove_grp|stove_reference:stove_model:stoveBody_geo" 
-		"scale" " -type \"double3\" 1 1 1";
-lockNode -l 1 ;
-createNode reference -n "ladle_referenceRN";
-	rename -uid "5AD50B85-4001-884A-A4E3-789853148CAC";
-	setAttr ".ed" -type "dataReferenceEdits" 
-		"ladle_referenceRN"
-		"ladle_referenceRN" 0
-		"ladle_referenceRN" 1
-		2 "|ladle_reference:ladle_grp" "translate" " -type \"double3\" 1.40747417142783071 1.68569118311849842 -0.64873973544023666";
-	setAttr ".ptag" -type "string" "";
-lockNode -l 1 ;
+createNode renderLayerManager -n "stove_model:renderLayerManager";
+	rename -uid "6019F517-4D0F-8038-FEE6-F4822C3F4C12";
+createNode renderLayer -n "stove_model:defaultRenderLayer";
+	rename -uid "15C905AC-47EF-B335-466C-AC8CC150849C";
+	setAttr ".g" yes;
+createNode materialInfo -n "stove_model:characterReference:materialInfo2";
+	rename -uid "58B544B8-489E-4755-FD3F-FF81DB57E321";
+createNode shadingEngine -n "stove_model:characterReference:blinn1SG";
+	rename -uid "162C8D1E-4A7A-E980-3DAF-E2BEE09B935C";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode blinn -n "stove_model:characterReference:blinn1";
+	rename -uid "56EFFB4C-4434-0E38-6A39-69BF6D7BF33C";
+	setAttr ".c" -type "float3" 0.92150003 0.68229997 0.53719997 ;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -807,56 +553,68 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
 		 1 1 1 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 ;
+	setAttr ".etmr" no;
+	setAttr ".tmr" 4096;
 	setAttr ".fprt" yes;
 select -ne :renderPartition;
-	setAttr -s 8 ".st";
+	setAttr -s 4 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 10 ".s";
+	setAttr -s 6 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
-	setAttr -s 16 ".r";
-select -ne :lightList1;
-	setAttr -s 3 ".l";
+	setAttr -s 2 ".r";
 select -ne :initialShadingGroup;
-	setAttr -s 171 ".dsm";
+	setAttr -s 5 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultRenderGlobals;
 	setAttr ".ren" -type "string" "arnold";
-	setAttr ".outf" 51;
-	setAttr ".imfkey" -type "string" "exr";
 select -ne :defaultResolution;
-	setAttr ".w" 1920;
-	setAttr ".h" 1080;
 	setAttr ".pa" 1;
-	setAttr ".dar" 1.7777777910232544;
-select -ne :defaultLightSet;
-	setAttr -s 3 ".dsm";
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
-connectAttr "polyPlane1.out" "pPlaneShape1.i";
+connectAttr "blinn1SG.msg" "materialInfo2.sg";
+connectAttr "blinn1.msg" "materialInfo2.m";
+connectAttr "blinn1.oc" "blinn1SG.ss";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "stove_model:characterReference:blinn1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "stove_model:characterReference:blinn1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
-connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drivers"
-		 -na;
-connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
-connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
+connectAttr "stove_model:renderLayerManager.rlmi[0]" "stove_model:defaultRenderLayer.rlid"
+		;
+connectAttr "stove_model:characterReference:blinn1SG.msg" "stove_model:characterReference:materialInfo2.sg"
+		;
+connectAttr "stove_model:characterReference:blinn1.msg" "stove_model:characterReference:materialInfo2.m"
+		;
+connectAttr "stove_model:characterReference:blinn1.oc" "stove_model:characterReference:blinn1SG.ss"
+		;
+connectAttr "blinn1SG.pa" ":renderPartition.st" -na;
+connectAttr "stove_model:characterReference:blinn1SG.pa" ":renderPartition.st" -na
+		;
+connectAttr "blinn1.msg" ":defaultShaderList1.s" -na;
+connectAttr "stove_model:characterReference:blinn1.msg" ":defaultShaderList1.s" 
+		-na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "areaLightShape1.ltd" ":lightList1.l" -na;
-connectAttr "directionalLightShape1.ltd" ":lightList1.l" -na;
-connectAttr "areaLightShape2.ltd" ":lightList1.l" -na;
-connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "areaLight1.iog" ":defaultLightSet.dsm" -na;
-connectAttr "directionalLight1.iog" ":defaultLightSet.dsm" -na;
-connectAttr "areaLight2.iog" ":defaultLightSet.dsm" -na;
-// End of stagingEnvironment.ma
+connectAttr "stove_model:defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "stove_model:stoveBody_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "stove_model:stoveBurnerLarge1_geoShape.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "stove_model:stoveBurnerLarge2_geoShape1.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "stove_model:stoveBurnerSmall1_geoShape.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "stove_model:stoveBurnerSmall2_geoShape.iog" ":initialShadingGroup.dsm"
+		 -na;
+// End of stove_reference.ma
