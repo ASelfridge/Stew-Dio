@@ -33,23 +33,15 @@
                 <a-asset-item id="bowl" src="assets/models/bowl.obj"></a-asset-item>
             </a-assets>
 
-<<<<<<< HEAD
 
             <!---------------- CAMERA ---------------->
-            <a-entity position="0 1.5 5">
-                <a-camera></a-camera>
-=======
-            <a-entity   obj-model="obj: #cow"
-                        material="src: assets/textures/Cow.png"
-                        position="3 0 -1"
-                        rotation="0 220 0">
-            </a-entity>
-            
-            <a-entity camera look-controls position="0 1 5">
-<<<<<<< HEAD
+            <a-entity camera look-controls wasd-controls position="0 3.4 5">
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
->>>>>>> added object-pickup component
             </a-entity>
+
+            
+            <!-- <a-entity camera look-controls position="0 1 5">             
+            </a-entity> -->
 
     
             <!---------------- LIGHTING ---------------->
@@ -58,37 +50,15 @@
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
-=======
-                <a-entity   id="cursor" 
-                            cursor="rayOrigin: mouse"
-                            
-                            position="0 0 -1"></a-entity>
-            </a-entity>
 
-            <a-light type="point" color="white" position="10 5 0"></a-light>
-            <a-light type="point" color="white" position="0 5 10"></a-light>
->>>>>>> Picking up objects and placing them in a defined placeholder location
             
-<<<<<<< HEAD
             <!-- CUSTOMER SERVICE -->
             <a-entity obj-model="obj:#customerService" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
-=======
-            <a-entity   object-pickup
-                        id="box"
-                        position="-1 0.5 -3"
-                        rotation="0 45 0"
-                        scale="1 1 1"
-                        geometry="primitive: box; width: 1, height: 1; depth: 1"
-                        shadow="cast: true; receive: true"
-                        material="color: #EF2D5E; sphericalEnvMap: #skymap; roughness: 0.5; metalness: 0.0"
-                        >
->>>>>>> added object-pickup component
             </a-entity>
 
             <a-entity obj-model="obj:#character" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
             </a-entity>
 
-<<<<<<< HEAD
 
 
             <!-- INGREDIENT STATION-->
@@ -107,7 +77,7 @@
                         <a-entity obj-model="obj:#cuttingBoard" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                         </a-entity>
         
-                        <a-entity obj-model="obj:#knife" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
+                        <a-entity object-pickup obj-model="obj:#knife" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
                         </a-entity>
         
                         <a-entity obj-model="obj:#carrot" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
@@ -148,10 +118,14 @@
                 <a-entity obj-model="obj:#pot" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
                 </a-entity>
     
-                <a-entity obj-model="obj:#ladle" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity object-pickup id="ladle1" obj-model="obj:#ladle" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                </a-entity>
+                <a-entity object-place id="ladle1_placeholder" obj-model="obj:#ladle" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
                 </a-entity>
 
-                <a-entity obj-model="obj:#bowl" position="0.35389 1.53698 -1.20558" rotation="" scale="0.3 0.3 0.3" shadow="">
+                <a-entity object-pickup id="bowl1" obj-model="obj:#bowl" material="color: #477725;" position="0.35389 1.53698 -1.20558" rotation="" scale="0.3 0.3 0.3" shadow="">
+                </a-entity>
+                <a-entity object-place id="bowl1_placeholder" obj-model="obj:#bowl" visible="false" material="color: red; opacity: 0.2;" position="-3.300 1.955 -5.835" rotation="" scale="0.3 0.3 0.3" shadow="">
                 </a-entity>
     
             </a-entity>
@@ -160,19 +134,6 @@
             
             <!-- GROUND & SKY -->
             <a-plane position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
-=======
-            <a-entity   object-place
-                        id="box_placeholder"
-                        visible="false"
-                        position="4 0.5 1"
-                        rotation="0 45 0"
-                        scale="1 1 1"
-                        geometry="primitive: box; width: 1, height: 1; depth: 1"
-                        shadow="cast: true; receive: true"
-                        material="color: #EF2D5E; opacity: 0.3; sphericalEnvMap: #skymap; roughness: 0.5; metalness: 0.0"
-                        >
-            </a-entity>
->>>>>>> Picking up objects and placing them in a defined placeholder location
             
             <a-sky color="#ECECEC"></a-sky>
 
@@ -180,12 +141,6 @@
                         geometry="primitive: sphere; radius: 1000"
                         material="shader: flat; src: #skymap; side: back">
             </a-entity>
-
-            <script>
-                document.addEventListener('mousedown', function() {
-                    console.log('document clicked!');
-                });
-            </script>
 
         </a-scene>
     </body>
