@@ -3,7 +3,9 @@
 <html>
     <head>
         <title>Starting Environment</title>
+         
         <script src="js/aframe-v0.8.2.min.js"></script>
+        <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
     </head>
     <body>
         <a-scene>
@@ -21,10 +23,6 @@
                         material="src: assets/textures/Cow.png"
                         position="3 0 -1"
                         rotation="0 220 0">
-            </a-entity>
-            
-            <a-entity position="0 0 5">
-                <a-camera></a-camera>
             </a-entity>
 
             <a-light type="point" color="yellow" position="10 5 0"></a-light>
@@ -50,15 +48,19 @@
                         material="shader: flat; src: #skymap; side: back">
             </a-entity>
 
-            <a-entity id="sceneCamera" camera position="0 1.6 0" wasd-controls look-controls>
+            <a-entity id="camera-rig" position="0 1.6 3">
+                <a-entity id="sceneCamera" camera wasd-controls look-controls>
+                </a-entity>
             </a-entity>
 
-            <a-entity id="debug" text="Hello World" position="-1 3 -3" scale="3 3 3">
+            <!-- <a-entity id="debug" text="value: Hello World" position="-1 3 -3" scale="4 4 4">
             </a-entity>
 
-            <a-entity id="oc" text="Hello World" position="-1 2 -3" scale="3 3 3">
+            <a-entity id="oc" text="value: Hello World" position="-1 2 -3" scale="4 4 4">
+            -->
 
 
         </a-scene>
     </body>
+    <script src="js/deviceControls.js"></script>
 </html>
