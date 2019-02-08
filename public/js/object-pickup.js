@@ -3,7 +3,6 @@ AFRAME.registerComponent('object-pickup', {
     init: function() {
         const Context_AF = this;
         Context_AF.el.isHeld = false;
-        // hold original values
         Context_AF.el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
         Context_AF.el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
         Context_AF.el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) ));
