@@ -5,6 +5,7 @@
         <title>Starting Environment</title>
         <script src="js/aframe-v0.8.2.min.js"></script>
         <script src="js/object-pickup.js"></script>
+        <script src="js/object-place.js"></script>
     </head>
     <body>
         <a-scene>
@@ -45,6 +46,7 @@
             </a-entity>
             
             <a-entity camera look-controls position="0 1 5">
+<<<<<<< HEAD
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
 >>>>>>> added object-pickup component
             </a-entity>
@@ -56,13 +58,22 @@
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
+=======
+                <a-entity   id="cursor" 
+                            cursor="rayOrigin: mouse"
+                            
+                            position="0 0 -1"></a-entity>
+            </a-entity>
+
+            <a-light type="point" color="white" position="10 5 0"></a-light>
+            <a-light type="point" color="white" position="0 5 10"></a-light>
+>>>>>>> Picking up objects and placing them in a defined placeholder location
             
 <<<<<<< HEAD
             <!-- CUSTOMER SERVICE -->
             <a-entity obj-model="obj:#customerService" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
 =======
             <a-entity   object-pickup
-                        click-drag
                         id="box"
                         position="-1 0.5 -3"
                         rotation="0 45 0"
@@ -77,6 +88,7 @@
             <a-entity obj-model="obj:#character" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
             </a-entity>
 
+<<<<<<< HEAD
 
 
             <!-- INGREDIENT STATION-->
@@ -148,6 +160,19 @@
             
             <!-- GROUND & SKY -->
             <a-plane position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+=======
+            <a-entity   object-place
+                        id="box_placeholder"
+                        visible="false"
+                        position="4 0.5 1"
+                        rotation="0 45 0"
+                        scale="1 1 1"
+                        geometry="primitive: box; width: 1, height: 1; depth: 1"
+                        shadow="cast: true; receive: true"
+                        material="color: #EF2D5E; opacity: 0.3; sphericalEnvMap: #skymap; roughness: 0.5; metalness: 0.0"
+                        >
+            </a-entity>
+>>>>>>> Picking up objects and placing them in a defined placeholder location
             
             <a-sky color="#ECECEC"></a-sky>
 
@@ -155,6 +180,12 @@
                         geometry="primitive: sphere; radius: 1000"
                         material="shader: flat; src: #skymap; side: back">
             </a-entity>
+
+            <script>
+                document.addEventListener('mousedown', function() {
+                    console.log('document clicked!');
+                });
+            </script>
 
         </a-scene>
     </body>
