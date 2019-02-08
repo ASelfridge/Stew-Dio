@@ -1,5 +1,5 @@
 {
-  "name": "Stew-Dio",
+  "name": "stew-dio",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/ASelfridge/Stew-Dio#readme",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "devDependencies": {}
 }
