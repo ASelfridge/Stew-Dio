@@ -17,7 +17,6 @@
 
             <!---------------- MODELS ---------------->
             <a-assets>
-                <a-asset-item id="cow" src="assets/models/Cow.obj"></a-asset-item>
                 <a-asset-item id="carrot" src="assets/models/carrot.obj"></a-asset-item>
                 <a-asset-item id="table" src="assets/models/table.obj"></a-asset-item>
                 <a-asset-item id="knife" src="assets/models/knife.obj"></a-asset-item>
@@ -40,41 +39,41 @@
 
     
             <!---------------- LIGHTING ---------------->
-            <a-light type="directional" color="#FFBE92" position="35 10 -0.69474" intensity="0.5" scale="" light="castShadow:true; shadowCameraFov:60; shadowCameraLeft:-14.07; shadowCameraNear:0" ></a-light>
+            <a-light type="directional" color="#FFBE92" position="35 10 -0.69474" intensity="0.5" scale="" light="castShadow:true;shadowCameraFov:60;shadowCameraLeft:-14.07;shadowCameraNear:0;shadowMapHeight:2048;shadowMapWidth:2048"></a-light>            
             <a-light type="ambient" color="white" position="35 5 0" intensity="0.4"></a-light>
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
             
             <!-- CUSTOMER SERVICE -->
-            <a-entity obj-model="obj:assets/models/customerService.obj" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
+            <a-entity obj-model="obj:#customerService" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
             </a-entity>
 
-            <a-entity obj-model="obj:assets/models/character.obj" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
+            <a-entity obj-model="obj:#character" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
             </a-entity>
 
 
 
             <!-- INGREDIENT STATION-->
-            <a-entity obj-model="obj:assets/models/ingredientStation.obj" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
+            <a-entity obj-model="obj:#ingredientStation" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
             </a-entity>
 
             <!-- PREPERATION STATION-->
             <a-entity rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
 
-                    <a-entity obj-model="obj:assets/models/table.obj" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
+                    <a-entity obj-model="obj:#table" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
                     </a-entity>
                     
                     <!-- CUTTING BOARD AREA -->
                     <a-entity rotation="0 90 0" position="-1.13659 0.39414 -0.46369"> 
     
-                        <a-entity obj-model="obj:assets/models/cuttingBoard.obj" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
+                        <a-entity obj-model="obj:#cuttingBoard" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                         </a-entity>
         
-                        <a-entity obj-model="obj:assets/models/knife.obj" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
+                        <a-entity obj-model="obj:#knife" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
                         </a-entity>
         
-                        <a-entity obj-model="obj:assets/models/carrot.obj" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
+                        <a-entity obj-model="obj:#carrot" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
                         </a-entity>
         
                     </a-entity>
@@ -84,10 +83,10 @@
             <!-- COOKING AREA -->
             <a-entity rotation="0 107.58 0" position="6.08818 0 4.25484"> 
 
-                    <a-entity obj-model="obj:assets/models/table.obj" position="" rotation="" scale="" shadow="">
+                    <a-entity obj-model="obj:#table" position="" rotation="" scale="" shadow="">
                     </a-entity>
     
-                    <a-entity obj-model="obj:assets/models/stove.obj" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
+                    <a-entity obj-model="obj:#stove" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
     
             </a-entity>
@@ -95,10 +94,10 @@
             <!-- RECIPIE AREA -->
             <a-entity rotation="0 72 0" position="-6.58179 0 4.18675"> 
 
-                    <a-entity obj-model="obj:assets/models/table.obj" position="" rotation="" scale="" shadow="">
+                    <a-entity obj-model="obj:#table" position="" rotation="" scale="" shadow="">
                     </a-entity>
     
-                    <a-entity obj-model="obj:assets/models/recipeBook.obj" position="-0.07552 1.82164 0.12949" rotation="" scale="0.8 0.8 0.8" shadow="">
+                    <a-entity obj-model="obj:#recipeBook" position="-0.07552 1.82164 0.12949" rotation="" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
     
             </a-entity>
@@ -106,16 +105,16 @@
             <!-- STEW AREA -->
             <a-entity rotation="0 -30 0" position="0 0 6">
 
-                <a-entity obj-model="obj:assets/models/table.obj" position="0.66201 0 -0.81071" rotation="0 -55.75395008638529 0" scale="0.41442 0.81438 0.5" shadow="">
+                <a-entity obj-model="obj:#table" position="0.66201 0 -0.81071" rotation="0 -55.75395008638529 0" scale="0.41442 0.81438 0.5" shadow="">
                 </a-entity>
 
-                <a-entity obj-model="obj:assets/models/pot.obj" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
+                <a-entity obj-model="obj:#pot" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
                 </a-entity>
     
-                <a-entity obj-model="obj:assets/models/ladle.obj" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity obj-model="obj:#ladle" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
                 </a-entity>
 
-                <a-entity obj-model="obj:assets/models/bowl.obj" position="0.35389 1.53698 -1.20558" rotation="" scale="0.3 0.3 0.3" shadow="">
+                <a-entity obj-model="obj:#bowl" position="0.35389 1.53698 -1.20558" rotation="" scale="0.3 0.3 0.3" shadow="">
                 </a-entity>
     
             </a-entity>
