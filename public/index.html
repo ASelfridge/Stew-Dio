@@ -5,6 +5,7 @@
         <title>Starting Environment</title>
         <script src="js/aframe-v0.8.2.min.js"></script>
         <script src="js/object-pickup.js"></script>
+        <script src="js/object-place.js"></script>
     </head>
     <body>
         <a-scene>
@@ -25,14 +26,16 @@
             </a-entity>
             
             <a-entity camera look-controls position="0 1 5">
-                <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
+                <a-entity   id="cursor" 
+                            cursor="rayOrigin: mouse"
+                            
+                            position="0 0 -1"></a-entity>
             </a-entity>
 
-            <a-light type="point" color="yellow" position="10 5 0"></a-light>
-            <a-light type="point" color="red" position="0 5 10"></a-light>
+            <a-light type="point" color="white" position="10 5 0"></a-light>
+            <a-light type="point" color="white" position="0 5 10"></a-light>
             
             <a-entity   object-pickup
-                        click-drag
                         id="box"
                         position="-1 0.5 -3"
                         rotation="0 45 0"
@@ -40,6 +43,18 @@
                         geometry="primitive: box; width: 1, height: 1; depth: 1"
                         shadow="cast: true; receive: true"
                         material="color: #EF2D5E; sphericalEnvMap: #skymap; roughness: 0.5; metalness: 0.0"
+                        >
+            </a-entity>
+
+            <a-entity   object-place
+                        id="box_placeholder"
+                        visible="false"
+                        position="4 0.5 1"
+                        rotation="0 45 0"
+                        scale="1 1 1"
+                        geometry="primitive: box; width: 1, height: 1; depth: 1"
+                        shadow="cast: true; receive: true"
+                        material="color: #EF2D5E; opacity: 0.3; sphericalEnvMap: #skymap; roughness: 0.5; metalness: 0.0"
                         >
             </a-entity>
             
@@ -53,6 +68,12 @@
                         geometry="primitive: sphere; radius: 500"
                         material="shader: flat; src: #skymap; side: back">
             </a-entity>
+
+            <script>
+                document.addEventListener('mousedown', function() {
+                    console.log('document clicked!');
+                });
+            </script>
 
         </a-scene>
     </body>
