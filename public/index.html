@@ -19,18 +19,18 @@
 
             <!---------------- MODELS ---------------->
             <a-assets>
-                <a-asset-item id="carrot" src="assets/models/carrot.obj"></a-asset-item>
-                <a-asset-item id="table" src="assets/models/table.obj"></a-asset-item>
-                <a-asset-item id="knife" src="assets/models/knife.obj"></a-asset-item>
-                <a-asset-item id="cuttingBoard" src="assets/models/cuttingBoard.obj"></a-asset-item>
-                <a-asset-item id="customerService" src="assets/models/customerService.obj"></a-asset-item>
-                <a-asset-item id="ingredientStation" src="assets/models/ingredientStation.obj"></a-asset-item>
-                <a-asset-item id="ladle" src="assets/models/ladle.obj"></a-asset-item>
-                <a-asset-item id="pot" src="assets/models/pot.obj"></a-asset-item>
-                <a-asset-item id="recipeBook" src="assets/models/recipeBook.obj"></a-asset-item>
-                <a-asset-item id="stove" src="assets/models/stove.obj"></a-asset-item>
-                <a-asset-item id="character" src="assets/models/character.obj"></a-asset-item>
-                <a-asset-item id="bowl" src="assets/models/bowl.obj"></a-asset-item>
+                <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>
+                <a-asset-item id="table_model" src="assets/models/table.obj"></a-asset-item>
+                <a-asset-item id="knife_model" src="assets/models/knife.obj"></a-asset-item>
+                <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
+                <a-asset-item id="customerService_model" src="assets/models/customerService.obj"></a-asset-item>
+                <a-asset-item id="ingredientStation_model" src="assets/models/ingredientStation.obj"></a-asset-item>
+                <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
+                <a-asset-item id="pot_model" src="assets/models/pot.obj"></a-asset-item>
+                <a-asset-item id="recipeBook_model" src="assets/models/recipeBook.obj"></a-asset-item>
+                <a-asset-item id="stove_model" src="assets/models/stove.obj"></a-asset-item>
+                <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
+                <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item>
             </a-assets>
 
 
@@ -38,10 +38,6 @@
             <a-entity camera look-controls wasd-controls position="0 3.4 5">
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
             </a-entity>
-
-            
-            <!-- <a-entity camera look-controls position="0 1 5">             
-            </a-entity> -->
 
     
             <!---------------- LIGHTING ---------------->
@@ -53,34 +49,35 @@
 
             
             <!-- CUSTOMER SERVICE -->
-            <a-entity obj-model="obj:#customerService" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
+            <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
             </a-entity>
 
-            <a-entity obj-model="obj:#character" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
+            <a-entity id="character" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
             </a-entity>
 
 
 
             <!-- INGREDIENT STATION-->
-            <a-entity obj-model="obj:#ingredientStation" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
+            <a-entity id="ingredientStation" obj-model="obj:#ingredientStation_model" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
             </a-entity>
 
             <!-- PREPERATION STATION-->
-            <a-entity rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
+            <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
 
-                    <a-entity obj-model="obj:#table" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
+                    <a-entity obj-model="obj:#table_model" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
                     </a-entity>
                     
                     <!-- CUTTING BOARD AREA -->
                     <a-entity rotation="0 90 0" position="-1.13659 0.39414 -0.46369"> 
     
-                        <a-entity obj-model="obj:#cuttingBoard" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
+                        <a-entity obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
+                        </a-entity>
+                        <a-entity object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" id="knife" obj-model="obj:#knife_model" material="color: #477725" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
+                        </a-entity>
+                        <a-entity object-place id="knife_placeholder" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
                         </a-entity>
         
-                        <a-entity object-pickup obj-model="obj:#knife" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
-                        </a-entity>
-        
-                        <a-entity obj-model="obj:#carrot" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
+                        <a-entity obj-model="obj:#carrot_model" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
                         </a-entity>
         
                     </a-entity>
@@ -88,44 +85,44 @@
                 </a-entity>
 
             <!-- COOKING AREA -->
-            <a-entity rotation="0 107.58 0" position="6.08818 0 4.25484"> 
+            <a-entity id="cookingStation" rotation="0 107.58 0" position="6.08818 0 4.25484"> 
 
-                    <a-entity obj-model="obj:#table" position="" rotation="" scale="" shadow="">
+                    <a-entity obj-model="obj:#table_model" position="" rotation="" scale="" shadow="">
                     </a-entity>
     
-                    <a-entity obj-model="obj:#stove" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
+                    <a-entity obj-model="obj:#stove_model" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
     
             </a-entity>
 
             <!-- RECIPIE AREA -->
-            <a-entity rotation="0 72 0" position="-6.58179 0 4.18675"> 
+            <a-entity id="recipeStation" rotation="0 72 0" position="-6.58179 0 4.18675"> 
 
-                    <a-entity obj-model="obj:#table" position="" rotation="" scale="" shadow="">
+                    <a-entity obj-model="obj:#table_model" position="" rotation="" scale="" shadow="">
                     </a-entity>
     
-                    <a-entity obj-model="obj:#recipeBook" position="-0.07552 1.82164 0.12949" rotation="" scale="0.8 0.8 0.8" shadow="">
+                    <a-entity obj-model="obj:#recipeBook_model" position="-0.07552 1.82164 0.12949" rotation="" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
     
             </a-entity>
 
             <!-- STEW AREA -->
-            <a-entity rotation="0 -30 0" position="0 0 6">
+            <a-entity id="stewStation" rotation="0 -30 0" position="0 0 6">
 
-                <a-entity obj-model="obj:#table" position="0.66201 0 -0.81071" rotation="0 -55.75395008638529 0" scale="0.41442 0.81438 0.5" shadow="">
+                <a-entity obj-model="obj:#table_model" position="0.66201 0 -0.81071" rotation="0 -55.75395008638529 0" scale="0.41442 0.81438 0.5" shadow="">
                 </a-entity>
 
-                <a-entity obj-model="obj:#pot" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
+                <a-entity obj-model="obj:#pot_model" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
                 </a-entity>
     
-                <a-entity object-pickup id="ladle1" obj-model="obj:#ladle" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" id="ladle" obj-model="obj:#ladle_model" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
                 </a-entity>
-                <a-entity object-place id="ladle1_placeholder" obj-model="obj:#ladle" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity object-place id="ladle_placeholder" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
                 </a-entity>
 
-                <a-entity object-pickup id="bowl1" obj-model="obj:#bowl" material="color: #477725;" position="0.35389 1.53698 -1.20558" rotation="" scale="0.3 0.3 0.3" shadow="">
+                <a-entity object-pickup id="bowl" obj-model="obj:#bowl_model" material="color: #477725;" position="0.35389 1.53698 -1.20558" rotation="" scale="0.3 0.3 0.3" shadow="">
                 </a-entity>
-                <a-entity object-place id="bowl1_placeholder" obj-model="obj:#bowl" visible="false" material="color: red; opacity: 0.2;" position="-3.300 1.955 -5.835" rotation="" scale="0.3 0.3 0.3" shadow="">
+                <a-entity object-place id="bowl_placeholder" obj-model="obj:#bowl_model" visible="false" material="color: red; opacity: 0.2;" position="-3.300 1.955 -5.835" rotation="" scale="0.3 0.3 0.3" shadow="">
                 </a-entity>
     
             </a-entity>
@@ -133,7 +130,7 @@
 
             
             <!-- GROUND & SKY -->
-            <a-plane position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+            <a-plane id="ground" position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
             
             <a-sky color="#ECECEC"></a-sky>
 
