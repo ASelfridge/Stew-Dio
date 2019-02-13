@@ -22,7 +22,7 @@
                     };
 
                     //Playing background track
-                    bgSound = document.querySelector('#ambience');
+                    bgSound = document.querySelector('#ambiance');
                     bgSound.components['sound'].playSound();
                     bgMusic = document.querySelector('#music');
                     bgMusic.components['sound'].playSound();
@@ -43,7 +43,7 @@
 
              <!-------------- SOUNDS ---------------->
              <a-assets>
-                <a-asset-item crossorigin="anonymous" id="ambienceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
 
             </a-assets>
@@ -84,7 +84,7 @@
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 0.01; loop: true; positional:false" ></a-entity>
-            <a-entity id="ambience" sound="src:#ambienceSrc; volume: 0.01; loop: true; positional:false"></a-entity>
+            <a-entity id="ambiance" sound="src:#ambianceSrc; volume: 0.01; loop: true; positional:false"></a-entity>
 
 
             <!-- CUSTOMER SERVICE -->
@@ -164,7 +164,7 @@
 
             
             <!-- GROUND & SKY -->
-            <a-plane id="grnd" position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+            <a-plane position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
             
             <a-sky color="#ECECEC"></a-sky>
             <a-entity   id="sky"
