@@ -22,12 +22,12 @@ if (oculusGo){
   console.log("Oculus Go Controls Enabled");
 
 } else if (mobile && !(oculusGo)) {
-  console.log("Mobile Device Detected");
+    console.log("Mobile Device Detected");
 
-  camera.setAttribute("twoway-motion", "speed", 35);
-  camera.setAttribute("tilt-turn", "criticalAngle", 12);
+    camera.setAttribute("twoway-motion", "speed", 35);
+    camera.setAttribute("tilt-turn", "criticalAngle", 12);
 
-  console.log("Mobile Controls Enabled");
+    console.log("Mobile Controls Enabled");
 } else if (headSet){
   console.log("Unsupported Headset Connected");
 } else{

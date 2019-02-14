@@ -23,6 +23,12 @@
                         head.appendChild(newScript);
                         console.log(scriptSrc[i]);
                     };
+
+                    //Playing background track
+                    bgSound = document.querySelector('#ambiance');
+                    bgSound.components['sound'].playSound();
+                    bgMusic = document.querySelector('#music');
+                    bgMusic.components['sound'].playSound();
                 }
 
             });
@@ -36,6 +42,15 @@
                 <img id="skymap" src="assets/textures/sunsetGradient.png" />
 
             </a-assets>
+
+
+             <!-------------- SOUNDS ---------------->
+             <a-assets>
+                <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
+
+            </a-assets>
+                
 
 
             <!---------------- MODELS ---------------->
@@ -56,11 +71,9 @@
 
 
             <!---------------- CAMERA ---------------->
-            <a-entity id="cameraRig" position="0 1.8 5">
+           <a-entity id="cameraRig" position="0 1.8 5">
                 <a-camera id="sceneCamera">
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
-                <!-- <a-entity id="cameraRig" position="0 1.5 5">
-                <a-camera id="sceneCamera"></a-camera> -->
                 </a-camera>
             </a-entity>
 
@@ -72,7 +85,11 @@
 
             <!---------------- A-FRAME ENTITIES ---------------->
 
-            
+            <!-- SOUNDS ENTITIES -->
+            <a-entity id="music" sound="src:#musicSrc; volume: 0.01; loop: true; positional:false" ></a-entity>
+            <a-entity id="ambiance" sound="src:#ambianceSrc; volume: 0.01; loop: true; positional:false"></a-entity>
+
+          
             <!-- CUSTOMER SERVICE -->
             <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
             </a-entity>
