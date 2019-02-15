@@ -9,7 +9,7 @@ AFRAME.registerComponent('object-pickup', {
         const data = Context_AF.data;
 
         // max distance away from object in order to successfully pickup
-        maxDistance = 2.0;  // might want to move to a master js file
+        maxDistance = 2.5;  // might want to move to a master js file
 
         el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
@@ -21,6 +21,8 @@ AFRAME.registerComponent('object-pickup', {
         el.addEventListener('mousedown', function(event) {
             // check that no object is currently being held and not outside of maxDistance range
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
+                //remove physics from element as it is being carried
+                Context_AF.el.removeAttribute('dynamic-body'); 
                 // set selected object to this
                 scene.selectedObject = el.id;
 
