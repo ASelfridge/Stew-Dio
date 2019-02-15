@@ -23,6 +23,8 @@ AFRAME.registerComponent('object-place', {
                 object.object3D.scale.set(1,1,1);
                 object.object3D.rotation.set(0,0,0);
 
+                Context_AF.el.setAttribute('dynamic-body', {}); 
+
                 // set selectedObject back to null
                 scene.selectedObject = null;
             }

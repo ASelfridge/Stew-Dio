@@ -21,6 +21,8 @@ AFRAME.registerComponent('object-pickup', {
         el.addEventListener('mousedown', function(event) {
             // check that no object is currently being held and not outside of maxDistance range
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
+                //remove physics from element as it is being carried
+                Context_AF.el.removeAttribute('dynamic-body'); 
                 // set selected object to this
                 scene.selectedObject = el.id;
 
