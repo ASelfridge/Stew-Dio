@@ -40,7 +40,12 @@ AFRAME.registerComponent('object-pickup', {
                 Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
                 
                 // show the placeholder object
-                document.getElementById(Context_AF.el.id + "_placeholder").object3D.visible = true;     // might want to create dynamically instead of hide/show
+                let placeholders = document.getElementsByClassName(Context_AF.el.id + "_placeholder");
+                console.log(placeholders);
+                for(i = 0; i < placeholders.length; i++) {
+                    console.log(placeholders[i]);
+                    placeholders[i].object3D.visible = true;
+                }
             }
         });
     }
