@@ -10,6 +10,7 @@
         <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
         <script src="js/object-pickup.js"></script>
         <script src="js/object-place.js"></script>
+        <script src="js/new-recipe.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
 
         <script>
@@ -31,9 +32,17 @@
                     bgSound.components['sound'].playSound();
                     bgMusic = document.querySelector('#music');
                     bgMusic.components['sound'].playSound();
-                }
 
+                    customerBell = document.querySelector('#customerStation');
+                    document.addEventListener('keydown', function(e) {
+                        if(e.keyCode == 32) {
+                            customerBell.components['sound'].stopSound();
+                            customerBell.components['sound'].playSound();
+                        }
+                    });
+                }
             });
+            
         </script>
     </head>
     <body>
@@ -50,7 +59,8 @@
              <a-assets>
                 <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
-
+                <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
             </a-assets>
                 
 
@@ -75,7 +85,7 @@
 
 
             <!---------------- CAMERA ---------------->
-           <a-entity id="cameraRig" position="0 1.8 5">
+           <a-entity id="cameraRig" position="0 1.8 3" rotation="0 180 0">
                 <a-camera id="sceneCamera">
                     <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1">
                     </a-entity>
@@ -93,14 +103,14 @@
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
-            <a-entity id="ambience" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
+            <a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
 
 
             <!-- CUSTOMER SERVICE -->
-            <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
+            <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="" sound="src:#customerBellSrc">
             </a-entity>
 
-            <a-entity id="character" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
+            <a-entity new-recipe id="character" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="" sound="src: #customerGreetingSrc">
             </a-entity>
 
             <a-plane static-body id="ingredientStationCollisionPlane" position="-0.052 1.900 -0.942" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" scale="2.380 1.8 3.2" shadow></a-plane>
@@ -137,6 +147,8 @@
                         </a-entity>
                         <a-entity object-place id="knife_placeholder" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
                         </a-entity>
+
+                        <a-plane static-body id="knifeCollisionPlane" position="-0.436 1.35 0.329" width="1" height="1" scale="1 0.64 1" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
         
                         <a-entity obj-model="obj:#carrot_model" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
                         </a-entity>
