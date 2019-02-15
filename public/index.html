@@ -10,6 +10,8 @@
         <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
         <script src="js/object-pickup.js"></script>
         <script src="js/object-place.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+
         <script>
             AFRAME.registerComponent('loadscripts', {
                 init: function()
@@ -25,7 +27,7 @@
                     };
 
                     //Playing background track
-                    bgSound = document.querySelector('#ambience');
+                    bgSound = document.querySelector('#ambiance');
                     bgSound.components['sound'].playSound();
                     bgMusic = document.querySelector('#music');
                     bgMusic.components['sound'].playSound();
@@ -46,7 +48,7 @@
 
              <!-------------- SOUNDS ---------------->
              <a-assets>
-                <a-asset-item crossorigin="anonymous" id="ambienceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
 
             </a-assets>
@@ -67,31 +69,48 @@
                 <a-asset-item id="stove_model" src="assets/models/stove.obj"></a-asset-item>
                 <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
                 <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item>
+                <a-asset-item id="interactableIngredient_model" src="assets/models/ingredient.obj"></a-asset-item>
+                <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item>
             </a-assets>
 
 
             <!---------------- CAMERA ---------------->
+<<<<<<< HEAD
             <a-entity id="cameraRig" position="0 1.8 5">
                 <a-camera id="sceneCamera">
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
                
+=======
+           <a-entity id="cameraRig" position="0 1.8 5">
+                <a-camera id="sceneCamera">
+                    <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1">
+                    </a-entity>
+>>>>>>> a17c73e67d08771ecca7225b445d955bfa4d1dd4
                 </a-camera>
             </a-entity>
 
     
             <!---------------- LIGHTING ---------------->
-            <a-light type="directional" color="#FFBE92" position="35 10 -0.69474" intensity="0.5" scale="" light="castShadow:true;shadowCameraFov:60;shadowCameraLeft:-14.07;shadowCameraNear:0;shadowMapHeight:2048;shadowMapWidth:2048"></a-light>            
+            <a-light type="directional" color="#FFBE92" position="35 17.746 -0.69474" intensity="0.5" scale="" light="castShadow:true;shadowCameraFov:60;shadowCameraLeft:-14.07;shadowCameraNear:0;shadowMapHeight:2048;shadowMapWidth:2048"></a-light>            
             <a-light type="ambient" color="white" position="35 5 0" intensity="0.4"></a-light>
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
 
+<<<<<<< HEAD
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
             <a-entity id="ambience" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
 
 
+=======
+            <!-- SOUNDS ENTITIES -->
+            <a-entity id="music" sound="src:#musicSrc; volume: 0.01; loop: true; positional:false" ></a-entity>
+            <a-entity id="ambiance" sound="src:#ambianceSrc; volume: 0.01; loop: true; positional:false"></a-entity>
+
+          
+>>>>>>> a17c73e67d08771ecca7225b445d955bfa4d1dd4
             <!-- CUSTOMER SERVICE -->
             <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="">
             </a-entity>
@@ -99,11 +118,24 @@
             <a-entity id="character" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="">
             </a-entity>
 
+            <a-plane static-body id="ingredientStationCollisionPlane" position="-0.052 1.900 -0.942" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" scale="2.380 1.8 3.2" shadow></a-plane>
+
 
 
             <!-- INGREDIENT STATION-->
-            <a-entity id="ingredientStation" obj-model="obj:#ingredientStation_model" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
+            <a-entity id="ingredientStation" static-body obj-model="obj:#ingredientStation_model" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
             </a-entity>
+
+            <a-entity id="interactableIngredient" dynamic-body object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#interactableIngredient_model" material="color: #477725" position="-2.509 2.021 11.445" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+
+            <a-entity object-place id="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="">
+            </a-entity>
+
+
+            <!-- this is the second red placement indicator for the stew 
+                <a-entity object-place id="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5 3 4.863"  rotation="0 0 0" scale="" shadow="">
+            </a-entity> -->
 
             <!-- PREPERATION STATION-->
             <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
@@ -131,12 +163,17 @@
             <!-- COOKING AREA -->
             <a-entity id="cookingStation" rotation="0 107.58 0" position="6.08818 0 4.25484"> 
 
-                    <a-entity obj-model="obj:#table_model" position="" rotation="" scale="" shadow="">
+                    <a-entity static-body obj-model="obj:#table_model" position="" rotation="" scale="" shadow="">
                     </a-entity>
     
-                    <a-entity obj-model="obj:#stove_model" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
+                    <a-entity id="stove" obj-model="obj:#stove_model" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
-    
+
+                    <a-entity id="fryingPan" obj-model="obj:#fryingPan_model" position="-0.356 2.004 -0.561" rotation="0 180 0" scale="0.5 0.5 0.5" shadow="">
+                    </a-entity>
+
+                    <a-plane static-body id="fryingPanCollisionPlane" position="-0.356 1.9 -0.561" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+
             </a-entity>
 
             <!-- RECIPIE AREA -->
@@ -174,7 +211,11 @@
 
             
             <!-- GROUND & SKY -->
+<<<<<<< HEAD
             <a-plane id="ground" position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+=======
+            <a-plane static-body id="ground" position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+>>>>>>> a17c73e67d08771ecca7225b445d955bfa4d1dd4
             
             <a-sky color="#ECECEC"></a-sky>
             <a-entity   id="sky"
