@@ -33,8 +33,15 @@ AFRAME.registerComponent('object-place', {
                     Context_AF.el.setAttribute('dynamic-body', {});
                 }
 
+                // set availability to true
+                object.object3D.el.components.tool.data.available=true;
+
                 // set selectedObject back to null
                 scene.selectedObject = null;
+
+                
+                
+                
             }
         });
     }

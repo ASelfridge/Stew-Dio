@@ -7,7 +7,6 @@ AFRAME.registerComponent('object-pickup', {
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
-
         // max distance away from object in order to successfully pickup
         maxDistance = 2.5;  // might want to move to a master js file
 
@@ -19,13 +18,18 @@ AFRAME.registerComponent('object-pickup', {
         const scene = document.querySelector('a-scene');
 
         el.addEventListener('mousedown', function(event) {
-            // check that no object is currently being held and not outside of maxDistance range
+            // check that no object is currently being held and not outside of maxDistance range and that it's available
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
+                // Check if object is in 'unavailable' array
+                    //if yes -- break
+                    //if no -- set Object availability to false
+                
+                event.target.components.tool.data.available = false;
+
                 //remove physics from element as it is being carried
                 Context_AF.el.removeAttribute('dynamic-body'); 
                 // set selected object to this
                 scene.selectedObject = el.id;
-
                 // reformat data
                 let pos = data.position.split(" ");
                 let rot = data.rotation.split(" ");
@@ -41,9 +45,7 @@ AFRAME.registerComponent('object-pickup', {
                 
                 // show the placeholder object
                 let placeholders = document.getElementsByClassName(Context_AF.el.id + "_placeholder");
-                console.log(placeholders);
                 for(i = 0; i < placeholders.length; i++) {
-                    console.log(placeholders[i]);
                     placeholders[i].object3D.visible = true;
                 }
             }
