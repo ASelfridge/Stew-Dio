@@ -19,10 +19,11 @@ AFRAME.registerComponent('object-pickup', {
         const scene = document.querySelector('a-scene');
 
         el.addEventListener('mousedown', function(event) {
+            console.log(el);
             // check that no object is currently being held and not outside of maxDistance range
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
                 //remove physics from element as it is being carried
-                Context_AF.el.removeAttribute('dynamic-body'); 
+                Context_AF.el.components['dynamic-body'].pause()
                 // set selected object to this
                 scene.selectedObject = el.id;
 
@@ -41,9 +42,9 @@ AFRAME.registerComponent('object-pickup', {
                 
                 // show the placeholder object
                 let placeholders = document.getElementsByClassName(Context_AF.el.id + "_placeholder");
-                console.log(placeholders);
+                //console.log(placeholders);
                 for(i = 0; i < placeholders.length; i++) {
-                    console.log(placeholders[i]);
+                    //console.log(placeholders[i]);
                     placeholders[i].object3D.visible = true;
                 }
             }
