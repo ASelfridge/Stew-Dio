@@ -1,4 +1,5 @@
 AFRAME.registerComponent('object-pickup', {
+    dependencies: ['raycaster'],
     schema: {
         position: {default: '0 -1 0'},
         rotation: {default: '0 0 0'}
@@ -18,33 +19,39 @@ AFRAME.registerComponent('object-pickup', {
 
         const scene = document.querySelector('a-scene');
 
-        el.addEventListener('mousedown', function(event) {
-            // check that no object is currently being held and not outside of maxDistance range
-            if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
-                //remove physics from element as it is being carried
-                Context_AF.el.removeAttribute('dynamic-body'); 
-                // set selected object to this
-                scene.selectedObject = el.id;
+        el.addEventListener('raycaster-intersected', function(event) {
+            console.log(event);
+            if(scene.triggerDown) {
+                //check that no object is currently being held and not outside of maxDistance range
+                if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
+                    //remove physics from element as it is being carried
+                    Context_AF.el.removeAttribute('dynamic-body'); 
+                    // set selected object to this
+                    scene.selectedObject = el.id;
+                    scene.querySelector('#gearControls').setAttribute('line', {opacity: 0});
 
-                // reformat data
-                let pos = data.position.split(" ");
-                let rot = data.rotation.split(" ");
+                    // reformat data
+                    let pos = data.position.split(" ");
+                    let rot = data.rotation.split(" ");
 
-                // reset scale and rotation back to original state
-                Context_AF.el.object3D.scale.set(Context_AF.el.ogScale.x, Context_AF.el.ogScale.y, Context_AF.el.ogScale.z);
-                Context_AF.el.object3D.rotation.set(Context_AF.el.ogRot.x, Context_AF.el.ogRot.y, Context_AF.el.ogRot.z);
+                    // reset scale and rotation back to original state
+                    Context_AF.el.object3D.scale.set(Context_AF.el.ogScale.x, Context_AF.el.ogScale.y, Context_AF.el.ogScale.z);
+                    Context_AF.el.object3D.rotation.set(Context_AF.el.ogRot.x, Context_AF.el.ogRot.y, Context_AF.el.ogRot.z);
 
-                // parent to cursor
-                Context_AF.el.object3D.parent = document.getElementById("cursor").object3D;
-                Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
-                Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
-                
-                // show the placeholder object
-                let placeholders = document.getElementsByClassName(Context_AF.el.id + "_placeholder");
-                console.log(placeholders);
-                for(i = 0; i < placeholders.length; i++) {
-                    console.log(placeholders[i]);
-                    placeholders[i].object3D.visible = true;
+                    // parent to cursor
+                    Context_AF.el.object3D.parent = document.getElementById("gearControls").object3D;
+                    // Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
+                    // Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
+                    Context_AF.el.object3D.position.set(0,-1.5,-0.5);
+                    Context_AF.el.object3D.rotation.set(0,-160,0);
+                    
+                    // show the placeholder object
+                    // let placeholders = document.getElementsByClassName(Context_AF.el.id + "_placeholder");
+                    // console.log(placeholders);
+                    // for(i = 0; i < placeholders.length; i++) {
+                    //     console.log(placeholders[i]);
+                    //     placeholders[i].object3D.visible = true;
+                    // }
                 }
             }
         });

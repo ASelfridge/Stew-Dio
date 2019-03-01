@@ -1,4 +1,5 @@
 AFRAME.registerComponent('object-place', {
+    dependencies: ['raycaster'],
     schema: {
         hasCollision: {default: false}
     },
