@@ -19,7 +19,8 @@
   "homepage": "https://github.com/ASelfridge/Stew-Dio#readme",
   "dependencies": {
     "aframe-click-drag-component": "^3.0.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "socketio": "^1.0.0"
   },
   "devDependencies": {}
 }

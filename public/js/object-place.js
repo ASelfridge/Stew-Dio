@@ -33,8 +33,9 @@ AFRAME.registerComponent('object-place', {
                     Context_AF.el.setAttribute('dynamic-body', {});
                 }
 
-                // set availability to true
-                object.object3D.el.components.tool.data.available=true;
+                // Pass object ID to sockets to set as available
+                socket.emit('objAvailble', object.object3D.el.id);
+
 
                 // set selectedObject back to null
                 scene.selectedObject = null;

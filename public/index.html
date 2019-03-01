@@ -13,6 +13,26 @@
         <script src="js/new-recipe.js"></script>
         <script src="js/tool-component.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+    
+        <script>
+            let socket = io();
+            let noTouchyList = [];
+            //default connect event
+            socket.on('connect', function() {
+                console.log("connected!");
+            });
+            socket.on('unavailable', function(data) {
+                console.log(socket.id + " picked up " + data);
+                noTouchyList.push(data);
+            });
+            socket.on('available', function(data) {
+                console.log(socket.id + " put down " + data);
+                noTouchyList.splice(noTouchyList.indexOf(data), 1);
+            });
+           
+        </script>
+
 
         <script>
             AFRAME.registerComponent('loadscripts', {
@@ -47,6 +67,7 @@
         </script>
     </head>
     <body>
+
         <a-scene>
             
             <!-------------- TEXTURES ---------------->

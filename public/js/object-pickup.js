@@ -21,10 +21,21 @@ AFRAME.registerComponent('object-pickup', {
             // check that no object is currently being held and not outside of maxDistance range and that it's available
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
                 // Check if object is in 'unavailable' array
+                if(event.target.components.tool)
+                {
+                    if(noTouchyList.includes(event.target.id)){
+                        console.log('YOU SHALL NOT PASS');
+                    }
+                    else{
+                        // Passing object to sockets to set as unavailable
+                        socket.emit('objUnavailble', event.target.id);
+                    }
+                }
                     //if yes -- break
                     //if no -- set Object availability to false
                 
-                event.target.components.tool.data.available = false;
+               
+               
 
                 //remove physics from element as it is being carried
                 Context_AF.el.removeAttribute('dynamic-body'); 
