@@ -81,6 +81,17 @@
                 <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item>
                 <a-asset-item id="interactableIngredient_model" src="assets/models/ingredient.obj"></a-asset-item>
                 <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item>
+
+                <a-asset-item id="mushroomWhole_model" src="assets/models/mushroom.obj"></a-asset-item>
+                <a-asset-item id="potatoWhole_model" src="assets/models/potato.obj"></a-asset-item>
+                <a-asset-item id="carrotWhole_model" src="assets/models/carrot.obj"></a-asset-item>
+                <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
+                <a-asset-item id="celeryWhole_model" src="assets/models/celery.obj"></a-asset-item>
+                <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
+                <a-asset-item id="cornWhole_model" src="assets/models/corn.obj"></a-asset-item>
+
+                <a-asset-item id="stringLights_model" src="assets/models/stringLights.obj"></a-asset-item>
+
             </a-assets>
 
 
@@ -106,6 +117,17 @@
             <a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
 
 
+            <a-entity id="stringLights" obj-model="obj:#stringLights_model" position="2.438 3.050 -0.151" rotation="0 19.689 0" scale="" shadow="">
+            </a-entity>
+            <a-entity id="stringLights2" obj-model="obj:#stringLights_model" position="7.037 3.050 6.196" rotation="0 -50.475 0" scale="" shadow="">
+            </a-entity>
+            <a-entity id="stringLights3" obj-model="obj:#stringLights_model" position="-9.456 3.050 17.222" rotation="0 55.119 0" scale="" shadow="">
+            </a-entity>
+            <a-entity id="stringLights4" obj-model="obj:#stringLights_model" position="-9.111 3.050 11.494" rotation="0 158.716 0" scale="" shadow="">
+            </a-entity>
+            <a-entity id="stringLights5" obj-model="obj:#stringLights_model" position="-7.700 4.657 -1.675" rotation="0 89.742 0" scale="" shadow="">
+            </a-entity>
+
             <!-- CUSTOMER SERVICE -->
             <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="" sound="src:#customerBellSrc">
             </a-entity>
@@ -124,6 +146,21 @@
             <a-entity id="interactableIngredient" dynamic-body object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#interactableIngredient_model" material="color: #477725" position="-2.509 2.021 11.445" rotation="0 0 0" scale="" shadow=""> 
             </a-entity>
 
+            <a-entity id="mushroom" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#mushroomWhole_model" material="color: #D8CCC0" position="2.3 1.813 11.938" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+            <a-entity id="potato" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#potatoWhole_model" material="color: #b79268" position="1.8 1.813 11.938" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+            <a-entity id="carrot" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#carrotWhole_model" material="color: #ed9121" position="1.8 1.813 12.2" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+            <a-entity id="squash" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#squashWhole_model" material="color: #CFBA5F" position="2 1.813 13" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+            <a-entity id="celery" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#celeryWhole_model" material="color: #9DCE5C" position="2.5 1.813 13" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+            <a-entity id="onion" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#onionWhole_model" material="color: #c18747" position="3 1.813 12.5" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+            <a-entity id="corn" object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#cornWhole_model" material="color: #d1b508" position="2.5 1.813 12.5" rotation="0 0 0" scale="" shadow=""> 
+            </a-entity>
+
             <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity>
 
@@ -135,7 +172,7 @@
             <!-- PREPERATION STATION-->
             <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
 
-                    <a-entity obj-model="obj:#table_model" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
+                    <a-entity static-body obj-model="obj:#table_model" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
                     </a-entity>
                     
                     <!-- CUTTING BOARD AREA -->
