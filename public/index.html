@@ -8,6 +8,7 @@
 		<script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
     	<script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
         <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+        <script src="js/master.js"></script>
         <script src="js/object-pickup.js"></script>
         <script src="js/object-place.js"></script>
         <script src="js/new-recipe.js"></script>
@@ -51,6 +52,9 @@
             <!-------------- TEXTURES ---------------->
             <a-assets>
                 <img id="skymap" src="assets/textures/sunsetGradient.png" />
+                <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
+                <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+                
 
             </a-assets>
 
@@ -81,6 +85,9 @@
                 <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item>
                 <a-asset-item id="interactableIngredient_model" src="assets/models/ingredient.obj"></a-asset-item>
                 <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item>
+
+                <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+
             </a-assets>
 
 
@@ -110,7 +117,11 @@
             <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="" sound="src:#customerBellSrc">
             </a-entity>
 
-            <a-entity new-recipe id="character" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="" sound="src: #customerGreetingSrc">
+            <a-entity new-recipe id="character1" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="" sound="src: #customerGreetingSrc">
+            </a-entity>
+            
+                <!-- speech bubble is loaded before the floor until it is displayed -->
+            <a-entity id="speechBubble" obj-model="obj:#speechBubble_model" material="color:#ffffff" position="1.285 -2 -1.975" rotation="0 -30.385 0" scale="" shadow="">
             </a-entity>
 
             <a-plane static-body id="ingredientStationCollisionPlane" position="-0.052 1.900 -0.942" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" scale="2.380 1.8 3.2" shadow></a-plane>
@@ -221,3 +232,5 @@
         </a-scene>
     </body>
 </html>
+
+
