@@ -124,8 +124,8 @@
 
 
             <!-- SOUNDS ENTITIES -->
-            <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
-            <a-entity id="ambiance" sound="src:#ambianceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
+            <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
+            <a-entity id="ambiance" sound="src:#ambianceSrc; volume: .8; loop: true; positional:false"></a-entity>
 
 
             <!-- CUSTOMER SERVICE -->
@@ -196,7 +196,15 @@
                     <a-entity id="stove" obj-model="obj:#stove_model" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
 
-                    <a-entity id="fryingPan" obj-model="obj:#fryingPan_model" position="-0.356 2.004 -0.561" rotation="0 180 0" scale="0.5 0.5 0.5" shadow="">
+                    <a-entity 
+                        id="fryingPan" 
+                        obj-model="obj:#fryingPan_model" 
+                        position="-0.356 2.004 -0.561" 
+                        rotation="0 180 0" 
+                        scale="0.5 0.5 0.5" 
+                        shadow=""
+                        
+                        tool>
                     </a-entity>
 
                     <a-plane static-body id="fryingPanCollisionPlane" position="-0.356 1.9 -0.561" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
@@ -224,7 +232,17 @@
                 <a-entity obj-model="obj:#pot_model" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
                 </a-entity>
     
-                <a-entity object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" id="ladle" obj-model="obj:#ladle_model" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity 
+                    id="ladle" 
+                    obj-model="obj:#ladle_model" 
+                    material="color: #477725;" 
+                    position="-1.09022 1.11093 -0.09321" 
+                    rotation="-21.120943201907536 7.320681748386528 0" 
+                    scale="" 
+                    shadow=""
+                    
+                    object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" 
+                    tool>
                 </a-entity>
                 <a-entity object-place id="ladle_placeholder" class="ladle_placeholder" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
                 </a-entity>
