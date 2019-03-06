@@ -34,7 +34,7 @@ AFRAME.registerComponent('object-place', {
                 }
 
                 // Pass object ID to sockets to set as available
-                socket.emit('objAvailble', object.object3D.el.id);
+                //socket.emit('objAvailble', object.object3D.el.id);
 
 
                 // set selectedObject back to null

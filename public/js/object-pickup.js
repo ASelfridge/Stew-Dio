@@ -28,7 +28,7 @@ AFRAME.registerComponent('object-pickup', {
                     }
                     else{
                         // Passing object to sockets to set as unavailable
-                        socket.emit('objUnavailble', event.target.id);
+                        //socket.emit('objUnavailble', event.target.id);
                     }
                 }
                     //if yes -- break

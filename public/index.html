@@ -13,9 +13,12 @@
         <script src="js/new-recipe.js"></script>
         <script src="js/tool-component.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/socket.io.min.js"></script>
+        <script src="js/easyrtc.js"></script>
+        <script src="js/networked-aframe.min.js"></script>
+        
     
-        <script>
+        <!-- <script>
             let socket = io();
             let noTouchyList = [];
             //default connect event
@@ -31,8 +34,16 @@
                 noTouchyList.splice(noTouchyList.indexOf(data), 1);
             });
            
-        </script>
+        </script> -->
 
+    <script>
+        NAF.schemas.add({
+            template: '#avatar-template',
+            
+
+        });
+       
+    </script>
 
         <script>
             AFRAME.registerComponent('loadscripts', {
@@ -68,7 +79,7 @@
     </head>
     <body>
 
-        <a-scene>
+        <a-scene networked-scene="room:StewIt;">
             
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -89,6 +100,9 @@
 
             <!---------------- MODELS ---------------->
             <a-assets>
+                <template id="avatar-template">
+                        <a-sphere></a-sphere>
+                </template>
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>
                 <a-asset-item id="table_model" src="assets/models/table.obj"></a-asset-item>
                 <a-asset-item id="knife_model" src="assets/models/knife.obj"></a-asset-item>
@@ -107,7 +121,7 @@
 
 
             <!---------------- CAMERA ---------------->
-           <a-entity id="cameraRig" position="0 1.9 3" rotation="0 180 0">
+           <a-entity id="cameraRig" networked="template:#avatar-template;" position="0 1.9 3" rotation="0 180 0" >
                 <a-camera id="sceneCamera">
                     <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1">
                     </a-entity>
@@ -121,7 +135,6 @@
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
-
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
