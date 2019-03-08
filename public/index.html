@@ -13,6 +13,7 @@
         <script src="js/object-pickup.js"></script>
         <script src="js/object-place.js"></script>
         <script src="js/new-recipe.js"></script>
+        <script src="js/detect-collision.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
 
         <script>
@@ -43,11 +44,14 @@
                     });
                 }
             });
+
+            
             
         </script>
+
     </head>
     <body>
-        <a-scene>
+        <a-scene physics="debug: true">
             
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -114,7 +118,20 @@
 
 
             <!-- CUSTOMER SERVICE -->
-            <a-entity id="customerStation" obj-model="obj:#customerService_model" position="-0.00961 0 -0.85382" rotation="" scale="" shadow="" sound="src:#customerBellSrc">
+            <a-entity 
+                id="customerStation" 
+                obj-model="obj:#customerService_model" 
+                position="-0.00961 0 -0.85382" 
+                rotation="" 
+                scale="" 
+                shadow="" 
+                sound="src:#customerBellSrc"
+
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                halfExtents: 2.95 1.9 1.1;
+                offset: 0 0 0;">
             </a-entity>
 
             <a-entity new-recipe id="character1" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="" sound="src: #customerGreetingSrc">
@@ -124,16 +141,34 @@
             <a-entity id="speechBubble" obj-model="obj:#speechBubble_model" material="color:#ffffff" position="1.285 -2 -1.975" rotation="0 -30.385 0" scale="" shadow="">
             </a-entity>
 
-            <a-plane static-body id="ingredientStationCollisionPlane" position="-0.052 1.900 -0.942" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" scale="2.380 1.8 3.2" shadow></a-plane>
-
-
 
             <!-- INGREDIENT STATION-->
-            <a-entity id="ingredientStation" static-body obj-model="obj:#ingredientStation_model" position="-3.828 0 11.265" rotation="0 324 0" scale="" shadow="">
-            </a-entity>
+            <a-entity 
+                id="ingredientStation" 
+                obj-model="obj:#ingredientStation_model" 
+                position="-3.828 0 11.265" 
+                rotation="0 324 0" 
+                scale="" 
+                shadow=""
 
-            <a-entity class="collidable" id="interactableIngredient" dynamic-body object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0" obj-model="obj:#interactableIngredient_model" material="color: #477725" position="-2.509 2.021 11.445" rotation="0 0 0" scale="" shadow=""> 
-            </a-entity>
+                static-body
+            ></a-entity>
+
+            <a-entity 
+                id="interactableIngredient"
+                class="collidable" 
+                obj-model="obj:#interactableIngredient_model" 
+                material="color: #477725" 
+                position="-2.509 2.021 11.445" 
+                rotation="0 0 0" 
+                scale="" 
+                shadow=""
+                
+                dynamic-body
+                detect-collision
+
+                object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
+               ></a-entity> 
 
             <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity>
@@ -146,22 +181,61 @@
             <!-- PREPERATION STATION-->
             <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
 
-                    <a-entity obj-model="obj:#table_model" position="-1 -0.1 0" rotation="0 90 0" scale="" shadow="">
+                    <a-entity 
+                        id=prepStationTable 
+                        obj-model="obj:#table_model" 
+                        position="-1 -0.1 0" 
+                        rotation="0 90 0" 
+                        scale="" 
+                        shadow=""
+
+                        body="type: static; shape:none;"
+
+                        shape__main="shape: box;
+                        halfExtents: 2.95 1.9 1.1;
+                        offset: 0 0 0;">
                     </a-entity>
                     
-                    <!-- CUTTING BOARD AREA -->
+                    <!-- CUTTING BOARD AREA  position="-0.198 1.481 0.2"-->
                     <a-entity rotation="0 90 0" position="-1.13659 0.39414 -0.46369"> 
     
                         <a-entity obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                         </a-entity>
-                        <a-entity class="collidable" object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" id="knife" obj-model="obj:#knife_model" material="color: #477725" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
+                        <a-entity
+                            id="knife" 
+                            class="collidable" 
+                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" 
+                            obj-model="obj:#knife_model" 
+                            material="color: #477725" 
+                            position="-0.198 1.481 0.2" 
+                            rotation="-3.2 19.9 90" 
+                            scale="1.5 1.5 1.5" 
+                            shadow=""
+                            
+                            body="type: static; shape:none;"
+
+                            shape__main="shape: box;
+                            halfExtents: 0.02 0.07 0.3;
+                            offset: 0 0.08 -0.07;">
                         </a-entity>
                         <a-entity object-place id="knife_placeholder" class="knife_placeholder collidable" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
                         </a-entity>
-
-                        <a-plane static-body id="knifeCollisionPlane" position="-0.436 1.35 0.329" width="1" height="1" scale="1 0.64 1" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
         
-                        <a-entity obj-model="obj:#carrot_model" position="-0.93936 1.39013 0.28187" rotation="0 -112.6 0" scale="0.3 0.3 0.3" shadow="">
+                        <a-entity 
+                            obj-model="obj:#carrot_model" 
+                            detect-collision 
+                            position="-0.93936 1.39013 0.28187" 
+                            rotation="0 -112.6 0" 
+                            scale="0.3 0.3 0.3" 
+                            shadow=""
+
+                            body="type: dynamic; shape:none; linearDamping: 0.9; angularDamping: 0.9"
+                            
+
+                            shape__main="shape: box;
+                            halfExtents: 0.2 0.2 1.5;
+                            offset: 0 0.3 0.2;">
+                            >
                         </a-entity>
         
                     </a-entity>
@@ -171,16 +245,11 @@
             <!-- COOKING AREA -->
             <a-entity id="cookingStation" rotation="0 107.58 0" position="6.08818 0 4.25484"> 
 
-                    <a-entity static-body obj-model="obj:#table_model" position="" rotation="" scale="" shadow="">
+                    <a-entity obj-model="obj:#table_model" position="" rotation="" scale="" shadow="">
                     </a-entity>
     
                     <a-entity id="stove" obj-model="obj:#stove_model" position="0.04297 -0.34832 -0.16904" rotation="0 180 0" scale="0.8 0.8 0.8" shadow="">
                     </a-entity>
-
-                    <!-- <a-entity id="fryingPan" obj-model="obj:#fryingPan_model" position="-0.356 2.004 -0.561" rotation="0 180 0" scale="0.5 0.5 0.5" shadow="">
-                    </a-entity>
-
-                    <a-plane static-body id="fryingPanCollisionPlane" position="-0.356 1.9 -0.561" width="1" height="1" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane> -->
 
                     <a-entity 
                         id="fryingPan" 
@@ -194,8 +263,8 @@
 
                         shape__main="shape: box;
                         height: 0.1;
-                        halfExtents: 1 0.1 1;
-                        offset: 0 -.1 0;">
+                        halfExtents: 1 0.5 1;
+                        offset: 0 -0.5 0;">
                     </a-entity>
 
             </a-entity>
@@ -218,7 +287,20 @@
                 <a-entity obj-model="obj:#table_model" position="0.66201 0 -0.81071" rotation="0 -55.75395008638529 0" scale="0.41442 0.81438 0.5" shadow="">
                 </a-entity>
 
-                <a-entity obj-model="obj:#pot_model" position="-0.77368 -0.1 0.25715" rotation="0 90 0" scale="0.8 0.8 0.8" shadow="">
+                <a-entity 
+                    id="stewPot"
+                    obj-model="obj:#pot_model" 
+                    position="-0.77368 -0.1 0.25715" 
+                    rotation="0 90 0" 
+                    scale="0.8 0.8 0.8" 
+                    shadow=""
+
+                    body="type: static; shape:none;"
+
+                    shape__main="shape: cylinder;
+                    height: 4;
+                    radiusTop: 1.3;
+                    radiusBottom: 1.3;">
                 </a-entity>
     
                 <a-entity class="collidable" object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" id="ladle" obj-model="obj:#ladle_model" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
@@ -232,7 +314,6 @@
                 </a-entity>
     
             </a-entity>
-
 
             
             <!-- GROUND & SKY -->

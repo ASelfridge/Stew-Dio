@@ -62,6 +62,8 @@ AFRAME.registerComponent('object-pickup', {
                 el.object3D.parent = document.getElementById("cursor").object3D;
                 el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
                 el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
+                
+                
             }
             else{
                 // parent to gear vr controller
@@ -72,6 +74,8 @@ AFRAME.registerComponent('object-pickup', {
                 //el.object3D.scale.set(0.75, 0.75, 0.75);
                 el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
             }
+
+            //el.setAttribute('static-body', {});
 
             // show the placeholder object
             let placeholders = document.getElementsByClassName(el.id + "_placeholder");
