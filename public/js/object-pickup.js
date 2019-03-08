@@ -9,6 +9,8 @@ AFRAME.registerComponent('object-pickup', {
         const el = Context_AF.el;
         const data = Context_AF.data;
 
+        let scene = document.querySelector('a-scene');
+
         el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
         el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) ));
@@ -17,13 +19,14 @@ AFRAME.registerComponent('object-pickup', {
         // pickup functionality for oculus go
        if(oculusGo) {
             el.addEventListener('raycaster-intersected', function(e) {
-                console.log('intersect!');
-                // check that user is holding the trigger down
-                if(scene.triggerDown){
-                    console.log("intersect with trigger down!");
-                    Context_AF.pickup(e, true);
+                // check that no object is currently being held
+                if(scene.selectedObject == null) {
+                    // check that user is holding the trigger down
+                    if(scene.triggerDown){
+                        Context_AF.pickup(e, true);
+                    }
                 }
-                // need to add support for picking up if trigger down after instersect happens
+                // need to add support for picking up if trigger down after instersect happens !!!!!!!!!!!!!
             });
         }
         // pickup functionality for mobile/desktop
@@ -38,8 +41,8 @@ AFRAME.registerComponent('object-pickup', {
         const el = Context_AF.el;
         const data = Context_AF.data;
         let scene = document.querySelector('a-scene');
-        //check that no object is currently being held and not outside of maxDistance range
-        if(scene.selectedObject == null && e.detail.intersection.distance <= maxDistance) {
+        //check that not outside of maxDistance range
+        if(e.detail.intersection.distance <= maxDistance) {
             //remove physics from element as it is being carried
             Context_AF.el.removeAttribute('dynamic-body');
 
@@ -63,8 +66,11 @@ AFRAME.registerComponent('object-pickup', {
             else{
                 // parent to gear vr controller
                 el.object3D.parent = document.getElementById("gearControls").object3D;
-                el.object3D.position.set(0,-1.5,-0.5);
-                el.object3D.rotation.set(0,-160,0);
+                //el.object3D.position.set(0,-1.5,-0.5);
+                //el.object3D.rotation.set(0,-160,0);
+                el.object3D.position.set(0,0,-1);
+                //el.object3D.scale.set(0.75, 0.75, 0.75);
+                el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
             }
 
             // show the placeholder object
