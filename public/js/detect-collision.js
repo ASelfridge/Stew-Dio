@@ -7,8 +7,8 @@
                 interactableObject = e.detail.target.el;  // Original entity (playerEl).
                 collisionObject = e.detail.body.el;    // Other entity, which playerEl touched.
 
-                console.log(e)
-                console.log(interactableObject.id + ' has collided with ' + e.detail.body.el.id);
+                //console.log(e)
+                //console.log(interactableObject.id + ' has collided with ' + e.detail.body.el.id);
             })
         }
     });

@@ -1,11 +1,10 @@
 //Device Detect 
-let userAgentStr = window.navigator.userAgent;
-console.log (userAgentStr);
+//let userAgentStr = window.navigator.userAgent;
 
-let regexStr = /(?:^|\W)Pacific(?:$|\W)+/;
-let oculusGo = regexStr.test(userAgentStr);
+//let regexStr = /(?:^|\W)Pacific(?:$|\W)+/;
+//var oculusGo = regexStr.test(userAgentStr);
 let headSet = AFRAME.utils.device.checkHeadsetConnected ();
-let mobile = AFRAME.utils.device.isMobile();
+//var mobile = AFRAME.utils.device.isMobile();
 
 let scene = document.querySelector('a-scene');
 let camera = scene.querySelector('#sceneCamera');
@@ -15,7 +14,12 @@ if (oculusGo){
   console.log("Oculus Go Device Connected");
 
   let ogControls = document.createElement('a-entity');
+  ogControls.id = "gearControls";
   ogControls.setAttribute('gearvr-controls', 'hand', 'right');
+  ogControls.setAttribute('raycaster', {objects: '.collidable', far: 10});
+  ogControls.setAttribute('line', {color: 'white', opacity: 0.3, end: {x:0, y:0, z:-2}});
+  ogControls.setAttribute('trigger', '');
+
   ogControls.setAttribute('teleport-controls', 'cameraRig', '#cameraRig');
   camRig.appendChild(ogControls);
 

@@ -1,4 +1,5 @@
 AFRAME.registerComponent('object-place', {
+    dependencies: ['raycaster'],
     schema: {
         hasCollision: {default: false}
     },
@@ -7,52 +8,97 @@ AFRAME.registerComponent('object-place', {
         const el = Context_AF.el;
         const data = Context_AF.data;
 
-        const scene = document.querySelector('a-scene')
+        // whether or not has intersected with raycaster
+        el.intersected = false;
 
-        document.addEventListener('keydown', function(event) {
-            if (event.code == 'KeyZ') {
-                console.log("keyPressed");
-                let object_id = el.id.substr(0, el.id.indexOf('_'));
-                let object = document.querySelector("#" + object_id);
-                object.components['dynamic-body'].play();
-                scene.selectedObject = null;
-            }
-        });
+        // store sibling object
+        let object_id = el.id.substr(0, el.id.indexOf('_'));
 
-        Context_AF.el.addEventListener('mousedown', function(event) {
-            
-            
-            // store sibling object
-            let object_id = el.id.substr(0, el.id.indexOf('_'));
-            let object = document.querySelector("#" + object_id);
+        let scene = document.querySelector('a-scene');
 
-            
-
-            // only move to placeholder position if held object is sibling of placeholder and within max distance
-            if(scene.selectedObject == object_id && event.detail.intersection.distance <= maxDistance) {
-                // hide placeholders
-                let placeholders = document.getElementsByClassName(object_id + "_placeholder");
-                for(i = 0; i < placeholders.length; i++) {
-                    placeholders[i].object3D.visible = false;
+        if(oculusGo) {
+            // intersect with element
+            el.addEventListener('raycaster-intersected', function(e){
+                if(scene.triggerDown) {
+                    el.intersected = true;
+                    el.intersectDistance = e.detail.intersection.distance;
                 }
-
-                
-                // move object to placeholder location
-                object.object3D.parent = el.object3D;
-                object.object3D.position.set(0,0,0);
-                object.object3D.scale.set(1,1,1);
-                object.object3D.rotation.set(0,0,0);
-
-                if(data.hasCollision){
-                    object.components['dynamic-body'].play();
-                    console.log(object);
+            });
+            // clear intersection
+            el.addEventListener('raycaster-intersected-cleared', function(e){
+                if(scene.triggerDown) {
+                    el.intersected = false;
                 }
+            });
+        }
+        // mobile/desktop
+        else {
+            el.addEventListener('mousedown', function(e) {
+                // clicked placeholder and close enough
+                if(scene.selectedObject == object_id && e.detail.intersection.distance <= maxDistance) {
+                    Context_AF.place();
+                }
+            })
+        }
+    },
+    place : function() {
+        let Context_AF = this;
+        let el = Context_AF.el;
+        let data = Context_AF.data;
 
-                
+        // store sibling object
+        let object_id = el.id.substr(0, el.id.indexOf('_'));
+        let object = document.querySelector("#" + object_id);
 
-                // set selectedObject back to null
-                scene.selectedObject = null;
-            }
-        });
+        el.intersected = false;
+
+        // hide placeholders
+        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        for(i = 0; i < placeholders.length; i++) {
+            placeholders[i].object3D.visible = false;
+        }
+
+        // move object to placeholder location
+        object.object3D.parent = el.object3D.parent;
+
+        let pos = el.object3D.position;
+        let scale = el.object3D.scale;
+        let rot = el.object3D.rotation;
+        
+        object.object3D.position.set(pos.x, pos.y, pos.z);
+        object.object3D.scale.set(scale.x, scale.y, scale.z);
+        object.object3D.rotation.set(rot.x, rot.y, rot.z);
+
+        // assign physics if necessary
+        if(data.hasCollision){
+            object.setAttribute('dynamic-body', {});
+        }
+
+        // set selectedObject back to null
+        scene.selectedObject = null;
+    },
+    drop : function() {
+        let Context_AF = this;
+        let el = Context_AF.el;
+        let scene = document.querySelector('a-scene');
+
+        // store sibling object
+        let object_id = el.id.substr(0, el.id.indexOf('_'));
+        let object = document.querySelector("#" + object_id);
+
+        // hide placeholders
+        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        for(i = 0; i < placeholders.length; i++) {
+            placeholders[i].object3D.visible = false;
+        }
+
+        // assigning starting attributes
+        object.object3D.parent = object.ogParent;
+        object.object3D.position.set(object.ogPos.x, object.ogPos.y, object.ogPos.z);
+        object.object3D.rotation.set(object.ogRot._x, object.ogRot._y, object.ogRot._z);
+        object.object3D.scale.set(object.ogScale.x, object.ogScale.y, object.ogScale.z);
+        
+        // no selected object
+        scene.selectedObject = null;
     }
 });
