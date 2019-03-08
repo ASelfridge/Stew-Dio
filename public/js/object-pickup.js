@@ -14,9 +14,9 @@ AFRAME.registerComponent('object-pickup', {
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
         el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) ));
         el.ogParent = Context_AF.el.object3D.parent;    // will need when object can be placed back in og spot
-
+        
         const scene = document.querySelector('a-scene');
-
+        
         el.addEventListener('mousedown', function(event) {
             // check that no object is currently being held and not outside of maxDistance range and that it's available
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
@@ -29,6 +29,8 @@ AFRAME.registerComponent('object-pickup', {
                     else{
                         // Passing object to sockets to set as unavailable
                         //socket.emit('objUnavailble', event.target.id);
+                        //scene.emit('objUnavailble');
+                        //console.log('ASDFGHJK');
                     }
                 }
                     //if yes -- break
@@ -41,6 +43,11 @@ AFRAME.registerComponent('object-pickup', {
                 Context_AF.el.removeAttribute('dynamic-body'); 
                 // set selected object to this
                 scene.selectedObject = el.id;
+                
+                //el.setAttribute('networked', 'template', '#object-template');
+                //el.setAttribute('networked', 'attachTemplateToLocal', true);
+                console.log(el)
+                console.log(el.components['networked']);
                 // reformat data
                 let pos = data.position.split(" ");
                 let rot = data.rotation.split(" ");
@@ -51,6 +58,7 @@ AFRAME.registerComponent('object-pickup', {
 
                 // parent to cursor
                 Context_AF.el.object3D.parent = document.getElementById("cursor").object3D;
+                //console.log(Context_AF.el.object3D.parent);
                 Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
                 Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
                 

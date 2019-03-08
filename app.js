@@ -31,8 +31,8 @@ app.get('/test', function(req, res) {
 });
 
 
-// Logging Websocket connection IDs
-// socketIO.on('connection', function(socket) {
+// //Logging Websocket connection IDs
+// socketIo.on('connection', function(socket) {
 //     console.log(socket.id + ' has connected!');
 
 //     socket.on('disconnect', function(data) {
@@ -45,10 +45,11 @@ app.get('/test', function(req, res) {
 
 //     //Passing object info 
 //     socket.on('objUnavailble', function(data) {
-//         socketIO.sockets.emit('unavailable', data);
+//         console.log('GOt to sockets');
+//         socketIo.sockets.emit('unavailable', data);
 //     });
 //     socket.on('objAvailble', function(data) {
-//         socketIO.sockets.emit('available', data);
+//         socketIo.sockets.emit('available', data);
 //     });
 // });
 

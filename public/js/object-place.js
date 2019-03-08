@@ -39,7 +39,7 @@ AFRAME.registerComponent('object-place', {
 
                 // set selectedObject back to null
                 scene.selectedObject = null;
-
+                el.removeAttribute('networked');
                 
                 
                 

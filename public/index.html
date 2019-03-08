@@ -18,32 +18,24 @@
         <script src="js/networked-aframe.min.js"></script>
         
     
-        <!-- <script>
-            let socket = io();
+        <script>
+            // let socket = io();
             let noTouchyList = [];
-            //default connect event
-            socket.on('connect', function() {
-                console.log("connected!");
-            });
-            socket.on('unavailable', function(data) {
-                console.log(socket.id + " picked up " + data);
-                noTouchyList.push(data);
-            });
-            socket.on('available', function(data) {
-                console.log(socket.id + " put down " + data);
-                noTouchyList.splice(noTouchyList.indexOf(data), 1);
-            });
+            // //default connect event
+            // socket.on('connect', function() {
+            //     console.log("connected!");
+            // });
+            // socket.on('unavailable', function(data) {
+            //     console.log(socket.id + " picked up " + data);
+            //     noTouchyList.push(data);
+            // });
+            // socket.on('available', function(data) {
+            //     console.log(socket.id + " put down " + data);
+            //     noTouchyList.splice(noTouchyList.indexOf(data), 1);
+            // });
            
         </script> -->
 
-    <script>
-        NAF.schemas.add({
-            template: '#avatar-template',
-            
-
-        });
-       
-    </script>
 
         <script>
             AFRAME.registerComponent('loadscripts', {
@@ -84,7 +76,19 @@
             <!-------------- TEXTURES ---------------->
             <a-assets>
                 <img id="skymap" src="assets/textures/sunsetGradient.png" />
+            </a-assets>
 
+           <!---------------- AVATARS ---------------->
+            <a-assets>
+                <template id="avatar-template">
+                    <a-entity class="avatar">
+                    <a-sphere class="head"
+                        color="#5985ff"
+                        scale="0.45 0.5 0.4"
+                        random-color
+                    ></a-sphere>
+                    </a-entity>
+                </template>
             </a-assets>
 
 
@@ -100,9 +104,6 @@
 
             <!---------------- MODELS ---------------->
             <a-assets>
-                <template id="avatar-template">
-                        <a-sphere></a-sphere>
-                </template>
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>
                 <a-asset-item id="table_model" src="assets/models/table.obj"></a-asset-item>
                 <a-asset-item id="knife_model" src="assets/models/knife.obj"></a-asset-item>
@@ -121,7 +122,7 @@
 
 
             <!---------------- CAMERA ---------------->
-           <a-entity id="cameraRig" networked="template:#avatar-template;" position="0 1.9 3" rotation="0 180 0" >
+           <a-entity id="cameraRig" position="0 1.9 3" rotation="0 180 0" >
                 <a-camera id="sceneCamera">
                     <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1">
                     </a-entity>
@@ -164,7 +165,7 @@
 
 
             <!-- this is the second red placement indicator for the stew  -->
-                <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
+            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity>
 
             <!-- PREPERATION STATION-->
