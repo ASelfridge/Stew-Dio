@@ -17,31 +17,21 @@ AFRAME.registerComponent('object-place', {
         let scene = document.querySelector('a-scene');
 
         if(oculusGo) {
-            console.log('working!');
+            // intersect with element
             el.addEventListener('raycaster-intersected', function(e){
-                console.log("intersectedplaceholder");
                 if(scene.triggerDown) {
                     el.intersected = true;
                     el.intersectDistance = e.detail.intersection.distance;
                 }
             });
+            // clear intersection
             el.addEventListener('raycaster-intersected-cleared', function(e){
                 if(scene.triggerDown) {
                     el.intersected = false;
                 }
             });
-            el.addEventListener('triggerup', function(e) {
-                // trigger up while intersecting with placeholder and close enough
-                if(el.intersected && scene.selectedObject == object_id && el.intersectDistance <= maxDistance) {
-                    console.log("firing!");
-                    Context_AF.place();
-                }
-                // no intersection with placeholder when user let go of trigger
-                else if(scene.selectedObject == object_id) {    // !!!!!this causes an issue where more than one placeholder won't work
-                    Context_AF.drop();
-                }
-            });
         }
+        // mobile/desktop
         else {
             el.addEventListener('mousedown', function(e) {
                 // clicked placeholder and close enough
@@ -59,6 +49,8 @@ AFRAME.registerComponent('object-place', {
         // store sibling object
         let object_id = el.id.substr(0, el.id.indexOf('_'));
         let object = document.querySelector("#" + object_id);
+
+        el.intersected = false;
 
         // hide placeholders
         let placeholders = document.getElementsByClassName(object_id + "_placeholder");

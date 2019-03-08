@@ -4,21 +4,37 @@ AFRAME.registerComponent('trigger', {
         const el = Context_AF.el;
         scene.triggerDown = false;
 
-        document.addEventListener('triggerdown', function(e){
-            console.log('trigger!');
-            // change line colour
-            el.setAttribute('line', {color: 'blue', opacity: 1});
-            scene.triggerDown = true;
-        });
-        document.addEventListener('triggerup', function(e){
-            // change line colour back to default
-            el.setAttribute('line', {color: 'white', opacity: 0.3});
-            scene.triggerDown = false;
-            
-            // if(scene.selectedObject != null) {
-            //     let object = scene.querySelector('#' + scene.selectedObject);
-            //     object.object3D.position.set(100,100,100);
-            // }
-        });
+        // check that using oculus go
+        if(oculusGo) {
+            document.addEventListener('triggerdown', function(e){
+                // change raycaster line colour
+                el.setAttribute('line', {color: 'blue', opacity: 1});
+                scene.triggerDown = true;
+            });
+            document.addEventListener('triggerup', function(e){
+                // change raycaster line colour back to default
+                el.setAttribute('line', {color: 'white', opacity: 0.3});
+                scene.triggerDown = false;
+
+                // check if an object is being held
+                if(scene.selectedObject != null) {
+                    //let object_id = scene.selectedObject
+                    object = document.querySelector('#' + scene.selectedObject);
+                    
+                    let placeholders = document.getElementsByClassName(scene.selectedObject + '_placeholder');
+                    for(i = 0; i < placeholders.length; i++) {
+                        // place object if intersecting with current placeholder
+                        if(placeholders[i].intersected && placeholders[i].intersectDistance <= maxDistance) {
+                            placeholders[i].components['object-place'].place();
+                            break;
+                        }
+                        // if last placeholder and does not intersect, drop object
+                        else if(i == placeholders.length - 1) {
+                            placeholders[i].components['object-place'].drop();
+                        }
+                    }
+                }
+            });
+        }
     }
 });
