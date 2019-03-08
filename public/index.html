@@ -14,6 +14,7 @@
         <script src="js/object-place.js"></script>
         <script src="js/new-recipe.js"></script>
         <script src="js/detect-collision.js"></script>
+        <script src="js/recipe-system.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
 
         <script>
@@ -51,7 +52,7 @@
 
     </head>
     <body>
-        <a-scene physics="debug: true">
+        <a-scene physics="debug: true" recipe-system>
             
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -134,7 +135,15 @@
                 offset: 0 0 0;">
             </a-entity>
 
-            <a-entity new-recipe id="character1" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="" sound="src: #customerGreetingSrc">
+            <a-entity 
+                 new-recipe 
+                 id="character1"
+                 obj-model="obj:#character_model" 
+                 position="-0.00961 -0.01024 -2.69885" 
+                 rotation="0 -82.328305582348 0" 
+                 scale="" 
+                 shadow="" 
+                 sound="src: #customerGreetingSrc">
             </a-entity>
             
                 <!-- speech bubble is loaded before the floor until it is displayed -->
