@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Stew-It_Station.ma
-//Last modified: Mon, Mar 11, 2019 08:39:08 PM
+//Last modified: Mon, Mar 11, 2019 09:00:23 PM
 //Codeset: 1252
 requires maya "2018";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
@@ -15,17 +15,17 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "BB3D2E8C-4955-624D-DCE5-1587249F6514";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -17.07040549468962 11.489135706060107 -18.17822590964434 ;
-	setAttr ".r" -type "double3" -375.93883786926489 12829.800464677377 0.00063948664365186757 ;
+	setAttr ".t" -type "double3" -17.47668108504018 4.3242792032037149 -22.79858148138684 ;
+	setAttr ".r" -type "double3" -357.33871848199436 12821.800464676209 0.00055368740854898162 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "3D20DAC8-4786-02FF-9DDF-0B9375F57926";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 40.867380630124813;
+	setAttr ".coi" 31.498100634735493;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -1.1491808201858558 2.6219242572474144 7.0548735411320962 ;
+	setAttr ".tp" -type "double3" 3.495358833357967 5.7869835735694464 0.65700167448333335 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -10111,7 +10111,7 @@ createNode lambert -n "mainMaterial";
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "55422687-46F5-CC66-8A64-4697C9270E22";
 	setAttr ".ihi" 0;
-	setAttr -s 68 ".dsm";
+	setAttr -s 67 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo3";
 	rename -uid "A2FCD4EE-4129-6355-3F04-129E395E003F";
@@ -10122,7 +10122,7 @@ createNode file -n "file2";
 createNode place2dTexture -n "place2dTexture2";
 	rename -uid "A6959003-4875-A7EF-72EE-38BB4F00DF62";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "28242A7D-41D3-2F12-64C8-A1AB09705149";
+	rename -uid "87F2BE63-4CE5-EEF2-1028-C79AC46739FF";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" 1754.4886594700783 -2772.1928623943927 ;
 	setAttr ".tgi[0].vh" -type "double2" 8053.2485584008182 44.934521822773867 ;
