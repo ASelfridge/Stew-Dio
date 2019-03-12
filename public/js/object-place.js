@@ -92,13 +92,17 @@ AFRAME.registerComponent('object-place', {
             placeholders[i].object3D.visible = false;
         }
 
-        // assigning starting attributes
-        object.object3D.parent = object.ogParent;
-        object.object3D.position.set(object.ogPos.x, object.ogPos.y, object.ogPos.z);
-        object.object3D.rotation.set(object.ogRot._x, object.ogRot._y, object.ogRot._z);
-        object.object3D.scale.set(object.ogScale.x, object.ogScale.y, object.ogScale.z);
-        
-        // no selected object
-        scene.selectedObject = null;
+                // Pass object ID to sockets to set as available
+                //socket.emit('objAvailble', object.object3D.el.id);
+
+
+                // set selectedObject back to null
+                scene.selectedObject = null;
+                el.removeAttribute('networked');
+                
+                
+                
+            }
+        });
     }
 });

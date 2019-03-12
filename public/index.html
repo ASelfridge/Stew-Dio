@@ -13,8 +13,31 @@
         <script src="js/object-pickup.js"></script>
         <script src="js/object-place.js"></script>
         <script src="js/new-recipe.js"></script>
-        <script src="js/detect-collision.js"></script>
+        <script src="js/tool-component.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+        <script src="js/socket.io.min.js"></script>
+        <script src="js/easyrtc.js"></script>
+        <script src="js/networked-aframe.min.js"></script>
+        
+    
+        <script>
+            // let socket = io();
+            let noTouchyList = [];
+            // //default connect event
+            // socket.on('connect', function() {
+            //     console.log("connected!");
+            // });
+            // socket.on('unavailable', function(data) {
+            //     console.log(socket.id + " picked up " + data);
+            //     noTouchyList.push(data);
+            // });
+            // socket.on('available', function(data) {
+            //     console.log(socket.id + " put down " + data);
+            //     noTouchyList.splice(noTouchyList.indexOf(data), 1);
+            // });
+           
+        </script> -->
+
 
         <script>
             AFRAME.registerComponent('loadscripts', {
@@ -51,15 +74,25 @@
 
     </head>
     <body>
-        <a-scene physics="debug: true">
+
+        <a-scene networked-scene="room:StewIt;">
             
             <!-------------- TEXTURES ---------------->
             <a-assets>
                 <img id="skymap" src="assets/textures/sunsetGradient.png" />
-                <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
-                <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
-                
+            </a-assets>
 
+           <!---------------- AVATARS ---------------->
+            <a-assets>
+                <template id="avatar-template">
+                    <a-entity class="avatar">
+                    <a-sphere class="head"
+                        color="#5985ff"
+                        scale="0.45 0.5 0.4"
+                        random-color
+                    ></a-sphere>
+                    </a-entity>
+                </template>
             </a-assets>
 
 
@@ -96,7 +129,7 @@
 
 
             <!---------------- CAMERA ---------------->
-           <a-entity id="cameraRig" position="0 1.9 3" rotation="0 180 0">
+           <a-entity id="cameraRig" position="0 1.9 3" rotation="0 180 0" >
                 <a-camera id="sceneCamera">
                     <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1">
                     </a-entity>
@@ -111,10 +144,9 @@
 
             <!---------------- A-FRAME ENTITIES ---------------->
 
-
             <!-- SOUNDS ENTITIES -->
-            <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
-            <a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
+            <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
+            <a-entity id="ambiance" sound="src:#ambianceSrc; volume: .8; loop: true; positional:false"></a-entity>
 
 
             <!-- CUSTOMER SERVICE -->
@@ -175,7 +207,7 @@
 
 
             <!-- this is the second red placement indicator for the stew  -->
-                <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
+            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity>
 
             <!-- PREPERATION STATION-->
@@ -201,41 +233,20 @@
     
                         <a-entity obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                         </a-entity>
-                        <a-entity
+                        <a-entity 
                             id="knife" 
-                            class="collidable" 
-                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" 
                             obj-model="obj:#knife_model" 
-                            material="color: #477725" 
                             position="-0.198 1.481 0.2" 
                             rotation="-3.2 19.9 90" 
                             scale="1.5 1.5 1.5" 
+                            material="color: #477725" 
                             shadow=""
                             
-                            body="type: static; shape:none;"
-
-                            shape__main="shape: box;
-                            halfExtents: 0.02 0.07 0.3;
-                            offset: 0 0.08 -0.07;">
-                        </a-entity>
-                        <a-entity object-place id="knife_placeholder" class="knife_placeholder collidable" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
-                        </a-entity>
-        
-                        <a-entity 
-                            obj-model="obj:#carrot_model" 
-                            detect-collision 
-                            position="-0.93936 1.39013 0.28187" 
-                            rotation="0 -112.6 0" 
-                            scale="0.3 0.3 0.3" 
-                            shadow=""
-
-                            body="type: dynamic; shape:none; linearDamping: 0.9; angularDamping: 0.9"
-                            
-
-                            shape__main="shape: box;
-                            halfExtents: 0.2 0.2 1.5;
-                            offset: 0 0.3 0.2;">
+                            tool
+                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" 
                             >
+                        </a-entity>
+                        <a-entity id="knife_placeholder" object-place  class="knife_placeholder" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
                         </a-entity>
         
                     </a-entity>
@@ -258,8 +269,9 @@
                         rotation="0 180 0" 
                         scale="0.5 0.5 0.5" 
                         shadow=""
-
-                        body="type: static; shape:none;"
+                        
+                        tool>
+                    </a-entity>
 
                         shape__main="shape: box;
                         height: 0.1;
@@ -303,7 +315,17 @@
                     radiusBottom: 1.3;">
                 </a-entity>
     
-                <a-entity class="collidable" object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" id="ladle" obj-model="obj:#ladle_model" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity 
+                    id="ladle" 
+                    obj-model="obj:#ladle_model" 
+                    material="color: #477725;" 
+                    position="-1.09022 1.11093 -0.09321" 
+                    rotation="-21.120943201907536 7.320681748386528 0" 
+                    scale="" 
+                    shadow=""
+                    
+                    object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" 
+                    tool>
                 </a-entity>
                 <a-entity object-place id="ladle_placeholder" class="ladle_placeholder collidable" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
                 </a-entity>
