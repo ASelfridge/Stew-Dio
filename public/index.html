@@ -51,6 +51,8 @@
             <!-------------- TEXTURES ---------------->
             <a-assets>
                 <img id="skymap" src="assets/textures/sunsetGradient.png" />
+                <img id="area_texture" src="assets/textures/mainTexture.jpg" />
+
 
             </a-assets>
 
@@ -108,14 +110,14 @@
     
             <!---------------- LIGHTING ---------------->
             <!-- <a-light type="directional" color="#FFBE92" position="35 17.746 -0.69474" intensity="0.5" scale="" light="castShadow:true;shadowCameraFov:60;shadowCameraLeft:-14.07;shadowCameraNear:0;shadowMapHeight:2048;shadowMapWidth:2048"></a-light>             -->
-            <a-light type="ambient" color="white" position="35 5 0" intensity="0.4"></a-light>
+            <a-light type="ambient" color="white" position="35 5 0" intensity="0.6"></a-light>
             <a-light type="ambient" color="white" position="-0.15682 5.09305 0" intensity="0.4" light="type:point;color:#f7a83e"></a-light>
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
 
 
-            <a-entity id-"area" obj-model="obj:#area_model" position="" rotation="" scale="" shadow=""></a-entity>
+            <a-entity id="area" obj-model="obj:#area_model" material="src: #area_texture" position="" rotation="" scale="" shadow=""></a-entity>
             
             <!-- SOUNDS ENTITIES -->
             <!-- <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
@@ -256,10 +258,11 @@
 
             
             <!-- GROUND & SKY -->
-            <a-plane static-body id="ground" position="0 0 0" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane>
+            <!-- <a-plane static-body id="ground" position="0 0 0" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane> -->
             
-            <a-sky color="#ECECEC"></a-sky>
+            <a-sky color="#ECECEC" ></a-sky>
             <a-entity   id="sky"
+                        rotation="0 180 0"
                         geometry="primitive: sphere; radius: 1000"
                         material="shader: flat; src: #skymap; side: back"
                         loadscripts>
