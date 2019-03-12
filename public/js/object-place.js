@@ -15,7 +15,7 @@ AFRAME.registerComponent('object-place', {
         let object_id = el.id.substr(0, el.id.indexOf('_'));
 
         let scene = document.querySelector('a-scene');
-
+        oculusGo = false;
         if(oculusGo) {
             // intersect with element
             el.addEventListener('raycaster-intersected', function(e){
@@ -45,6 +45,7 @@ AFRAME.registerComponent('object-place', {
         let Context_AF = this;
         let el = Context_AF.el;
         let data = Context_AF.data;
+        let scene = document.querySelector('a-scene');
 
         // store sibling object
         let object_id = el.id.substr(0, el.id.indexOf('_'));
@@ -92,17 +93,15 @@ AFRAME.registerComponent('object-place', {
             placeholders[i].object3D.visible = false;
         }
 
-                // Pass object ID to sockets to set as available
-                //socket.emit('objAvailble', object.object3D.el.id);
+        // Pass object ID to sockets to set as available
+        //socket.emit('objAvailble', object.object3D.el.id);
 
 
-                // set selectedObject back to null
-                scene.selectedObject = null;
-                el.removeAttribute('networked');
+        // set selectedObject back to null
+        scene.selectedObject = null;
+        el.removeAttribute('networked');
                 
                 
                 
-            }
-        });
     }
 });
