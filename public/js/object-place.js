@@ -12,8 +12,9 @@ AFRAME.registerComponent('object-place', {
         el.intersected = false;
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-
+        let object_class = el.id.substr(0, el.id.indexOf('_'));
+        const Context_OBJ = document.getElementsByClassName(object_class);
+        
         let scene = document.querySelector('a-scene');
         oculusGo = false;
         if(oculusGo) {
@@ -35,7 +36,8 @@ AFRAME.registerComponent('object-place', {
         else {
             el.addEventListener('mousedown', function(e) {
                 // clicked placeholder and close enough
-                if(scene.selectedObject == object_id && e.detail.intersection.distance <= maxDistance) {
+                
+                if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
                     Context_AF.place();
                 }
             })
@@ -48,13 +50,13 @@ AFRAME.registerComponent('object-place', {
         let scene = document.querySelector('a-scene');
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-        let object = document.querySelector("#" + object_id);
-
+        let object_class = el.id.substr(0, el.id.indexOf('_'));
+        const Context_OBJ = document.getElementsByClassName(object_class);
+        let object = Context_OBJ[0];
         el.intersected = false;
 
         // hide placeholders
-        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        let placeholders = document.getElementsByClassName(object.id + "_placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
         }
@@ -84,11 +86,12 @@ AFRAME.registerComponent('object-place', {
         let scene = document.querySelector('a-scene');
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-        let object = document.querySelector("#" + object_id);
+        let object_class = el.id.substr(0, el.id.indexOf('_'));
+        const Context_OBJ = document.getElementsByClassName(object_class);
+        let object = Context_OBJ[0];
 
         // hide placeholders
-        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        let placeholders = document.getElementsByClassName(object.id + "_placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
         }

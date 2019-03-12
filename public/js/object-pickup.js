@@ -10,12 +10,14 @@ AFRAME.registerComponent('object-pickup', {
         const data = Context_AF.data;
         // max distance away from object in order to successfully pickup
         maxDistance = 2.5;  // might want to move to a master js file
-
+        console.log(el.object3D.matrixWorld);
+        console.log(el);
         el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
         el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) ));
         el.ogParent = Context_AF.el.object3D.parent;    // will need when object can be placed back in og spot
-        
+        console.log(el.object3D.matrixWorld);
+
         const scene = document.querySelector('a-scene');
         
         el.addEventListener('mousedown', function(event) {
@@ -41,10 +43,15 @@ AFRAME.registerComponent('object-pickup', {
             
 
                 //remove physics from element as it is being carried
+                console.log(el.object3D.matrixWorld);
+
                 Context_AF.el.removeAttribute('dynamic-body'); 
+                console.log(el.object3D.matrixWorld);
+
                 // set selected object to this
                 scene.selectedObject = el.id;
-                
+                console.log(el.object3D.matrixWorld);
+
                
                 
                 // reformat data
@@ -53,22 +60,34 @@ AFRAME.registerComponent('object-pickup', {
 
                 // reset scale and rotation back to original state
                 el.object3D.scale.set(el.ogScale.x, el.ogScale.y, el.ogScale.z);
-                el.object3D.rotation.set(el.ogRot.x, el.ogRot.y, el.ogRot.z);
+                el.object3D.rotation.set(el.ogRot._x, el.ogRot._y, el.ogRot._z);
+                console.log(el.object3D.matrixWorld);
+
                 headset=false;
                 if(!headset) {
                     // parent to cursor
-                    Context_AF.el.object3D.parent = document.getElementById("cursor").object3D;
-                    //console.log(Context_AF.el.object3D.parent);
-                    Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
-                    Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
+                    console.log(el);
+                    
+                    el.setAttribute('mdmu-parent-constraint',
+               {
+                   parent: '#cursor',
+                   positionOffset: data.position,
+                   rotationOffset: data.rotation,
+              
+               });
+
+                    // Context_AF.el.object3D.parent = document.getElementById("cursor").object3D;
+                    // //console.log(Context_AF.el.object3D.parent);
+                    // Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
+                    // Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
                     
                     // show the placeholder object
-                    let placeholders = document.getElementsByClassName(Context_AF.el.id + "_placeholder");
+                    let placeholders = document.getElementsByClassName( Context_AF.el.className + "_placeholder");
                     for(i = 0; i < placeholders.length; i++) {
                         placeholders[i].object3D.visible = true;
                     }
                 }
-            }
+            }el
         });
     },
 });
