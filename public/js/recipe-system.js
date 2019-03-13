@@ -4,14 +4,14 @@ AFRAME.registerComponent('recipe-system', {
         const Context_AF = this;
         const el = Context_AF.el;
 
-        ingredientInStew = false;
 
-        recipe1 = ["interactableIngredient"];
-        recipe1Completion = [false];
+        recipe1 = ["interactableIngredient", "onion", "mushroom"];
+        recipe1Completion = [false, false, false];
     },
-    newRecipe:function()
-    {
+    newRecipe:function() {
         if(numCustomers == 1){
+            currentRecipe = recipe1;
+            currentRecipeCompletion = [false, false, false];
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
@@ -33,16 +33,27 @@ AFRAME.registerComponent('recipe-system', {
         droppedObject = data.body.el.id;
         
         //check if ingredient made it into the pot and that it is a part of recipe1
-        if (droppedObject == 'stewPot' && collidedObject == recipe1[0])
+        if (droppedObject == 'stewPot')
         {
-            //set that ingredient to "in the stew" in recipes.js
-            ingredientInStew = true;
+            //loop through current recipe to check is collidedObject is an ingredient for this recipe
+            ingredientSuccess = false;
+            for(i = 0; i < currentRecipe.length; i++){
+                if (collidedObject == currentRecipe[i]){
+                    currentRecipeCompletion[i] = true;
+                    ingredientSuccess = true;
+                    console.log("ingredient is in slot " + i + ": " + currentRecipe[i]);
+                }
+            }
+            if (ingredientSuccess == true){
+                //console.log(collidedObject + "added to the stew");
+            }
+            else{
+                //console.log(collidedObject + "is not in this recipe");
+            }
         }
-
-        if (ingredientInStew == true)
-        {
-            console.log("ingredient is in the stew (not rlly right now)");
-        }
+    },
+    checkRecipeStatus : function() {
+        console.log("check recipe status");
     }
 });
 
