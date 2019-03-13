@@ -7,13 +7,15 @@ AFRAME.registerComponent('toggle-ownership', {
   init() {
     const Context_AF = this;
     //const el = Context_AF.el;
+    this.detachOwnership = this.detachOwnership.bind(this);
+    this.assignOwnership = this.assignOwnership.bind(this);
 
     NAF.utils.getNetworkedEntity(this.el).then((el) => {
       if (NAF.utils.isMine(el)) {
         Context_AF.assignOwnership();
         
       } 
-    });
+    
 
     el.addEventListener('ownership-changed', e => {
       console.log('ownership event change:');
@@ -27,20 +29,21 @@ AFRAME.registerComponent('toggle-ownership', {
         Context_AF.assignOwnership();
       }
     });
+  });
   },
 
   detachOwnership() {
     console.log('Detaching this el');
     console.log(this.el);
     // Remove local object from owner's scene
-    let localEl = document.querySelector('#' + el.className);
+    let localEl = document.querySelector('#' + this.el.className);
     console.log(localEl);
     //this.el.parentNode.removeChild(el);
    
   },
  
   assignOwnership() {
-    console.log('Creating new local entity to assign this to:');
+    console.log('Creating new local entity to assign this to');
     console.log(this.el);
     // Create new local entity to attach template to 
     // let localEl = document.createElement('a-entity');
@@ -57,7 +60,7 @@ AFRAME.registerComponent('toggle-ownership', {
     // let wrapper = document.querySelector('#'+localEl.id+'_wrapper');
     // wrapper.appendChild(localEl);
     
-    },  
+    }
 
      
   

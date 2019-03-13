@@ -10,3 +10,6 @@ var oculusGo = regexStr.test(userAgentStr);
 var mobile = AFRAME.utils.device.isMobile();
 var numCustomers = 0;
 var customerQuoteTextures = ["#speechBubble1_map", "#speechBubble2_map"];
+
+let nw_objs = [{'interactableIngredient', {x:-2.509, y:2.521, z:11.445}, }, 'knife'];
+let noTouchyList = [];
