@@ -8,8 +8,15 @@ let regexStr = /(?:^|\W)Pacific(?:$|\W)+/;
 var oculusGo = regexStr.test(userAgentStr);
 
 var mobile = AFRAME.utils.device.isMobile();
+
 var numCustomers = 0;
 var customerQuoteTextures = ["#speechBubble1_map", "#speechBubble2_map"];
 
-let nw_objs = [{'interactableIngredient', {x:-2.509, y:2.521, z:11.445}, }, 'knife'];
+let ntw_objs = [];
+let ntw_ingredient = {id: 'interactableIngredient', position:{x:-2.509, y:2.521, z:11.445}, rotation:{x:0, y:0, z:0}};
+let ntw_knife = {id:'knife', position:{x:-0.198, y:1.481, z:0.2}, rotation:{x:-3.2, y:19.9, z:90}};
+ntw_objs.push(ntw_ingredient);
+ntw_objs.push(ntw_knife);
+
 let noTouchyList = [];
+

@@ -33,18 +33,18 @@ AFRAME.registerComponent('toggle-ownership', {
   },
 
   detachOwnership() {
-    console.log('Detaching this el');
-    console.log(this.el);
+    //console.log('Detaching this el');
+    //console.log(this.el);
     // Remove local object from owner's scene
-    let localEl = document.querySelector('#' + this.el.className);
-    console.log(localEl);
+   // let localEl = document.querySelector('#' + this.el.className);
+    //console.log(localEl);
     //this.el.parentNode.removeChild(el);
    
   },
  
   assignOwnership() {
-    console.log('Creating new local entity to assign this to');
-    console.log(this.el);
+    //console.log('Creating new local entity to assign this to');
+   // console.log(this.el);
     // Create new local entity to attach template to 
     // let localEl = document.createElement('a-entity');
     // localEl.setAttribute('networked', 'template', this.el.components.networked.attrValue.template);

@@ -70,7 +70,7 @@ AFRAME.registerComponent('object-place', {
         
         object.object3D.position.set(pos.x, pos.y, pos.z);
         object.object3D.scale.set(scale.x, scale.y, scale.z);
-        object.object3D.rotation.set(rot.x, rot.y, rot.z);
+        object.object3D.rotation.set(rot._x, rot._y, rot._z);
 
         // assign physics if necessary
         if(data.hasCollision){

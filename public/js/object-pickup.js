@@ -13,7 +13,7 @@ AFRAME.registerComponent('object-pickup', {
         
         el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
-        el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) ));
+        el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) )); 
         el.ogParent = Context_AF.el.object3D.parent;    // will need when object can be placed back in og spot
 
         const scene = document.querySelector('a-scene');
