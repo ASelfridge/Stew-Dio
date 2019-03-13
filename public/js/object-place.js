@@ -1,6 +1,7 @@
 AFRAME.registerComponent('object-place', {
     dependencies: ['raycaster'],
     schema: {
+        numPlaceholders: {default: 1},
         hasCollision: {default: false}
     },
     init: function() {    
@@ -53,7 +54,7 @@ AFRAME.registerComponent('object-place', {
         el.intersected = false;
 
         // hide placeholders
-        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        let placeholders = document.getElementsByClassName("placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
         }
@@ -87,7 +88,7 @@ AFRAME.registerComponent('object-place', {
         let object = document.querySelector("#" + object_id);
 
         // hide placeholders
-        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        let placeholders = document.getElementsByClassName("placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
         }

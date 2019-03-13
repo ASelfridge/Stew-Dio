@@ -2,7 +2,9 @@ AFRAME.registerComponent('object-pickup', {
     dependencies: ['raycaster'],
     schema: {
         position: {default: '0 -1 0'},
-        rotation: {default: '0 0 0'}
+        rotation: {default: '0 0 0'},
+        numPlaceholders: {default: 1},
+        placeholderPos: {default: [{x: 0, y:0, z:0}]},
     },
     init: function() {
         const Context_AF = this;
@@ -37,6 +39,7 @@ AFRAME.registerComponent('object-pickup', {
         }
     },
     pickup: function(e, headset) {
+        console.log("pickup!");
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
@@ -78,9 +81,10 @@ AFRAME.registerComponent('object-pickup', {
             //el.setAttribute('static-body', {});
 
             // show the placeholder object
-            let placeholders = document.getElementsByClassName(el.id + "_placeholder");
-            for(i = 0; i < placeholders.length; i++) {
+            let placeholders = document.getElementsByClassName("placeholder");
+            for(i = 0; i < data.placeholderPos[i]; i++) {
                 placeholders[i].object3D.visible = true;
+                placeholders[i].object3D.position.set(data.placeholderPos.x,data.placeholderPos.y,data.placeholderPos.z)
             }
         }
     }
