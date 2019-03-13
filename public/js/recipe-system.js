@@ -9,12 +9,10 @@ AFRAME.registerComponent('recipe-system', {
     newRecipe:function() {
         if(numCustomers == 1){
             this.currentRecipe = new Recipe(["interactableIngredient", "potato_chopped", "corn"]);
-            //currentRecipeCompletion = [false, false, false];
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
         if(numCustomers == 2){
-            //currentRecipe = new Recipe(["corn", "potato", "corn"]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
