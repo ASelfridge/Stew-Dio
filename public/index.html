@@ -9,6 +9,7 @@
     	<script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
         <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
         <script src="js/master.js"></script>
+        <script src="js/recipes.js"></script>
         <script src="js/trigger.js"></script>
         <script src="js/object-pickup.js"></script>
         <script src="js/object-place.js"></script>
@@ -31,8 +32,8 @@
                     };
 
                     //Playing background track
-                    bgSound = document.querySelector('#ambiance');
-                    bgSound.components['sound'].playSound();
+                    //bgSound = document.querySelector('#ambiance');
+                    //bgSound.components['sound'].playSound();
                     bgMusic = document.querySelector('#music');
                     bgMusic.components['sound'].playSound();
 
@@ -66,7 +67,7 @@
 
              <!-------------- SOUNDS ---------------->
              <a-assets>
-                <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                <!--<a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>-->
                 <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
@@ -115,7 +116,7 @@
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
-            <a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
+            <!--<a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>-->
 
 
             <!-- CUSTOMER SERVICE -->
@@ -210,13 +211,14 @@
     
                         <a-entity obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                         </a-entity>
+
                         <a-entity
                             id="knife" 
                             class="collidable" 
                             object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" 
                             obj-model="obj:#knife_model" 
                             material="color: #477725" 
-                            position="-0.198 1.481 0.2" 
+                            position="-0.198 1.481 -0.5" 
                             rotation="-3.2 19.9 90" 
                             scale="1.5 1.5 1.5" 
                             shadow=""

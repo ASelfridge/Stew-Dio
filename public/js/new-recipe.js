@@ -20,7 +20,6 @@ AFRAME.registerComponent('new-recipe', {
                 // play greeting sound
                 el.components['sound'].stopSound();
                 el.components['sound'].playSound();
-                console.log("customer clicked");
 
                 numCustomers++;
                 
