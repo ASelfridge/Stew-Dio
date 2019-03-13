@@ -7,7 +7,7 @@
     <script src="js/aframe-v0.8.2.min.js"></script>
     <script src="js/master.js"></script>
     <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
-    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
+    <!-- <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script> -->
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
     
     <script src="js/trigger.js"></script>
@@ -18,7 +18,7 @@
     <script src="js/object-place.js"></script>
     <script src="js/new-recipe.js"></script>
     <script src="js/tool-component.js"></script>
-    <script src="/js/toggle-ownership.component.js"></script>
+    <script src="js/toggle-ownership.component.js"></script>
     <script src="js/parent-constraint.js"></script>
     <script src="js/networking-entities.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
@@ -182,18 +182,36 @@
 
          static-body
      ></a-entity>
+
      <a-entity id='interactableIngredient_wrapper'>
-
      </a-entity>
-     
-
-     <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
+     <a-entity id="interactableIngredient_placeholder" class="interactableIngredient_placeholder collidable"
+                object-place="hasCollision: true"   
+                obj-model="obj:#interactableIngredient_model" 
+                visible="false" 
+                material="color: red; opacity: 0.2;" 
+                position="5.562 3 4.863"  
+                rotation="0 0 0" 
+                scale="" 
+                shadow="cast:false">
      </a-entity>
         <!-- this is the second red placement indicator for the stew  -->
         <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
           </a-entity>
 
             <!-- PREPERATION STATION-->
+            <a-entity id="knife_wrapper">
+            </a-entity>
+            <a-entity id="knife_placeholder" class="knife_placeholder" 
+                      position="3.73 2 11.35" 
+                      rotation="-3.2 19.9 90" 
+                      scale="1.5 1.5 1.5" 
+                      obj-model="obj:#knife_model" 
+                      material="color: red; opacity: 0.2;" 
+                      object-place 
+                      visible="false" 
+                      shadow="">
+            </a-entity>
             <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
 
                 <a-entity 
@@ -212,13 +230,13 @@
                 </a-entity>
                 
                 <!-- CUTTING BOARD AREA  position="-0.198 1.481 0.2"-->
-                <a-entity rotation="0 90 0" position="-1.13659 0.39414 -0.46369"> 
+                <a-entity id='cuttingBoard_area' rotation="0 90 0" position="-1.13659 0.39414 -0.46369"> 
 
-                    <a-entity obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
+                    <a-entity id='cuttingBoard'obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                     </a-entity>
-                    <a-entity id="knife_placeholder" object-place  class="knife_placeholder" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
-                    </a-entity>
-    
+                    
+                    <!-- <a-entity id="knife_position_reader" >
+                    </a-entity>  -->
                 </a-entity>
                     
             </a-entity>
@@ -277,17 +295,6 @@
         ]
       });
 
-      NAF.schemas.add({
-        template: '#interactableIngredient-template',
-        components: [
-          'position',
-          'rotation',
-          'material',
-          
-        ]
-      });
-
-
       function onSceneLoad(){
         let counter = 0;
         let clientId = '';
@@ -295,7 +302,7 @@
         NAF.connection.subscribeToDataChannel('Player Joined', function(senderId, dataType, data, targetId){
            counter ++;
            console.log("New Player Joined");
-           if(counter == 2){
+           //if(counter == 2){
             console.log("Host has began a game");
             let scene = document.querySelector('a-scene');
             for (i in ntw_objs){
@@ -308,7 +315,7 @@
                 obj.setAttribute('toggle-ownership');
                 obj.setAttribute('networked',  {template:'#' + ntw_objs[i].id + '-template', attachTemplateToLocal:true});
                 obj_wrapper.appendChild(obj);
-            }
+            //}
            }
         });
           document.body.addEventListener('connected', function (evt) {

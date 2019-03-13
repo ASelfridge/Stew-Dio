@@ -14,7 +14,7 @@ AFRAME.registerComponent('object-place', {
         // store sibling object
         let object_class = el.id.substr(0, el.id.indexOf('_'));
         const Context_OBJ = document.getElementsByClassName(object_class);
-        
+       
         let scene = document.querySelector('a-scene');
         oculusGo = false;
         if(oculusGo) {
@@ -38,6 +38,7 @@ AFRAME.registerComponent('object-place', {
                 // clicked placeholder and close enough
                 
                 if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
+                    console.log('able to place');
                     Context_AF.place();
                 }
             })
@@ -55,11 +56,11 @@ AFRAME.registerComponent('object-place', {
         let object = Context_OBJ[0];
         el.intersected = false;
 
-        // hide placeholders
-        let placeholders = document.getElementsByClassName(object.id + "_placeholder");
-        for(i = 0; i < placeholders.length; i++) {
-            placeholders[i].object3D.visible = false;
-        }
+        
+
+        //Remove parent constraint
+        object.removeAttribute('mdmu-parent-constraint');
+
 
         // move object to placeholder location
         object.object3D.parent = el.object3D.parent;
@@ -71,14 +72,27 @@ AFRAME.registerComponent('object-place', {
         object.object3D.position.set(pos.x, pos.y, pos.z);
         object.object3D.scale.set(scale.x, scale.y, scale.z);
         object.object3D.rotation.set(rot._x, rot._y, rot._z);
-
+        
         // assign physics if necessary
         if(data.hasCollision){
-            object.setAttribute('dynamic-body', {});
+            
+           object.setAttribute('dynamic-body', {});
         }
+        
+        // hide placeholders
+        let placeholders = document.getElementsByClassName(object.className + "_placeholder");
+        for(i = 0; i < placeholders.length; i++) {
+            placeholders[i].object3D.visible = false
+            placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
+        }
+
+        
+
+
 
         // set selectedObject back to null
         scene.selectedObject = null;
+
     },
     drop : function() {
         let Context_AF = this;
@@ -102,7 +116,6 @@ AFRAME.registerComponent('object-place', {
 
         // set selectedObject back to null
         scene.selectedObject = null;
-        el.removeAttribute('networked');
                 
                 
                 

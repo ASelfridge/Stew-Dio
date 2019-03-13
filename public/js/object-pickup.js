@@ -11,7 +11,9 @@ AFRAME.registerComponent('object-pickup', {
         // max distance away from object in order to successfully pickup
         maxDistance = 2.5;  // might want to move to a master js file
         
-        el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
+        el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) )); 
+        
+         // have to clone so that this value wont change constantly
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
         el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) )); 
         el.ogParent = Context_AF.el.object3D.parent;    // will need when object can be placed back in og spot
@@ -19,8 +21,10 @@ AFRAME.registerComponent('object-pickup', {
         const scene = document.querySelector('a-scene');
         
         el.addEventListener('mousedown', function(event) {
+            console.log('trying to pickup');
             // check that no object is currently being held and not outside of maxDistance range and that it's available
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
+                console.log('Able to pick up');
                 // Check if object is in 'unavailable' array
                 if(event.target.components.tool)
                 {
@@ -37,19 +41,19 @@ AFRAME.registerComponent('object-pickup', {
                     //if yes -- break
                     //if no -- set Object availability to false
                
-                // Change Networking ownership of object 
-                if (!NAF.utils.isMine(el)){
-                    
-                    NAF.utils.takeOwnership(el);
-                    
-                }
+                
             
                 //remove physics from element as it is being carried
                 Context_AF.el.removeAttribute('dynamic-body'); 
 
                 // set selected object to this
                 scene.selectedObject = el.id;
-                
+                // Change Networking ownership of object 
+                if (!NAF.utils.isMine(el)){
+                    
+                    NAF.utils.takeOwnership(el);
+                    
+                }
                 // reformat data
                 let pos = data.position.split(" ");
                 let rot = data.rotation.split(" ");
@@ -78,6 +82,7 @@ AFRAME.registerComponent('object-pickup', {
                     let placeholders = document.getElementsByClassName( Context_AF.el.className + "_placeholder");
                     for(i = 0; i < placeholders.length; i++) {
                         placeholders[i].object3D.visible = true;
+                        placeholders[i].object3D.scale.set(1, 1, 1);
                     }
                 }
             }el

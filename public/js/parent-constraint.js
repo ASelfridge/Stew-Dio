@@ -138,7 +138,7 @@ AFRAME.registerComponent('mdmu-parent-constraint', {
       const thisObject3D = Context_AF.el.object3D;
 
       thisObject3D.position.set(Context_AF.originalPos.x, Context_AF.originalPos.y, Context_AF.originalPos.z);
-      thisObject3D.rotation.set(Context_AF.originalRot);
+      thisObject3D.rotation.set(Context_AF.originalRot._x, Context_AF.originalRot._y, Context_AF.originalRot._z);
       thisObject3D.scale.set(Context_AF.originalSca.x, Context_AF.originalSca.y, Context_AF.originalSca.z);
     }
   }); 
