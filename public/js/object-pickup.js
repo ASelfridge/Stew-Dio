@@ -1,5 +1,5 @@
 AFRAME.registerComponent('object-pickup', {
-    dependencies: ['raycaster'],
+    //dependencies: ['raycaster'],
     schema: {
         position: {default: '0 -1 0'},
         rotation: {default: '0 0 0'}

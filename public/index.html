@@ -46,14 +46,11 @@
                     });
                 }
             });
-
-            
-            
         </script>
 
     </head>
     <body>
-        <a-scene physics="debug: true; restitution: 0" recipe-system>
+        <a-scene physics="debug: true; restitution: 0.3" recipe-system>
             
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -64,7 +61,6 @@
 
             </a-assets>
 
-
              <!-------------- SOUNDS ---------------->
              <a-assets>
                 <!--<a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>-->
@@ -73,8 +69,6 @@
                 <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
             </a-assets>
                 
-
-
             <!---------------- MODELS ---------------->
             <a-assets>
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>
@@ -92,10 +86,11 @@
                 <a-asset-item id="interactableIngredient_model" src="assets/models/ingredient.obj"></a-asset-item>
                 <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item>
 
+                <a-asset-item id="potato_model" src="assets/models/potato.obj"></a-asset-item>
+                <a-asset-item id="corn_model" src="assets/models/corn.obj"></a-asset-item>
+
                 <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
-
             </a-assets>
-
 
             <!---------------- CAMERA ---------------->
            <a-entity id="cameraRig" position="0 1.9 3" rotation="0 180 0">
@@ -112,7 +107,6 @@
 
 
             <!---------------- A-FRAME ENTITIES ---------------->
-
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
@@ -164,6 +158,7 @@
                 static-body
             ></a-entity>
 
+            <!-- ingredient 1 -->
             <a-entity 
                 id="interactableIngredient"
                 class="collidable" 
@@ -174,7 +169,6 @@
                 scale="" 
                 shadow=""
                 
-                dynamic-body
                 detect-collision
 
                 object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
@@ -183,10 +177,59 @@
             <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity>
 
+            <!-- this is the second red placement indicator for the stew  -->
+            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity>
+
+            <!-- ingredient 2 ################################################# -->
+
+            <a-entity 
+                id="potato"
+                class="collidable" 
+                obj-model="obj:#potato_model" 
+                material="color: #b79268" 
+                position="-2.509 2.021 11" 
+                rotation="0 0 0" 
+                scale="" 
+                shadow=""
+                
+                
+                detect-collision
+                object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
+           ></a-entity> 
+
+            <a-entity object-place="hasCollision: true" id="potato_placeholder" class="potato_placeholder collidable" obj-model="obj:#potato_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity>
 
             <!-- this is the second red placement indicator for the stew  -->
-                <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
+            <a-entity object-place="hasCollision: true" id="potato_placeholder2" class="potato_placeholder collidable" obj-model="obj:#potato_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity>
+
+                <!-- ingredient 3 ################################################# -->
+
+                <a-entity 
+                    id="corn"
+                    class="collidable" 
+                    obj-model="obj:#corn_model" 
+                    material="color: #fbec5d" 
+                    position="-2.509 2.021 11" 
+                    rotation="0 0 0" 
+                    scale="" 
+                    shadow=""
+                    
+                    
+                    detect-collision
+                    object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
+                ></a-entity> 
+    
+                <a-entity object-place="hasCollision: true" id="corn_placeholder" class="corn_placeholder collidable" obj-model="obj:#corn_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
+                </a-entity>
+    
+                <!-- this is the second red placement indicator for the stew  -->
+                <a-entity object-place="hasCollision: true" id="corn_placeholder2" class="corn_placeholder collidable" obj-model="obj:#corn_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
+                </a-entity>
+
+
 
             <!-- PREPERATION STATION-->
             <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
