@@ -12,6 +12,7 @@
     <script src="js/object-place.js"></script>
     <script src="js/new-recipe.js"></script>
     <script src="js/tool-component.js"></script>
+    <script src="/js/toggle-ownership.component.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
@@ -77,7 +78,6 @@
 
             const Context_AF    = this;
             const data = this.data;
-            console.log(Context_AF.el.object3D.matrixWorld);
 
             Context_AF.originalPos         = Context_AF.el.object3D.position.clone();
             Context_AF.originalRot         = Context_AF.el.object3D.quaternion.clone();
@@ -191,11 +191,12 @@
               </a-entity>
           </template>
 
-          <template id="object-template">
+          <template id="interactableIngredient-template">
               <a-entity class="interactableIngredient" 
               obj-model="obj:#interactableIngredient_model" 
               material="color: #477725" 
-              object-pickup="position: 0.006 0.1 -0.156; rotation: 0 0 0;" 
+              object-pickup="position: 0.006 0 0.2; rotation: 0 0 0;" 
+              toggle-ownership
               shadow=""></a-entity>
           </template>
 
@@ -230,7 +231,7 @@
 
          static-body
      ></a-entity>
-     <a-entity id='wrapper'>
+     <a-entity id='interactableIngredient_wrapper'>
 
      </a-entity>
      
@@ -314,10 +315,11 @@
       });
 
       NAF.schemas.add({
-        template: '#object-template',
+        template: '#interactableIngredient-template',
         components: [
           'position',
           'rotation',
+          'material',
           
         ]
       });
@@ -325,25 +327,29 @@
 
       function onSceneLoad(){
         let counter = 0;
-        
+        let clientId = '';
+        let nw_objs = ['interactableIngredient'];
         NAF.connection.subscribeToDataChannel('Player Joined', function(senderId, dataType, data, targetId){
            counter ++;
            console.log("New Player Joined");
            if(counter == 2){
            console.log("Host has began a game");
-            let scene = document.querySelector('a-scene');
-            let wrapper = document.querySelector('#wrapper');
-            let ingredient = document.createElement('a-entity');
-            ingredient.setAttribute('id', "interactableIngredient");
-            ingredient.setAttribute('position', {x:-2.509, y:2.021, z:11.445});
-            ingredient.setAttribute('rotation',  {x:0, y:0, z:0});
-            ingredient.setAttribute('networked',  {template:'#object-template', attachTemplateToLocal:true});
-            console.log(ingredient.object3D.matrixWorld);
-            wrapper.appendChild(ingredient);
+           let scene = document.querySelector('a-scene');
+           for (i in nw_objs){
+              let obj_wrapper = document.querySelector('#' + nw_objs[i] + '_wrapper');
+              let obj = document.createElement('a-entity');
+              obj.setAttribute('id', "interactableobj");
+              obj.setAttribute('position', {x:-2.509, y:2.521, z:11.445});
+              obj.setAttribute('rotation',  {x:0, y:0, z:0});
+              //obj.setAttribute('toggle-ownership');
+              obj.setAttribute('networked',  {template:'#' + nw_objs[i] + '-template', attachTemplateToLocal:true});
+              obj_wrapper.appendChild(obj);
+           }
            }
         });
           document.body.addEventListener('connected', function (evt) {
-            console.log('Connected to the server. ClientId =', evt.detail.clientId);
+            clientId = evt.detail.clientId
+            console.log('Connected to the server. ClientId =', clientId);
             counter++;
             NAF.connection.broadcastData('Player Joined', counter);
           

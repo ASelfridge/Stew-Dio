@@ -10,13 +10,11 @@ AFRAME.registerComponent('object-pickup', {
         const data = Context_AF.data;
         // max distance away from object in order to successfully pickup
         maxDistance = 2.5;  // might want to move to a master js file
-        console.log(el.object3D.matrixWorld);
-        console.log(el);
+        
         el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
         el.ogScale = JSON.parse(JSON.stringify( (Context_AF.el.object3D.scale) ));
         el.ogRot = JSON.parse(JSON.stringify( (Context_AF.el.object3D.rotation) ));
         el.ogParent = Context_AF.el.object3D.parent;    // will need when object can be placed back in og spot
-        console.log(el.object3D.matrixWorld);
 
         const scene = document.querySelector('a-scene');
         
@@ -38,21 +36,19 @@ AFRAME.registerComponent('object-pickup', {
                 }
                     //if yes -- break
                     //if no -- set Object availability to false
-                
+               
+                // Change Networking ownership of object 
+                if (!NAF.utils.isMine(el)){
+                    
+                    NAF.utils.takeOwnership(el);
+                    
+                }
             
-            
-
                 //remove physics from element as it is being carried
-                console.log(el.object3D.matrixWorld);
-
                 Context_AF.el.removeAttribute('dynamic-body'); 
-                console.log(el.object3D.matrixWorld);
 
                 // set selected object to this
                 scene.selectedObject = el.id;
-                console.log(el.object3D.matrixWorld);
-
-               
                 
                 // reformat data
                 let pos = data.position.split(" ");
@@ -61,13 +57,10 @@ AFRAME.registerComponent('object-pickup', {
                 // reset scale and rotation back to original state
                 el.object3D.scale.set(el.ogScale.x, el.ogScale.y, el.ogScale.z);
                 el.object3D.rotation.set(el.ogRot._x, el.ogRot._y, el.ogRot._z);
-                console.log(el.object3D.matrixWorld);
 
                 headset=false;
                 if(!headset) {
                     // parent to cursor
-                    console.log(el);
-                    
                     el.setAttribute('mdmu-parent-constraint',
                {
                    parent: '#cursor',
@@ -91,3 +84,4 @@ AFRAME.registerComponent('object-pickup', {
         });
     },
 });
+// let obj = document.getElementsByClassName("interactableIngredient")
