@@ -79,7 +79,8 @@ AFRAME.registerComponent('object-pickup', {
                     // Context_AF.el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
                     
                     // show the placeholder object
-                    let placeholders = document.getElementsByClassName( Context_AF.el.className + "_placeholder");
+                    let placeholders = document.getElementsByClassName( Context_AF.el.classList[0] + "_placeholder");
+                    
                     for(i = 0; i < placeholders.length; i++) {
                         placeholders[i].object3D.visible = true;
                         placeholders[i].object3D.scale.set(1, 1, 1);
