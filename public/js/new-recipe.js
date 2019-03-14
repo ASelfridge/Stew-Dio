@@ -20,12 +20,14 @@ AFRAME.registerComponent('new-recipe', {
                 // play greeting sound
                 el.components['sound'].stopSound();
                 el.components['sound'].playSound();
-                console.log("customer clicked");
 
                 numCustomers++;
                 
                 //THIS NEEDS TO BE MOVED TO GLOBALS OR RECIPIE SYSTEM (ON COMPLETION OF RECIPIE)
                 recipeAvailable = true;
+
+                document.querySelector('a-scene').components['recipe-system'].newRecipe();
+
             }
         });
 
