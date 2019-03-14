@@ -8,7 +8,7 @@ AFRAME.registerComponent('recipe-system', {
     },
     newRecipe:function() {
         if(numCustomers == 1){
-            this.currentRecipe = new Recipe(["interactableIngredient", "onion", "squash"]);
+            this.currentRecipe = new Recipe(["garlic", "onion", "squash"]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
