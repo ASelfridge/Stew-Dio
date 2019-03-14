@@ -32,8 +32,8 @@
                     };
 
                     //Playing background track
-                    //bgSound = document.querySelector('#ambiance');
-                    //bgSound.components['sound'].playSound();
+                    bgSound = document.querySelector('#ambiance');
+                    bgSound.components['sound'].playSound();
                     bgMusic = document.querySelector('#music');
                     bgMusic.components['sound'].playSound();
 
@@ -63,7 +63,7 @@
 
              <!-------------- SOUNDS ---------------->
              <a-assets>
-                <!--<a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>-->
+                <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
@@ -110,7 +110,7 @@
 
             <!-- SOUNDS ENTITIES -->
             <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>
-            <!--<a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>-->
+            <a-entity id="ambiance" sound="src:#ambienceSrc; volume: 0.06; loop: true; positional:false"></a-entity>
 
 
             <!-- CUSTOMER SERVICE -->
@@ -261,7 +261,7 @@
                             object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" 
                             obj-model="obj:#knife_model" 
                             material="color: #477725" 
-                            position="-0.198 1.481 -0.5" 
+                            position="-0.198 1.481 0.2" 
                             rotation="-3.2 19.9 90" 
                             scale="1.5 1.5 1.5" 
                             shadow=""
