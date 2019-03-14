@@ -1,15 +1,20 @@
 AFRAME.registerComponent('object-pickup', {
-    dependencies: ['raycaster'],
     schema: {
         position: {default: '0 -1 0'},
         rotation: {default: '0 0 0'},
         numPlaceholders: {default: 1},
-        placeholderPos: {default: [{x: 0, y:0, z:0}]},
+        placeholderPos: {
+            parse: function(value) {
+                //console.log(typeof(value[0]));
+                return value.split(', ');
+            }},
+        hasCollision: {default: false}
     },
     init: function() {
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
+        console.log(data.placeholderPos[0]);
 
         let scene = document.querySelector('a-scene');
 
@@ -39,7 +44,6 @@ AFRAME.registerComponent('object-pickup', {
         }
     },
     pickup: function(e, headset) {
-        console.log("pickup!");
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
@@ -82,9 +86,11 @@ AFRAME.registerComponent('object-pickup', {
 
             // show the placeholder object
             let placeholders = document.getElementsByClassName("placeholder");
-            for(i = 0; i < data.placeholderPos[i]; i++) {
+            for(i = 0; i < data.numPlaceholders; i++) {
                 placeholders[i].object3D.visible = true;
-                placeholders[i].object3D.position.set(data.placeholderPos.x,data.placeholderPos.y,data.placeholderPos.z)
+                let currPos = data.placeholderPos[i].split(' ');
+                console.log(parseFloat(currPos[0]));
+                placeholders[i].object3D.position.set(parseFloat(currPos[0]), parseFloat(currPos[1]), parseFloat(currPos[2]));
             }
         }
     }

@@ -1,9 +1,5 @@
 AFRAME.registerComponent('object-place', {
-    dependencies: ['raycaster'],
-    schema: {
-        numPlaceholders: {default: 1},
-        hasCollision: {default: false}
-    },
+    schema: {},
     init: function() {    
         const Context_AF = this;
         const el = Context_AF.el;
@@ -13,7 +9,7 @@ AFRAME.registerComponent('object-place', {
         el.intersected = false;
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
+        //let object_id = el.id.substr(0, el.id.indexOf('_'));
 
         let scene = document.querySelector('a-scene');
 
@@ -36,20 +32,24 @@ AFRAME.registerComponent('object-place', {
         else {
             el.addEventListener('mousedown', function(e) {
                 // clicked placeholder and close enough
-                if(scene.selectedObject == object_id && e.detail.intersection.distance <= maxDistance) {
+                if(e.detail.intersection.distance <= maxDistance) {
                     Context_AF.place();
                 }
             })
         }
     },
     place : function() {
+        console.log('place!');
         let Context_AF = this;
         let el = Context_AF.el;
         let data = Context_AF.data;
+        let scene = document.querySelector('a-scene');
+
+        let object = document.querySelector('#' + scene.selectedObject);
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-        let object = document.querySelector("#" + object_id);
+        //let object_id = el.id.substr(0, el.id.indexOf('_'));
+        //let object = document.querySelector("#" + object_id);
 
         el.intersected = false;
 
@@ -67,11 +67,11 @@ AFRAME.registerComponent('object-place', {
         let rot = el.object3D.rotation;
         
         object.object3D.position.set(pos.x, pos.y, pos.z);
-        object.object3D.scale.set(scale.x, scale.y, scale.z);
-        object.object3D.rotation.set(rot.x, rot.y, rot.z);
+        //object.object3D.scale.set(scale.x, scale.y, scale.z);
+        object.object3D.rotation.set(rot._x, rot._y, rot._z);
 
         // assign physics if necessary
-        if(data.hasCollision){
+        if(object.components['object-pickup'].data.hasCollision){
             object.setAttribute('dynamic-body', {});
         }
 
@@ -83,9 +83,11 @@ AFRAME.registerComponent('object-place', {
         let el = Context_AF.el;
         let scene = document.querySelector('a-scene');
 
+        let object = document.querySelector('#' + scene.selectedObject);
+
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-        let object = document.querySelector("#" + object_id);
+        //let object_id = el.id.substr(0, el.id.indexOf('_'));
+        //let object = document.querySelector("#" + object_id);
 
         // hide placeholders
         let placeholders = document.getElementsByClassName("placeholder");

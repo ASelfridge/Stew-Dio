@@ -118,20 +118,20 @@
 
 
             <!-- PLACEHOLDER ENTITIES -->
-            <a-entity id="placeholder_1" class="placeholder" position="0 0 0">
-                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" visible="false" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity id="placeholder_1" object-place class="placeholder collidable" position="0 0 0" visible="true">
+                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
                 <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
             </a-entity>
-            <a-entity id="placeholder_2" class="placeholder" position="0 0 0">
-                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" visible="false" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity id="placeholder_2" object-place class="placeholder collidable" position="0 0 0" visible="false">
+                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
                 <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
             </a-entity>
-            <a-entity id="placeholder_3" class="placeholder" position="0 0 0">
-                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" visible="false" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity id="placeholder_3" object-place class="placeholder collidable" position="0 0 0" visible="false">
+                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
                 <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
             </a-entity>
-            <a-entity id="placeholder_4" class="placeholder" position="0 0 0">
-                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" visible="false" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity id="placeholder_4" object-place class="placeholder collidable" position="0 0 0" visible="false">
+                    <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
                 <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
             </a-entity>
 
@@ -186,16 +186,16 @@
                 dynamic-body
                 detect-collision
 
-                object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
+                object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: -2.609 2.131 11.371, 5.517 3.294 4.762; hasCollision: true;"
                ></a-entity> 
 
-            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
-            </a-entity>
+            <!-- <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="5.562 3 4.863"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity> -->
 
 
             <!-- this is the second red placement indicator for the stew  -->
-                <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
-            </a-entity>
+                <!-- <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity> -->
 
             <!-- PREPERATION STATION-->
             <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
@@ -223,7 +223,7 @@
                         <a-entity
                             id="knife" 
                             class="collidable" 
-                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190" 
+                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 190; numPlaceholders: 1; placeholderPos: [{x:-0.198,y:1.481,z:0.2}]" 
                             obj-model="obj:#knife_model" 
                             material="color: #477725" 
                             position="-0.198 1.481 0.2" 
@@ -237,8 +237,8 @@
                             halfExtents: 0.02 0.07 0.3;
                             offset: 0 0.08 -0.07;">
                         </a-entity>
-                        <a-entity object-place id="knife_placeholder" class="knife_placeholder collidable" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
-                        </a-entity>
+                        <!-- <a-entity object-place id="knife_placeholder" class="knife_placeholder collidable" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;" position="-0.198 1.481 0.2" rotation="-3.2 19.9 90" scale="1.5 1.5 1.5" shadow="">
+                        </a-entity> -->
         
                         <a-entity 
                             obj-model="obj:#carrot_model" 
@@ -322,15 +322,34 @@
                     radiusBottom: 1.3;">
                 </a-entity>
     
-                <a-entity class="collidable" object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6" id="ladle" obj-model="obj:#ladle_model" material="color: #477725;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
-                </a-entity>
-                <a-entity object-place id="ladle_placeholder" class="ladle_placeholder collidable" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                <a-entity
+                    id="ladle"  
+                    class="collidable" 
+                    object-pickup="position: 0.826 -1.509 -0.711; rotation: -30 180 -8.6; numPlaceholders: 1; placeholderPos: -0.834 2.084 4.550" 
+                    obj-model="obj:#ladle_model" 
+                    material="color: #477725;" 
+                    position="-1.09022 1.11093 -0.09321" 
+                    rotation="-21.120943201907536 7.320681748386528 0" 
+                    scale="" 
+                    shadow="">
                 </a-entity>
 
-                <a-entity class="collidable" object-pickup id="bowl" obj-model="obj:#bowl_model" material="color: #477725;" position="0.35389 1.53698 -1.20558" rotation="" scale="0.1 0.1 0.1" shadow="">
+                <!-- <a-entity object-place id="ladle_placeholder" class="ladle_placeholder collidable" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="-1.09022 1.11093 -0.09321" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+                </a-entity> -->
+
+                <a-entity 
+                    id="bowl"
+                    class="collidable" 
+                    object-pickup="numPlaceholders: 1; placeholderPos: 0.832 1.549 5.194"
+                    obj-model="obj:#bowl_model" 
+                    material="color: #477725;" 
+                    position="0.35389 1.53698 -1.20558" 
+                    rotation="" 
+                    scale="0.1 0.1 0.1" 
+                    shadow="">
                 </a-entity>
-                <a-entity object-place id="bowl_placeholder" class="bowl_placeholder collidable" obj-model="obj:#bowl_model" visible="false" material="color: red; opacity: 0.2;" position="-3.300 1.955 -5.835" rotation="" scale="0.1 0.1 0.1" shadow="">
-                </a-entity>
+                <!-- <a-entity object-place id="bowl_placeholder" class="bowl_placeholder collidable" obj-model="obj:#bowl_model" visible="false" material="color: red; opacity: 0.2;" position="-3.300 1.955 -5.835" rotation="" scale="0.1 0.1 0.1" shadow="">
+                </a-entity> -->
     
             </a-entity>
 
