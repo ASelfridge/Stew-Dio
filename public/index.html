@@ -19,14 +19,21 @@
     <script src="js/parent-constraint.js"></script>
     <script src="js/detect-collision.js"></script>
     <script src="js/onSceneLoad.js"></script>
+    <script src="js/recipe-system.js"></script>
+    <script src="js/recipes.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
   </head>
   
   <body>
-    <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;">
+    <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug: true; restitution: 0.3" recipe-system>
         <!-------------- TEXTURES ---------------->
         <a-assets>
             <img id="skymap" src="assets/textures/sunsetGradient.png" />
+            <img id="area_texture" src="assets/textures/mainTexture.jpg" />
+
+            <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
+            <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
+            <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
             <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
             <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
         </a-assets>
@@ -41,22 +48,32 @@
       
         <!---------------- MODELS ---------------->
         <a-assets>
-            <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>
-            <a-asset-item id="table_model" src="assets/models/table.obj"></a-asset-item>
-            <a-asset-item id="knife_model" src="assets/models/knife.obj"></a-asset-item>
-            <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
-            <a-asset-item id="customerService_model" src="assets/models/customerService.obj"></a-asset-item>
-            <a-asset-item id="ingredientStation_model" src="assets/models/ingredientStation.obj"></a-asset-item>
-            <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
-            <a-asset-item id="pot_model" src="assets/models/pot.obj"></a-asset-item>
-            <a-asset-item id="recipeBook_model" src="assets/models/recipeBook.obj"></a-asset-item>
-            <a-asset-item id="stove_model" src="assets/models/stove.obj"></a-asset-item>
-            <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
-            <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item>
-            <a-asset-item id="interactableIngredient_model" src="assets/models/ingredient.obj"></a-asset-item>
-            <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item>
+            <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
 
+            <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
+            <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
+            <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
+            <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
+            <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
+            <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
+            <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
+            <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
+            <a-asset-item id="interactableIngredient_model" src="assets/models/ingredient.obj"></a-asset-item>
+            <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item> 
             <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+            <!-- 
+                <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
+                <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
+                
+               
+                <a-asset-item id="mushroomWhole_model" src="assets/models/mushroom.obj"></a-asset-item>
+                <a-asset-item id="potatoWhole_model" src="assets/models/potato.obj"></a-asset-item>
+                <a-asset-item id="carrotWhole_model" src="assets/models/carrot.obj"></a-asset-item>                
+                <a-asset-item id="celeryWhole_model" src="assets/models/celery.obj"></a-asset-item>                
+                <a-asset-item id="cornWhole_model" src="assets/models/corn.obj"></a-asset-item>
+                <a-asset-item id="lantern_model" src="assets/models/lantern.obj"></a-asset-item> -->
+
+            
 
         </a-assets>
 
@@ -125,52 +142,38 @@
 
 
         <!---------------- LIGHTING ---------------->
-        <a-light type="directional" color="#FFBE92" position="35 17.746 -0.69474" intensity="0.5" scale="" light="castShadow:false;shadowCameraFov:60;shadowCameraLeft:-14.07;shadowCameraNear:0;shadowMapHeight:2048;shadowMapWidth:2048"></a-light>            
-        <a-light type="ambient" color="white" position="35 5 0" intensity="0.4"></a-light>
+        <a-light type="ambient" color="white" position="35 5 0" intensity="0.6"></a-light>
+        <a-light type="ambient" color="white" position="-0.15682 5.09305 0" intensity="0.4" light="type:point;color:#f7a83e"></a-light>
 
 
 
        <!---------------- A-FRAME ENTITIES ---------------->
-
+       <a-entity id="area" obj-model="obj:#area_model" material="src: #area_texture" position="" rotation="" scale="" shadow=""></a-entity>
+       
         <!-- SOUNDS ENTITIES -->
         <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
         <a-entity id="ambiance" sound="src:#ambianceSrc; volume: .4; loop: true; positional:false"></a-entity>
 
         
         <!-- CUSTOMER SERVICE -->
-        <a-entity id="customerStation" 
-            obj-model="obj:#customerService_model" 
-            position="-0.00961 0 -0.85382" 
-            rotation="" 
+
+        <a-entity 
+            new-recipe="" 
+            id="character1" 
+            obj-model="obj:#character_model" 
+            position="-9.59681 -0.01024 0.12693" 
+            rotation="0 0.07620338675239949 0" 
             scale="" 
             shadow="" 
-            sound="src:#customerBellSrc"
-
-            body="type: static; shape:none;"
-
-            shape__main="shape: box;
-            halfExtents: 2.95 1.9 1.1;
-            offset: 0 0 0;">
-        </a-entity>
-
-        <a-entity new-recipe id="character1" obj-model="obj:#character_model" position="-0.00961 -0.01024 -2.69885" rotation="0 -82.328305582348 0" scale="" shadow="" sound="src: #customerGreetingSrc">
+            sound="src: #customerGreetingSrc">
         </a-entity>
      
         <!-- speech bubble is loaded before the floor until it is displayed -->
-        <a-entity id="speechBubble" obj-model="obj:#speechBubble_model" material="color:#ffffff" position="1.285 -2 -1.975" rotation="0 -30.385 0" scale="" shadow="">
-        </a-entity>
+        <a-entity id="speechBubble" obj-model="obj:#speechBubble_model" material="color:#ffffff" position="1.285 -2 -1.975" rotation="0 60.801 0" scale="1.2 1.2 1.2" shadow="">
+            </a-entity>
         
         
         <!-- INGREDIENT STATION-->
-         <a-entity id="ingredientStation" 
-            obj-model="obj:#ingredientStation_model" 
-            position="-3.828 0.1 11.265" 
-            rotation="0 324 0" 
-            scale="" 
-            shadow=""
-
-            static-body>
-        </a-entity>
 
         <a-entity id='interactableIngredient_wrapper'>
         </a-entity>
@@ -183,13 +186,30 @@
                 position="5.562 3 4.863"  
                 rotation="0 0 0" 
                 scale="0.1 0.1 0.1" 
-                shadow="cast:false"
-                >
+                shadow="cast:false">
         </a-entity>
 
-        <!-- this is the second red placement indicator for the stew  -->
-        <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="-0.883 3 5.748"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity>
+        <a-entity 
+                id="onion" 
+                obj-model="obj:#onionWhole_model" 
+                material="color:#c18747" 
+                position="3.67323 1.97431 8.18909" 
+                rotation="" 
+                scale="" 
+                shadow=""
+                
+                object-pickup="position:0.006 -0 -0.156"
+                detect-collision
+                class="collidable" 
+                >                
+            </a-entity>
+            
+            <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity> 
+
+            <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity>
+
 
         <!-- PREPERATION STATION-->
         <a-entity id="knife_wrapper"></a-entity>
@@ -203,25 +223,11 @@
                     visible="false" 
                     shadow="">
         </a-entity>
-        <a-entity id="prepStation" rotation="0 -232.21 0" position="3.27091 0 10.51185"> 
-            <a-entity 
-                id=prepStationTable 
-                obj-model="obj:#table_model" 
-                position="-1 -0.1 0" 
-                rotation="0 90 0" 
-                scale="" 
-                shadow=""
+        
+           
 
-                body="type: static; shape:none;"
 
-                shape__main="shape: box;
-                halfExtents: 2.95 1.9 1.1;
-                offset: 0 0 0;">
-            </a-entity>
             
-            <!-- CUTTING BOARD AREA  position="-0.198 1.481 0.2"-->
-            <a-entity id='cuttingBoard_area' rotation="0 90 0" position="-1.13659 0.39414 -0.46369"> 
-
                 <a-entity id='cuttingBoard'obj-model="obj:#cuttingBoard_model" position="-0.55 1.414 0.3" rotation="" scale="0.7 0.7 0.7" shadow="">
                 </a-entity>
                 <a-entity 
@@ -232,6 +238,7 @@
                     scale="0.3 0.3 0.3" 
                     shadow=""
 
+<<<<<<< HEAD
                     body="type: dynamic; shape:none; linearDamping: 0.9; angularDamping: 0.9"
                     
                     shape__main="shape: box;
@@ -268,11 +275,84 @@
                 height: 0.1;
                 halfExtents: 1 0.5 1;
                 offset: 0 -0.5 0;">
+=======
+            <a-entity 
+                id="squash" 
+                object-pickup="position:0.006 -0 -0.156" 
+                obj-model="obj:#squashWhole_model" 
+                material="color:#CFBA5F" 
+                position="4.30452 1.96926 7.3856" 
+                rotation="" 
+                scale="" 
+                shadow=""
+                
+                object-pickup="position:0.006 -0 -0.156"
+                detect-collision
+                class="collidable" 
+                > 
+            </a-entity>
+
+            <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity> 
+
+            <a-entity object-place="hasCollision: true" id="squash_placeholder2" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0 3.1 0"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity>
+
+
+            <a-entity 
+                id="garlic" 
+                object-pickup="position:0.006 -0 -0.156" 
+                obj-model="obj:assets/models/garlic.obj" 
+                material="color:#CFBA5F" 
+                position="4.91103 1.92973 6.55719" 
+                rotation="" 
+                scale="" 
+                shadow=""
+
+                object-pickup="position:0.006 -0 -0.156"
+                detect-collision
+                class="collidable" 
+                > 
+            </a-entity>
+
+            <a-entity object-place="hasCollision: true" id="garlic_placeholder" class="garlic_placeholder" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity> 
+
+            <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity>
+
+
+            <!-- INGREDIENT STATION-->
+
+            <a-entity 
+                id="interactableIngredient"
+                class="collidable" 
+                obj-model="obj:#interactableIngredient_model" 
+                material="color: #477725" 
+                position="2.616 2.021 8.665" 
+                rotation="0 0 0" 
+                scale="" 
+                shadow=""
+                
+                detect-collision
+
+                object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
+               ></a-entity> 
+
+
+            <!-- this is the second red placement indicator for the stew  -->
+
+            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            </a-entity> 
+
+            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="0 3 0"  rotation="0 0 0" scale="" shadow="cast:false">
+>>>>>>> 9a08db3e58a74b6137a4b0c319bdf0fb42a50d3a
             </a-entity>
           
         </a-entity>
 
 
+<<<<<<< HEAD
         <!-- RECIPIE AREA -->
         <a-entity id="recipeStation" rotation="0 72 0" position="-6.58179 0 4.18675"> 
 
@@ -299,6 +379,93 @@
                 scale="0.8 0.8 0.8" 
                 shadow=""
 
+=======
+
+            <!-- PREPERATION STATION-->
+
+            <a-entity
+                id="knife" 
+                class="collidable" 
+                object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90" 
+                obj-model="obj:#knife_model" 
+                material="color: #477725" 
+                position="8.5 2 0" 
+                rotation="0 0 0" 
+                shadow=""
+                
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                halfExtents: 0.1 0.05 1;
+                offset: 0 0 -0.8;">
+            </a-entity>
+
+            <a-entity object-place id="knife_placeholder" class="knife_placeholder" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;"  position="8.5 2 0" rotation="0 0 0" shadow="">
+            </a-entity>
+
+            <a-entity
+                id="carrot"  
+                obj-model="obj:#carrot_model" 
+                detect-collision 
+                position="-0.93936 1.39013 0.28187" 
+                rotation="0 -112.6 0" 
+                scale="0.3 0.3 0.3" 
+                shadow=""
+
+                body="type: dynamic; shape:none; linearDamping: 0.9; angularDamping: 0.9"
+                
+                shape__main="shape: box;
+                halfExtents: 0.2 0.2 1.5;
+                offset: 0 0.3 0.2;">
+            </a-entity>
+
+
+            <!-- COOKING AREA -->
+
+            <a-entity 
+                id="fryingPan" 
+                obj-model="obj:#fryingPan_model" 
+                position="0.4 2.58 -8.3" 
+                rotation="0 180 0" 
+                scale="0.5 0.5 0.5" 
+                shadow=""
+
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                height: 0.1;
+                halfExtents: 1 0.5 1;
+                offset: 0 -0.5 0;">
+            </a-entity>
+           
+
+            <!-- RECIPIE AREA -->
+            <a-entity id="garlic_chit" obj-model="obj:#chit_model" material="src:#Garlic_Chit_texture" position="-4.73258 3.07242 6.42619" rotation="0 57.41323586108415 0" scale="" shadow=""></a-entity>
+            <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Squash_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
+            <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Onion_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
+
+
+            <!-- STEW AREA -->
+            <a-entity class="collidable" object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -8.6" id="ladle" obj-model="obj:assets/models/ladle.obj" material="color:#477725" position="0.07973 1.91157 -0.51171" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="" raycaster="">
+            </a-entity>
+            <a-entity object-place id="ladle_placeholder" class="ladle_placeholder collidable" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="0.07973 1.91157 -0.51171" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
+            </a-entity>
+
+            <a-entity class="collidable" object-pickup="" id="bowl" obj-model="obj:assets/models/bowl.obj" material="color:#477725" position="6.81064 1.88921 -4.00935" rotation="" scale="0.1 0.1 0.1" shadow="" raycaster="">
+            </a-entity>
+            <a-entity object-place id="bowl_placeholder" class="bowl_placeholder collidable" obj-model="obj:#bowl_model" visible="false" material="color: red; opacity: 0.2;" position="6.81064 1.88921 -4.00935" rotation="" scale="0.1 0.1 0.1" shadow="">
+            </a-entity>
+
+
+            <a-entity 
+                id="stewPot"
+                obj-model="obj:#pot_model" 
+                position="0 0 0" 
+                rotation="0 90 0" 
+                scale="0.8 0.8 0.8" 
+                shadow=""
+
+>>>>>>> 9a08db3e58a74b6137a4b0c319bdf0fb42a50d3a
                 body="type: static; shape:none;"
 
                 shape__main="shape: cylinder;
@@ -306,6 +473,7 @@
                 radiusTop: 1.3;
                 radiusBottom: 1.3;">
             </a-entity>
+<<<<<<< HEAD
         </a-entity>
         <a-entity id="ladle_wrapper"></a-entity>
         <a-entity object-place id="ladle_placeholder" class="ladle_placeholder collidable" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="-0.99 1.5 5.229" rotation="-21 29 0" scale="0.1 0.1 0.1" shadow="">
@@ -348,4 +516,20 @@
      
     </script>
   </body>
+=======
+
+            <!-- GROUND & SKY -->
+            <!-- <a-plane static-body id="ground" position="0 0 0" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane> -->
+            
+            <a-sky color="#ECECEC" ></a-sky>
+            <a-entity   id="sky"
+                        rotation="0 180 0"
+                        geometry="primitive: sphere; radius: 1000"
+                        material="shader: flat; src: #skymap; side: back"
+                        loadscripts>
+            </a-entity>
+
+        </a-scene>
+    </body>
+>>>>>>> 9a08db3e58a74b6137a4b0c319bdf0fb42a50d3a
 </html>

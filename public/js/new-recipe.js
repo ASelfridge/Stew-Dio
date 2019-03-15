@@ -15,17 +15,19 @@ AFRAME.registerComponent('new-recipe', {
                 // show speech bubble
                 let speechBubble = document.querySelector('#speechBubble');
                 speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
-                speechBubble.object3D.position.set(1.285, 3.718, -1.975);
+                speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
 
                 // play greeting sound
                 el.components['sound'].stopSound();
                 el.components['sound'].playSound();
-                console.log("customer clicked");
 
                 numCustomers++;
                 
                 //THIS NEEDS TO BE MOVED TO GLOBALS OR RECIPIE SYSTEM (ON COMPLETION OF RECIPIE)
                 recipeAvailable = true;
+
+                document.querySelector('a-scene').components['recipe-system'].newRecipe();
+
             }
         });
 

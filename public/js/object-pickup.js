@@ -1,5 +1,4 @@
 AFRAME.registerComponent('object-pickup', {
-    dependencies: ['raycaster'],
     schema: {
         position: {default: '0 -1 0'},
         rotation: {default: '0 0 0'}
@@ -22,6 +21,7 @@ AFRAME.registerComponent('object-pickup', {
         
         el.addEventListener('mousedown', function(event) {
             console.log('trying to pickup');
+            console.log(scene.selectedObject);
             // check that no object is currently being held and not outside of maxDistance range and that it's available
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
                 console.log('Able to pick up');
@@ -72,7 +72,7 @@ AFRAME.registerComponent('object-pickup', {
                    rotationOffset: data.rotation,
               
                });
-
+                el.setAttribute('body', {type: 'static', shape:'none'});
                     // Context_AF.el.object3D.parent = document.getElementById("cursor").object3D;
                     // //console.log(Context_AF.el.object3D.parent);
                     // Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance

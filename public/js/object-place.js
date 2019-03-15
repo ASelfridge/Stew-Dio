@@ -1,5 +1,4 @@
 AFRAME.registerComponent('object-place', {
-    dependencies: ['raycaster'],
     schema: {
         hasCollision: {default: false}
     },
@@ -38,7 +37,9 @@ AFRAME.registerComponent('object-place', {
                 // clicked placeholder and close enough
                 
                 if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
+                    console.log(Context_OBJ)
                     console.log('able to place');
+                    Context_OBJ[0].removeAttribute('body');
                     Context_AF.place();
                 }
             })
@@ -85,11 +86,6 @@ AFRAME.registerComponent('object-place', {
             placeholders[i].object3D.visible = false
             placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
         }
-
-        
-
-
-
         // set selectedObject back to null
         scene.selectedObject = null;
 

@@ -1,9 +1,7 @@
 //Device Detect 
 
 let headSet = AFRAME.utils.device.checkHeadsetConnected ();
-
-
-
+console.log(mobile);
 function onSceneLoad(){
   let counter = 0;
   let clientId = ''
