@@ -2,7 +2,9 @@
         schema: {
             removeOnDrop: {default: true},
             choppable: {default: false},
-            chopStates: {type: 'array', default: []}
+            chopStates: {type: 'array', default: []},
+            colliders: {type: 'array', default: []},
+            stewState: {}
         },
         init: function() {
             const Context_AF = this;
@@ -11,6 +13,7 @@
 
             Context_AF.chop = 0;
             Context_AF.chopWait = false
+            Context_AF.stewed = 0;
 
             this.el.addEventListener("collide", (e)=>{
                 if(data.removeOnDrop) {
@@ -19,8 +22,8 @@
                     }, 1000);
                 }
                 
-                //scene.components['recipe-system'].updateRecipeSystem(e.detail);
-                //scene.components['recipe-system'].checkRecipeStatus();
+                scene.components['recipe-system'].updateRecipeSystem(e.detail);
+                scene.components['recipe-system'].checkRecipeStatus();
 
                 if(data.choppable && e.detail.body.el.id == 'knife' && this.chop < data.chopStates.length && !this.chopWait) {
                     el.setAttribute('obj-model', {'obj': data.chopStates[Context_AF.chop]});
@@ -34,7 +37,11 @@
                     data.removeOnDrop = true;
                     el.setAttribute('object-pickup', {'numPlaceholders': 2});
                     console.log(el.components);
-                    //el.removeAttribute('body');
+                }
+
+                if (e.detail.body.el.id == data.colliders[Context_AF.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
+                    el.setAttribute('obj-model', {'obj': data.stewStates[Context_AF.stewed]});
+                    Context_AF.stewed++;
                 }
 
             })

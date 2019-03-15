@@ -89,7 +89,9 @@
                 <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
                 <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
                 <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
-                <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
+                <a-asset-item id="ladle_full_model" src="assets/models/ladle_full.obj"></a-asset-item>
+                <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item>
+                <a-asset-item id="bowl_full_model" src="assets/models/bowl_full.obj"></a-asset-item>  
 
                 <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
 
@@ -347,12 +349,35 @@
 
 
             <!-- STEW AREA -->
-            <a-entity class="collidable" object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -8.6" id="ladle" obj-model="obj:assets/models/ladle.obj" material="color:#477725" position="0.07973 1.91157 -0.51171" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="" raycaster="">
+            <a-entity 
+                class="collidable" 
+                object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -8.6" 
+                id="ladle" 
+                detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
+                obj-model="obj:assets/models/ladle.obj" 
+                material="color:#477725" 
+                position="0.07973 1.91157 -0.51171" 
+                rotation="-21.120943201907536 7.320681748386528 0"
+                static-body 
+                scale="" 
+                shadow="" 
+                raycaster="">
             </a-entity>
             <a-entity object-place id="ladle_placeholder" class="ladle_placeholder collidable" obj-model="obj:#ladle_model" visible="false" material="color: red; opacity: 0.2;" position="0.07973 1.91157 -0.51171" rotation="-21.120943201907536 7.320681748386528 0" scale="" shadow="">
             </a-entity>
 
-            <a-entity class="collidable" object-pickup="" id="bowl" obj-model="obj:assets/models/bowl.obj" material="color:#477725" position="6.81064 1.88921 -4.00935" rotation="" scale="0.1 0.1 0.1" shadow="" raycaster="">
+            <a-entity 
+                id="bowl" 
+                class="collidable" 
+                object-pickup="" 
+                detect-collision="colliders: ladle; stewState: #bowl_full_model"
+                obj-model="obj:assets/models/bowl.obj" 
+                material="color:#477725" 
+                position="6.81064 1.88921 -4.00935" 
+                rotation="" scale="0.1 0.1 0.1"
+                static-body 
+                shadow="" 
+                raycaster="">
             </a-entity>
             <a-entity object-place id="bowl_placeholder" class="bowl_placeholder collidable" obj-model="obj:#bowl_model" visible="false" material="color: red; opacity: 0.2;" position="6.81064 1.88921 -4.00935" rotation="" scale="0.1 0.1 0.1" shadow="">
             </a-entity>

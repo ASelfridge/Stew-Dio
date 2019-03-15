@@ -5,10 +5,12 @@ AFRAME.registerComponent('recipe-system', {
         const el = Context_AF.el;
 
         Context_AF.currentRecipe;
+
+        this.currentRecipe = new Recipe(["garlic", "onion", "squash"]);
     },
     newRecipe:function() {
         if(numCustomers == 1){
-            this.currentRecipe = new Recipe(["garlic", "onion", "squash"]);
+            
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
@@ -46,11 +48,14 @@ AFRAME.registerComponent('recipe-system', {
         }
     },
     checkRecipeStatus : function() {
-       
+       if(!this.currentRecipe.completed) {
         for(i = 0; i < this.currentRecipe.numIngredients; i++){
-            console.log(this.currentRecipe.ingredients[i] + ": " + this.currentRecipe.inStew[i]);
+            if(!this.currentRecipe.inStew[i]) {
+                return;
+            }
         }
-        
+        this.currentRecipe.completed = true;
+        }
     },
     updateStewLiquid : function () {
         console.log("update the stew liquid");
