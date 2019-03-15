@@ -13,7 +13,7 @@ AFRAME.registerComponent('object-place', {
         // store sibling object
         let object_class = el.id.substr(0, el.id.indexOf('_'));
         const Context_OBJ = document.getElementsByClassName(object_class);
-       
+        console.log(oculusGo);
         let scene = document.querySelector('a-scene');
         if(oculusGo) {
             // intersect with element

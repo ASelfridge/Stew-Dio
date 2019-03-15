@@ -1,67 +1,78 @@
 <html>
-  <head>
-    <title>Starting Environment</title>
-
-    <script src="js/aframe-v0.8.2.min.js"></script>
-    <script src="js/master.js"></script>
-    <script src="js/socket.io.min.js"></script>
-    <script src="js/easyrtc.js"></script>
-    <script src="js/networked-aframe.min.js"></script>
-    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
-    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
-    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
-    <script src="js/trigger.js"></script>
-    <script src="js/object-pickup.js"></script>
-    <script src="js/object-place.js"></script>
-    <script src="js/new-recipe.js"></script>
-    <script src="js/tool-component.js"></script>
-    <script src="js/parent-constraint.js"></script>
-    <script src="js/detect-collision.js"></script>
-    <script src="js/onSceneLoad.js"></script>
-    <script src="js/recipe-system.js"></script>
-    <script src="js/recipes.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
-  </head>
-  
-  <body>
-    <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug: true; restitution: 0.3" recipe-system>
-        <!-------------- TEXTURES ---------------->
-        <a-assets>
-            <img id="skymap" src="assets/textures/sunsetGradient.png" />
-            <img id="area_texture" src="assets/textures/mainTexture.jpg" />
-
-            <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
-            <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
-            <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
-            <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
-            <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
-        </a-assets>
-
-        <!-------------- SOUNDS ---------------->
-        <a-assets>
-            <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
-            <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
-            <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
-            <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
-        </a-assets>
-      
-        <!---------------- MODELS ---------------->
-        <a-assets>
-            <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
-            <a-asset-item id="hat_model" src="assets/models/hat.obj"></a-asset-item>
-            <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
-            <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
-            <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
-            <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
-            <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
-            <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
-            <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
-            <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
-            <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item> 
-            <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
-            <a-asset-item id="squash_chop_1_model" src="assets/models/squash_chop_1.obj"></a-asset-item>
-            <a-asset-item id="squash_chop_2_model" src="assets/models/squash_chop_2.obj"></a-asset-item>
-            <a-asset-item id="squash_chop_3_model" src="assets/models/squash_chop_3.obj"></a-asset-item>
+        <head>
+                <title>Starting Environment</title>
+            
+                <script src="js/aframe-v0.8.2.min.js"></script>
+                <script src="js/master.js"></script>
+                <script src="js/socket.io.min.js"></script>
+                <script src="js/easyrtc.js"></script>
+                <script src="js/networked-aframe.min.js"></script>
+                <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+                <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
+                <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+                <script src="js/trigger.js"></script>
+                <script src="js/object-pickup.js"></script>
+                <script src="js/object-place.js"></script>
+                <script src="js/new-recipe.js"></script>
+                <script src="js/tool-component.js"></script>
+                <script src="js/parent-constraint.js"></script>
+                <script src="js/detect-collision.js"></script>
+                <script src="js/onSceneLoad.js"></script>
+                <script src="js/recipe-system.js"></script>
+                <script src="js/recipes.js"></script>
+                <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+              </head>
+              
+              <body>
+                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug: true; restitution: 0.3" recipe-system>
+                    <!-------------- TEXTURES ---------------->
+                    <a-assets>
+                        <img id="skymap" src="assets/textures/sunsetGradient.png" />
+                        <img id="area_texture" src="assets/textures/mainTexture.jpg" />
+                        <img id="Blank_Chit_texture" src="assets/textures/Blank_Chit.png" />
+                        <img id="Garlic_Chit_Completed_texture" src="assets/textures/Garlic_Chit_Completed.png" />
+                        <img id="Squash_Chit_Completed_texture" src="assets/textures/Squash_Chit_Completed.png" />
+                        <img id="Onion_Chit_Completed_texture" src="assets/textures/Onion_Chit_Completed.png" />
+            
+                        <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
+                        <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
+                        <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
+                        <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
+                        <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+                    </a-assets>
+            
+                    <!-------------- SOUNDS ---------------->
+                    <a-assets>
+                        <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="stewFillSrc" src="assets/sounds/stewFill.mp3" response-type="arraybuffer"></a-asset-item>
+            
+                    </a-assets>
+                  
+                    <!---------------- MODELS ---------------->
+                    <a-assets>
+                        <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
+                        <a-asset-item id="hat_model" src="assets/models/hat.obj"></a-asset-item>
+                        <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
+                        <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
+                        <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
+                        <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
+                        <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
+                        <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
+                        <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
+                        <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
+                        <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item> 
+                        <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+                        <a-asset-item id="squash_chop_1_model" src="assets/models/squash_chop_1.obj"></a-asset-item>
+                        <a-asset-item id="squash_chop_2_model" src="assets/models/squash_chop_2.obj"></a-asset-item>
+                        <a-asset-item id="squash_chop_3_model" src="assets/models/squash_chop_3.obj"></a-asset-item>
+                        <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
+                        <a-asset-item id="ladle_full_model" src="assets/models/ladle_full.obj"></a-asset-item>
+                        <a-asset-item id="bowl_full_model" src="assets/models/bowl_full.obj"></a-asset-item>  
+            
+            
             <!-- 
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
                 <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
@@ -85,7 +96,7 @@
                 <a-entity class="avatar">
                     <a-entity class="hat"
                             obj-model="obj:#hat_model" 
-                            position="0 2 0"
+                            position="0 3 0"
                             rotation="0 180 0"
                            >
                     </a-entity>
@@ -94,7 +105,6 @@
         
             <template id="squash_template">
                 <a-entity class="squash collidable"
-                            obj-model="obj:#squashWhole_model" 
                             material="color:#CFBA5F" 
                             shadow=""
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2"
@@ -140,6 +150,8 @@
                             shadow=""
                             raycaster=""
                             object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12"
+                            detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
+
                             ></a-entity>
             </template>
 
@@ -150,9 +162,12 @@
                             shadow=""
                             raycaster=""
                             object-pickup="position: 0 -.5 0; rotation: 0 45 12" 
-                            detect-collision
+                            detect-collision="colliders: ladle; stewState: #bowl_full_model"
                             ></a-entity>
             </template>
+
+
+            
          </a-assets>
         
 
@@ -178,7 +193,17 @@
         <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
         <a-entity id="ambiance" sound="src:#ambianceSrc; volume: .4; loop: true; positional:false"></a-entity>
 
-        
+        <a-entity 
+                id="stewLiquid" 
+                obj-model="obj:#stewLiquid_model" 
+                material="color:#F5E1A4" 
+                position="0 -10 0" 
+                rotation="" 
+                scale="" 
+                shadow=""
+                sound="src: #stewFillSrc"
+                >
+            </a-entity>
         <!-- CUSTOMER SERVICE -->
 
         <a-entity 
@@ -271,10 +296,10 @@
         </a-entity>
 
 
-        <!-- RECIPIE AREA -->
-        <a-entity id="garlic_chit" obj-model="obj:#chit_model" material="src:#Garlic_Chit_texture" position="-4.73258 3.07242 6.42619" rotation="0 57.41323586108415 0" scale="" shadow=""></a-entity>
-        <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Squash_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
-        <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Onion_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
+       <!-- RECIPIE AREA -->
+       <a-entity id="garlic_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-4.73258 3.07242 6.42619" rotation="0 57.41323586108415 0" scale="" shadow=""></a-entity>
+       <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
+       <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
 
 
         <!-- STEW AREA -->
@@ -335,11 +360,11 @@
     <script>
       // Define custom schema for syncing avatar color, set by random-color
       NAF.schemas.add({
-        template: '#avatar_template',
+        template: '#squash_template',
         components: [
           'position',
           'rotation',
-         
+          'obj-model',
         ]
       });
 

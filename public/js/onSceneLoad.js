@@ -34,6 +34,9 @@ function onSceneLoad(){
         obj.setAttribute('rotation',  ntw_objs[i].rotation);
         obj.setAttribute('toggle-ownership');
         obj.setAttribute('networked',  {template:'#' + ntw_objs[i].id + '_template', attachTemplateToLocal:true});
+        if(ntw_objs[i].id=="squash"){
+            obj.setAttribute('obj-model', 'obj', '#squashWhole_model');
+        }
         obj_wrapper.appendChild(obj);
       //}
      }
