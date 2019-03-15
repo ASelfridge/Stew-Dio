@@ -71,11 +71,14 @@
                 <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="stewFillSrc" src="assets/sounds/stewFill.mp3" response-type="arraybuffer"></a-asset-item>
             </a-assets>
                 
             <!---------------- MODELS ---------------->
             <a-assets>
                 <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
+
+                <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
 
                 <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
                 <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
@@ -126,6 +129,19 @@
             <!---------------- A-FRAME ENTITIES ---------------->
 
             <a-entity id="area" obj-model="obj:#area_model" material="src: #area_texture" position="" rotation="" scale="" shadow=""></a-entity>
+
+            <a-entity 
+                id="stewLiquid" 
+                obj-model="obj:#stewLiquid_model" 
+                material="color:#F5E1A4" 
+                position="0 -10 0" 
+                rotation="" 
+                scale="" 
+                shadow=""
+                sound="src: #stewFillSrc"
+                >
+            </a-entity>
+
             
             <!-- SOUNDS ENTITIES -->
              <a-entity id="music" sound="src:#musicSrc; volume: 0.02; loop: true; positional:false" ></a-entity>

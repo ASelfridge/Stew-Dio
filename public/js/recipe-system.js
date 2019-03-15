@@ -36,6 +36,7 @@ AFRAME.registerComponent('recipe-system', {
             for(i = 0; i < this.currentRecipe.numIngredients; i++){
                 if (droppedObject == this.currentRecipe.ingredients[i]){
                     this.currentRecipe.inStew[i] = true;
+                    this.updateStewLiquid();
                     console.log("ingredient is in slot " + i + ": " + this.currentRecipe.ingredients[i]);
                     return;
                 }
@@ -50,6 +51,48 @@ AFRAME.registerComponent('recipe-system', {
             console.log(this.currentRecipe.ingredients[i] + ": " + this.currentRecipe.inStew[i]);
         }
         
+    },
+    updateStewLiquid : function () {
+        console.log("update the stew liquid");
+        ingredientCount = 0;
+
+        for(i = 0; i < this.currentRecipe.numIngredients; i++){
+            if (this.currentRecipe.inStew[i] == true) {
+                ingredientCount = ingredientCount + 1;
+            }
+        }
+        
+        console.log(ingredientCount);
+
+        if (ingredientCount == 0) {
+            stewLiquid = document.querySelector('#stewLiquid');
+            stewLiquid.object3D.position.set(0, -10, 0);
+        }
+
+        if (ingredientCount == 1) {
+            stewLiquid = document.querySelector('#stewLiquid');
+            stewLiquid.components['sound'].stopSound();
+            stewLiquid.components['sound'].playSound();
+            stewLiquid.object3D.position.set(0, 0.5, 0);
+        }
+
+        if (ingredientCount == 2) {
+            stewLiquid = document.querySelector('#stewLiquid');
+            stewLiquid.components['sound'].stopSound();
+            stewLiquid.components['sound'].playSound();
+            stewLiquid.object3D.position.set(0, 1, 0);
+        }
+
+        if (ingredientCount == 3) {
+            stewLiquid = document.querySelector('#stewLiquid');
+            stewLiquid.components['sound'].stopSound();
+            stewLiquid.components['sound'].playSound();
+            stewLiquid.object3D.position.set(0, 1.3, 0);
+            stewLiquid.setAttribute('material', {color: '#9D4815'});
+        }
+
+
+
     }
 });
 
