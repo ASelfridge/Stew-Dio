@@ -50,7 +50,7 @@
 
     </head>
     <body>
-        <a-scene physics="debug: true; restitution: 0.3" recipe-system>
+        <a-scene physics="restitution: 0.3; debug: true" recipe-system>
             
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -81,6 +81,9 @@
                 <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
 
                 <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
+                <a-asset-item id="squash_chop_1_model" src="assets/models/squash_chop_1.obj"></a-asset-item>
+                <a-asset-item id="squash_chop_2_model" src="assets/models/squash_chop_2.obj"></a-asset-item>
+                <a-asset-item id="squash_chop_3_model" src="assets/models/squash_chop_3.obj"></a-asset-item>
                 <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
                 <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
                 <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
@@ -200,7 +203,7 @@
                 shadow=""
                 
                 object-pickup="position:0.006 -0 -0.156"
-                detect-collision
+                detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                 class="collidable" 
                 > 
             </a-entity>
@@ -282,6 +285,22 @@
                 offset: 0 0 -0.8;">
             </a-entity>
 
+            <a-entity
+                id="cuttingBoard"
+                geometry="primitive: box"  
+                material="color: white" 
+                position="7.451 2 -2.655" 
+                rotation="0 -53.72 0"
+                scale="2.13 0.1 1.31"
+                shadow=""
+                
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                halfExtents: 0.5 0.5 0.5;
+                offset: 0 0 0;">
+            </a-entity>
+
             <a-entity object-place id="knife_placeholder" class="knife_placeholder" visible="false" obj-model="obj:#knife_model" material="color: red; opacity: 0.2;"  position="8.5 2 0" rotation="0 0 0" shadow="">
             </a-entity>
 
@@ -303,7 +322,7 @@
 
 
             <!-- COOKING AREA -->
-
+                    
             <a-entity 
                 id="fryingPan" 
                 obj-model="obj:#fryingPan_model" 
