@@ -11,10 +11,11 @@ AFRAME.registerComponent('object-place', {
         el.intersected = false;
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-
+        let object_class = el.id.substr(0, el.id.indexOf('_'));
+        const Context_OBJ = document.getElementsByClassName(object_class);
+       
         let scene = document.querySelector('a-scene');
-
+        oculusGo = false;
         if(oculusGo) {
             // intersect with element
             el.addEventListener('raycaster-intersected', function(e){
@@ -34,7 +35,11 @@ AFRAME.registerComponent('object-place', {
         else {
             el.addEventListener('mousedown', function(e) {
                 // clicked placeholder and close enough
-                if(scene.selectedObject == object_id && e.detail.intersection.distance <= maxDistance) {
+                
+                if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
+                    console.log(Context_OBJ)
+                    console.log('able to place');
+                    Context_OBJ[0].removeAttribute('body');
                     Context_AF.place();
                 }
             })
@@ -44,18 +49,19 @@ AFRAME.registerComponent('object-place', {
         let Context_AF = this;
         let el = Context_AF.el;
         let data = Context_AF.data;
+        let scene = document.querySelector('a-scene');
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-        let object = document.querySelector("#" + object_id);
-
+        let object_class = el.id.substr(0, el.id.indexOf('_'));
+        const Context_OBJ = document.getElementsByClassName(object_class);
+        let object = Context_OBJ[0];
         el.intersected = false;
 
-        // hide placeholders
-        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
-        for(i = 0; i < placeholders.length; i++) {
-            placeholders[i].object3D.visible = false;
-        }
+        
+
+        //Remove parent constraint
+        object.removeAttribute('mdmu-parent-constraint');
+
 
         // move object to placeholder location
         object.object3D.parent = el.object3D.parent;
@@ -66,15 +72,23 @@ AFRAME.registerComponent('object-place', {
         
         object.object3D.position.set(pos.x, pos.y, pos.z);
         object.object3D.scale.set(scale.x, scale.y, scale.z);
-        object.object3D.rotation.set(rot.x, rot.y, rot.z);
-
+        object.object3D.rotation.set(rot._x, rot._y, rot._z);
+        
         // assign physics if necessary
         if(data.hasCollision){
-            object.setAttribute('dynamic-body', {});
+            
+           object.setAttribute('dynamic-body', {});
         }
-
+        
+        // hide placeholders
+        let placeholders = document.getElementsByClassName(object.classList[0] + "_placeholder");
+        for(i = 0; i < placeholders.length; i++) {
+            placeholders[i].object3D.visible = false
+            placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
+        }
         // set selectedObject back to null
         scene.selectedObject = null;
+
     },
     drop : function() {
         let Context_AF = this;
@@ -82,22 +96,24 @@ AFRAME.registerComponent('object-place', {
         let scene = document.querySelector('a-scene');
 
         // store sibling object
-        let object_id = el.id.substr(0, el.id.indexOf('_'));
-        let object = document.querySelector("#" + object_id);
+        let object_class = el.id.substr(0, el.id.indexOf('_'));
+        const Context_OBJ = document.getElementsByClassName(object_class);
+        let object = Context_OBJ[0];
 
         // hide placeholders
-        let placeholders = document.getElementsByClassName(object_id + "_placeholder");
+        let placeholders = document.getElementsByClassName(object.id + "_placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
         }
 
-        // assigning starting attributes
-        object.object3D.parent = object.ogParent;
-        object.object3D.position.set(object.ogPos.x, object.ogPos.y, object.ogPos.z);
-        object.object3D.rotation.set(object.ogRot._x, object.ogRot._y, object.ogRot._z);
-        object.object3D.scale.set(object.ogScale.x, object.ogScale.y, object.ogScale.z);
-        
-        // no selected object
+        // Pass object ID to sockets to set as available
+        //socket.emit('objAvailble', object.object3D.el.id);
+
+
+        // set selectedObject back to null
         scene.selectedObject = null;
+                
+                
+                
     }
 });
