@@ -59,6 +59,9 @@
             <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
             <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item> 
             <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+            <a-asset-item id="squash_chop_1_model" src="assets/models/squash_chop_1.obj"></a-asset-item>
+            <a-asset-item id="squash_chop_2_model" src="assets/models/squash_chop_2.obj"></a-asset-item>
+            <a-asset-item id="squash_chop_3_model" src="assets/models/squash_chop_3.obj"></a-asset-item>
             <!-- 
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
                 <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
@@ -94,8 +97,8 @@
                             obj-model="obj:#squashWhole_model" 
                             material="color:#CFBA5F" 
                             shadow=""
-                            object-pickup="position:0.006 -.87 -.5"
-                            detect-collision
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2"
+                            detect-collision="removeOnDrop:false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                 > </a-entity>
             </template>
 
@@ -103,14 +106,14 @@
                     <a-entity class="onion collidable" 
                                 obj-model="obj:#onionWhole_model" 
                                 material="color:#c18747" 
-                                object-pickup="position: 0.006 -.87 -.5; rotation: 0 0 0;" 
+                                object-pickup="position: 0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2" 
                                 shadow=""
                                 detect-collision></a-entity>
             </template>
 
             <template id="garlic_template">
             <a-entity class="garlic collidable" 
-                        object-pickup="position:0.006 -.87 -.5" 
+                        object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2" 
                         obj-model="obj:assets/models/garlic.obj" 
                         material="color:#CFBA5F" 
                         scale="" 
@@ -123,10 +126,11 @@
                             obj-model="obj:#knife_model" 
                             material="color: #477725" 
                             shadow=""
-                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90" 
+                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; " 
                             shape__main="shape: box;
                             halfExtents: 0.1 0.05 1;
-                            offset: 0 0 -0.8;"></a-entity>
+                            offset: 0 0 -0.8;">
+                </a-entity>
             </template>
 
             <template id="ladle_template">
@@ -197,26 +201,26 @@
         <!-- INGREDIENT STATION-->
 
         <a-entity id="onion_wrapper"></a-entity>
-        <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+        <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity> 
 
-        <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="" shadow="cast:false">
+        <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity>
         
         <a-entity id="squash_wrapper"></a-entity> 
-        <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+        <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity> 
 
-        <a-entity object-place="hasCollision: true" id="squash_placeholder2" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0 3.1 0"  rotation="0 0 0" scale="" shadow="cast:false">
+        <a-entity object-place="hasCollision: true" id="squash_placeholder2" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0 3.1 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity>
 
 
         <a-entity id="garlic_wrapper" ></a-entity>
 
-        <a-entity object-place="hasCollision: true" id="garlic_placeholder" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+        <a-entity object-place="hasCollision: true" id="garlic_placeholder" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity> 
 
-        <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="" shadow="cast:false">
+        <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity>
 
 
@@ -233,7 +237,21 @@
                     shadow=""
                     object-place >
         </a-entity>
-        
+        <a-entity
+                id="cuttingBoard"
+                geometry="primitive: box"  
+                material="color: white" 
+                position="7.451 2 -2.655" 
+                rotation="0 -53.72 0"
+                scale="2.13 0.1 1.31"
+                shadow=""
+                
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                halfExtents: 0.5 0.5 0.5;
+                offset: 0 0 0;">
+        </a-entity>
   
         <!-- COOKING AREA -->
 

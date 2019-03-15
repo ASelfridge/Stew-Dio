@@ -36,7 +36,9 @@ AFRAME.registerComponent('object-place', {
                 // clicked placeholder and close enough
                 
                 if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
-                    Context_OBJ[0].removeAttribute('body');
+                    console.log(Context_OBJ);
+                    console.log('clicked placeholder' );
+                    Context_OBJ[0].removeAttribute('static-body');
                     Context_AF.place();
                 }
             })
@@ -53,13 +55,18 @@ AFRAME.registerComponent('object-place', {
         const Context_OBJ = document.getElementsByClassName(object_class);
         let object = Context_OBJ[0];
         el.intersected = false;
-
         
+        // assign physics if necessary
+        if(data.hasCollision){
+            object.setAttribute('dynamic-body', {});
+            console.log("assigned dyn body");
+
+         }
 
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
-
+        console.log(object);
         // move object to placeholder location
         object.object3D.parent = el.object3D.parent;
 
@@ -71,10 +78,8 @@ AFRAME.registerComponent('object-place', {
         object.object3D.scale.set(scale.x, scale.y, scale.z);
         object.object3D.rotation.set(rot._x, rot._y, rot._z);
         
-        // assign physics if necessary
-        if(data.hasCollision){
-           object.setAttribute('dynamic-body', {});
-        }
+        
+        
         
         // hide placeholders
         let placeholders = document.getElementsByClassName(object.classList[0] + "_placeholder");
