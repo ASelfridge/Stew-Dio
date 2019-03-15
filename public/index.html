@@ -98,8 +98,8 @@
                             material="color:#CFBA5F" 
                             shadow=""
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2"
-                            detect-collision="removeOnDrop:false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
-                > </a-entity>
+                            detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
+                            > </a-entity>
             </template>
 
             <template id="onion_template">
@@ -161,7 +161,6 @@
         <a-entity id="cameraRig" position="0 1.9 0" rotation="0 0 0">
             <a-camera id="sceneCamera" networked="template:#avatar_template;attachTemplateToLocal:false;">
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
-                <a-sphere class="head" visible="false" random-color ></a-sphere>
             </a-camera>
         </a-entity>
 

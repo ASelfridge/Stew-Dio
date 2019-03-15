@@ -58,7 +58,6 @@ function deviceControls(){
     let camera = document.querySelector('#sceneCamera');
     let camRig = document.querySelector('#cameraRig');
     
-    
     if (oculusGo){
     console.log("Oculus Go Device Connected");
 
