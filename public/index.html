@@ -24,7 +24,7 @@
               </head>
               
               <body>
-                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug: true; restitution: 0.3" recipe-system>
+                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="restitution: 0.3" recipe-system>
                     <!-------------- TEXTURES ---------------->
                     <a-assets>
                         <img id="skymap" src="assets/textures/sunsetGradient.png" />
@@ -33,7 +33,11 @@
                         <img id="Garlic_Chit_Completed_texture" src="assets/textures/Garlic_Chit_Completed.png" />
                         <img id="Squash_Chit_Completed_texture" src="assets/textures/Squash_Chit_Completed.png" />
                         <img id="Onion_Chit_Completed_texture" src="assets/textures/Onion_Chit_Completed.png" />
-            
+                        <img id="hat_texture" src="assets/textures/hat.jpg" />
+                        <img id="Pine_texture" src="assets/textures/pine.jpg" />
+
+                        <img id="knife_texture" src="assets/textures/Knife_Ladel.jpg" />
+                        <img id="character_texture" src="assets/textures/character.jpg" />
                         <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
                         <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
                         <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
@@ -54,6 +58,7 @@
                     <!---------------- MODELS ---------------->
                     <a-assets>
                         <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
+                        <a-asset-item id="pine_model" src="assets/models/pine.obj"></a-asset-item>
                         <a-asset-item id="hat_model" src="assets/models/hat.obj"></a-asset-item>
                         <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
                         <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
@@ -95,7 +100,8 @@
             <template id="avatar_template"> 
                 <a-entity class="avatar">
                     <a-entity class="hat"
-                            obj-model="obj:#hat_model" 
+                            obj-model="obj:#hat_model"
+                            material="src:#hat_texture" 
                             position="0 3 0"
                             rotation="0 180 0"
                            >
@@ -134,7 +140,7 @@
             <template id="knife_template">
                 <a-entity class="knife collidable" 
                             obj-model="obj:#knife_model" 
-                            material="color: #477725" 
+                            material="src: #knife_texture" 
                             shadow=""
                             object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; " 
                             shape__main="shape: box;
@@ -155,7 +161,7 @@
                             ></a-entity>
             </template>
 
-            <template id="bowl_template">
+            <!-- <template id="bowl_template">
                 <a-entity class="bowl collidable" 
                             obj-model="obj:#bowl_model" 
                             material="color: #477725" 
@@ -163,8 +169,8 @@
                             raycaster=""
                             object-pickup="position: 0 -.5 0; rotation: 0 45 12" 
                             detect-collision="colliders: ladle; stewState: #bowl_full_model"
-                            ></a-entity>
-            </template>
+                            scale="0.1 0.1 0.1"></a-entity>
+            </template> -->
 
 
             
@@ -210,6 +216,7 @@
             new-recipe="" 
             id="character1" 
             obj-model="obj:#character_model" 
+            material="src: #character_texture"
             position="-9.59681 -0.01024 0.12693" 
             rotation="0 0.07620338675239949 0" 
             scale="" 
@@ -247,7 +254,39 @@
         <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity>
 
-
+        <!-- FOREST -->
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-16.58483 -0.825 -5.79915" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-12.953 -0.825 10.983" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-11.615 -0.825 -14.178" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.431 -0.825 12.559" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="8.715 -0.825 -14.971" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.965 -0.825 -24.713" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-15.051 -0.825 -33.571" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-27.710 -0.825 8.213" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.665 -0.825 19.396" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.693 -0.825 -24.929" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-14.456 -0.825 -23.729" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-28.994 -0.825 -17.946" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.044 -0.825 6.297" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-39.404 -0.825 -7.133" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-20.639 -0.825 -18.474" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.643 -0.825 -14.725" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-19.077 -0.825 -12.747" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-30.921 -0.825 -11.611" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-22.627 -0.825 10.878" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.924 -0.825 24.953" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-7.725 -0.825 18.688" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.601 -0.825 12.268" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.904 -0.825 9.461" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.818 -0.825 -12.185" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.424 -0.825 17.666" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.195 -0.825 25.139" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.318 -0.825 20.869" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.115 -0.825 25.941" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-2.758 -0.825 15.923" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="17.939 -0.825 4.565" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="14.570 -0.825 -8.824" rotation="" scale="" shadow=""></a-entity>
+        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="15.934 -0.825 -0.492" rotation="" scale="" shadow=""></a-entity>
 
         <!-- PREPERATION STATION-->
         <a-entity id="knife_wrapper"></a-entity>
@@ -267,7 +306,7 @@
                 material="color: white" 
                 position="7.451 2 -2.655" 
                 rotation="0 -53.72 0"
-                scale="2.13 0.1 1.31"
+                scale="3 0.1 1.31"
                 shadow=""
                 
                 body="type: static; shape:none;"
