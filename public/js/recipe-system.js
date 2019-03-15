@@ -5,12 +5,11 @@ AFRAME.registerComponent('recipe-system', {
         const el = Context_AF.el;
 
         Context_AF.currentRecipe;
-
-        this.currentRecipe = new Recipe(["garlic", "onion", "squash"]);
+        this.currentRecipe = new Recipe(["garlic", "squash", "onion"]);
     },
     newRecipe:function() {
         if(numCustomers == 1){
-            
+            this.updateChits();
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
@@ -40,6 +39,7 @@ AFRAME.registerComponent('recipe-system', {
                     this.currentRecipe.inStew[i] = true;
                     this.updateStewLiquid();
                     console.log("ingredient is in slot " + i + ": " + this.currentRecipe.ingredients[i]);
+                    this.updateChits();
                     return;
                 }
             }
@@ -98,8 +98,34 @@ AFRAME.registerComponent('recipe-system', {
 
 
 
+    },
+    updateChits : function(){
+        console.log("update function");
+        let chit1 = document.querySelector('#garlic_chit');
+        let chit2 = document.querySelector('#squash_chit');
+        let chit3 = document.querySelector('#onion_chit');
+
+        console.log(this.currentRecipe.inStew[0]);
+
+        chit1.setAttribute('material', {src: chitTextures[1]});
+        chit2.setAttribute('material', {src: chitTextures[2]});
+        chit3.setAttribute('material', {src: chitTextures[3]})
+
+        if(this.currentRecipe.inStew[0] == true){
+            console.log("change it do done");
+            chit1.setAttribute('material', {src: chitTextures[4]});
+        }
+        if(this.currentRecipe.inStew[1] == true){
+            console.log("change it do done");
+            chit2.setAttribute('material', {src: chitTextures[5]});
+        }
+        if(this.currentRecipe.inStew[2] == true){
+            console.log("change it do done");
+            chit3.setAttribute('material', {src: chitTextures[6]});
+        }
+
+;
     }
 });
-
 
 

@@ -81,6 +81,9 @@ AFRAME.registerComponent('object-pickup', {
 
             // show the placeholder object
             let placeholders = document.getElementsByClassName(el.id + "_placeholder");
+            console.log(data.numPlaceholders);
+
+            console.log(placeholders);
             for(i = 0; i < data.numPlaceholders; i++) {
                 let model = el.components['obj-model'].attrValue['obj'];
                 placeholders[i].setAttribute('obj-model', {'obj': model});

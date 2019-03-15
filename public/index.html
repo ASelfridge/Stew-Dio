@@ -57,9 +57,13 @@
                 <img id="skymap" src="assets/textures/sunsetGradient.png" />
                 <img id="area_texture" src="assets/textures/mainTexture.jpg" />
 
+                <img id="Blank_Chit_texture" src="assets/textures/Blank_Chit.png" />
                 <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
+                <img id="Garlic_Chit_Completed_texture" src="assets/textures/Garlic_Chit_Completed.png" />
                 <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
+                <img id="Squash_Chit_Completed_texture" src="assets/textures/Squash_Chit_Completed.png" />
                 <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
+                <img id="Onion_Chit_Completed_texture" src="assets/textures/Onion_Chit_Completed.png" />
 
                 <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
                 <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
@@ -181,13 +185,13 @@
                 scale="" 
                 shadow=""
                 
-                object-pickup="position:0.006 -0 -0.156"
+                object-pickup="position:0.006 -0 -0.156; numPlaceholders: 2"
                 detect-collision
                 class="collidable" 
                 >                
             </a-entity>
             
-            <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3.2 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity> 
 
             <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="" shadow="cast:false">
@@ -196,7 +200,6 @@
 
             <a-entity 
                 id="squash" 
-                object-pickup="position:0.006 -0 -0.156" 
                 obj-model="obj:#squashWhole_model" 
                 material="color:#CFBA5F" 
                 position="4.30452 1.96926 7.3856" 
@@ -204,13 +207,13 @@
                 scale="" 
                 shadow=""
                 
-                object-pickup="position:0.006 -0 -0.156"
+                object-pickup="position:0.006 -0 -0.156; numPlaceholders: 2"
                 detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                 class="collidable" 
                 > 
             </a-entity>
 
-            <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 2.5 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity> 
 
             <a-entity object-place="hasCollision: true" id="squash_placeholder2" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0 3.1 0"  rotation="0 0 0" scale="" shadow="cast:false">
@@ -219,7 +222,6 @@
 
             <a-entity 
                 id="garlic" 
-                object-pickup="position:0.006 -0 -0.156" 
                 obj-model="obj:assets/models/garlic.obj" 
                 material="color:#CFBA5F" 
                 position="4.91103 1.92973 6.55719" 
@@ -227,13 +229,13 @@
                 scale="" 
                 shadow=""
 
-                object-pickup="position:0.006 -0 -0.156"
+                object-pickup="position:0.006 -0 -0.156; numPlaceholders: 2"
                 detect-collision
                 class="collidable" 
                 > 
             </a-entity>
 
-            <a-entity object-place="hasCollision: true" id="garlic_placeholder" class="garlic_placeholder" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
+            <a-entity object-place="hasCollision: true" id="garlic_placeholder" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3.5 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
             </a-entity> 
 
             <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="" shadow="cast:false">
@@ -241,32 +243,6 @@
 
 
             <!-- INGREDIENT STATION-->
-
-            <a-entity 
-                id="interactableIngredient"
-                class="collidable" 
-                obj-model="obj:#interactableIngredient_model" 
-                material="color: #477725" 
-                position="2.616 2.021 8.665" 
-                rotation="0 0 0" 
-                scale="" 
-                shadow=""
-                
-                detect-collision
-
-                object-pickup="position: 0.006 -0 -0.156; rotation: 0 0 0"
-               ></a-entity> 
-
-
-            <!-- this is the second red placement indicator for the stew  -->
-
-            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder" class="interactableIngredient_placeholder" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="" shadow="cast:false">
-            </a-entity> 
-
-            <a-entity object-place="hasCollision: true" id="interactableIngredient_placeholder2" class="interactableIngredient_placeholder collidable" obj-model="obj:#interactableIngredient_model" visible="false" material="color: red; opacity: 0.2;" position="0 3 0"  rotation="0 0 0" scale="" shadow="cast:false">
-            </a-entity>
-
-
 
             <!-- PREPERATION STATION-->
 
@@ -343,9 +319,9 @@
            
 
             <!-- RECIPIE AREA -->
-            <a-entity id="garlic_chit" obj-model="obj:#chit_model" material="src:#Garlic_Chit_texture" position="-4.73258 3.07242 6.42619" rotation="0 57.41323586108415 0" scale="" shadow=""></a-entity>
-            <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Squash_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
-            <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Onion_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
+            <a-entity id="garlic_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-4.73258 3.07242 6.42619" rotation="0 57.41323586108415 0" scale="" shadow=""></a-entity>
+            <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
+            <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
 
 
             <!-- STEW AREA -->
