@@ -1,7 +1,8 @@
 AFRAME.registerComponent('object-pickup', {
     schema: {
         position: {default: '0 -1 0'},
-        rotation: {default: '0 0 0'}
+        rotation: {default: '0 0 0'},
+        numPlaceholders: {default: 1}
     },
     init: function() {
         const Context_AF = this;
@@ -31,7 +32,9 @@ AFRAME.registerComponent('object-pickup', {
         // pickup functionality for mobile/desktop
         else {
             el.addEventListener('mousedown', function(e) {
-                Context_AF.pickup(e, false)
+                if(scene.selectedObject == null){
+                    Context_AF.pickup(e, false)
+                }
             });
         }
     },
@@ -57,9 +60,12 @@ AFRAME.registerComponent('object-pickup', {
             el.object3D.rotation.set(el.ogRot.x, el.ogRot.y, el.ogRot.z);
 
             if(!headset) {
+                
                 // parent to cursor
                 el.object3D.parent = document.getElementById("cursor").object3D;
+                
                 el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
+                console.log(el.object3D.position);
                 el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
                 
                 
@@ -74,11 +80,11 @@ AFRAME.registerComponent('object-pickup', {
                 el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
             }
 
-            //el.setAttribute('static-body', {});
-
             // show the placeholder object
             let placeholders = document.getElementsByClassName(el.id + "_placeholder");
-            for(i = 0; i < placeholders.length; i++) {
+            for(i = 0; i < data.numPlaceholders; i++) {
+                let model = el.components['obj-model'].attrValue['obj'];
+                placeholders[i].setAttribute('obj-model', {'obj': model});
                 placeholders[i].object3D.visible = true;
             }
         }
