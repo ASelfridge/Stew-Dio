@@ -19,7 +19,7 @@
                     }, 1000);
                 }
                 
-                scene.components['recipe-system'].updateRecipeSystem(e.detail);
+                //scene.components['recipe-system'].updateRecipeSystem(e.detail);
                 //scene.components['recipe-system'].checkRecipeStatus();
 
                 if(data.choppable && e.detail.body.el.id == 'knife' && this.chop < data.chopStates.length && !this.chopWait) {
