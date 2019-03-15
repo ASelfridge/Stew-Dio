@@ -30,29 +30,7 @@ app.get('/test', function(req, res) {
     res.sendFile(__dirname + '/public/test.html'); //send/serve this index.html file
 });
 
-
-// //Logging Websocket connection IDs
-// socketIo.on('connection', function(socket) {
-//     console.log(socket.id + ' has connected!');
-
-//     socket.on('disconnect', function(data) {
-//         console.log(socket.id + ' has disconnected');
-//     });
-
-//     //custom events
-//     //socket = one client
-//     //socketIO.sockets = all clients
-
-//     //Passing object info 
-//     socket.on('objUnavailble', function(data) {
-//         console.log('GOt to sockets');
-//         socketIo.sockets.emit('unavailable', data);
-//     });
-//     socket.on('objAvailble', function(data) {
-//         socketIo.sockets.emit('available', data);
-//     });
-// });
-
+// This is networked A-Frame stuff 
 var myIceServers = [
     {"url":"stun:stun.l.google.com:19302"},
     {"url":"stun:stun1.l.google.com:19302"},

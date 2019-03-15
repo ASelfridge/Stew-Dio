@@ -20,11 +20,10 @@ AFRAME.registerComponent('object-pickup', {
         const scene = document.querySelector('a-scene');
         
         el.addEventListener('mousedown', function(event) {
-            console.log('trying to pickup');
-            console.log(scene.selectedObject);
+
             // check that no object is currently being held and not outside of maxDistance range and that it's available
             if(scene.selectedObject == null && event.detail.intersection.distance <= maxDistance){
-                console.log('Able to pick up');
+    
                 // Check if object is in 'unavailable' array
                 if(event.target.components.tool)
                 {
@@ -48,15 +47,16 @@ AFRAME.registerComponent('object-pickup', {
 
                 // set selected object to this
                 scene.selectedObject = el.id;
+
                 // Change Networking ownership of object 
                 if (!NAF.utils.isMine(el)){
                     
                     NAF.utils.takeOwnership(el);
-                    
                 }
-                // reformat data
-                let pos = data.position.split(" ");
-                let rot = data.rotation.split(" ");
+                
+                // // reformat data
+                // let pos = data.position.split(" ");
+                // let rot = data.rotation.split(" ");
 
                 // reset scale and rotation back to original state
                 el.object3D.scale.set(el.ogScale.x, el.ogScale.y, el.ogScale.z);
@@ -66,13 +66,14 @@ AFRAME.registerComponent('object-pickup', {
                 if(!headset) {
                     // parent to cursor
                     el.setAttribute('mdmu-parent-constraint',
-               {
-                   parent: '#cursor',
-                   positionOffset: data.position,
-                   rotationOffset: data.rotation,
-              
-               });
+                    {
+                        parent: '#cursor',
+                        positionOffset: data.position,
+                        rotationOffset: data.rotation,
+                    });
+
                 el.setAttribute('body', {type: 'static', shape:'none'});
+
                     // Context_AF.el.object3D.parent = document.getElementById("cursor").object3D;
                     // //console.log(Context_AF.el.object3D.parent);
                     // Context_AF.el.object3D.position.set(pos[0], pos[1], pos[2]);   // using three.js for better performance
@@ -86,8 +87,7 @@ AFRAME.registerComponent('object-pickup', {
                         placeholders[i].object3D.scale.set(1, 1, 1);
                     }
                 }
-            }el
+            }
         });
     },
 });
-// let obj = document.getElementsByClassName("interactableIngredient")

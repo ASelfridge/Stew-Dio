@@ -15,7 +15,6 @@ AFRAME.registerComponent('object-place', {
         const Context_OBJ = document.getElementsByClassName(object_class);
        
         let scene = document.querySelector('a-scene');
-        oculusGo = false;
         if(oculusGo) {
             // intersect with element
             el.addEventListener('raycaster-intersected', function(e){
@@ -37,8 +36,6 @@ AFRAME.registerComponent('object-place', {
                 // clicked placeholder and close enough
                 
                 if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
-                    console.log(Context_OBJ)
-                    console.log('able to place');
                     Context_OBJ[0].removeAttribute('body');
                     Context_AF.place();
                 }
@@ -76,7 +73,6 @@ AFRAME.registerComponent('object-place', {
         
         // assign physics if necessary
         if(data.hasCollision){
-            
            object.setAttribute('dynamic-body', {});
         }
         

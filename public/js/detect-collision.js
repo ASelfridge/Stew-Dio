@@ -7,11 +7,9 @@
                 setTimeout(function(){
                     el.removeAttribute('dynamic-body');
                 }, 1000);
+                const scene = document.querySelector('a-scene');
                 scene.components['recipe-system'].updateRecipeSystem(e.detail);
                 scene.components['recipe-system'].checkRecipeStatus();
-
-                
-
             })
         }
     });
