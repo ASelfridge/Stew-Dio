@@ -2,6 +2,7 @@ AFRAME.registerComponent('trigger', {
     init: function() {    
         const Context_AF = this;
         const el = Context_AF.el;
+        let scene = document.querySelector('a-scene');
         scene.triggerDown = false;
 
         // check that using oculus go
@@ -25,11 +26,13 @@ AFRAME.registerComponent('trigger', {
                     for(i = 0; i < placeholders.length; i++) {
                         // place object if intersecting with current placeholder
                         if(placeholders[i].intersected && placeholders[i].intersectDistance <= maxDistance) {
+                            object.removeAttribute('static-body');
                             placeholders[i].components['object-place'].place();
                             break;
                         }
                         // if last placeholder and does not intersect, drop object
                         else if(i == placeholders.length - 1) {
+                            object.removeAttribute('static-body');
                             placeholders[i].components['object-place'].drop();
                         }
                     }

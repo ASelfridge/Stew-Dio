@@ -13,12 +13,12 @@ AFRAME.registerComponent('object-place', {
         // store sibling object
         let object_class = el.id.substr(0, el.id.indexOf('_'));
         const Context_OBJ = document.getElementsByClassName(object_class);
-        console.log(oculusGo);
         let scene = document.querySelector('a-scene');
         if(oculusGo) {
             // intersect with element
             el.addEventListener('raycaster-intersected', function(e){
                 if(scene.triggerDown) {
+                    
                     el.intersected = true;
                     el.intersectDistance = e.detail.intersection.distance;
                 }
@@ -36,8 +36,6 @@ AFRAME.registerComponent('object-place', {
                 // clicked placeholder and close enough
                 
                 if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
-                    console.log(Context_OBJ);
-                    console.log('clicked placeholder' );
                     Context_OBJ[0].removeAttribute('static-body');
                     Context_AF.place();
                 }
@@ -59,14 +57,11 @@ AFRAME.registerComponent('object-place', {
         // assign physics if necessary
         if(data.hasCollision){
             object.setAttribute('dynamic-body', {});
-            console.log("assigned dyn body");
-
          }
 
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
-        console.log(object);
         // move object to placeholder location
         object.object3D.parent = el.object3D.parent;
 
@@ -94,6 +89,7 @@ AFRAME.registerComponent('object-place', {
     drop : function() {
         let Context_AF = this;
         let el = Context_AF.el;
+        let data = Context_AF.data;
         let scene = document.querySelector('a-scene');
 
         // store sibling object
@@ -101,11 +97,19 @@ AFRAME.registerComponent('object-place', {
         const Context_OBJ = document.getElementsByClassName(object_class);
         let object = Context_OBJ[0];
 
+        // assign physics if necessary
+        if(data.hasCollision){
+            object.setAttribute('dynamic-body', {});
+         }
+
         // hide placeholders
         let placeholders = document.getElementsByClassName(object.id + "_placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
         }
+
+        //Remove parent constraint
+        object.removeAttribute('mdmu-parent-constraint');
 
         // Pass object ID to sockets to set as available
         //socket.emit('objAvailble', object.object3D.el.id);
