@@ -37,10 +37,7 @@
                     data.removeOnDrop = true;
                     el.setAttribute('object-pickup', {'numPlaceholders': 2});
                 }
-                console.log(e);
-                console.log(data);
-                console.log(Context_AF);
-                console.log(Context_AF.stewed);
+               
 
                 if (e.detail.body.el.id == data.colliders[Context_AF.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
                     el.setAttribute('obj-model', {'obj': data.stewStates[Context_AF.stewed]});
