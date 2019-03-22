@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
         <head>
                 <title>Starting Environment</title>
@@ -24,7 +25,7 @@
               </head>
               
               <body>
-                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="restitution: 0.3" recipe-system>
+                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3" recipe-system>
                     <!-------------- TEXTURES ---------------->
                     <a-assets>
                         <img id="skymap" src="assets/textures/sunsetGradient.png" />
@@ -58,25 +59,39 @@
                     <!---------------- MODELS ---------------->
                     <a-assets>
                         <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
+                        
                         <a-asset-item id="pine_model" src="assets/models/pine.obj"></a-asset-item>
+                       
+                        <!-- Players/NPCs -->
                         <a-asset-item id="hat_model" src="assets/models/hat.obj"></a-asset-item>
-                        <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
-                        <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
-                        <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
-                        <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
                         <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
-                        <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
+                       
+                        <!-- Stew -->
+                        <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
+
+                        <!-- Tools/Utensils -->
+                        <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
+                        <a-asset-item id="ladle_model" src="assets/models/ladle_model.obj"></a-asset-item>
+                        <a-asset-item id="ladle_full_model" src="assets/models/ladle_full.obj"></a-asset-item>            
                         <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
-                        <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
+                        <a-asset-item id="bowl_full_model" src="assets/models/bowl_full.obj"></a-asset-item>  
                         <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item> 
-                        <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+                        
+                        <!-- Ingredients -->
+                        <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
                         <a-asset-item id="squash_chop_1_model" src="assets/models/squash_chop_1.obj"></a-asset-item>
                         <a-asset-item id="squash_chop_2_model" src="assets/models/squash_chop_2.obj"></a-asset-item>
                         <a-asset-item id="squash_chop_3_model" src="assets/models/squash_chop_3.obj"></a-asset-item>
-                        <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
-                        <a-asset-item id="ladle_full_model" src="assets/models/ladle_full.obj"></a-asset-item>
-                        <a-asset-item id="bowl_full_model" src="assets/models/bowl_full.obj"></a-asset-item>  
-            
+                        
+
+                        <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
+                        <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
+                        
+                        <!-- Chits -->
+                        <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
+
+                        <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+                       
             
             <!-- 
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
@@ -103,7 +118,7 @@
             </template>
 
             <template id="avatar_template"> 
-                <a-entity class="avatar">
+                <a-entity class="avatar" position="0 1.5 3">
                     <a-entity class="hat"
                             obj-model="obj:#hat_model"
                             material="src:#hat_texture" 
@@ -127,7 +142,7 @@
                     <a-entity class="onion collidable" 
                                 obj-model="obj:#onionWhole_model" 
                                 material="color:#c18747" 
-                                object-pickup="position: 0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2" 
+                                object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2" 
                                 shadow=""
                                 detect-collision></a-entity>
             </template>
@@ -135,11 +150,11 @@
             <template id="garlic_template">
             <a-entity class="garlic collidable" 
                         object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2" 
-                        obj-model="obj:assets/models/garlic.obj" 
+                        obj-model="obj:#garlicWhole_model" 
                         material="color:#CFBA5F" 
                         scale="" 
                         shadow=""
-                        detect-collision> 
+                        detect-collision> </a-entity>
             </template>
 
             <template id="knife_template">
@@ -156,9 +171,10 @@
 
             <template id="ladle_template">
                 <a-entity class="ladle collidable" 
-                            obj-model="obj:assets/models/ladle.obj" 
+                            obj-model="obj:#ladle_model" 
                             material="color: #477725" 
                             shadow=""
+
                             raycaster=""
                             object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12"
                             detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
@@ -168,13 +184,15 @@
 
             <template id="bowl_template">
                 <a-entity class="bowl collidable" 
-                            obj-model="obj:#bowl_model" 
+                            obj-model="obj:#bowl_model"
+                            scale="0.1 0.1 0.1" 
                             material="color: #477725" 
                             shadow=""
+
                             raycaster=""
                             object-pickup="position: 0 -.5 0; rotation: 0 45 12" 
                             detect-collision="colliders: ladle; stewState: #bowl_full_model"
-                            scale="0.1 0.1 0.1"></a-entity>
+                            ></a-entity>
             </template>
 
 
@@ -184,7 +202,7 @@
 
 
         <!---------------- CAMERA ---------------->
-        <a-entity id="cameraRig" position="0 1.9 0" rotation="0 0 0" networked="template:#camRig_template;attachTemplateToLocal:true;">
+        <a-entity id="cameraRig" position="0 2 0" rotation="0 0 0" networked="template:#camRig_template;attachTemplateToLocal:true;">
             <a-camera id="sceneCamera" networked="template:#avatar_template;attachTemplateToLocal:true;">
                 <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
             </a-camera>
@@ -200,41 +218,81 @@
        <!---------------- A-FRAME ENTITIES ---------------->
        <a-entity id="area" obj-model="obj:#area_model" material="src: #area_texture" position="" rotation="" scale="" shadow=""></a-entity>
        
+         <!-- FOREST -->
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-16.58483 -0.825 -5.79915" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-12.953 -0.825 10.983" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-11.615 -0.825 -14.178" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.431 -0.825 12.559" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="8.715 -0.825 -14.971" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.965 -0.825 -24.713" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-15.051 -0.825 -33.571" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-27.710 -0.825 8.213" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.665 -0.825 19.396" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.693 -0.825 -24.929" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-14.456 -0.825 -23.729" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-28.994 -0.825 -17.946" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.044 -0.825 6.297" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-39.404 -0.825 -7.133" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-20.639 -0.825 -18.474" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.643 -0.825 -14.725" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-19.077 -0.825 -12.747" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-30.921 -0.825 -11.611" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-22.627 -0.825 10.878" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.924 -0.825 24.953" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-7.725 -0.825 18.688" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.601 -0.825 12.268" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.904 -0.825 9.461" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.818 -0.825 -12.185" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.424 -0.825 17.666" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.195 -0.825 25.139" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.318 -0.825 20.869" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.115 -0.825 25.941" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-2.758 -0.825 15.923" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="17.939 -0.825 4.565" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="14.570 -0.825 -8.824" rotation="" scale="" shadow=""></a-entity>
+         <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="15.934 -0.825 -0.492" rotation="" scale="" shadow=""></a-entity>
+ 
+
         <!-- SOUNDS ENTITIES -->
         <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
         <a-entity id="ambiance" sound="src:#ambianceSrc; volume: .4; loop: true; positional:false"></a-entity>
 
-        <a-entity 
-                id="stewLiquid" 
+        <a-entity id="stewLiquid" 
                 obj-model="obj:#stewLiquid_model" 
-                material="color:#F5E1A4" 
                 position="0 -10 0" 
                 rotation="" 
                 scale="" 
+                material="color:#F5E1A4" 
                 shadow=""
-                sound="src: #stewFillSrc"
-                >
-            </a-entity>
-        <!-- CUSTOMER SERVICE -->
 
-        <a-entity 
-            new-recipe="" 
-            id="character1" 
-            obj-model="obj:#character_model" 
-            material="src: #character_texture"
-            position="-9.59681 -0.01024 0.12693" 
-            rotation="0 0.07620338675239949 0" 
-            scale="" 
-            shadow="" 
-            sound="src: #customerGreetingSrc">
+                sound="src: #stewFillSrc">
+        </a-entity>
+      
+        <!-- CUSTOMER SERVICE -->
+        <a-entity id="character1" 
+                obj-model="obj:#character_model" 
+                material="src: #character_texture"
+                position="-9.59681 -0.01024 0.12693" 
+                rotation="0 0.07620338675239949 0" 
+                scale="" 
+                shadow="" 
+
+                new-recipe=""
+                sound="src: #customerGreetingSrc">
         </a-entity>
      
         <!-- speech bubble is loaded before the floor until it is displayed -->
-        <a-entity id="speechBubble" obj-model="obj:#speechBubble_model" material="color:#ffffff" position="1.285 -2 -1.975" rotation="0 60.801 0" scale="1.2 1.2 1.2" shadow="">
-            </a-entity>
-        
+        <a-entity id="speechBubble" 
+                obj-model="obj:#speechBubble_model" 
+                position="1.285 -2 -1.975" 
+                rotation="0 60.801 0" 
+                scale="1.2 1.2 1.2" 
+                material="color:#ffffff" 
+                shadow="">
+        </a-entity>
         
         <!-- INGREDIENT STATION-->
+        
 
         <a-entity id="onion_wrapper"></a-entity>
         <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
@@ -242,7 +300,7 @@
 
         <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity>
-        
+
         <a-entity id="squash_wrapper"></a-entity> 
         <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity> 
@@ -259,59 +317,26 @@
         <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity>
 
-        <!-- FOREST -->
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-16.58483 -0.825 -5.79915" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-12.953 -0.825 10.983" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-11.615 -0.825 -14.178" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.431 -0.825 12.559" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="8.715 -0.825 -14.971" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.965 -0.825 -24.713" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-15.051 -0.825 -33.571" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-27.710 -0.825 8.213" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.665 -0.825 19.396" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.693 -0.825 -24.929" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-14.456 -0.825 -23.729" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-28.994 -0.825 -17.946" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.044 -0.825 6.297" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-39.404 -0.825 -7.133" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-20.639 -0.825 -18.474" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.643 -0.825 -14.725" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-19.077 -0.825 -12.747" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-30.921 -0.825 -11.611" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-22.627 -0.825 10.878" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.924 -0.825 24.953" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-7.725 -0.825 18.688" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.601 -0.825 12.268" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.904 -0.825 9.461" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.818 -0.825 -12.185" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.424 -0.825 17.666" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.195 -0.825 25.139" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.318 -0.825 20.869" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.115 -0.825 25.941" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-2.758 -0.825 15.923" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="17.939 -0.825 4.565" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="14.570 -0.825 -8.824" rotation="" scale="" shadow=""></a-entity>
-        <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="15.934 -0.825 -0.492" rotation="" scale="" shadow=""></a-entity>
 
         <!-- PREPERATION STATION-->
         <a-entity id="knife_wrapper"></a-entity>
         <a-entity id="knife_placeholder" class="knife_placeholder collidable" 
-                    obj-model="obj:#knife_model" 
-                    position="8.5 2 0" 
-                    rotation="0 0 0"  
-                    scale="0.1 0.1 0.1" 
-                    material="color: red; opacity: 0.2;" 
-                    visible="false" 
-                    shadow=""
-                    object-place >
+                obj-model="obj:#knife_model" 
+                position="8.5 2 0" 
+                rotation="0 0 0"  
+                scale="0.1 0.1 0.1" 
+                material="color: red; opacity: 0.2;" 
+                visible="false" 
+                shadow=""
+
+                object-place >
         </a-entity>
-        <a-entity
-                id="cuttingBoard"
+        <a-entity id="cuttingBoard"
                 geometry="primitive: box"  
-                material="color: white" 
                 position="7.451 2 -2.655" 
                 rotation="0 -53.72 0"
                 scale="3 0.1 1.31"
+                material="color: white" 
                 shadow=""
                 
                 body="type: static; shape:none;"
@@ -323,8 +348,7 @@
   
         <!-- COOKING AREA -->
 
-        <a-entity 
-            id="fryingPan" 
+        <a-entity id="fryingPan" 
             obj-model="obj:#fryingPan_model" 
             position=".4 2.58 -8.3" 
             rotation="0 180 0" 
@@ -348,7 +372,6 @@
 
         <!-- STEW AREA -->
          <a-entity id="stewPot"
-            obj-model="obj:#pot_model" 
             position="0 0 0" 
             rotation="0 90 0" 
             scale="0.8 0.8 0.8" 

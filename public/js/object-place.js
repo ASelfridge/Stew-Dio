@@ -13,12 +13,12 @@ AFRAME.registerComponent('object-place', {
         // store sibling object
         let object_class = el.id.substr(0, el.id.indexOf('_'));
         const Context_OBJ = document.getElementsByClassName(object_class);
+      
         let scene = document.querySelector('a-scene');
         if(oculusGo) {
             // intersect with element
             el.addEventListener('raycaster-intersected', function(e){
                 if(scene.triggerDown) {
-                    
                     el.intersected = true;
                     el.intersectDistance = e.detail.intersection.distance;
                 }
@@ -34,7 +34,6 @@ AFRAME.registerComponent('object-place', {
         else {
             el.addEventListener('mousedown', function(e) {
                 // clicked placeholder and close enough
-                
                 if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
                     Context_OBJ[0].removeAttribute('static-body');
                     Context_AF.place();
@@ -54,16 +53,12 @@ AFRAME.registerComponent('object-place', {
         let object = Context_OBJ[0];
         el.intersected = false;
         
-        // assign physics if necessary
-        if(data.hasCollision){
-            object.setAttribute('dynamic-body', {});
-         }
-
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
+
         // move object to placeholder location
-        object.object3D.parent = el.object3D.parent;
+        //object.object3D.parent = el.object3D.parent;
 
         let pos = el.object3D.position;
         let scale = el.object3D.scale;
@@ -72,9 +67,11 @@ AFRAME.registerComponent('object-place', {
         object.object3D.position.set(pos.x, pos.y, pos.z);
         object.object3D.scale.set(scale.x, scale.y, scale.z);
         object.object3D.rotation.set(rot._x, rot._y, rot._z);
-        
-        
-        
+
+        // assign physics if necessary
+        if(data.hasCollision){
+            object.setAttribute('dynamic-body', {});
+         }
         
         // hide placeholders
         let placeholders = document.getElementsByClassName(object.classList[0] + "_placeholder");
@@ -97,28 +94,27 @@ AFRAME.registerComponent('object-place', {
         const Context_OBJ = document.getElementsByClassName(object_class);
         let object = Context_OBJ[0];
 
-        // assign physics if necessary
-        if(data.hasCollision){
-            object.setAttribute('dynamic-body', {});
-         }
-
-        // hide placeholders
-        let placeholders = document.getElementsByClassName(object.id + "_placeholder");
-        for(i = 0; i < placeholders.length; i++) {
-            placeholders[i].object3D.visible = false;
-        }
-
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
-        // Pass object ID to sockets to set as available
-        //socket.emit('objAvailble', object.object3D.el.id);
+        // assigning starting attributes
+        og_obj = ntw_ + object_class;
+        console.log('OG OBJ IS:', og_obj);
+        console.log('OG POS IS:', og_obj.position);
 
+        object.object3D.position.set(og_obj.position);
+        object.object3D.rotation.set(og_obj.rotation);
+
+        // hide placeholders
+        let placeholders = document.getElementsByClassName(object.classList[0] + "_placeholder");
+        for(i = 0; i < placeholders.length; i++) {
+            placeholders[i].object3D.visible = false;
+            placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
+
+        }
 
         // set selectedObject back to null
         scene.selectedObject = null;
-                
-                
-                
+                 
     }
 });

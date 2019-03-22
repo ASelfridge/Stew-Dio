@@ -75,13 +75,16 @@ AFRAME.registerComponent('object-pickup', {
             }
             else{
                 // parent to gear vr controller
-                el.object3D.parent = document.getElementById("gearControls").object3D;
-                //el.object3D.position.set(0,-1.5,-0.5);
-                //el.object3D.rotation.set(0,-160,0);
+                el.setAttribute('mdmu-parent-constraint',
+                {
+                    parent: '#gearControls',
+                    positionOffset: data.position,
+                    rotationOffset: data.rotation,
+                });
                 el.object3D.position.set(0,0,-1);
-                //el.object3D.scale.set(0.75, 0.75, 0.75);
-                el.object3D.rotation.set(THREE.Math.degToRad(rot[0]), THREE.Math.degToRad(rot[1]), THREE.Math.degToRad(rot[2]));
+                
             }
+           
             el.setAttribute('static-body', {});
 
             // show the placeholder object

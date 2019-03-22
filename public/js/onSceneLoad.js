@@ -12,7 +12,7 @@ function onSceneLoad(){
     bgMusic = document.querySelector('#music');
     bgMusic.components['sound'].playSound();
 
-    customerBell = document.querySelector('#customerStation');
+    customerBell = document.querySelector('#character1');
     document.addEventListener('keydown', function(e) {
         if(e.keyCode == 32) {
             customerBell.components['sound'].stopSound();
@@ -21,7 +21,6 @@ function onSceneLoad(){
     });
     ////////////////////////////////////////////////
     for (i in ntw_objs){
-        console.log(ntw_objs[i]);
         let obj_wrapper = document.querySelector('#' + ntw_objs[i].id + '_wrapper');
         let obj = document.createElement('a-entity');
         obj.setAttribute('id', ntw_objs[i].id);
@@ -58,7 +57,6 @@ function onSceneLoad(){
   });
     document.body.addEventListener('connected', function (evt) {
         clientId = evt.detail.clientId
-        console.log('Connected to the server. ClientId =', clientId);
         counter++;
         NAF.connection.broadcastData('Player Joined', counter);
     

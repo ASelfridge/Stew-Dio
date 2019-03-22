@@ -19,20 +19,18 @@ AFRAME.registerComponent('trigger', {
 
                 // check if an object is being held
                 if(scene.selectedObject != null) {
-                    //let object_id = scene.selectedObject
                     object = document.querySelector('#' + scene.selectedObject);
-                    
+                    object.removeAttribute('static-body');
+
                     let placeholders = document.getElementsByClassName(scene.selectedObject + '_placeholder');
                     for(i = 0; i < placeholders.length; i++) {
                         // place object if intersecting with current placeholder
                         if(placeholders[i].intersected && placeholders[i].intersectDistance <= maxDistance) {
-                            object.removeAttribute('static-body');
                             placeholders[i].components['object-place'].place();
                             break;
                         }
                         // if last placeholder and does not intersect, drop object
                         else if(i == placeholders.length - 1) {
-                            object.removeAttribute('static-body');
                             placeholders[i].components['object-place'].drop();
                         }
                     }

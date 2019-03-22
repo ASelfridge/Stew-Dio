@@ -58,7 +58,6 @@ AFRAME.registerComponent('recipe-system', {
         }
     },
     updateStewLiquid : function () {
-        console.log("update the stew liquid");
         ingredientCount = 0;
 
         for(i = 0; i < this.currentRecipe.numIngredients; i++){
@@ -67,8 +66,6 @@ AFRAME.registerComponent('recipe-system', {
             }
         }
         
-        console.log(ingredientCount);
-
         if (ingredientCount == 0) {
             stewLiquid = document.querySelector('#stewLiquid');
             stewLiquid.object3D.position.set(0, -10, 0);
@@ -100,32 +97,23 @@ AFRAME.registerComponent('recipe-system', {
 
     },
     updateChits : function(){
-        console.log("update function");
         let chit1 = document.querySelector('#garlic_chit');
         let chit2 = document.querySelector('#squash_chit');
         let chit3 = document.querySelector('#onion_chit');
-        console.log(chit1);
-
-        console.log(this.currentRecipe.inStew[0]);
 
         chit1.setAttribute('material', {src: chitTextures[1]});
         chit2.setAttribute('material', {src: chitTextures[2]});
         chit3.setAttribute('material', {src: chitTextures[3]})
 
         if(this.currentRecipe.inStew[0] == true){
-            console.log("change it do done");
             chit1.setAttribute('material', {src: chitTextures[4]});
         }
         if(this.currentRecipe.inStew[1] == true){
-            console.log("change it do done");
             chit2.setAttribute('material', {src: chitTextures[5]});
         }
         if(this.currentRecipe.inStew[2] == true){
-            console.log("change it do done");
             chit3.setAttribute('material', {src: chitTextures[6]});
-        }
-
-;
+        };
     }
 });
 
