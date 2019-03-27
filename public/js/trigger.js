@@ -22,7 +22,7 @@ AFRAME.registerComponent('trigger', {
                     object = document.querySelector('#' + scene.selectedObject);
                     object.removeAttribute('static-body');
 
-                    let placeholders = document.getElementsByClassName(scene.selectedObject + '_placeholder');
+                    let placeholders = document.getElementsByClassName("placeholder");
                     for(i = 0; i < placeholders.length; i++) {
                         // place object if intersecting with current placeholder
                         if(placeholders[i].intersected && placeholders[i].intersectDistance <= maxDistance) {
