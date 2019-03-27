@@ -70,8 +70,8 @@
                         <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
 
                         <!-- Tools/Utensils -->
-                        <a-asset-item id="knife_model" src="assets/models/knife2.obj"></a-asset-item>
-                        <a-asset-item id="ladle_model" src="assets/models/ladle_model.obj"></a-asset-item>
+                        <a-asset-item id="knife_model" src="assets/models/knife.obj"></a-asset-item>
+                        <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
                         <a-asset-item id="ladle_full_model" src="assets/models/ladle_full.obj"></a-asset-item>            
                         <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
                         <a-asset-item id="bowl_full_model" src="assets/models/bowl_full.obj"></a-asset-item>  
@@ -172,7 +172,7 @@
             <template id="ladle_template">
                 <a-entity class="ladle collidable" 
                             obj-model="obj:#ladle_model" 
-                            material="color: #477725" 
+                            material="src: #knife_texture"
                             shadow=""
 
                             raycaster=""
