@@ -93,14 +93,14 @@ AFRAME.registerComponent('object-place', {
         let object_class = el.id.substr(0, el.id.indexOf('_'));
         const Context_OBJ = document.getElementsByClassName(object_class);
         let object = Context_OBJ[0];
+        console.log(object);
 
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
         // assigning starting attributes
-        og_obj = ntw_ + object_class;
-        console.log('OG OBJ IS:', og_obj);
-        console.log('OG POS IS:', og_obj.position);
+        console.log('OG OBJ IS:', object.ogPos);
+        console.log('OG POS IS:', object.position);
 
         object.object3D.position.set(og_obj.position);
         object.object3D.rotation.set(og_obj.rotation);

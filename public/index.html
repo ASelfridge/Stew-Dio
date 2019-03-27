@@ -42,8 +42,8 @@
                         <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
                         <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
                         <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
-                        <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
-                        <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+                        <img id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
+                        <img id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
                     </a-assets>
             
                     <!-------------- SOUNDS ---------------->
@@ -192,7 +192,22 @@
                             raycaster=""
                             object-pickup="position: 0 -.5 0; rotation: 0 45 12" 
                             detect-collision="colliders: ladle; stewState: #bowl_full_model"
-                            ></a-entity>
+                ></a-entity>
+            </template>
+
+            <template id="speechBubble_template">
+                <a-entity class="speechBubble" 
+                            obj-model="obj:#speechBubble_model" 
+                            scale="1.2 1.2 1.2"
+                            
+                ></a-entity>
+            </template>
+
+            <template id="garlic_chit_template">
+                <a-entity class="garlic_chit" 
+                            obj-model="obj:#chit_model" 
+      
+                ></a-entity>
             </template>
 
 
@@ -281,15 +296,8 @@
                 sound="src: #customerGreetingSrc">
         </a-entity>
      
-        <!-- speech bubble is loaded before the floor until it is displayed -->
-        <a-entity id="speechBubble" 
-                obj-model="obj:#speechBubble_model" 
-                position="1.285 -2 -1.975" 
-                rotation="0 60.801 0" 
-                scale="1.2 1.2 1.2" 
-                material="color:#ffffff" 
-                shadow="">
-        </a-entity>
+        
+        <a-entity id="speechBubble_wrapper"></a-entity>
         
         <!-- INGREDIENT STATION-->
         
@@ -365,7 +373,7 @@
 
 
        <!-- RECIPIE AREA -->
-       <a-entity id="garlic_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-4.73258 3.07242 6.42619" rotation="0 57.41323586108415 0" scale="" shadow=""></a-entity>
+       <a-entity id="garlic_chit_wrapper"></a-entity>
        <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
        <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
 
@@ -432,6 +440,22 @@
           'position',
           'rotation',
           'obj-model',
+        ]
+      });
+
+       NAF.schemas.add({
+        template: '#speechBubble_template',
+        components: [
+          'position',
+          'rotation',
+        ]
+      });
+
+       NAF.schemas.add({
+        template: '#garlic_chit_template',
+        components: [
+          'position',
+          'rotation',
         ]
       });
 

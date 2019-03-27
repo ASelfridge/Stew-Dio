@@ -13,8 +13,10 @@ AFRAME.registerComponent('new-recipe', {
                 customerID = numCustomers;
 
                 // show speech bubble
-                let speechBubble = document.querySelector('#speechBubble');
-                speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
+                let speechBubble = document.querySelector('.speechBubble');
+                console.log(speechBubble);
+                
+                speechBubble.setAttribute('material', {color: '#4286f4'});  
                 speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
 
                 // play greeting sound
