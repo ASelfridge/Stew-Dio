@@ -133,7 +133,7 @@
                 <a-entity class="squash collidable"
                             material="color:#CFBA5F" 
                             shadow=""
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2"
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 7.5 3 -2.461, 0 3.1 0; angledPlaceholder: true, true; hasCollision: true"
                             detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                             > </a-entity>
             </template>
@@ -148,13 +148,13 @@
             </template>
 
             <template id="garlic_template">
-            <a-entity class="garlic collidable" 
-                        object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2" 
-                        obj-model="obj:#garlicWhole_model" 
-                        material="color:#CFBA5F" 
-                        scale="" 
-                        shadow=""
-                        detect-collision> </a-entity>
+                <a-entity class="garlic collidable" 
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  7.5 3 -2.461, -0.5 3.1 0; angledPlaceholder: true, true; hasCollision: true" 
+                            obj-model="obj:#garlicWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> </a-entity>
             </template>
 
             <template id="knife_template">
@@ -162,7 +162,7 @@
                             obj-model="obj:#knife_model" 
                             material="src: #knife_texture" 
                             shadow=""
-                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; " 
+                            object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; placeholderPos: 8.5 2 0" 
                             shape__main="shape: box;
                             halfExtents: 0.1 0.05 1;
                             offset: 0 0 -0.8;">
@@ -176,7 +176,7 @@
                             shadow=""
 
                             raycaster=""
-                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12"
+                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 1.91157 -0.51171"
                             detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
 
                             ></a-entity>
@@ -185,12 +185,11 @@
             <template id="bowl_template">
                 <a-entity class="bowl collidable" 
                             obj-model="obj:#bowl_model"
-                            scale="0.1 0.1 0.1" 
                             material="color: #477725" 
                             shadow=""
 
                             raycaster=""
-                            object-pickup="position: 0 -.5 0; rotation: 0 45 12" 
+                            object-pickup="position: 0 -.5 0; rotation: 0 45 12; placeholderPos: 6.81064 1.88921 -4.00935" 
                             detect-collision="colliders: ladle; stewState: #bowl_full_model"
                             ></a-entity>
             </template>
@@ -314,42 +313,15 @@
         
 
         <a-entity id="onion_wrapper"></a-entity>
-        <!-- <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity> 
-
-        <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity> -->
 
         <a-entity id="squash_wrapper"></a-entity> 
-        <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity> 
-
-        <a-entity object-place="hasCollision: true" id="squash_placeholder2" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0 3.1 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity>
-
 
         <a-entity id="garlic_wrapper" ></a-entity>
-
-        <a-entity object-place="hasCollision: true" id="garlic_placeholder" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity> 
-
-        <a-entity object-place="hasCollision: true" id="garlic_placeholder2" class="garlic_placeholder collidable" obj-model="obj:#garlicWhole_model" visible="false" material="color: red; opacity: 0.2;" position="-0.5 3.1 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity>
 
 
         <!-- PREPERATION STATION-->
         <a-entity id="knife_wrapper"></a-entity>
-        <a-entity id="knife_placeholder" class="knife_placeholder collidable" 
-                obj-model="obj:#knife_model" 
-                position="8.5 2 0" 
-                rotation="0 0 0"  
-                scale="0.1 0.1 0.1" 
-                material="color: red; opacity: 0.2;" 
-                visible="false" 
-                shadow=""
-
-                object-place >
-        </a-entity>
+        
         <a-entity id="cuttingBoard"
                 geometry="primitive: box"  
                 position="7.451 2 -2.655" 
@@ -405,29 +377,9 @@
         </a-entity>
        
         <a-entity id="ladle_wrapper"></a-entity>
-            <a-entity id="ladle_placeholder" class="ladle_placeholder collidable" 
-                        obj-model="obj:#ladle_model" 
-                        visible="false" 
-                        material="color: red; opacity: 0.2;" 
-                        position="0.07973 1.91157 -0.51171"
-                        rotation="-21.120943201907536 7.320681748386528 0" 
-                        scale="0.1 0.1 0.1" 
-                        shadow=""
-                        object-place >
-            </a-entity>
-
 
         <a-entity id="bowl_wrapper"></a-entity>
-            <a-entity id="bowl_placeholder" class="bowl_placeholder collidable" 
-                        obj-model="obj:#bowl_model" 
-                        visible="false" 
-                        material="color: red; opacity: 0.2;" 
-                        position="6.81064 1.88921 -4.00935" 
-                        rotation="" 
-                        scale="0.01 0.01 0.01" 
-                        shadow=""
-                        object-place>
-            </a-entity>
+
 
        <!-- GROUND & SKY -->
        <!-- <a-plane static-body id="ground" position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane> -->
