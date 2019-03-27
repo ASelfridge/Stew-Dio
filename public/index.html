@@ -142,7 +142,7 @@
                     <a-entity class="onion collidable" 
                                 obj-model="obj:#onionWhole_model" 
                                 material="color:#c18747" 
-                                object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2" 
+                                object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: 7.5 3 -2.461, 0.5 3 0; angledPlaceholder: true, true; hasCollision: true" 
                                 shadow=""
                                 detect-collision></a-entity>
             </template>
@@ -217,6 +217,25 @@
 
        <!---------------- A-FRAME ENTITIES ---------------->
        <a-entity id="area" obj-model="obj:#area_model" material="src: #area_texture" position="" rotation="" scale="" shadow=""></a-entity>
+
+       <!-- PLACEHOLDERS -->
+        <a-entity id="placeholder_1" object-place class="placeholder collidable" position="0 0 0" visible="false">
+            <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+        </a-entity>
+        <a-entity id="placeholder_2" object-place class="placeholder collidable" position="0 0 0" visible="false">
+            <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+        </a-entity>
+        <a-entity id="placeholder_3" object-place class="placeholder collidable" position="0 0 0" visible="false">
+            <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+        </a-entity>
+        <a-entity id="placeholder_4" object-place class="placeholder collidable" position="0 0 0" visible="false">
+            <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+        </a-entity>
+
        
          <!-- FOREST -->
          <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-16.58483 -0.825 -5.79915" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
@@ -295,11 +314,11 @@
         
 
         <a-entity id="onion_wrapper"></a-entity>
-        <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
+        <!-- <a-entity object-place="hasCollision: true" id="onion_placeholder" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
         </a-entity> 
 
         <a-entity object-place="hasCollision: true" id="onion_placeholder2" class="onion_placeholder collidable" obj-model="obj:#onionWhole_model" visible="false" material="color: red; opacity: 0.2;" position="0.5 3 0"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
-        </a-entity>
+        </a-entity> -->
 
         <a-entity id="squash_wrapper"></a-entity> 
         <a-entity object-place="hasCollision: true" id="squash_placeholder" class="squash_placeholder collidable" obj-model="obj:#squashWhole_model" visible="false" material="color: red; opacity: 0.2;" position="7.5 3 -2.461"  rotation="0 0 0" scale="0.1 0.1 0.1" shadow="cast:false">
