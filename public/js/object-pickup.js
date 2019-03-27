@@ -7,7 +7,13 @@ AFRAME.registerComponent('object-pickup', {
             parse: function(value) {
                 //console.log(typeof(value[0]));
                 return value.split(', ');
-            }},
+            }
+        },
+        angledPlaceholder: {
+            parse: function(value) {
+                return value.split(', ');
+            }
+        }, 
         hasCollision: {default: false}
     },
     init: function() {
@@ -89,8 +95,12 @@ AFRAME.registerComponent('object-pickup', {
             for(i = 0; i < data.numPlaceholders; i++) {
                 placeholders[i].object3D.visible = true;
                 let currPos = data.placeholderPos[i].split(' ');
-                console.log(parseFloat(currPos[0]));
                 placeholders[i].object3D.position.set(parseFloat(currPos[0]), parseFloat(currPos[1]), parseFloat(currPos[2]));
+                // handle rotation of placeholders based on data
+                let currRot = (data.angledPlaceholder[i] == 'true');
+                if(currRot) {
+                    placeholders[i].object3D.rotation.set(0, 0, THREE.Math.degToRad(90));
+                }
             }
         }
     }
