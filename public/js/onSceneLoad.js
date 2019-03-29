@@ -30,7 +30,7 @@ function onSceneLoad(){
                    // console.log(ntw_objs[entity][attribute])
                     obj.setAttribute(attribute, ntw_objs[entity][attribute]);
                 }
-                console.log(obj);
+                //console.log(obj);
                 obj_wrapper.appendChild(obj);
             }
         }
