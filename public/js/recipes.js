@@ -7,6 +7,7 @@ class Recipe {
         this.ingredients = [];
         this.numIngredients = ingredients.length;
         this.completed = false;
+        this.delivered = false;
 
         for(var i = 0; i < this.numIngredients; i++) {
             this.inStew[i] = false;
