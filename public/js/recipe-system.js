@@ -6,6 +6,7 @@ AFRAME.registerComponent('recipe-system', {
 
         Context_AF.currentRecipe;
         this.currentRecipe = new Recipe(["garlic", "squash", "onion"]);
+        console.log("SETTING UP RS");
     },
     newRecipe:function() {
         if(numCustomers == 1){
@@ -99,20 +100,25 @@ AFRAME.registerComponent('recipe-system', {
     updateChits : function(){
         let chit1 = document.querySelector('#garlic_chit');
         let chit2 = document.querySelector('#squash_chit');
-        let chit3 = document.querySelector('#onion_chit');
-
+        // let chit1 = document.querySelector('.garlic_chit');
+        // let chit2 = document.querySelector('.squash_chit');
+        //let chit3 = document.querySelector('.onion_chit');
         chit1.setAttribute('material', {src: chitTextures[1]});
         chit2.setAttribute('material', {src: chitTextures[2]});
-        chit3.setAttribute('material', {src: chitTextures[3]})
+        // chit1.setAttribute('texture-update', {setTexture: 1});  
+        // chit2.setAttribute('texture-update', {setTexture: 1});  
+        // chit3.setAttribute('texture-update', {setTexture: 1});  
 
         if(this.currentRecipe.inStew[0] == true){
             chit1.setAttribute('material', {src: chitTextures[4]});
+            // chit1.setAttribute('texture-update', {setTexture: 2});      
         }
         if(this.currentRecipe.inStew[1] == true){
             chit2.setAttribute('material', {src: chitTextures[5]});
+            // chit2.setAttribute('texture-update', {setTexture: 2});          
         }
         if(this.currentRecipe.inStew[2] == true){
-            chit3.setAttribute('material', {src: chitTextures[6]});
+            chit3.setAttribute('texture-update', {setTexture: 2});          
         };
     }
 });

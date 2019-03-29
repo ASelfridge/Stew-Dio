@@ -14,7 +14,8 @@
             Context_AF.chop = 0;
             Context_AF.chopWait = false
             Context_AF.stewed = 0;
-            let scene = document.querySelector('a-scene');
+            let recipeSystem = document.querySelector('.recipeSystem');
+            
             this.el.addEventListener("collide", (e)=>{
                 if(data.removeOnDrop) {
                     setTimeout(function(){
@@ -22,8 +23,8 @@
                     }, 1000);
                 }
                 
-                scene.components['recipe-system'].updateRecipeSystem(e.detail);
-                scene.components['recipe-system'].checkRecipeStatus();
+                recipeSystem.components['recipe-system'].updateRecipeSystem(e.detail);
+                recipeSystem.components['recipe-system'].checkRecipeStatus();
 
                 if(data.choppable && e.detail.body.el.classList[0] == 'knife' && this.chop < data.chopStates.length && !this.chopWait) {
                     el.setAttribute('obj-model', {'obj': data.chopStates[Context_AF.chop]});
@@ -39,7 +40,7 @@
                 }
                
 
-                if (e.detail.body.el.id == data.colliders[Context_AF.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
+                if (e.detail.body.el.id == data.colliders[Context_AF.stewed] && recipeSystem.components['recipe-system'].currentRecipe.completed) {
                     el.setAttribute('obj-model', {'obj': data.stewStates[Context_AF.stewed]});
                     Context_AF.stewed++;
                 }

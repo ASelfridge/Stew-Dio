@@ -21,11 +21,13 @@
                 <script src="js/onSceneLoad.js"></script>
                 <script src="js/recipe-system.js"></script>
                 <script src="js/recipes.js"></script>
+                <script src="js/texture-update.js"></script>
                 <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
               </head>
               
               <body>
-                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3" recipe-system>
+                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;"> 
+
                     <!-------------- TEXTURES ---------------->
                     <a-assets>
                         <img id="skymap" src="assets/textures/sunsetGradient.png" />
@@ -199,16 +201,44 @@
                 <a-entity class="speechBubble" 
                             obj-model="obj:#speechBubble_model" 
                             scale="1.2 1.2 1.2"
+
+                            texture-update="textures: #speechBubble1_map, #speechBubble2_map; setTexture: 0"
                             
                 ></a-entity>
             </template>
 
-            <template id="garlic_chit_template">
-                <a-entity class="garlic_chit" 
-                            obj-model="obj:#chit_model" 
-      
+            <template id="recipeSystem_template">
+                <a-entity class="recipeSystem" 
+                           
                 ></a-entity>
             </template>
+
+            <!-- <template id="garlic_chit_template">
+                <a-entity class="garlic_chit" 
+                            obj-model="obj:#chit_model" 
+
+                            texture-update="textures: #Blank_Chit_texture, #Garlic_Chit_texture, #Garlic_Chit_Completed_texture; setTexture: 0"
+
+                ></a-entity>
+            </template>
+
+            <template id="squash_chit_template">
+                <a-entity class="squash_chit" 
+                            obj-model="obj:#chit_model" 
+
+                            texture-update="textures: #Blank_Chit_texture, #Squash_Chit_texture, #Squash_Chit_Completed_texture; setTexture: 0"
+
+                ></a-entity>
+            </template>
+
+            <template id="onion_chit_template">
+                <a-entity class="onion_chit" 
+                            obj-model="obj:#chit_model" 
+
+                            texture-update="textures: #Blank_Chit_texture, #Onion_Chit_texture, #Onion_Chit_Completed_texture; setTexture: 0"
+
+                ></a-entity>
+            </template> -->
 
 
             
@@ -284,6 +314,8 @@
         </a-entity>
       
         <!-- CUSTOMER SERVICE -->
+        <a-entity id="recipeSystem_wrapper"></a-entity>
+
         <a-entity id="character1" 
                 obj-model="obj:#character_model" 
                 material="src: #character_texture"
@@ -373,9 +405,22 @@
 
 
        <!-- RECIPIE AREA -->
-       <a-entity id="garlic_chit_wrapper"></a-entity>
-       <a-entity id="squash_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-5.77195 3.14757 5.75577" rotation="0 57.44474853981633 0" scale="" shadow=""></a-entity>
-       <a-entity id="onion_chit" obj-model="obj:#chit_model" material="src:#Blank_Chit_texture" position="-6.81907 3.13654 5.05183" rotation="0 56.32977267049176 0" scale="" shadow=""></a-entity>
+       <a-entity id="garlic_chit" 
+                obj-model="obj:#chit_model" 
+                position="-4.77195 3.14757 6.42" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Blank_Chit_texture">
+        </a-entity>
+       <a-entity id="squash_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 3.14757 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Blank_Chit_texture">
+        </a-entity>
+<!-- 
+       <a-entity id="squash_chit_wrapper"></a-entity>
+       <a-entity id="onion_chit_wrapper"></a-entity> -->
+
 
 
         <!-- STEW AREA -->
@@ -442,22 +487,48 @@
           'obj-model',
         ]
       });
-
-       NAF.schemas.add({
+      NAF.schemas.add({
         template: '#speechBubble_template',
         components: [
           'position',
           'rotation',
+          'texture-update'
         ]
       });
-
-       NAF.schemas.add({
-        template: '#garlic_chit_template',
+      NAF.schemas.add({
+        template: '#recipeSystem_template',
         components: [
-          'position',
-          'rotation',
+          'recipe-system',
+          
         ]
       });
+    //   NAF.schemas.add({
+    //     template: '#garlic_chit_template',
+    //     components: [
+    //       'position',
+    //       'rotation',
+    //       'texture-update'
+    //     ]
+    //   });
+
+    //   NAF.schemas.add({
+    //     template: '#squash_chit_template',
+    //     components: [
+    //       'position',
+    //       'rotation',
+    //       'texture-update'
+    //     ]
+    //   });
+    //   NAF.schemas.add({
+    //     template: '#onion_chit_template',
+    //     components: [
+    //       'position',
+    //       'rotation',
+    //       'texture-update'
+    //     ]
+    //   });
+
+       
 
       document.querySelector('a-scene').addEventListener('loaded', onSceneLoad)
 

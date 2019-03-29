@@ -4,6 +4,7 @@ let headSet = AFRAME.utils.device.checkHeadsetConnected ();
 console.log(mobile);
 function onSceneLoad(){
     let createObjs= true;
+    let scene = document.querySelector('a-scene');
     //Playing background track
     bgSound = document.querySelector('#ambiance');
     bgSound.components['sound'].playSound();
@@ -20,16 +21,18 @@ function onSceneLoad(){
 
     NAF.connection.subscribeToDataChannel('Player Joined', function(senderId, dataType, data, targetId){     
         if(createObjs==true){
+           
             console.log("Host has began a game");
             for (entity in ntw_objs){
-                console.log(ntw_objs[entity]);
+                //console.log(ntw_objs[entity]);
                 let obj_wrapper = document.querySelector('#' + ntw_objs[entity].id + '_wrapper');
                 let obj = document.createElement('a-entity');
                 for(attribute in ntw_objs[entity]){
-                    console.log(attribute);
-                    console.log(ntw_objs[entity][attribute])
+                   // console.log(attribute);
+                   // console.log(ntw_objs[entity][attribute])
                     obj.setAttribute(attribute, ntw_objs[entity][attribute]);
                 }
+                console.log(obj);
                 obj_wrapper.appendChild(obj);
             }
         }
