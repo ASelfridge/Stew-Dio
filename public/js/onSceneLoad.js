@@ -5,6 +5,7 @@ console.log(mobile);
 function onSceneLoad(){
     let createObjs= true;
     let scene = document.querySelector('a-scene');
+
     //Playing background track
     bgSound = document.querySelector('#ambiance');
     bgSound.components['sound'].playSound();
@@ -19,6 +20,7 @@ function onSceneLoad(){
         }
     });
 
+    // Loading in the networked objects
     NAF.connection.subscribeToDataChannel('Player Joined', function(senderId, dataType, data, targetId){     
         if(createObjs==true){
            
@@ -32,18 +34,22 @@ function onSceneLoad(){
                    // console.log(ntw_objs[entity][attribute])
                     obj.setAttribute(attribute, ntw_objs[entity][attribute]);
                 }
-                console.log(obj);
                 obj_wrapper.appendChild(obj);
             }
         }
-  });
+    });
+    NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
+        console.log("NAF LISTENER", data);
+        numCustomers = data;
+    });
     document.body.addEventListener('connected', function (evt) {
         clientId = evt.detail.clientId
         NAF.connection.broadcastData('Player Joined');
-  });
+    });
      document.body.addEventListener('entityCreated', function (evt) {
         createObjs = false;
     });
+
   document.querySelector('a-scene').components['networked-scene'].connect();
   deviceControls();
   

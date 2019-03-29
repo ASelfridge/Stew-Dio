@@ -27,7 +27,8 @@ AFRAME.registerComponent('new-recipe', {
                 el.components['sound'].playSound();
 
                 numCustomers++;
-                
+                NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
+
                 //THIS NEEDS TO BE MOVED TO GLOBALS OR RECIPIE SYSTEM (ON COMPLETION OF RECIPIE)
                 recipeAvailable = true;
                 
