@@ -103,6 +103,7 @@ AFRAME.registerComponent('object-pickup', {
             for(i = 0; i < data.numPlaceholders; i++) {
                 // show placeholder
                 placeholders[i].object3D.visible = true;
+                placeholders[i].object3D.scale.set(1, 1, 1);
                 // handle position of placeholders based on data
                 let currPos = data.placeholderPos[i].split(' ');
                 placeholders[i].object3D.position.set(parseFloat(currPos[0]), parseFloat(currPos[1]), parseFloat(currPos[2]));
