@@ -86,6 +86,15 @@
 
                         <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
                         <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
+                        <a-asset-item id="mushroomWhole_model" src="assets/models/mushroom.obj"></a-asset-item>
+                        <a-asset-item id="potatoWhole_model" src="assets/models/potato.obj"></a-asset-item>
+                        <a-asset-item id="cornWhole_model" src="assets/models/corn.obj"></a-asset-item>
+                        <a-asset-item id="carrotWhole_model" src="assets/models/carrot.obj"></a-asset-item>
+                        <a-asset-item id="celeryWhole_model" src="assets/models/celery.obj"></a-asset-item>
+                        <a-asset-item id="blackBeansWhole_model" src="assets/models/blackBeans.obj"></a-asset-item>
+                        <a-asset-item id="lentilsWhole_model" src="assets/models/lentils.obj"></a-asset-item>
+                        <a-asset-item id="pastaWhole_model" src="assets/models/pasta.obj"></a-asset-item>
+                        <a-asset-item id="chickenWhole_model" src="assets/models/chicken.obj"></a-asset-item>
                         
                         <!-- Chits -->
                         <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
@@ -96,14 +105,12 @@
             <!-- 
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
                 <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
-                
-               
-                <a-asset-item id="mushroomWhole_model" src="assets/models/mushroom.obj"></a-asset-item>
-                <a-asset-item id="potatoWhole_model" src="assets/models/potato.obj"></a-asset-item>
-                <a-asset-item id="carrotWhole_model" src="assets/models/carrot.obj"></a-asset-item>                
-                <a-asset-item id="celeryWhole_model" src="assets/models/celery.obj"></a-asset-item>                
-                <a-asset-item id="cornWhole_model" src="assets/models/corn.obj"></a-asset-item>
-                <a-asset-item id="lantern_model" src="assets/models/lantern.obj"></a-asset-item> -->
+
+
+
+
+                <a-asset-item id="lantern_model" src="assets/models/lantern.obj"></a-asset-item>
+             -->
 
             
 
@@ -122,7 +129,7 @@
                     <a-entity class="hat"
                             obj-model="obj:#hat_model"
                             material="src:#hat_texture" 
-                            position="0 3 0"
+                            position="0 0.3 0"
                             rotation="0 180 0"
                            >
                     </a-entity>
@@ -133,7 +140,7 @@
                 <a-entity class="squash collidable"
                             material="color:#CFBA5F" 
                             shadow=""
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 7.5 3 -2.461, 0 3.1 0; angledPlaceholder: true, true; hasCollision: true"
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0 0 0; angledPlaceholder: false, true; hasCollision: true"
                             detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                             > </a-entity>
             </template>
@@ -142,19 +149,113 @@
                     <a-entity class="onion collidable" 
                                 obj-model="obj:#onionWhole_model" 
                                 material="color:#c18747" 
-                                object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: 7.5 3 -2.461, 0.5 3 0; angledPlaceholder: true, true; hasCollision: true" 
+                                object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0.5 3 0; angledPlaceholder: false, true; hasCollision: true" 
                                 shadow=""
                                 detect-collision></a-entity>
             </template>
 
             <template id="garlic_template">
                 <a-entity class="garlic collidable" 
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  7.5 3 -2.461, -0.5 3.1 0; angledPlaceholder: true, true; hasCollision: true" 
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#garlicWhole_model" 
                             material="color:#CFBA5F" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
+            </template>
+
+            <template id="mushroom_template">
+                <a-entity class="mushroom collidable" 
+                            object-pickup="position: 0 -0.5 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#mushroomWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> </a-entity>
+            </template>
+
+            <template id="potato_template">
+                <a-entity class="potato collidable" 
+                            object-pickup="position:0.3 -0.6 -0.2; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#potatoWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> </a-entity>
+            </template>
+
+            <template id="corn_template">
+                <a-entity class="corn collidable" 
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#cornWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> </a-entity>
+            </template>
+
+            <template id="carrot_template">
+                <a-entity class="carrot collidable" 
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#carrotWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> </a-entity>
+            </template>
+
+            <template id="celery_template">
+                <a-entity class="celery collidable" 
+                            object-pickup="position:0 -.6 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#celeryWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> </a-entity>
+            </template>
+
+            <template id="blackBeans_template">
+                <a-entity class="blackBeans collidable" 
+                            object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#blackBeansWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> 
+                        </a-entity>
+            </template>
+
+            <template id="lentils_template">
+                <a-entity class="lentils collidable" 
+                            object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#lentilsWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> 
+                        </a-entity>
+            </template>
+
+            <template id="pasta_template">
+                <a-entity class="pasta collidable" 
+                            object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#pastaWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> 
+                        </a-entity>
+            </template>
+
+            <template id="chicken_template">
+                <a-entity class="chicken collidable" 
+                            object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            obj-model="obj:#chickenWhole_model" 
+                            material="color:#CFBA5F" 
+                            scale="" 
+                            shadow=""
+                            detect-collision> 
+                        </a-entity>
             </template>
 
             <template id="knife_template">
@@ -219,8 +320,8 @@
 
        <!-- PLACEHOLDERS -->
         <a-entity id="placeholder_1" object-place class="placeholder collidable" position="0 0 0" visible="false">
-            <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
-            <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+            <a-entity geometry="primitive:ring;radiusInner:4.6 ;radiusOuter:5" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+            <a-entity geometry="primitive:circle" scale="1 1 1" rotation="90 0 0" material="color:#ffffff;opacity:0.2;side:double;emissive:#ffffff"></a-entity>
         </a-entity>
         <a-entity id="placeholder_2" object-place class="placeholder collidable" position="0 0 0" visible="false">
             <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
@@ -318,16 +419,34 @@
 
         <a-entity id="garlic_wrapper" ></a-entity>
 
+        <a-entity id="mushroom_wrapper" ></a-entity>
+
+        <a-entity id="potato_wrapper" ></a-entity>
+
+        <a-entity id="corn_wrapper" ></a-entity>
+
+        <a-entity id="carrot_wrapper" ></a-entity>
+
+        <a-entity id="celery_wrapper" ></a-entity>
+
+        <a-entity id="blackBeans_wrapper" ></a-entity>
+
+        <a-entity id="lentils_wrapper" ></a-entity>
+
+        <a-entity id="pasta_wrapper" ></a-entity>
+
+        <a-entity id="chicken_wrapper" ></a-entity>
+
 
         <!-- PREPERATION STATION-->
         <a-entity id="knife_wrapper"></a-entity>
         
         <a-entity id="cuttingBoard"
                 geometry="primitive: box"  
-                position="7.451 2 -2.655" 
+                position="6.1 2 -4.7" 
                 rotation="0 -53.72 0"
-                scale="3 0.1 1.31"
-                material="color: white" 
+                scale="3 0.1 1.7"
+                material="color: white; opacity: 0;" 
                 shadow=""
                 
                 body="type: static; shape:none;"
