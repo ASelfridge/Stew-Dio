@@ -55,6 +55,14 @@ AFRAME.registerComponent('recipe-system', {
             }
         }
         this.currentRecipe.completed = true;
+        // change ladle to be filled
+        let ladle = document.querySelector('#ladle');
+        ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
+        // make bowl collidable
+        let bowl = document.querySelector('#bowl');
+        console.log(bowl);
+        bowl.setAttribute('dynamic-body', {});
+        bowl.setAttribute('constraint', {target: '#bowlConstraint'});
         }
     },
     updateStewLiquid : function () {

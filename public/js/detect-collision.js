@@ -4,12 +4,13 @@
             choppable: {default: false},
             chopStates: {type: 'array', default: []},
             colliders: {type: 'array', default: []},
-            stewState: {}
+            stewState: {type: 'array', default: []}
         },
         init: function() {
             const Context_AF = this;
             const el = Context_AF.el;
             const data = Context_AF.data;
+            console.log(data.stewState)
 
             Context_AF.chop = 0;
             Context_AF.chopWait = false
@@ -19,6 +20,11 @@
                 if(data.removeOnDrop) {
                     setTimeout(function(){
                         el.removeAttribute('dynamic-body');
+                    }, 1000);
+                }
+                else {
+                    setTimeout(function(){
+                        el.setAttribute('constraint', {target: '#cuttingBoard'});
                     }, 1000);
                 }
                 
@@ -36,11 +42,14 @@
                 else if(this.chop == 3) {
                     data.removeOnDrop = true;
                     el.setAttribute('object-pickup', {'numPlaceholders': 2});
+                    setTimeout(function() {
+                        el.removeAttribute('dynamic-body');
+                        el.removeAttribute('constraint');
+                    }, 1000);
                 }
                
-
                 if (e.detail.body.el.id == data.colliders[Context_AF.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
-                    el.setAttribute('obj-model', {'obj': data.stewStates[Context_AF.stewed]});
+                    el.setAttribute('obj-model', {'obj': data.stewState[Context_AF.stewed]});
                     Context_AF.stewed++;
                 }
 

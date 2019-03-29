@@ -13,7 +13,8 @@ AFRAME.registerComponent('object-pickup', {
                 return value.split(', ');
             }
         },
-        hasCollision: {default: false}
+        hasCollision: {default: false},
+        dynamic: {default: false}
     },
     init: function() {
         const Context_AF = this;
@@ -96,7 +97,13 @@ AFRAME.registerComponent('object-pickup', {
                 
             }
            
-            el.setAttribute('static-body', {});
+            // if(data.dynamic) {
+            //     el.setAttribute('dynamic-body', {});
+            //     el.setAttribute('constraint', {target: '#cursor'});
+            // }
+            // else {
+                el.setAttribute('static-body', {});
+            // }
 
             // show the placeholder object
             let placeholders = document.getElementsByClassName("placeholder");

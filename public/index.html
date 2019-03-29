@@ -176,9 +176,8 @@
                             shadow=""
 
                             raycaster=""
-                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 1.91157 -0.51171"
-                            detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
-
+                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 1.91157 -0.51171; dynamic: true; hasCollision: true"
+                            detect-collision="colliders: bowl; stewState: #ladle_model"
                             ></a-entity>
             </template>
 
@@ -190,7 +189,7 @@
 
                             raycaster=""
                             object-pickup="position: 0 -.5 0; rotation: 0 45 12; placeholderPos: 6.81064 1.88921 -4.00935" 
-                            detect-collision="colliders: ladle; stewState: #bowl_full_model"
+                            detect-collision="removeOnDrop: false; colliders: ladle; stewState: #bowl_full_model;"
                             ></a-entity>
             </template>
 
@@ -203,7 +202,7 @@
         <!---------------- CAMERA ---------------->
         <a-entity id="cameraRig" position="0 2 0" rotation="0 0 0" networked="template:#camRig_template;attachTemplateToLocal:true;">
             <a-camera id="sceneCamera" networked="template:#avatar_template;attachTemplateToLocal:true;">
-                <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
+                <a-entity id="cursor" cursor="rayOrigin: mouse" static-body position="0 0 -1"></a-entity>
             </a-camera>
         </a-entity>
 
@@ -379,6 +378,21 @@
         <a-entity id="ladle_wrapper"></a-entity>
 
         <a-entity id="bowl_wrapper"></a-entity>
+
+        <a-entity id="bowlConstraint"
+                geometry="primitive: box"  
+                position="-5.483 1.926 -6.243" 
+                rotation="0 17.636 0"
+                scale="2.041 0.044 1.31"
+                material="opacity: 0" 
+                shadow=""
+
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                halfExtents: 0.5 0.5 0.5;
+                offset: 0 0 0;">
+        </a-entity>
 
 
        <!-- GROUND & SKY -->
