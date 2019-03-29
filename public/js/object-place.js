@@ -104,8 +104,6 @@ AFRAME.registerComponent('object-place', {
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
             placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
-
-
         }
 
         // set selectedObject back to null
