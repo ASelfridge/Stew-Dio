@@ -50,6 +50,10 @@
                
                 if (e.detail.body.el.id == data.colliders[Context_AF.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
                     el.setAttribute('obj-model', {'obj': data.stewState[Context_AF.stewed]});
+                    el.setAttribute('object-pickup', {
+                        position: '0 -0.8 0',
+                        placeholderPos: '-8.2 1.933 0.1'
+                    });
                     Context_AF.stewed++;
                 }
 
