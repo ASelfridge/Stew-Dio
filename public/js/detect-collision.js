@@ -37,7 +37,7 @@ AFRAME.registerComponent('detect-collision', {
         if(data.removeOnDrop) {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
-            }, 1000);
+            }, 1000);     
         }
         scene.components['recipe-system'].updateRecipeSystem(e);
         scene.components['recipe-system'].checkRecipeStatus();

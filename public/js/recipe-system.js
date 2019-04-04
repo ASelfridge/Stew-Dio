@@ -19,7 +19,7 @@ AFRAME.registerComponent('recipe-system', {
         }
 
         if(numCustomers == 3){
-            console.log("customer number " + numCustomers + " order recieved");
+            console.log("customer numbegit ar " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
