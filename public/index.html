@@ -26,7 +26,7 @@
               </head>
               
               <body>
-                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;"> 
+                <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;" recipe-system> 
 
                     <!-------------- TEXTURES ---------------->
                     <a-assets>
@@ -197,22 +197,7 @@
                 ></a-entity>
             </template>
 
-            <template id="speechBubble_template">
-                <a-entity class="speechBubble" 
-                            obj-model="obj:#speechBubble_model" 
-                            scale="1.2 1.2 1.2"
-
-                            texture-update="textures: #speechBubble1_map, #speechBubble2_map; setTexture: 0"
-                            
-                ></a-entity>
-            </template>
-
-            <template id="recipeSystem_template">
-                <a-entity class="recipeSystem" 
-                           
-                ></a-entity>
-            </template>
-
+        
             <!-- <template id="garlic_chit_template">
                 <a-entity class="garlic_chit" 
                             obj-model="obj:#chit_model" 
@@ -329,7 +314,14 @@
         </a-entity>
      
         
-        <a-entity id="speechBubble_wrapper"></a-entity>
+        <a-entity id="speechBubble" 
+                obj-model="obj:#speechBubble_model" 
+                position="1.285 -2 -1.975" 
+                rotation="0 60.801 0" 
+                scale="1.2 1.2 1.2" 
+                material="color:#ffffff" 
+                shadow="">
+        </a-entity>
         
         <!-- INGREDIENT STATION-->
         
@@ -430,7 +422,7 @@
             scale="0.8 0.8 0.8" 
             shadow=""
 
-            body="type: static; shape:none;"
+            body="type: s tatic; shape:none;"
 
             shape__main="shape: cylinder;
             height: 4;
@@ -487,21 +479,7 @@
           'obj-model',
         ]
       });
-      NAF.schemas.add({
-        template: '#speechBubble_template',
-        components: [
-          'position',
-          'rotation',
-          'texture-update'
-        ]
-      });
-      NAF.schemas.add({
-        template: '#recipeSystem_template',
-        components: [
-          'recipe-system',
-          
-        ]
-      });
+     
     //   NAF.schemas.add({
     //     template: '#garlic_chit_template',
     //     components: [

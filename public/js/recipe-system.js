@@ -27,13 +27,17 @@ AFRAME.registerComponent('recipe-system', {
         }
     },
     updateRecipeSystem : function(data) {
+        const Context_AF = this;
         //get info about which 2 objects collided 
-        droppedObject = data.target.el.id;
-        collidedObject = data.body.el.id;
+        droppedObject = data.target;
+        collidedObject = data.body;
         
         //check if ingredient made it into the pot and that it is a part of recipe1
         if (collidedObject == 'stewPot')
         {
+            console.log(this);
+            console.log(Context_AF);
+
             //loop through current recipe to check is collidedObject is an ingredient for this recipe
             for(i = 0; i < this.currentRecipe.numIngredients; i++){
                 if (droppedObject == this.currentRecipe.ingredients[i]){

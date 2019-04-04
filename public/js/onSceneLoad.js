@@ -40,7 +40,11 @@ function onSceneLoad(){
     });
     NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
         console.log("NAF LISTENER", data);
-        numCustomers = data;
+        document.querySelector('#character1').components['new-recipe'].updateRS();
+    });
+    NAF.connection.subscribeToDataChannel('updateRecipe', function(senderId, dataType, data, targetId){     
+        console.log("NAF LISTENER PT 2", data);
+        document.querySelector('.' + data.target).components['detect-collision'].updateRS(data);
     });
     document.body.addEventListener('connected', function (evt) {
         clientId = evt.detail.clientId
@@ -52,9 +56,8 @@ function onSceneLoad(){
 
   document.querySelector('a-scene').components['networked-scene'].connect();
   deviceControls();
-  
-
 }
+
 function deviceControls(){
     // Setting up controls for various devices
     let camera = document.querySelector('#sceneCamera');
