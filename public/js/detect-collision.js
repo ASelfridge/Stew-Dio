@@ -39,10 +39,11 @@ AFRAME.registerComponent('detect-collision', {
                 el.removeAttribute('dynamic-body');
             }, 1000);     
         }
+
         scene.components['recipe-system'].updateRecipeSystem(e);
         scene.components['recipe-system'].checkRecipeStatus();
 
-        if(data.choppable && e.body.classList[0] == 'knife' && this.chop < data.chopStates.length && !this.chopWait) {
+        if(data.choppable && e.body == 'knife' && this.chop < data.chopStates.length && !this.chopWait) {
             el.setAttribute('obj-model', {'obj': data.chopStates[Context_AF.chop]});
             Context_AF.chopWait = true;
             Context_AF.chop += 1;

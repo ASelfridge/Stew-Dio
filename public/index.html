@@ -196,36 +196,7 @@
                             detect-collision="colliders: ladle; stewState: #bowl_full_model"
                 ></a-entity>
             </template>
-
-        
-            <!-- <template id="garlic_chit_template">
-                <a-entity class="garlic_chit" 
-                            obj-model="obj:#chit_model" 
-
-                            texture-update="textures: #Blank_Chit_texture, #Garlic_Chit_texture, #Garlic_Chit_Completed_texture; setTexture: 0"
-
-                ></a-entity>
-            </template>
-
-            <template id="squash_chit_template">
-                <a-entity class="squash_chit" 
-                            obj-model="obj:#chit_model" 
-
-                            texture-update="textures: #Blank_Chit_texture, #Squash_Chit_texture, #Squash_Chit_Completed_texture; setTexture: 0"
-
-                ></a-entity>
-            </template>
-
-            <template id="onion_chit_template">
-                <a-entity class="onion_chit" 
-                            obj-model="obj:#chit_model" 
-
-                            texture-update="textures: #Blank_Chit_texture, #Onion_Chit_texture, #Onion_Chit_Completed_texture; setTexture: 0"
-
-                ></a-entity>
-            </template> -->
-
-
+            <!-- texture-update="textures: #Blank_Chit_texture, #Garlic_Chit_texture, #Garlic_Chit_Completed_texture; setTexture: 0" -->
             
          </a-assets>
         
@@ -409,9 +380,14 @@
                 rotation="0 57.44474853981633 0" 
                 material="src: #Blank_Chit_texture">
         </a-entity>
-<!-- 
-       <a-entity id="squash_chit_wrapper"></a-entity>
-       <a-entity id="onion_chit_wrapper"></a-entity> -->
+        <a-entity id="onion_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 3.13654 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Blank_Chit_texture"  
+                scale="" 
+                shadow="">
+        </a-entity>
 
 
 
@@ -479,33 +455,6 @@
           'obj-model',
         ]
       });
-     
-    //   NAF.schemas.add({
-    //     template: '#garlic_chit_template',
-    //     components: [
-    //       'position',
-    //       'rotation',
-    //       'texture-update'
-    //     ]
-    //   });
-
-    //   NAF.schemas.add({
-    //     template: '#squash_chit_template',
-    //     components: [
-    //       'position',
-    //       'rotation',
-    //       'texture-update'
-    //     ]
-    //   });
-    //   NAF.schemas.add({
-    //     template: '#onion_chit_template',
-    //     components: [
-    //       'position',
-    //       'rotation',
-    //       'texture-update'
-    //     ]
-    //   });
-
        
 
       document.querySelector('a-scene').addEventListener('loaded', onSceneLoad)
