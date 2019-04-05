@@ -6,22 +6,20 @@ AFRAME.registerComponent('detect-collision', {
         choppable: {default: false},
         chopStates: {type: 'array', default: []},
         colliders: {type: 'array', default: []},
-        stewState: {}
+        stewState: {},
+        chop : {default: 0},
+        chopWait : {default:false},
+        stewed : {default: 0},
     },
     init: function() {
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
-
-        Context_AF.chop = 0;
-        Context_AF.chopWait = false
-        Context_AF.stewed = 0;
         
-        this.el.addEventListener("collide", (event)=>{
-            let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.id}
+        Context_AF.el.addEventListener("collide", (event)=>{
+            let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.classList[0]}
             Context_AF.updateRS(ntw_data);
             NAF.connection.broadcastData('updateRecipe', ntw_data);
-            
         })
     },
     updateRS: function(e){
@@ -29,11 +27,8 @@ AFRAME.registerComponent('detect-collision', {
         const el = Context_AF.el;
         const data = Context_AF.data;
 
-        Context_AF.chop = 0;
-        Context_AF.chopWait = false
-        Context_AF.stewed = 0;
         let scene = document.querySelector('a-scene');
-
+      
         if(data.removeOnDrop) {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
@@ -43,15 +38,17 @@ AFRAME.registerComponent('detect-collision', {
         scene.components['recipe-system'].updateRecipeSystem(e);
         scene.components['recipe-system'].checkRecipeStatus();
 
-        if(data.choppable && e.body == 'knife' && this.chop < data.chopStates.length && !this.chopWait) {
-            el.setAttribute('obj-model', {'obj': data.chopStates[Context_AF.chop]});
+        if(data.choppable && e.body == 'knife' && Context_AF.data.chop < data.chopStates.length && !Context_AF.chopWait) {
+            el.setAttribute('obj-model', {'obj': data.chopStates[Context_AF.data.chop]});
+
             Context_AF.chopWait = true;
-            Context_AF.chop += 1;
+            Context_AF.data.chop += 1;
+
             setTimeout(function() {
                 Context_AF.chopWait = false;
             }, 500);
         }
-        else if(this.chop == 3) {
+        else if(Context_AF.data.chop == 3) {
             data.removeOnDrop = true;
             el.setAttribute('object-pickup', {'numPlaceholders': 2});
         }

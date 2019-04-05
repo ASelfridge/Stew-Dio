@@ -5,25 +5,37 @@ AFRAME.registerComponent('recipe-system', {
     init: function() {
         const Context_AF = this;
         const el = Context_AF.el;
-        Context_AF.currentRecipe = new Recipe(["garlic", "squash", "onion"]);
+
+        Context_AF.currentRecipe;
+        this.currentRecipe = new Recipe(["garlic", "squash", "onion"]);
+        this.recipe1 = new Recipe(["garlic", "squash", "onion"]);
+        this.recipe2 = new Recipe(["mushroom", "onion", "carrot", "lentils"]);
+        this.recipe3 = new Recipe(["blackBeans", "onion", "celery", "carrot", "potato", "corn"]);
+        this.recipe4 = new Recipe(["chicken", "onion", "carrot", "garlic", "pasta"]);
     },
     newRecipe:function() {
         if(numCustomers == 1){
+            this.currentRecipe = this.recipe1;
             this.updateChits();
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
         if(numCustomers == 2){
+            this.currentRecipe = this.recipe2;
             console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers == 3){
-            console.log("customer numbegit ar " + numCustomers + " order recieved");
+            this.currentRecipe = this.recipe3;
+            console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
-            console.log("done all customers");
+            this.currentRecipe = this.recipe4;
+            this.updateChits();
+            console.log("customer number " + numCustomers + " order recieved");
         }
+        console.log(this.currentRecipe.ingredients);
     },
     updateRecipeSystem : function(data) {
         const Context_AF = this;
@@ -36,7 +48,6 @@ AFRAME.registerComponent('recipe-system', {
         {            
             //loop through current recipe to check is collidedObject is an ingredient for this recipe
             for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
-               
                 if (droppedObject == Context_AF.currentRecipe.ingredients[i]){
                 
                     Context_AF.currentRecipe.inStew[i] = true;
@@ -62,6 +73,12 @@ AFRAME.registerComponent('recipe-system', {
         }
         Context_AF.currentRecipe.completed = true;
         }
+        
+        // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
+        //if(XXXXXXXXXXXXXXX)
+        //{
+        //    this.currentRecipe.delivered = true;
+        //}
     },
     updateStewLiquid : function () {
         const Context_AF = this;

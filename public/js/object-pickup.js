@@ -2,7 +2,18 @@ AFRAME.registerComponent('object-pickup', {
     schema: {
         position: {default: '0 -1 0'},
         rotation: {default: '0 0 0'},
-        numPlaceholders: {default: 1}
+        numPlaceholders: {default: 1},
+        placeholderPos: {
+            parse: function(value) {
+                return value.split(', ');
+            }
+        },  
+        angledPlaceholder: {
+            parse: function(value) {
+                return value.split(', ');
+            }
+        },
+        hasCollision: {default: false}
     },
     init: function() {
         const Context_AF = this;
@@ -88,13 +99,19 @@ AFRAME.registerComponent('object-pickup', {
             el.setAttribute('static-body', {});
 
             // show the placeholder object
-            let placeholders = document.getElementsByClassName(Context_AF.el.classList[0] + "_placeholder");
+            let placeholders = document.getElementsByClassName("placeholder");
             for(i = 0; i < data.numPlaceholders; i++) {
-                let model = el.components['obj-model'].attrValue['obj'];
-                placeholders[i].setAttribute('obj-model', {'obj': model});
-                placeholders[i].object3D.scale.set(1, 1, 1);
+                // show placeholder
                 placeholders[i].object3D.visible = true;
-                
+                placeholders[i].object3D.scale.set(1, 1, 1);
+                // handle position of placeholders based on data
+                let currPos = data.placeholderPos[i].split(' ');
+                placeholders[i].object3D.position.set(parseFloat(currPos[0]), parseFloat(currPos[1]), parseFloat(currPos[2]));
+                // handle rotation of placeholders based on data
+                let currRot = (data.angledPlaceholder[i] == 'true');
+                if(currRot) {
+                    placeholders[i].object3D.rotation.set(0, 0, THREE.Math.degToRad(90));
+                }   
             }
         }
     }

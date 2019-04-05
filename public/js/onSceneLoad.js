@@ -1,11 +1,8 @@
-//Device Detect 
-
 let headSet = AFRAME.utils.device.checkHeadsetConnected ();
 console.log(mobile);
 function onSceneLoad(){
     let createObjs= true;
     let scene = document.querySelector('a-scene');
-
     //Playing background track
     bgSound = document.querySelector('#ambiance');
     bgSound.components['sound'].playSound();
@@ -39,11 +36,9 @@ function onSceneLoad(){
         }
     });
     NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
-        console.log("NAF LISTENER", data);
         document.querySelector('#character1').components['new-recipe'].updateRS();
     });
     NAF.connection.subscribeToDataChannel('updateRecipe', function(senderId, dataType, data, targetId){     
-        console.log("NAF LISTENER PT 2", data);
         document.querySelector('.' + data.target).components['detect-collision'].updateRS(data);
     });
     document.body.addEventListener('connected', function (evt) {

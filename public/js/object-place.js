@@ -34,8 +34,9 @@ AFRAME.registerComponent('object-place', {
         else {
             el.addEventListener('mousedown', function(e) {
                 // clicked placeholder and close enough
-                if(scene.selectedObject == Context_OBJ[0].id && e.detail.intersection.distance <= maxDistance) {
-                    Context_OBJ[0].removeAttribute('static-body');
+                //scene.selectedObject == Context_OBJ[0].id && e
+                if(e.detail.intersection.distance <= maxDistance) {
+                    //Context_OBJ[0].removeAttribute('static-body');
                     Context_AF.place();
                 }
             })
@@ -47,10 +48,9 @@ AFRAME.registerComponent('object-place', {
         let data = Context_AF.data;
         let scene = document.querySelector('a-scene');
 
-        // store sibling object
-        let object_class = el.id.substr(0, el.id.indexOf('_'));
-        const Context_OBJ = document.getElementsByClassName(object_class);
-        let object = Context_OBJ[0];
+        // store held object
+        let object = document.querySelector('#' + scene.selectedObject);
+
         el.intersected = false;
         
         //Remove parent constraint
@@ -58,27 +58,26 @@ AFRAME.registerComponent('object-place', {
 
 
         // move object to placeholder location
-        //object.object3D.parent = el.object3D.parent;
-
         let pos = el.object3D.position;
         let scale = el.object3D.scale;
         let rot = el.object3D.rotation;
         
         object.object3D.position.set(pos.x, pos.y, pos.z);
-        object.object3D.scale.set(scale.x, scale.y, scale.z);
-        object.object3D.rotation.set(rot._x, rot._y, rot._z);
 
         // assign physics if necessary
-        if(data.hasCollision){
+        if(object.components['object-pickup'].data.hasCollision){
+            object.removeAttribute('static-body');
             object.setAttribute('dynamic-body', {});
-         }
+        }
+
         
-        // hide placeholders
-        let placeholders = document.getElementsByClassName(object.classList[0] + "_placeholder");
+        // hide placeholderss
+        let placeholders = document.getElementsByClassName("placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false
             placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
         }
+
         // set selectedObject back to null
         scene.selectedObject = null;
 
@@ -89,28 +88,22 @@ AFRAME.registerComponent('object-place', {
         let data = Context_AF.data;
         let scene = document.querySelector('a-scene');
 
-        // store sibling object
-        let object_class = el.id.substr(0, el.id.indexOf('_'));
-        const Context_OBJ = document.getElementsByClassName(object_class);
-        let object = Context_OBJ[0];
-        console.log(object);
+        // store held object
+        let object = document.querySelector('#' + scene.selectedObject);
 
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
         // assigning starting attributes
-        console.log('OG OBJ IS:', object.ogPos);
-        console.log('OG POS IS:', object.position);
-
-        object.object3D.position.set(og_obj.position);
-        object.object3D.rotation.set(og_obj.rotation);
+        object.object3D.position.set(object.ogPos.x, object.ogPos.y, object.ogPos.z);
+        object.object3D.rotation.set(object.ogRot._x, object.ogRot._y, object.ogRot._z);
+        object.object3D.scale.set(object.ogScale.x, object.ogScale.y, object.ogScale.z);
 
         // hide placeholders
-        let placeholders = document.getElementsByClassName(object.classList[0] + "_placeholder");
+        let placeholders = document.getElementsByClassName("placeholder");
         for(i = 0; i < placeholders.length; i++) {
             placeholders[i].object3D.visible = false;
             placeholders[i].object3D.scale.set(0.1, 0.1, 0.1);
-
         }
 
         // set selectedObject back to null
