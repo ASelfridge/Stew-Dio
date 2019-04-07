@@ -17,6 +17,7 @@ function onSceneLoad(){
         }
     });
 
+    // Loading in the networked objects
     NAF.connection.subscribeToDataChannel('Player Joined', function(senderId, dataType, data, targetId){     
         if(createObjs==true){
            
@@ -30,23 +31,28 @@ function onSceneLoad(){
                    // console.log(ntw_objs[entity][attribute])
                     obj.setAttribute(attribute, ntw_objs[entity][attribute]);
                 }
-                //console.log(obj);
                 obj_wrapper.appendChild(obj);
             }
         }
-  });
+    });
+    NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
+        document.querySelector('#character1').components['new-recipe'].updateRS();
+    });
+    NAF.connection.subscribeToDataChannel('updateRecipe', function(senderId, dataType, data, targetId){     
+        document.querySelector('.' + data.target).components['detect-collision'].updateRS(data);
+    });
     document.body.addEventListener('connected', function (evt) {
         clientId = evt.detail.clientId
         NAF.connection.broadcastData('Player Joined');
-  });
+    });
      document.body.addEventListener('entityCreated', function (evt) {
         createObjs = false;
     });
+
   document.querySelector('a-scene').components['networked-scene'].connect();
   deviceControls();
-  
-
 }
+
 function deviceControls(){
     // Setting up controls for various devices
     let camera = document.querySelector('#sceneCamera');

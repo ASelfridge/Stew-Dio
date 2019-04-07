@@ -30,9 +30,6 @@ let ntw_lentils = {id:"lentils", position:{x: 8.544 , y:1.964 , z:1.442}, rotati
 let ntw_pasta = {id:"pasta", position:{x: 3.530 , y:1.936 , z:8.752}, rotation:{x:0, y:0, z:0}, networked: {template:'#pasta_template', attachTemplateToLocal:true}, 'toggle-ownership':""};
 let ntw_chicken = {id:"chicken", position:{x: 9.226 , y:1.984 , z:0.768}, rotation:{x:0, y:0, z:0}, networked: {template:'#chicken_template', attachTemplateToLocal:true}, 'toggle-ownership':""};
 
-// let ntw_garlic_chit = {id: 'garlic_chit', position:{x:-4.7, y:3.07, z:6.42},  rotation:{x:0, y:57, z:0}};
-// let ntw_squash_chit = {id: 'squash_chit', position:{x:-5.7, y:3.14, z:5.72},  rotation:{x:0, y:57, z:0}};
-// let ntw_onion_chit = {id: 'onion_chit', position:{x:-6.8, y:3.13, z:5.05},  rotation:{x:0, y:56, z:0}};
 
 ntw_objs.push(ntw_knife);
 ntw_objs.push(ntw_ladle);
@@ -49,9 +46,7 @@ ntw_objs.push(ntw_blackBeans);
 ntw_objs.push(ntw_lentils);
 ntw_objs.push(ntw_pasta);
 ntw_objs.push(ntw_chicken);
-// ntw_objs.push(ntw_garlic_chit);
-// ntw_objs.push(ntw_squash_chit);
-// ntw_objs.push(ntw_onion_chit);
+
 let noTouchyList = [];
 
 var chitTextures = ["#Blank_Chit_texture", "#Garlic_Chit_texture", "#Squash_Chit_texture", "#Onion_Chit_texture", "#Garlic_Chit_Completed_texture", "#Squash_Chit_Completed_texture", "#Onion_Chit_Completed_texture"];
