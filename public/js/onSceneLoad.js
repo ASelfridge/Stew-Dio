@@ -9,11 +9,11 @@ function onSceneLoad(){
     bgMusic = document.querySelector('#music');
     bgMusic.components['sound'].playSound();
 
-    customerBell = document.querySelector('#character1');
+    //customerBell = document.querySelector('#character1');
     document.addEventListener('keydown', function(e) {
         if(e.keyCode == 32) {
-            customerBell.components['sound'].stopSound();
-            customerBell.components['sound'].playSound();
+            //customerBell.components['sound'].stopSound();
+            //customerBell.components['sound'].playSound();
         }
     });
 
