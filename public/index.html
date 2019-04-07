@@ -134,7 +134,7 @@
                             material="color:#CFBA5F" 
                             shadow=""
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 7.5 3 -2.461, 0 3.1 0; angledPlaceholder: true, true; hasCollision: true"
-                            detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
+                            detect-collision="removeOnDrop: #cuttingBoard; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                             > </a-entity>
             </template>
 
@@ -176,7 +176,7 @@
                             shadow=""
 
                             raycaster=""
-                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 1.91157 -0.51171; dynamic: true; hasCollision: true"
+                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 2.91157 -0.51171; dynamic: true; hasCollision: true"
                             detect-collision="colliders: bowl; stewState: #ladle_model"
                             ></a-entity>
             </template>
@@ -188,7 +188,7 @@
                             shadow=""
 
                             raycaster=""
-                            detect-collision="removeOnDrop: false; colliders: ladle; stewState: #bowl_full_model;"
+                            detect-collision="removeOnDrop: #bowlConstraint; colliders: ladle; stewState: #bowl_full_model;"
                             ></a-entity>
             </template>
 

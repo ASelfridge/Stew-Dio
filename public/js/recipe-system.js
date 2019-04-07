@@ -60,7 +60,6 @@ AFRAME.registerComponent('recipe-system', {
         ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
         // make bowl collidable
         let bowl = document.querySelector('#bowl');
-        console.log(bowl);
         bowl.setAttribute('dynamic-body', {});
         bowl.setAttribute('constraint', {target: '#bowlConstraint'});
         }

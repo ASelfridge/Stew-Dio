@@ -1,6 +1,6 @@
     AFRAME.registerComponent('detect-collision', {
         schema: {
-            removeOnDrop: {default: true},
+            removeOnDrop: {default: ''},
             choppable: {default: false},
             chopStates: {type: 'array', default: []},
             colliders: {type: 'array', default: []},
@@ -17,14 +17,14 @@
             Context_AF.stewed = 0;
             let scene = document.querySelector('a-scene');
             this.el.addEventListener("collide", (e)=>{
-                if(data.removeOnDrop) {
+                if(data.removeOnDrop == '') {
                     setTimeout(function(){
                         el.removeAttribute('dynamic-body');
                     }, 1000);
                 }
                 else {
                     setTimeout(function(){
-                        el.setAttribute('constraint', {target: '#cuttingBoard'});
+                        el.setAttribute('constraint', {target: data.removeOnDrop});
                     }, 1000);
                 }
                 
