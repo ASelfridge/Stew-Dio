@@ -26,6 +26,10 @@ AFRAME.registerComponent('new-recipe', {
             speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
             speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
 
+
+            let book = document.querySelector('#recipeBook');
+            book.setAttribute('material', {src: '#book_BS_texture'});
+
             // play greeting sound
             Context_AF.el.components['sound'].stopSound();
             Context_AF.el.components['sound'].playSound();
