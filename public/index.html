@@ -39,13 +39,25 @@
                         <img id="hat_texture" src="assets/textures/hat.jpg" />
                         <img id="Pine_texture" src="assets/textures/pine.jpg" />
 
+                        <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
+                        <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
+                        <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
+                        <img id="Mushroom_Chit_texture" src="assets/textures/Mushroom_Chit.png" />
+                        <img id="Potato_Chit_texture" src="assets/textures/Potato_Chit.png" />
+                        <img id="Corn_Chit_texture" src="assets/textures/Corn_Chit.png" />
+                        <img id="Carrot_Chit_texture" src="assets/textures/Carrot_Chit.png" />
+                        <img id="Celery_Chit_texture" src="assets/textures/Celery_Chit.png" />
+                        <img id="blackBeans_Chit_texture" src="assets/textures/blackBeans_Chit.png" />
+                        <img id="lentils_Chit_texture" src="assets/textures/Lentils_Chit.png" />
+                        <img id="Pasta_Chit_texture" src="assets/textures/Pasta_Chit.png" />
+                        <img id="Chicken_Chit_texture" src="assets/textures/Chicken_Chit.png" />
+
+
                         <img id="knife_texture" src="assets/textures/Knife_Ladel.jpg" />
                         <img id="character_texture" src="assets/textures/character.jpg" />
-                        <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
-                        <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
-                        <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
-                        <img id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
-                        <img id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+
+                        <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
+                        <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
                     </a-assets>
             
                     <!-------------- SOUNDS ---------------->
@@ -100,17 +112,13 @@
                         
                         <!-- Chits -->
                         <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
-
+                        <a-asset-item id="paddle_model" src="assets/models/paddle.obj"></a-asset-item>
                         <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
                        
             
             <!-- 
                 <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
                 <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
-
-
-
-
                 <a-asset-item id="lantern_model" src="assets/models/lantern.obj"></a-asset-item>
              -->
 
@@ -439,6 +447,126 @@
         <a-entity id="pasta_wrapper" ></a-entity>
 
         <a-entity id="chicken_wrapper" ></a-entity>
+
+        <a-entity 
+            id="paddle_onion" 
+            obj-model="obj:#paddle_model" 
+            position="4.466 1.9 8.876" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Onion_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_squash" 
+            obj-model="obj:#paddle_model" 
+            position="4.964 1.9 8.171" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Squash_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_garlic" 
+            obj-model="obj:#paddle_model" 
+            position="5.457 1.9 7.464" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Garlic_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_mushroom" 
+            obj-model="obj:#paddle_model" 
+            position="6.019 1.9 6.765" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Mushroom_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_potato" 
+            obj-model="obj:#paddle_model" 
+            position="6.504 1.9 6.006" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Potato_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_corn" 
+            obj-model="obj:#paddle_model" 
+            position="7.105 1.9 5.312" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Corn_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_carrot" 
+            obj-model="obj:#paddle_model" 
+            position="7.579 1.9 4.588" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Carrot_Chit_texture" 
+            shadow="">
+        </a-entity>      
+        
+        <a-entity 
+            id="paddle_celery" 
+            obj-model="obj:#paddle_model" 
+            position="8.072 1.9 3.888" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Celery_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_blackBeans" 
+            obj-model="obj:#paddle_model" 
+            position="8.570 1.9 3.177" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #blackBeans_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_lentils" 
+            obj-model="obj:#paddle_model" 
+            position="9.074 1.9 2.486" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #lentils_Chit_texture" 
+            shadow="">
+        </a-entity>   
+        
+        <a-entity 
+            id="paddle_pasta" 
+            obj-model="obj:#paddle_model" 
+            position="9.559 1.9 1.800" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Pasta_Chit_texture" 
+            shadow="">
+        </a-entity>
+
+        <a-entity 
+            id="paddle_chicken" 
+            obj-model="obj:#paddle_model" 
+            position="10.058 1.9 1.100" 
+            rotation="0 56.794 0" 
+            scale="1 1 1" 
+            material="src: #Chicken_Chit_texture" 
+            shadow="">
+        </a-entity>
 
 
         <!-- PREPERATION STATION-->
