@@ -56,6 +56,9 @@ AFRAME.registerComponent('object-place', {
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
 
+        //Set availability to true
+        object.setAttribute('tool', 'available', true);
+
 
         // move object to placeholder location
         let pos = el.object3D.position;
@@ -93,6 +96,9 @@ AFRAME.registerComponent('object-place', {
 
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
+        
+        //Set availability to true
+        object.setAttribute('tool', 'available', true);
 
         // assigning starting attributes
         object.object3D.position.set(object.ogPos.x, object.ogPos.y, object.ogPos.z);

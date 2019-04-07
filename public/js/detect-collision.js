@@ -18,6 +18,7 @@ AFRAME.registerComponent('detect-collision', {
         
         Context_AF.el.addEventListener("collide", (event)=>{
             let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.classList[0]}
+            console.log(ntw_data);
             Context_AF.updateRS(ntw_data);
             NAF.connection.broadcastData('updateRecipe', ntw_data);
         })

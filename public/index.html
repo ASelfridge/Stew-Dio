@@ -142,7 +142,7 @@
                 <a-entity class="squash collidable"
                             material="color:#CFBA5F" 
                             shadow=""
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0 0 0; angledPlaceholder: false, true; hasCollision: true"
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0.5 3 0; angledPlaceholder: false, true; hasCollision: true"
                             detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                             > </a-entity>
             </template>
@@ -265,10 +265,12 @@
                             obj-model="obj:#knife_model" 
                             material="src: #knife_texture" 
                             shadow=""
+                            
                             object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; placeholderPos: 8.5 2 0" 
                             shape__main="shape: box;
                             halfExtents: 0.1 0.05 1;
-                            offset: 0 0 -0.8;">
+                            offset: 0 0 -0.8;"
+                            >
                 </a-entity>
             </template>
 
@@ -281,7 +283,6 @@
                             raycaster=""
                             object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 1.91157 -0.51171"
                             detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
-
                             ></a-entity>
             </template>
 
@@ -545,8 +546,118 @@
           'obj-model',
         ]
       });
-    
-
+      NAF.schemas.add({
+        template: '#onion_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#garlic_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#mushroom_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#potato_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#corn_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#carrot_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#celery_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#blackBeans_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#lentils_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#pasta_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#chicken_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#knife_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#ladle_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#bowl_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
       document.querySelector('a-scene').addEventListener('loaded', onSceneLoad)
 
      
