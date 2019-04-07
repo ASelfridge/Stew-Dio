@@ -66,12 +66,20 @@ AFRAME.registerComponent('recipe-system', {
         const Context_AF = this;
 
        if(!Context_AF.currentRecipe.completed) {
-        for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
-            if(!Context_AF.currentRecipe.inStew[i]) {
-                return;
+            for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
+                if(!Context_AF.currentRecipe.inStew[i]) {
+                    return;
+                }
             }
-        }
-        Context_AF.currentRecipe.completed = true;
+            // change ladle to be filled
+            let ladle = document.querySelector('#ladle');
+            ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
+            // make bowl collidable
+            let bowl = document.querySelector('#bowl');
+            bowl.setAttribute('dynamic-body', {});
+            bowl.setAttribute('constraint', {target: '#bowlConstraint'});
+            
+            Context_AF.currentRecipe.completed = true;
         }
         
         // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT

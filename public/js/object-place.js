@@ -68,6 +68,7 @@ AFRAME.registerComponent('object-place', {
         if(object.components['object-pickup'].data.hasCollision){
             object.removeAttribute('static-body');
             object.setAttribute('dynamic-body', {});
+            console.log(object);
         }
 
         
