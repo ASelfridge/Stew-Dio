@@ -150,8 +150,8 @@
                 <a-entity class="squash collidable"
                             material="color:#CFBA5F" 
                             shadow=""
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0 0 0; angledPlaceholder: false, true; hasCollision: true"
-                            detect-collision="removeOnDrop: false; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 1; placeholderPos: 6.015 2.417 -4.712, 0.5 3 0; angledPlaceholder: false, true; hasCollision: true"
+                            detect-collision="removeOnDrop: false; constraint: #cuttingBoard; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
                             > </a-entity>
             </template>
 
@@ -287,9 +287,8 @@
                             shadow=""
 
                             raycaster=""
-                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 1.91157 -0.51171"
-                            detect-collision="colliders: stewPot, bowl; stewState: #ladle_full_model, #ladel_model"
-
+                            object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 2.91157 -0.51171; dynamic: true; hasCollision: true"
+                            detect-collision="colliders: bowl; stewState: #ladle_model"
                             ></a-entity>
             </template>
 
@@ -300,9 +299,8 @@
                             shadow=""
 
                             raycaster=""
-                            object-pickup="position: 0 -.5 0; rotation: 0 45 12; placeholderPos: 6.81064 1.88921 -4.00935" 
-                            detect-collision="colliders: ladle; stewState: #bowl_full_model"
-                ></a-entity>
+                            detect-collision="removeOnDrop: false; constraint: #bowlConstraint; colliders: ladle; stewState: #bowl_full_model;"
+                            ></a-entity>
             </template>
             <!-- texture-update="textures: #Blank_Chit_texture, #Garlic_Chit_texture, #Garlic_Chit_Completed_texture; setTexture: 0" -->
             
@@ -313,7 +311,7 @@
         <!---------------- CAMERA ---------------->
         <a-entity id="cameraRig" position="0 2 0" rotation="0 0 0" networked="template:#camRig_template;attachTemplateToLocal:true;">
             <a-camera id="sceneCamera" networked="template:#avatar_template;attachTemplateToLocal:true;">
-                <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
+                <a-entity id="cursor" cursor="rayOrigin: mouse" static-body position="0 0 -1"></a-entity>
             </a-camera>
         </a-entity>
 
@@ -647,6 +645,21 @@
         <a-entity id="ladle_wrapper"></a-entity>
 
         <a-entity id="bowl_wrapper"></a-entity>
+
+        <a-entity id="bowlConstraint"
+                geometry="primitive: box"  
+                position="-5.483 1.926 -6.243" 
+                rotation="0 17.636 0"
+                scale="2.041 0.044 1.31"
+                material="opacity: 0" 
+                shadow=""
+
+                body="type: static; shape:none;"
+
+                shape__main="shape: box;
+                halfExtents: 0.5 0.5 0.5;
+                offset: 0 0 0;">
+        </a-entity>
 
 
        <!-- GROUND & SKY -->
