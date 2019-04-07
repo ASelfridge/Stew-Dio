@@ -1,5 +1,7 @@
 AFRAME.registerComponent('recipe-system', {
-    schema:{},
+    schema:{
+        currentRecipe: {default: ''}
+    },
     init: function() {
         const Context_AF = this;
         const el = Context_AF.el;
@@ -36,21 +38,23 @@ AFRAME.registerComponent('recipe-system', {
         console.log(this.currentRecipe.ingredients);
     },
     updateRecipeSystem : function(data) {
+        const Context_AF = this;
         //get info about which 2 objects collided 
-        droppedObject = data.target.el.id;
-        collidedObject = data.body.el.id;
-        
-        //check if ingredient made it into the pot and that it is a part of recipe1
+        droppedObject = data.target;
+        collidedObject = data.body;
+      
+        //check if ingredient made it into the pot and that it is a part of recipe
         if (collidedObject == 'stewPot')
-        {
+        {            
             //loop through current recipe to check is collidedObject is an ingredient for this recipe
-            for(i = 0; i < this.currentRecipe.numIngredients; i++){
-                if (droppedObject == this.currentRecipe.ingredients[i]){
-                    this.currentRecipe.inStew[i] = true;
-                    this.updateStewLiquid();
-                    console.log("ingredient is in slot " + i + ": " + this.currentRecipe.ingredients[i]);
-                    this.updateChits();
-                    console.log("recipe completed: " + this.currentRecipe.completed);
+            for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
+                if (droppedObject == Context_AF.currentRecipe.ingredients[i]){
+                
+                    Context_AF.currentRecipe.inStew[i] = true;
+                    Context_AF.updateStewLiquid();
+                    console.log("ingredient is in slot " + i + ": " + Context_AF.currentRecipe.ingredients[i]);
+            
+                    Context_AF.updateChits();
                     return;
                 }
             }
@@ -59,13 +63,15 @@ AFRAME.registerComponent('recipe-system', {
         }
     },
     checkRecipeStatus : function() {
-        if(!this.currentRecipe.completed) {
-            for(i = 0; i < this.currentRecipe.numIngredients; i++){
-                if(!this.currentRecipe.inStew[i]) {
-                    return;
-                }
+        const Context_AF = this;
+
+       if(!Context_AF.currentRecipe.completed) {
+        for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
+            if(!Context_AF.currentRecipe.inStew[i]) {
+                return;
             }
-        this.currentRecipe.completed = true;
+        }
+        Context_AF.currentRecipe.completed = true;
         }
         
         // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
@@ -75,10 +81,12 @@ AFRAME.registerComponent('recipe-system', {
         //}
     },
     updateStewLiquid : function () {
+        const Context_AF = this;
+
         ingredientCount = 0;
 
-        for(i = 0; i < this.currentRecipe.numIngredients; i++){
-            if (this.currentRecipe.inStew[i] == true) {
+        for(j = 0; j < Context_AF.currentRecipe.numIngredients; j++){
+            if (Context_AF.currentRecipe.inStew[j] == true) {
                 ingredientCount = ingredientCount + 1;
             }
         }
@@ -114,22 +122,23 @@ AFRAME.registerComponent('recipe-system', {
 
     },
     updateChits : function(){
+        const Context_AF = this;
+
         let chit1 = document.querySelector('#garlic_chit');
         let chit2 = document.querySelector('#squash_chit');
         let chit3 = document.querySelector('#onion_chit');
-
         chit1.setAttribute('material', {src: chitTextures[1]});
         chit2.setAttribute('material', {src: chitTextures[2]});
-        chit3.setAttribute('material', {src: chitTextures[3]})
+        chit3.setAttribute('material', {src: chitTextures[3]});  
 
-        if(this.currentRecipe.inStew[0] == true){
+        if(Context_AF.currentRecipe.inStew[0] == true){
             chit1.setAttribute('material', {src: chitTextures[4]});
         }
-        if(this.currentRecipe.inStew[1] == true){
+        if(Context_AF.currentRecipe.inStew[1] == true){
             chit2.setAttribute('material', {src: chitTextures[5]});
         }
-        if(this.currentRecipe.inStew[2] == true){
-            chit3.setAttribute('material', {src: chitTextures[6]});
+        if(Context_AF.currentRecipe.inStew[2] == true){
+            chit3.setAttribute('material', {src: chitTextures[6]});          
         };
     }
 });
