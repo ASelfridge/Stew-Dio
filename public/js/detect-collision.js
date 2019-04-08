@@ -5,7 +5,7 @@ AFRAME.registerComponent('detect-collision', {
         removeOnDrop: {default: true},
         constraint: {default: ''},
         choppable: {default: false},
-        chopStates: {type: 'array', default: []},
+        chopStates: {type: 'array', default: ['', '', '']},
         colliders: {type: 'array', default: []},
         stewState: {type: 'array', default: []},
         chop : {default: 0},
@@ -32,11 +32,23 @@ AFRAME.registerComponent('detect-collision', {
         if(data.removeOnDrop) {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
+                // move object back to original state if dropping into
+                if(e.body == 'stewPot') {
+                    el.object3D.position.set(el.ogPos.x, el.ogPos.y, el.ogPos.z);
+                    el.object3D.rotation.set(el.ogRot._x, el.ogRot._y, el.ogRot._z);
+                    el.object3D.scale.set(el.ogScale.x, el.ogScale.y, el.ogScale.z);
+                    
+                    // reset chopping attributes
+                    el.setAttribute('obj-model', {'obj': '#' + el.classList[0] + 'Whole_model'});
+                    data.removeOnDrop = false;
+                    data.chop = 0;
+                }
             }, 1000);     
         }
         else {
+            el.setAttribute('dynamic-body', {});
             setTimeout(function(){
-                el.setAttribute('constraint', {target: data.constraint});
+                el.setAttribute('constraint', {'target': data.constraint});
             }, 1000);
         }
 
@@ -55,13 +67,15 @@ AFRAME.registerComponent('detect-collision', {
                 data.chopWait = false;
             }, 500);
         }
-        if(data.chop == 3) {
+
+        if(data.chop == data.chopStates.length) {
             data.removeOnDrop = true;
             data.chop++;
             el.setAttribute('object-pickup', {'numPlaceholders': 2});
             setTimeout(function() {
                 el.removeAttribute('dynamic-body');
                 el.removeAttribute('constraint');
+                data.removeOnDrop = true;
             }, 1000);
         }
         
@@ -71,6 +85,11 @@ AFRAME.registerComponent('detect-collision', {
                 position: '0 -0.8 0',
                 placeholderPos: '-8.2 1.933 0.1'
             });
+            if(e.target == 'bowl') {
+                setTimeout(function() {
+                    el.removeAttribute('dynamic-body');
+                }, 1000)  
+            }
             data.stewed++;
         }
 
