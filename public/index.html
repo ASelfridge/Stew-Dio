@@ -42,6 +42,16 @@
 
                         <img id="Squash_texture" src="assets/textures/Squash.jpg" />
                         <img id="Carrot_texture" src="assets/textures/Carrot.jpg" />
+                        <img id="Celery_texture" src="assets/textures/Celery.jpg" />
+                        <img id="Corn_texture" src="assets/textures/Corn.jpg" />
+                        <img id="Mushroom_texture" src="assets/textures/Mushroom.jpg" />
+                        <img id="Garlic_texture" src="assets/textures/Garlic.jpg" />
+                        <img id="Onion_texture" src="assets/textures/Onion.jpg" />
+                        <img id="Chicken_texture" src="assets/textures/Chicken.jpg" />
+                        <img id="Potatoe_texture" src="assets/textures/Potatoe.jpg" />
+                        <img id="Pasta_texture" src="assets/textures/Pasta.jpg" />
+                        <img id="Bean_texture" src="assets/textures/Beans.jpg" />
+                        <img id="Lentil_texture" src="assets/textures/Lentils.jpg" />
 
                         <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
                         <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
@@ -179,7 +189,7 @@
             <template id="onion_template">
                     <a-entity class="onion collidable" 
                                 obj-model="obj:#onionWhole_model" 
-                                material="color:#c18747" 
+                                material="src:#Onion_texture" 
                                 object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0.5 3 0; angledPlaceholder: false, true; hasCollision: true" 
                                 shadow=""
                                 detect-collision></a-entity>
@@ -189,7 +199,7 @@
                 <a-entity class="garlic collidable" 
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#garlicWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Garlic_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
@@ -199,7 +209,7 @@
                 <a-entity class="mushroom collidable" 
                             object-pickup="position: 0 -0.5 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#mushroomWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Mushroom_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
@@ -209,7 +219,7 @@
                 <a-entity class="potato collidable" 
                             object-pickup="position:0.3 -0.6 -0.2; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#potatoWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Potatoe_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
@@ -219,7 +229,7 @@
                 <a-entity class="corn collidable" 
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#cornWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Corn_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
@@ -239,7 +249,7 @@
                 <a-entity class="celery collidable" 
                             object-pickup="position:0 -.6 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#celeryWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Celery_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
@@ -249,7 +259,7 @@
                 <a-entity class="blackBeans collidable" 
                             object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#blackBeansWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Bean_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> 
@@ -260,7 +270,7 @@
                 <a-entity class="lentils collidable" 
                             object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#lentilsWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Lentil_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> 
@@ -271,7 +281,7 @@
                 <a-entity class="pasta collidable" 
                             object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#pastaWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Pasta_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> 
@@ -282,7 +292,7 @@
                 <a-entity class="chicken collidable" 
                             object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#chickenWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Chicken_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> 
