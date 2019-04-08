@@ -1,6 +1,6 @@
 var timerTextures = ["#timer0_texture", "#timer1_texture", "#timer2_texture", "#timer3_texture", "#timer4_texture", "#timer5_texture", "#timer6_texture", "#timer7_texture", "#timer8_texture", "#timer9_texture"];
 
-startTime =30;
+startTime =60;
 timeBonus = 10;
 gameStarted = false;
 
@@ -38,7 +38,7 @@ function runTimer(){
                 console.log("this is where we kick them out");   
             }, 5000);    
         }
-        
+
         if(timer <= 0){
             timer1.components['sound'].stopSound();
             timer1.setAttribute('material', {src: timerTextures[0]});
