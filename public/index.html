@@ -40,6 +40,9 @@
                         <img id="hat_texture" src="assets/textures/hat.jpg" />
                         <img id="Pine_texture" src="assets/textures/pine.jpg" />
 
+                        <img id="Squash_texture" src="assets/textures/Squash.jpg" />
+                        <img id="Carrot_texture" src="assets/textures/Carrot.jpg" />
+
                         <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
                         <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
                         <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
@@ -166,7 +169,7 @@
         
             <template id="squash_template">
                 <a-entity class="squash collidable"
-                            material="color:#CFBA5F" 
+                            material="src:#Squash_texture" 
                             shadow=""
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 1; placeholderPos: 6.015 2.417 -4.712, 0.5 3 0; angledPlaceholder: false, true; hasCollision: true"
                             detect-collision="removeOnDrop: false; constraint: #cuttingBoard; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
@@ -226,7 +229,7 @@
                 <a-entity class="carrot collidable" 
                             object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#carrotWhole_model" 
-                            material="color:#CFBA5F" 
+                            material="src:#Carrot_texture" 
                             scale="" 
                             shadow=""
                             detect-collision> </a-entity>
