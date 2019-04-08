@@ -99,8 +99,18 @@
                         
 
                         <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
+                        <a-asset-item id="onion_chop_1_model" src="assets/models/onion_chop_1.obj"></a-asset-item>
+                        <a-asset-item id="onion_chop_2_model" src="assets/models/onion_chop_2.obj"></a-asset-item>
+
                         <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
+                        <a-asset-item id="garlic_chop_1_model" src="assets/models/garlic_chop_1.obj"></a-asset-item>
+                        <a-asset-item id="garlic_chop_2_model" src="assets/models/garlic_chop_2.obj"></a-asset-item>
+
                         <a-asset-item id="mushroomWhole_model" src="assets/models/mushroom.obj"></a-asset-item>
+                        <a-asset-item id="mushroom_chop_1_model" src="assets/models/mushroom_chop_1.obj"></a-asset-item>
+                        <a-asset-item id="mushroom_chop_2_model" src="assets/models/mushroom_chop_2.obj"></a-asset-item>
+                        <a-asset-item id="mushroom_chop_3_model" src="assets/models/mushroom_chop_3.obj"></a-asset-item>
+
                         <a-asset-item id="potatoWhole_model" src="assets/models/potato.obj"></a-asset-item>
                         <a-asset-item id="cornWhole_model" src="assets/models/corn.obj"></a-asset-item>
                         <a-asset-item id="carrotWhole_model" src="assets/models/carrot.obj"></a-asset-item>
@@ -161,7 +171,7 @@
                                 material="color:#c18747" 
                                 object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: 6.015 2.417 -4.712, 0.5 3 0; angledPlaceholder: false, true; hasCollision: true" 
                                 shadow=""
-                                detect-collision></a-entity>
+                                detect-collision="removeOnDrop: false; constraint: #cuttingBoard; choppable: true; chopStates: #onion_chop_1_model, #onion_chop_2_model"></a-entity>
             </template>
 
             <template id="garlic_template">
@@ -171,7 +181,7 @@
                             material="color:#CFBA5F" 
                             scale="" 
                             shadow=""
-                            detect-collision> </a-entity>
+                            detect-collision="removeOnDrop: false; constraint: #cuttingBoard; choppable: true; chopStates: #garlic_chop_1_model, #garlic_chop_2_model"> </a-entity>
             </template>
 
             <template id="mushroom_template">
@@ -181,7 +191,7 @@
                             material="color:#CFBA5F" 
                             scale="" 
                             shadow=""
-                            detect-collision> </a-entity>
+                            detect-collision="removeOnDrop: false; constraint: #cuttingBoard; choppable: true; chopStates: #mushroom_chop_1_model, #mushroom_chop_2_model, #mushroom_chop_3_model"> </a-entity>
             </template>
 
             <template id="potato_template">

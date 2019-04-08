@@ -17,6 +17,7 @@ AFRAME.registerComponent('recipe-system', {
         if(numCustomers == 1){
             this.currentRecipe = this.recipe1;
             this.updateChits();
+            this.setChopped([true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
@@ -72,12 +73,13 @@ AFRAME.registerComponent('recipe-system', {
                 }
             }
             // change ladle to be filled
-            let ladle = document.querySelector('#ladle');
+            let ladle = document.querySelector('.ladle');
             ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
             // make bowl collidable
-            let bowl = document.querySelector('#bowl');
+            let bowl = document.querySelector('.bowl');
             bowl.setAttribute('dynamic-body', {});
             bowl.setAttribute('constraint', {target: '#bowlConstraint'});
+            console.log(bowl.getAttribute('detect-collision'));
             
             Context_AF.currentRecipe.completed = true;
         }
@@ -148,6 +150,22 @@ AFRAME.registerComponent('recipe-system', {
         if(Context_AF.currentRecipe.inStew[2] == true){
             chit3.setAttribute('material', {src: chitTextures[6]});          
         };
+    },
+    setChopped : function(canChop) {
+        let potPlaceholder = '-0.5 3.1 0'
+        let chopPlaceholder = '6.015 2.417 -4.712'
+
+        // loop through each ingredient in recipe and set chop placeholders
+        for(var i = 0; i < canChop.length; i++) {
+            if(canChop[i]) {
+                let ing = document.querySelector('.' + this.currentRecipe.ingredients[i]);
+                console.log(ing);
+                ing.setAttribute('object-pickup', 
+                    {'numPlaceholders': '1'},
+                    {'placeholderPos': chopPlaceholder + ', ' + potPlaceholder}
+                )
+            }
+        }
     }
 });
 
