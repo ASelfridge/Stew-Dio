@@ -15,6 +15,8 @@ AFRAME.registerComponent('recipe-system', {
     },
     newRecipe:function() {
         if(numCustomers == 1){
+            gameStarted = true;
+            runTimer();
             this.currentRecipe = this.recipe1;
             this.updateChits();
             this.setChopped([true, true, true]);
@@ -72,6 +74,10 @@ AFRAME.registerComponent('recipe-system', {
                     return;
                 }
             }
+
+            bubblingSound = document.querySelector('.stewPot');
+            bubblingSound.components['sound'].playSound();
+            
             // change ladle to be filled
             let ladle = document.querySelector('.ladle');
             ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
@@ -127,8 +133,6 @@ AFRAME.registerComponent('recipe-system', {
             stewLiquid.setAttribute('material', {color: '#9D4815'});
         }
 
-
-
     },
     updateChits : function(){
         const Context_AF = this;
@@ -165,6 +169,8 @@ AFRAME.registerComponent('recipe-system', {
             }
         }
     }
+
+
 });
 
 
