@@ -78,8 +78,7 @@ AFRAME.registerComponent('recipe-system', {
             // make bowl collidable
             let bowl = document.querySelector('.bowl');
             bowl.setAttribute('dynamic-body', {});
-            bowl.setAttribute('constraint', {target: '#bowlConstraint'});
-            console.log(bowl.getAttribute('detect-collision'));
+            bowl.setAttribute('constraint', {'target': '#bowlConstraint'});
             
             Context_AF.currentRecipe.completed = true;
         }
@@ -159,7 +158,6 @@ AFRAME.registerComponent('recipe-system', {
         for(var i = 0; i < canChop.length; i++) {
             if(canChop[i]) {
                 let ing = document.querySelector('.' + this.currentRecipe.ingredients[i]);
-                console.log(ing);
                 ing.setAttribute('object-pickup', 
                     {'numPlaceholders': '1'},
                     {'placeholderPos': chopPlaceholder + ', ' + potPlaceholder}

@@ -46,8 +46,9 @@ AFRAME.registerComponent('detect-collision', {
             }, 1000);     
         }
         else {
+            el.setAttribute('dynamic-body', {});
             setTimeout(function(){
-                el.setAttribute('constraint', {target: data.constraint});
+                el.setAttribute('constraint', {'target': data.constraint});
             }, 1000);
         }
 
@@ -64,15 +65,15 @@ AFRAME.registerComponent('detect-collision', {
                 data.chopWait = false;
             }, 500);
         }
+
         if(data.chop == data.chopStates.length) {
             data.removeOnDrop = true;
             data.chop++;
             el.setAttribute('object-pickup', {'numPlaceholders': 2});
             setTimeout(function() {
                 el.removeAttribute('dynamic-body');
-                console.log(el.getAttribute('constraint'));
                 el.removeAttribute('constraint');
-                console.log(el.getAttribute('constraint'));
+                data.removeOnDrop = true;
             }, 1000);
         }
         
@@ -82,6 +83,11 @@ AFRAME.registerComponent('detect-collision', {
                 position: '0 -0.8 0',
                 placeholderPos: '-8.2 1.933 0.1'
             });
+            if(e.target == 'bowl') {
+                setTimeout(function() {
+                    el.removeAttribute('dynamic-body');
+                }, 1000)  
+            }
             data.stewed++;
         }
 
