@@ -15,6 +15,8 @@ AFRAME.registerComponent('recipe-system', {
     },
     newRecipe:function() {
         if(numCustomers == 1){
+            gameStarted = true;
+            runTimer();
             this.currentRecipe = this.recipe1;
             this.updateChits();
             console.log("customer number " + numCustomers + " order recieved");  
@@ -126,8 +128,6 @@ AFRAME.registerComponent('recipe-system', {
             stewLiquid.setAttribute('material', {color: '#9D4815'});
         }
 
-
-
     },
     updateChits : function(){
         const Context_AF = this;
@@ -149,6 +149,8 @@ AFRAME.registerComponent('recipe-system', {
             chit3.setAttribute('material', {src: chitTextures[6]});          
         };
     }
+
+
 });
 
 

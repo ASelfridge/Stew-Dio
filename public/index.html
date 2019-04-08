@@ -5,6 +5,7 @@
             
                 <script src="js/aframe-v0.8.2.min.js"></script>
                 <script src="js/master.js"></script>
+                <script src="js/timer.js"></script>
                 <script src="js/socket.io.min.js"></script>
                 <script src="js/easyrtc.js"></script>
                 <script src="js/networked-aframe.min.js"></script>
@@ -52,6 +53,16 @@
                         <img id="Pasta_Chit_texture" src="assets/textures/Pasta_Chit.png" />
                         <img id="Chicken_Chit_texture" src="assets/textures/Chicken_Chit.png" />
 
+                        <img id="timer0_texture" src="assets/textures/timer/timer0.png" />
+                        <img id="timer1_texture" src="assets/textures/timer/timer1.png" />
+                        <img id="timer2_texture" src="assets/textures/timer/timer2.png" />
+                        <img id="timer3_texture" src="assets/textures/timer/timer3.png" />
+                        <img id="timer4_texture" src="assets/textures/timer/timer4.png" />
+                        <img id="timer5_texture" src="assets/textures/timer/timer5.png" />
+                        <img id="timer6_texture" src="assets/textures/timer/timer6.png" />
+                        <img id="timer7_texture" src="assets/textures/timer/timer7.png" />
+                        <img id="timer8_texture" src="assets/textures/timer/timer8.png" />
+                        <img id="timer9_texture" src="assets/textures/timer/timer9.png" />
 
                         <img id="knife_texture" src="assets/textures/Knife_Ladel.jpg" />
                         <img id="character_texture" src="assets/textures/character.jpg" />
@@ -62,11 +73,14 @@
             
                     <!-------------- SOUNDS ---------------->
                     <a-assets>
-                        <a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                        <!--<a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>-->
                         <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
                         <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
                         <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
                         <a-asset-item crossorigin="anonymous" id="stewFillSrc" src="assets/sounds/stewFill.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="timerSrc" src="assets/sounds/countdown.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="buzzerSrc" src="assets/sounds/buzzer.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="disappointed-crowdSrc" src="assets/sounds/disappointed-crowd.mp3" response-type="arraybuffer"></a-asset-item>
             
                     </a-assets>
                   
@@ -114,6 +128,10 @@
                         <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
                         <a-asset-item id="paddle_model" src="assets/models/paddle.obj"></a-asset-item>
                         <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+
+                        <!-- Timer -->
+                        <a-asset-item id="timer_model" src="assets/models/timer.obj"></a-asset-item>
+
                        
             
             <!-- 
@@ -381,7 +399,8 @@
 
         <!-- SOUNDS ENTITIES -->
         <a-entity id="music" sound="src:#musicSrc; volume: 1; loop: true; positional:false" ></a-entity>
-        <a-entity id="ambiance" sound="src:#ambianceSrc; volume: .4; loop: true; positional:false"></a-entity>
+        <a-entity id="ambiance" sound="src:#ambianceSrc; volume: 1; loop: true; positional:false"></a-entity>
+        <a-entity id="disappointed-crowd" sound="src:#disappointed-crowdSrc; volume: 1.5; loop: false; positional:false"></a-entity>
 
         <a-entity id="stewLiquid" 
                 obj-model="obj:#stewLiquid_model" 
@@ -406,7 +425,7 @@
                 shadow="" 
 
                 new-recipe=""
-                sound="src: #customerGreetingSrc">
+                sound="src: #customerGreetingSrc; volume: 10; positional: true;">
         </a-entity>
      
         
@@ -672,6 +691,25 @@
                     material="shader: flat; src: #skymap; side: back"
                     loadscripts>
         </a-entity>
+
+
+        <!-- timer -->
+        <a-entity id="timer1" 
+            obj-model="obj:#timer_model" 
+            position="-7.550 5.4 -3.238" 
+            rotation="0 90 0" 
+            material="src: #timer9_texture"
+            sound="src: #timerSrc; volume: 20">
+        </a-entity>
+
+        <a-entity id="timer2" 
+            obj-model="obj:#timer_model" 
+            position="-7.536 5.4 -2.665" 
+            rotation="0 90 0" 
+            material="src: #timer9_texture"
+            sound="src: #buzzerSrc; volume: 20; loop: false;">
+        </a-entity>
+
 
     </a-scene>
 
