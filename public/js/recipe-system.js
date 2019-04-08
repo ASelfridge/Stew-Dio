@@ -73,6 +73,10 @@ AFRAME.registerComponent('recipe-system', {
                     return;
                 }
             }
+
+            bubblingSound = document.querySelector('.stewPot');
+            bubblingSound.components['sound'].playSound();
+            
             // change ladle to be filled
             let ladle = document.querySelector('#ladle');
             ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});

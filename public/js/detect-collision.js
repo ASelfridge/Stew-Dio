@@ -46,6 +46,8 @@ AFRAME.registerComponent('detect-collision', {
         if(data.choppable && e.body == 'knife' && data.chop < data.chopStates.length && !data.chopWait) {
             el.setAttribute('obj-model', {'obj': data.chopStates[data.chop]});
 
+            chop = document.querySelector('#cuttingBoard');
+            chop.components['sound'].playSound();
             data.chopWait = true;
             data.chop += 1;
 

@@ -4,7 +4,7 @@ function onSceneLoad(){
     let createObjs= true;
     let scene = document.querySelector('a-scene');
     //Playing background track
-    bgSound = document.querySelector('#ambiance');
+    bgSound = document.querySelector('#ambience');
     bgSound.components['sound'].playSound();
     bgMusic = document.querySelector('#music');
     bgMusic.components['sound'].playSound();
