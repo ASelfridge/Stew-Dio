@@ -58,7 +58,10 @@ AFRAME.registerComponent('object-pickup', {
         //check that not outside of maxDistance range
         if(e.detail.intersection.distance <= maxDistance) {
             //remove physics from element as it is being carried
-            Context_AF.el.removeAttribute('dynamic-body');
+            el.removeAttribute('dynamic-body');
+            el.removeAttribute('static-body');
+            //el.removeAttribute('constraint');
+            el.removeAttribute('mdmu-parent-constraint');
 
             // set selected object to this
             scene.selectedObject = el.id;
@@ -97,13 +100,8 @@ AFRAME.registerComponent('object-pickup', {
                 
             }
            
-            // if(data.dynamic) {
-            //     el.setAttribute('dynamic-body', {});
-            //     el.setAttribute('constraint', {target: '#cursor'});
-            // }
-            // else {
-                el.setAttribute('static-body', {});
-            // }
+            // so knife can cut
+            el.setAttribute('static-body', {});
 
             // show the placeholder object
             let placeholders = document.getElementsByClassName("placeholder");

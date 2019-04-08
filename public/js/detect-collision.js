@@ -27,22 +27,23 @@ AFRAME.registerComponent('detect-collision', {
         const el = Context_AF.el;
         const data = Context_AF.data;
 
-        let scene = document.querySelector('a-scene');
-      
+        let scene = document.querySelector('a-scene');                                                               
+       
+
         if(data.removeOnDrop) {
             setTimeout(function(){
-                el.removeAttribute('dynamic-body');
+                el.removeAttribute('dynamic-body');              
             }, 1000);    
         }
         else {
+            el.setAttribute('dynamic-body', {});
             setTimeout(function(){
                 el.setAttribute('constraint', {target: data.constraint});
             }, 1000);
         }
 
         scene.components['recipe-system'].updateRecipeSystem(e);
-        scene.components['recipe-system'].checkRecipeStatus();
-
+        scene.components['recipe-system'].checkRecipeStatus();                                                                                         
         if(data.choppable && e.body == 'knife' && data.chop < data.chopStates.length && !data.chopWait) {
             el.setAttribute('obj-model', {'obj': data.chopStates[data.chop]});
 
@@ -52,15 +53,16 @@ AFRAME.registerComponent('detect-collision', {
             setTimeout(function() {
                 data.chopWait = false;
             }, 500);
-        }
-        if(data.chop == 3) {
-            data.removeOnDrop = true;
-            data.chop++;
-            el.setAttribute('object-pickup', {'numPlaceholders': 2});
-            setTimeout(function() {
-                el.removeAttribute('dynamic-body');
-                el.removeAttribute('constraint');
+
+             if(data.chop == 3) {
+                data.removeOnDrop = true;                                                              
+                data.chop++;
+                el.setAttribute('object-pickup', {'numPlaceholders': 2});
+                setTimeout(function() {
+                    el.removeAttribute('dynamic-body');
+                    el.removeAttribute('constraint');
             }, 1000);
+        }
         }
         
         if (e.body == data.colliders[data.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
@@ -71,6 +73,5 @@ AFRAME.registerComponent('detect-collision', {
             });
             data.stewed++;
         }
-
     }
 });
