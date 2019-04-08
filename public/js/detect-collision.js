@@ -20,7 +20,7 @@ AFRAME.registerComponent('detect-collision', {
             let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.classList[0]}
             Context_AF.updateRS(ntw_data);
             NAF.connection.broadcastData('updateRecipe', ntw_data);
-        })
+        });
     },
     updateRS: function(e){
         const Context_AF = this;
@@ -32,7 +32,7 @@ AFRAME.registerComponent('detect-collision', {
         if(data.removeOnDrop) {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
-            }, 1000);     
+            }, 1000);    
         }
         else {
             setTimeout(function(){
