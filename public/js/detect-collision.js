@@ -78,7 +78,7 @@ AFRAME.registerComponent('detect-collision', {
                 data.removeOnDrop = true;
             }, 1000);
         }
-        }
+        
         
         if (e.body == data.colliders[data.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
             el.setAttribute('obj-model', {'obj': data.stewState[data.stewed]});
