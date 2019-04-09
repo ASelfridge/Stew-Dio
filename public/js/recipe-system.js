@@ -19,6 +19,7 @@ AFRAME.registerComponent('recipe-system', {
             runTimer();
             this.currentRecipe = this.recipe1;
             this.updateChits();
+            this.updateStewLiquid();
             this.setChopped([true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
@@ -26,6 +27,7 @@ AFRAME.registerComponent('recipe-system', {
         if(numCustomers == 2){
             this.currentRecipe = this.recipe2;
             this.updateChits();
+            this.updateStewLiquid();
             this.setChopped([true, false, true, true]);
             console.log("customer number " + numCustomers + " order recieved");
         }
@@ -33,12 +35,14 @@ AFRAME.registerComponent('recipe-system', {
         if(numCustomers == 3){
             this.currentRecipe = this.recipe3;
             this.updateChits();
+            this.updateStewLiquid();
             console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
             this.currentRecipe = this.recipe4;
             this.updateChits();
+            this.updateStewLiquid();
             console.log("customer number " + numCustomers + " order recieved");
         }
         console.log(this.currentRecipe.ingredients);
@@ -71,6 +75,7 @@ AFRAME.registerComponent('recipe-system', {
     checkRecipeStatus : function() {
         const Context_AF = this;
 
+        console.log(this.currentRecipe.delivered);
        if(!Context_AF.currentRecipe.completed) {
             for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
                 if(!Context_AF.currentRecipe.inStew[i]) {
@@ -116,10 +121,22 @@ AFRAME.registerComponent('recipe-system', {
                 stewLiquid.components['sound'].playSound();
             }
         }
-        if(ingredientCount == numForCompletion){
-            stewLiquid.object3D.position.set(0, 1.3, 0);
+        if(ingredientCount == 0){
+            stewLiquid.object3D.position.set(0, -5, 0);
             stewLiquid.setAttribute('material', {color: '#9D4815'});
         }
+        if(ingredientCount == numForCompletion){
+            stewLiquid.object3D.position.set(0, 1.3, 0);
+        }
+        if(this.currentRecipe.delivered == true){
+            stewLiquid.object3D.position.set(0, -5, 0);
+        }
+    },
+    setRecipeDelivered : function () {
+        const Context_AF = this;
+        console.log("execute");
+        this.currentRecipe.delivered = true;
+        
     },
     updateChits : function(){
         const Context_AF = this;

@@ -74,6 +74,10 @@ AFRAME.registerComponent('object-place', {
             object.setAttribute('dynamic-body', {});
         }
 
+        if(object.classList[0] == "bowl")
+        {
+            scene.components['recipe-system'].setRecipeDelivered();
+        }
         
         // hide placeholderss
         let placeholders = document.getElementsByClassName("placeholder");
