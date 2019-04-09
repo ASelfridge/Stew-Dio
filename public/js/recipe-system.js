@@ -96,6 +96,8 @@ AFRAME.registerComponent('recipe-system', {
             
             Context_AF.currentRecipe.completed = true;
         }
+
+        console.log(this.currentRecipe.delivered);
         
         // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
         //if(XXXXXXXXXXXXXXX)
@@ -135,7 +137,7 @@ AFRAME.registerComponent('recipe-system', {
     setRecipeDelivered : function () {
         const Context_AF = this;
         console.log("execute");
-        this.currentRecipe.delivered = true;
+        Context_AF.currentRecipe.delivered = true;
         
     },
     updateChits : function(){

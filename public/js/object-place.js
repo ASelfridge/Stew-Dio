@@ -77,6 +77,7 @@ AFRAME.registerComponent('object-place', {
         if(object.classList[0] == "bowl")
         {
             scene.components['recipe-system'].setRecipeDelivered();
+            NAF.connection.broadcastData('recipeDelivered');
         }
         
         // hide placeholderss

@@ -33,12 +33,16 @@ function onSceneLoad(){
             }
         }
     });
+    NAF.connection.subscribeToDataChannel('recipeDelivered', function(senderId, dataType, data, targetId){     
+        scene.components['recipe-system'].setRecipeDelivered();
+    });
     NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
         document.querySelector('#character1').components['new-recipe'].updateRS();
     });
     NAF.connection.subscribeToDataChannel('updateRecipe', function(senderId, dataType, data, targetId){     
         document.querySelector('.' + data.target).components['detect-collision'].updateRS(data);
     });
+
     document.body.addEventListener('connected', function (evt) {
         clientId = evt.detail.clientId
         NAF.connection.broadcastData('Player Joined');
