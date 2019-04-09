@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Game_Objects.ma
-//Last modified: Mon, Apr 08, 2019 07:04:55 PM
+//Last modified: Tue, Apr 09, 2019 03:14:45 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -18,13 +18,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "DA97D9B7-4205-3A4A-7923-639D20F6B85D";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1.5861879874929909 0.44315529270133136 0.85997344872218484 ;
-	setAttr ".r" -type "double3" 345.26164597232457 18654.600000000475 -1.9101017513539584e-15 ;
+	setAttr ".t" -type "double3" 16.500356678751384 7.0951731799353288 10.578002037078562 ;
+	setAttr ".r" -type "double3" 339.86164598517809 18777.400000001704 -2.9516770119325412e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "283B2CF0-4374-D3B7-C998-BC95CD216994";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 1.9159874802686094;
+	setAttr ".coi" 20.736854638660148;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -6189,7 +6189,7 @@ createNode mesh -n "pPlaneShape2" -p "pPlane2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.93301734323940622 0.40678098517818073 ;
+	setAttr ".pv" -type "double2" 0.41080150205267096 0.87561474451086352 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -6208,8 +6208,11 @@ createNode transform -n "Bowl2";
 	rename -uid "B229869F-4269-6AC5-CB85-0381D01759C0";
 createNode transform -n "pPlane3" -p "Bowl2";
 	rename -uid "31439048-4177-14F9-41DD-74A5820E227B";
-	setAttr ".t" -type "double3" 0 0.27487762889762091 -0.0054906938578218323 ;
-	setAttr ".s" -type "double3" 0.75791289989501232 0.70423875965491267 0.73630268097099949 ;
+	setAttr ".t" -type "double3" -0.0060478387368870512 0.23275362704376276 -0.0054906938578218323 ;
+	setAttr ".s" -type "double3" 0.37893689660290658 0.35210121121843863 0.36813234466150396 ;
+	setAttr ".rp" -type "double3" 0 -0.18751514823413565 0 ;
+	setAttr ".sp" -type "double3" 0 -0.26626644112292408 0 ;
+	setAttr ".spt" -type "double3" 0 0.078751292888788571 0 ;
 createNode mesh -n "pPlaneShape3" -p "pPlane3";
 	rename -uid "9C55F0F8-4B46-EEDD-15CD-7590D971BF05";
 	setAttr -k off ".v";
@@ -6270,7 +6273,10 @@ createNode mesh -n "pPlaneShape3" -p "pPlane3";
 createNode transform -n "Bowl1" -p "Bowl2";
 	rename -uid "7D4A5E56-43A3-215F-04C0-D0B4C51EAD51";
 	setAttr ".t" -type "double3" 0 0.18751514823413584 -0.0011545907533787036 ;
-	setAttr ".s" -type "double3" 0.40702508293791778 0.068170431267071813 0.40702508293791778 ;
+	setAttr ".s" -type "double3" 0.19701060598390011 0.032996241600565218 0.19701060598390011 ;
+	setAttr ".rp" -type "double3" 0 -0.18751514823413137 0 ;
+	setAttr ".sp" -type "double3" 0 -2.7506815601548169 0 ;
+	setAttr ".spt" -type "double3" 0 2.563166411920681 0 ;
 createNode mesh -n "BowlShape1" -p "Bowl1";
 	rename -uid "B5D70C14-4095-768F-DA00-EB8C3633CF99";
 	setAttr -k off ".v";
@@ -43896,15 +43902,15 @@ createNode mesh -n "LentilsShape" -p "Lentils";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "738BBD37-45A1-45D2-D3F2-DCB93C8220D4";
+	rename -uid "DCC91CF8-44BB-3CE6-03AA-6DA39C2C3164";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "3A8CC68D-4413-E61B-A563-1194D0E94507";
+	rename -uid "755863B2-4A7A-56AD-CF0A-61907305CC87";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "3E8110B7-4F15-F298-551E-B4AA1A5F0372";
+	rename -uid "4FA71FDD-437F-398A-9369-65921B56A6FD";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "1F4C9F3D-4F07-30EB-363E-C1A339127D5D";
+	rename -uid "BD1E7ECA-4394-AEAF-CE9E-089309032F8A";
 	setAttr ".cdl" 16;
 	setAttr -s 17 ".dli[1:16]"  1 2 3 4 5 6 7 8 
 		9 10 12 11 13 14 15 16;
@@ -43912,7 +43918,7 @@ createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "B6CA197E-4EB6-73D4-AA3D-9EA522653F96";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "82D58FB2-4010-0EA4-864F-51AAD8AE67E7";
+	rename -uid "0546A2CB-4C60-057E-337E-55B9C3D553A2";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "7692F52B-4CBB-ECD1-537D-4D83A67A3B5E";
 	setAttr ".g" yes;
@@ -44873,6 +44879,7 @@ createNode polyTweakUV -n "polyTweakUV11";
 		 -0.003378476 -0.2971549 0.27556875 -0.22804809 0.2155184 -0.25572813 0.31808791;
 createNode displayLayer -n "Garlic";
 	rename -uid "43D71994-476D-43B4-A461-08B86D8874DF";
+	setAttr ".v" no;
 	setAttr ".do" 1;
 createNode displayLayer -n "Mushroom_Layer";
 	rename -uid "127F8C17-438A-2243-CB08-E2ADED42EBA2";
@@ -45801,7 +45808,6 @@ createNode polyTweakUV -n "polyTweakUV23";
 		 -0.52290708 -0.30574825 -0.23848926;
 createNode displayLayer -n "Ladel";
 	rename -uid "85CDA567-4C2C-A098-0627-3387AD971213";
-	setAttr ".v" no;
 	setAttr ".do" 9;
 createNode polyCylinder -n "polyCylinder3";
 	rename -uid "5183889B-4341-DCD0-77A9-9995977F3891";
@@ -46558,11 +46564,11 @@ createNode polyPlane -n "polyPlane2";
 createNode polyTweakUV -n "polyTweakUV32";
 	rename -uid "A8EFE263-4B69-4B55-D32D-66A9391029F0";
 	setAttr ".uopa" yes;
-	setAttr -s 16 ".uvtk[0:15]" -type "float2" 0.88517332 0.35893694 0.58373594
-		 0.35893694 0.28229868 0.35893694 -0.019138634 0.35893694 0.88517332 0.057499647 0.58373594
-		 0.057499647 0.28229868 0.057499647 -0.019138634 0.057499647 0.88517332 -0.2439377
-		 0.58373594 -0.2439377 0.28229868 -0.2439377 -0.019138634 -0.2439377 0.88517332 -0.54537499
-		 0.58373594 -0.54537499 0.28229868 -0.54537499 -0.019138634 -0.54537499;
+	setAttr -s 16 ".uvtk[0:15]" -type "float2" 0.36295748 0.82777071 0.061520129
+		 0.82777071 -0.23991716 0.82777071 -0.54135448 0.82777071 0.36295748 0.52633339 0.061520129
+		 0.52633339 -0.23991716 0.52633339 -0.54135448 0.52633339 0.36295748 0.22489607 0.061520129
+		 0.22489607 -0.23991716 0.22489607 -0.54135448 0.22489607 0.36295748 -0.076541215
+		 0.061520129 -0.076541215 -0.23991716 -0.076541215 -0.54135448 -0.076541215;
 createNode objectSet -n "set7";
 	rename -uid "3DDA4D2D-491A-29AA-9000-24A2A7E7E84F";
 	setAttr ".ihi" 0;
