@@ -138,6 +138,8 @@ AFRAME.registerComponent('recipe-system', {
 
     },
     updateChits : function(){
+        let book = document.querySelector('#recipeBook');
+
         const Context_AF = this;
 
         garlicChit = document.querySelector('#garlic_chit');
@@ -171,6 +173,8 @@ AFRAME.registerComponent('recipe-system', {
             lentilsChit.setAttribute('position', "0 -5 0");
             pastaChit.setAttribute('position', "0 -5 0");
             chickenChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_BS_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 garlicChit.setAttribute('material', {src: "#Garlic_Chit_Completed_texture"});
@@ -206,6 +210,8 @@ AFRAME.registerComponent('recipe-system', {
             blackBeansChit.setAttribute('position', "0 -5 0");
             pastaChit.setAttribute('position', "0 -5 0");
             chickenChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_LM_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 mushroomChit.setAttribute('material', {src: "#Mushroom_Chit_Completed_texture"});
@@ -246,6 +252,8 @@ AFRAME.registerComponent('recipe-system', {
             lentilsChit.setAttribute('position', "0 -5 0");
             pastaChit.setAttribute('position', "0 -5 0");
             chickenChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_BBS_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 blackBeansChit.setAttribute('material', {src: "#blackBeans_Chit_Completed_texture"});
@@ -291,6 +299,8 @@ AFRAME.registerComponent('recipe-system', {
             celeryChit.setAttribute('position', "0 -5 0");
             blackBeansChit.setAttribute('position', "0 -5 0");
             lentilsChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_CNS_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 chickenChit.setAttribute('material', {src: "#Chicken_Chit_Completed_texture"});
