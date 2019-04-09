@@ -22,14 +22,14 @@ const LISTEN_PORT = 8080;
 app.use(express.static(__dirname + '/public'));
 
 //create a "route" for accessing this page
+
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html'); //send/serve this index.html file
 });
-
-app.get('/test', function(req, res) {
-    res.sendFile(__dirname + '/public/test.html'); //send/serve this index.html file
+app.get('/game', function(req, res) {
+    res.sendFile(__dirname + '/public/game.html'); //send/serve this index.html file
 });
-
 // This is networked A-Frame stuff 
 var myIceServers = [
     {"url":"stun:stun.l.google.com:19302"},

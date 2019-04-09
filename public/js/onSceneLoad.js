@@ -2,7 +2,6 @@ let headSet = AFRAME.utils.device.checkHeadsetConnected ();
 console.log(mobile);
 function onSceneLoad(){
     let createObjs= true;
-    let scene = document.querySelector('a-scene');
     //Playing background track
     bgSound = document.querySelector('#ambience');
     bgSound.components['sound'].playSound();
@@ -84,13 +83,3 @@ function deviceControls(){
     console.log("Non-VR Device Connected");
     }
 }
-// Position reader for networked objects if we want to be able to parent, not quite working yet
-// for (i in ntw_objs){
-//   console.log('#' + ntw_objs[i].id + '_position_reader');
-//   let obj_worldPos = document.querySelector('#' + ntw_objs[i].id + '_position_reader');
-//   worldPos = new THREE.Vector3( 0, 0, 0 );
-//   obj_worldPos.object3D.getWorldPosition(worldPos);
-//   console.log(worldPos);
-//   ntw_objs[i].position = worldPos
-//  console.log(ntw_objs[i]);
-// 
