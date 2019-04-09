@@ -13,7 +13,8 @@ AFRAME.registerComponent('object-pickup', {
                 return value.split(', ');
             }
         },
-        hasCollision: {default: false}
+        hasCollision: {default: false},
+        dynamic: {default: false}
     },
     init: function() {
         const Context_AF = this;
@@ -70,7 +71,10 @@ AFRAME.registerComponent('object-pickup', {
         //check that not outside of maxDistance range
         if(e.detail.intersection.distance <= maxDistance) {
             //remove physics from element as it is being carried
-            Context_AF.el.removeAttribute('dynamic-body');
+            el.removeAttribute('dynamic-body');
+            el.removeAttribute('static-body');
+            //el.removeAttribute('constraint');
+            el.removeAttribute('mdmu-parent-constraint');
 
             // set selected object to this
             scene.selectedObject = el.id;
@@ -109,6 +113,8 @@ AFRAME.registerComponent('object-pickup', {
                 
             }
            
+            el.removeAttribute('constraint');
+            el.removeAttribute('dynamic-body');
             el.setAttribute('static-body', {});
 
             // show the placeholder object

@@ -54,7 +54,6 @@ AFRAME.registerComponent('mdmu-parent-constraint', {
         }
     },
     setupConstraint: function () {
-        console.log('setting up constraint');
 
         const Context_AF    = this;
         const data = this.data;
@@ -133,7 +132,6 @@ AFRAME.registerComponent('mdmu-parent-constraint', {
       }
     },
     remove: function() {
-      console.log('removing constraint');
       const Context_AF = this;
       const thisObject3D = Context_AF.el.object3D;
 

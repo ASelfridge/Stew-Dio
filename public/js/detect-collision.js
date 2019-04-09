@@ -3,61 +3,96 @@
 AFRAME.registerComponent('detect-collision', {
     schema: {
         removeOnDrop: {default: true},
+        constraint: {default: ''},
         choppable: {default: false},
-        chopStates: {type: 'array', default: []},
+        chopStates: {type: 'array', default: ['', '', '']},
         colliders: {type: 'array', default: []},
-        stewState: {},
+        stewState: {type: 'array', default: []},
         chop : {default: 0},
         chopWait : {default:false},
-        stewed : {default: 0},
+        stewed : {default: 0}
     },
     init: function() {
         const Context_AF = this;
         const el = Context_AF.el;
-        const data = Context_AF.data;
         
-        Context_AF.el.addEventListener("collide", (event)=>{
+        el.addEventListener("collide", (event)=>{
             let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.classList[0]}
             console.log(ntw_data);
             Context_AF.updateRS(ntw_data);
             NAF.connection.broadcastData('updateRecipe', ntw_data);
-        })
+        });
     },
     updateRS: function(e){
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
 
-        let scene = document.querySelector('a-scene');
-      
+        let scene = document.querySelector('a-scene');                                                               
+       
+
         if(data.removeOnDrop) {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
+                // move object back to original state if dropping into
+                if(e.body == 'stewPot') {
+                    el.object3D.position.set(el.ogPos.x, el.ogPos.y, el.ogPos.z);
+                    el.object3D.rotation.set(el.ogRot._x, el.ogRot._y, el.ogRot._z);
+                    el.object3D.scale.set(el.ogScale.x, el.ogScale.y, el.ogScale.z);
+                    
+                    // reset chopping attributes
+                    el.setAttribute('obj-model', {'obj': '#' + el.classList[0] + 'Whole_model'});
+                    data.removeOnDrop = false;
+                    data.chop = 0;
+                }
             }, 1000);     
+        }
+        else {
+            el.setAttribute('dynamic-body', {});
+            setTimeout(function(){
+                el.setAttribute('constraint', {'target': data.constraint});
+            }, 1000);
         }
 
         scene.components['recipe-system'].updateRecipeSystem(e);
-        scene.components['recipe-system'].checkRecipeStatus();
+        scene.components['recipe-system'].checkRecipeStatus();                                                                                         
+        if(data.choppable && e.body == 'knife' && data.chop < data.chopStates.length && !data.chopWait) {
+            el.setAttribute('obj-model', {'obj': data.chopStates[data.chop]});
 
-        if(data.choppable && e.body == 'knife' && Context_AF.data.chop < data.chopStates.length && !Context_AF.chopWait) {
-            el.setAttribute('obj-model', {'obj': data.chopStates[Context_AF.data.chop]});
-
-            Context_AF.chopWait = true;
-            Context_AF.data.chop += 1;
+            chop = document.querySelector('#cuttingBoard');
+            chop.components['sound'].playSound();
+            data.chopWait = true;
+            data.chop += 1;
 
             setTimeout(function() {
-                Context_AF.chopWait = false;
+                data.chopWait = false;
             }, 500);
         }
-        else if(Context_AF.data.chop == 3) {
+
+        if(data.chop == data.chopStates.length) {
             data.removeOnDrop = true;
+            data.chop++;
             el.setAttribute('object-pickup', {'numPlaceholders': 2});
+            setTimeout(function() {
+                el.removeAttribute('dynamic-body');
+                el.removeAttribute('constraint');
+                data.removeOnDrop = true;
+            }, 1000);
         }
         
-        if (e.body == data.colliders[Context_AF.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
-            el.setAttribute('obj-model', {'obj': data.stewStates[Context_AF.stewed]});
-            Context_AF.stewed++;
+        
+        if (e.body == data.colliders[data.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
+            el.setAttribute('obj-model', {'obj': data.stewState[data.stewed]});
+            el.setAttribute('object-pickup', {
+                position: '0 -0.8 0',
+                placeholderPos: '-8.2 1.933 0.1'
+            });
+            if(e.target == 'bowl') {
+                setTimeout(function() {
+                    el.removeAttribute('dynamic-body');
+                }, 1000)  
+            }
+            data.stewed++;
         }
-
     }
 });
