@@ -97,13 +97,9 @@ AFRAME.registerComponent('object-pickup', {
                 
             }
            
-            // if(data.dynamic) {
-            //     el.setAttribute('dynamic-body', {});
-            //     el.setAttribute('constraint', {target: '#cursor'});
-            // }
-            // else {
-                el.setAttribute('static-body', {});
-            // }
+            el.removeAttribute('constraint');
+            el.removeAttribute('dynamic-body');
+            el.setAttribute('static-body', {});
 
             // show the placeholder object
             let placeholders = document.getElementsByClassName("placeholder");
