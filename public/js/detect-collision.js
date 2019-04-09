@@ -18,17 +18,19 @@ AFRAME.registerComponent('detect-collision', {
         
         el.addEventListener("collide", (event)=>{
             let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.classList[0]}
+            console.log(ntw_data);
             Context_AF.updateRS(ntw_data);
             NAF.connection.broadcastData('updateRecipe', ntw_data);
-        })
+        });
     },
     updateRS: function(e){
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
 
-        let scene = document.querySelector('a-scene');
-      
+        let scene = document.querySelector('a-scene');                                                               
+       
+
         if(data.removeOnDrop) {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
@@ -53,8 +55,7 @@ AFRAME.registerComponent('detect-collision', {
         }
 
         scene.components['recipe-system'].updateRecipeSystem(e);
-        scene.components['recipe-system'].checkRecipeStatus();
-
+        scene.components['recipe-system'].checkRecipeStatus();                                                                                         
         if(data.choppable && e.body == 'knife' && data.chop < data.chopStates.length && !data.chopWait) {
             el.setAttribute('obj-model', {'obj': data.chopStates[data.chop]});
 
@@ -79,6 +80,7 @@ AFRAME.registerComponent('detect-collision', {
             }, 1000);
         }
         
+        
         if (e.body == data.colliders[data.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
             el.setAttribute('obj-model', {'obj': data.stewState[data.stewed]});
             el.setAttribute('object-pickup', {
@@ -92,6 +94,5 @@ AFRAME.registerComponent('detect-collision', {
             }
             data.stewed++;
         }
-
     }
 });
