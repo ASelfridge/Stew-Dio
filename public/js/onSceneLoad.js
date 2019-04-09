@@ -32,6 +32,9 @@ function onSceneLoad(){
             }
         }
     });
+    NAF.connection.subscribeToDataChannel('reset', function(senderId, dataType, data, targetId){     
+        window.location.href='/index.html';
+    });
     NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
         document.querySelector('#character1').components['new-recipe'].updateRS();
     });

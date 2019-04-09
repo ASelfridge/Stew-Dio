@@ -76,21 +76,18 @@
     <script>
         clientList = [];
         function sendSelf(){
-            console.log("HERE I GO")
             window.location.href='/game.html';
         }        
         document.body.addEventListener('clientConnected', function (evt) {
             clientList.push(evt.detail.clientId);
-            console.log("Connect", clientList);
+            //console.log("Connect", clientList);
         });
         document.body.addEventListener('clientDisconnected', function (evt) {
-            console.log("Disconnect",  clientList[0], evt.detail.clientId);
+            //console.log("Disconnect",  clientList[0], evt.detail.clientId);
             clientList.splice(0, 1);
-            console.log(clientList)
             
         });
         document.getElementById('button').addEventListener('mousedown', function (evt) {
-            console.log('clicked');
             start();
         });
         NAF.connection.subscribeToDataChannel('joinGame', function(senderId, dataType, data, targetId){
@@ -98,9 +95,8 @@
 
         });
         function start(){
-            console.log('starting', clientList);
             setTimeout(function(){
-                console.log('Sending Client', clientList[0]);
+                //console.log('Sending Client', clientList[0]);
                 NAF.connection.sendData(clientList[0], 'joinGame');
                 if (clientList.length > 0)
                 { 
