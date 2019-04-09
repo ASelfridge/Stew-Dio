@@ -87,6 +87,8 @@ AFRAME.registerComponent('detect-collision', {
         
         if (e.body == data.colliders[data.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
             el.setAttribute('obj-model', {'obj': data.stewState[data.stewed]});
+            stewLiquid = document.querySelector('#stewLiquid');
+            stewLiquid.components['sound'].playSound();
             if(e.target == 'bowl') {
                 el.setAttribute('object-pickup', {
                     position: '0 -0.8 0',

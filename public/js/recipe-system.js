@@ -85,8 +85,7 @@ AFRAME.registerComponent('recipe-system', {
                 }
             }
 
-            bubblingSound = document.querySelector('.stewPot');
-            bubblingSound.components['sound'].playSound();
+
             
             // change ladle to be filled
             let ladle = document.querySelector('.ladle');
@@ -121,15 +120,19 @@ AFRAME.registerComponent('recipe-system', {
                 stewLiquid.object3D.position.set(0, currentYPos, 0);
                 currentYPos += incriment;
                 stewLiquid = document.querySelector('#stewLiquid');
-                stewLiquid.components['sound'].stopSound();
+                //stewLiquid.components['sound'].stopSound();
                 stewLiquid.components['sound'].playSound();
             }
         }
         if(ingredientCount == 0){
+            bubblingSound = document.querySelector('.stewPot');
+            bubblingSound.components['sound'].stopSound();
             stewLiquid.object3D.position.set(0, -5, 0);
             stewLiquid.setAttribute('material', {src: "#stewLiquid_texture"})
         }
         if(ingredientCount == numForCompletion){
+            bubblingSound = document.querySelector('.stewPot');
+            bubblingSound.components['sound'].playSound();
             if(numCustomers == 1){
                 stewLiquid.setAttribute('material', {src: "#Recipe1_Completed_texture"})
             }
