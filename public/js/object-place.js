@@ -49,7 +49,7 @@ AFRAME.registerComponent('object-place', {
 
         // store held object
         let object = document.querySelector('#' + scene.selectedObject);
-        console.log(scene.selectedObject);
+        //console.log(scene.selectedObject);
 
         el.intersected = false;
         

@@ -76,7 +76,7 @@
     <script>
         clientList = [];
         function sendSelf(){
-            console.log("yoooooo")
+            console.log("HERE I GO")
             window.location.href='/game.html';
         }        
         document.body.addEventListener('clientConnected', function (evt) {
@@ -84,11 +84,8 @@
             console.log("Connect", clientList);
         });
         document.body.addEventListener('clientDisconnected', function (evt) {
-            console.log(clientList)
-
-            console.log(clientList.indexOf(evt.detail.clientId))
-            console.log("Disconnect",  clientList[clientList.indexOf(evt.detail.clientId)]);
-            //clientList.pop(clientList.indexOf(evt.detail.clientId));
+            console.log("Disconnect",  clientList[0], evt.detail.clientId);
+            clientList.splice(0, 1);
             console.log(clientList)
             
         });
@@ -109,15 +106,11 @@
                 { 
                     start();
                 } 
+                else 
+                { 
+                    sendSelf();
+                } 
             }, 1000)
-
-                // setTimeout(function(){
-                // }, 3000);
-               
-            
-            // setTimeout(function(){
-            //     sendSelf();
-            // }, 1000*clientList.length);
         };
     </script>
 </html>

@@ -41,7 +41,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             console.log("customer number " + numCustomers + " order recieved");
         }
-        console.log(this.currentRecipe.ingredients);
+        //console.log(this.currentRecipe.ingredients);
     },
     updateRecipeSystem : function(data) {
         const Context_AF = this;
@@ -58,7 +58,7 @@ AFRAME.registerComponent('recipe-system', {
                 
                     Context_AF.currentRecipe.inStew[i] = true;
                     Context_AF.updateStewLiquid();
-                    console.log("ingredient is in slot " + i + ": " + Context_AF.currentRecipe.ingredients[i]);
+                    //console.log("ingredient is in slot " + i + ": " + Context_AF.currentRecipe.ingredients[i]);
             
                     Context_AF.updateChits();
                     return;
@@ -155,7 +155,7 @@ AFRAME.registerComponent('recipe-system', {
         pastaChit = document.querySelector('#pasta_chit');
         chickenChit = document.querySelector('#chicken_chit');
    
-        console.log("chit updating");
+        //console.log("chit updating");
         if(numCustomers == 1){
 
             //in recipe
