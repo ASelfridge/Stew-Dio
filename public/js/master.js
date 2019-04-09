@@ -12,6 +12,7 @@ var mobile = AFRAME.utils.device.isMobile();
 var numCustomers = 0;
 var customerQuoteTextures = ["#speechBubble1_map", "#speechBubble2_map"];
 
+
 let ntw_objs = [];
 let ntw_knife = {id:'knife', position:{x:8.5, y:2, z:0}, rotation:{x:0, y:0, z:0}, networked: {template:'#knife_template', attachTemplateToLocal:true}, 'toggle-ownership':""};
 let ntw_ladle = {id:'ladle', position:{x:0.07973, y:1.91157, z:-0.51171}, rotation:{x:-21.120943201907536, y:7.320681748386528, z:0}, networked: {template:'#ladle_template', attachTemplateToLocal:true}, 'toggle-ownership':""};
@@ -49,4 +50,3 @@ ntw_objs.push(ntw_chicken);
 
 let noTouchyList = [];
 
-var chitTextures = ["#Blank_Chit_texture", "#Garlic_Chit_texture", "#Squash_Chit_texture", "#Onion_Chit_texture", "#Garlic_Chit_Completed_texture", "#Squash_Chit_Completed_texture", "#Onion_Chit_Completed_texture"];

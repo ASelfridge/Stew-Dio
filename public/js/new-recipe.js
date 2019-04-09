@@ -30,8 +30,12 @@ AFRAME.registerComponent('new-recipe', {
             Context_AF.el.components['sound'].stopSound();
             Context_AF.el.components['sound'].playSound();
 
-            numCustomers++; 
-
+            numCustomers++;
+            
+            if(numCustomers != 1){
+                addTime();
+            }
+            
             //THIS NEEDS TO BE MOVED TO GLOBALS OR RECIPIE SYSTEM (ON COMPLETION OF RECIPIE)
             Context_AF.data.recipeAvailable = true;
             

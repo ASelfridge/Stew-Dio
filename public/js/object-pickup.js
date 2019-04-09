@@ -100,7 +100,8 @@ AFRAME.registerComponent('object-pickup', {
                 
             }
            
-            // so knife can cut
+            el.removeAttribute('constraint');
+            el.removeAttribute('dynamic-body');
             el.setAttribute('static-body', {});
 
             // show the placeholder object
