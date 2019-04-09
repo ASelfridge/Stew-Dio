@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Stew-It_Station.ma
-//Last modified: Tue, Apr 09, 2019 09:41:46 AM
+//Last modified: Tue, Apr 09, 2019 12:33:10 PM
 //Codeset: 1252
 requires maya "2018";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
@@ -15,13 +15,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "BB3D2E8C-4955-624D-DCE5-1587249F6514";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.8596121138797939 9.6740452598636217 -0.49178251194253564 ;
-	setAttr ".r" -type "double3" -779.13605549979548 12340.200464620008 0.0023307554148674467 ;
+	setAttr ".t" -type "double3" 15.761791667580951 1.9306247374624834 -0.40684077261120793 ;
+	setAttr ".r" -type "double3" -715.52760724323355 12332.200464650556 0.010750099498806648 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "3D20DAC8-4786-02FF-9DDF-0B9375F57926";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 7.5894361210754386;
+	setAttr ".coi" 15.793235631616943;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -299,6 +299,7 @@ createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode transform -n "group2";
 	rename -uid "CB24B591-4203-30BD-10F8-348CDC5E2C64";
+	setAttr ".v" no;
 createNode transform -n "Book" -p "group2";
 	rename -uid "6AE2830E-4C18-4E69-A8E7-83AD09482FAE";
 	setAttr ".t" -type "double3" -0.02843093316329437 -1.5846383967985149 -2.75505390716472 ;
@@ -6631,7 +6632,6 @@ createNode mesh -n "character:polySurfaceShape2" -p "character:polySurface1";
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "Character2";
 	rename -uid "73F1FE2A-4E17-4595-54E8-0E8BF9C105B9";
-	setAttr ".v" no;
 	setAttr ".s" -type "double3" 1 0.8916767272909476 1 ;
 createNode transform -n "Character1" -p "Character2";
 	rename -uid "0E0A6C34-426A-EE0E-A95C-E985D83D2FF2";
@@ -9659,15 +9659,15 @@ createNode mesh -n "pCylinderShape4" -p "pCylinder4";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "329151BE-477B-7AC2-4529-86A24931FD89";
+	rename -uid "731C921F-4CFC-255B-3B31-609D30C5A799";
 	setAttr -s 13 ".lnk";
 	setAttr -s 13 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "8C57AD62-433E-856D-2920-358490FD59D2";
+	rename -uid "018CEE57-4BB0-DD56-32F7-EEA1F9BF9E93";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "DA7E90EE-45FE-4818-D544-4AB7CBBE98A1";
+	rename -uid "9E5E6522-44D0-F8B3-F95C-9BA64EE381C0";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "6EAB8D96-4AA0-B97C-03A4-11A0C81647F1";
+	rename -uid "64998251-4379-0890-400E-CF85C665A383";
 	setAttr ".cdl" 9;
 	setAttr -s 11 ".dli[1:10]"  7 2 3 4 5 6 1 8 
 		9 10;
@@ -9675,7 +9675,7 @@ createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "970DEAB7-4C8D-7A48-C38A-6B958917FDA3";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "CFC7DEA9-41FA-DF0D-45A8-0EAF5CBCA00D";
+	rename -uid "EE98D533-4D43-44C8-E5C3-11B55BCAC492";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "79DD56C0-4A7D-47CC-7C5F-73B9CA5DF249";
 	setAttr ".g" yes;
