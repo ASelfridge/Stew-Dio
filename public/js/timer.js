@@ -1,6 +1,6 @@
 var timerTextures = ["#timer0_texture", "#timer1_texture", "#timer2_texture", "#timer3_texture", "#timer4_texture", "#timer5_texture", "#timer6_texture", "#timer7_texture", "#timer8_texture", "#timer9_texture"];
 
-startTime =60;
+startTime = 60;
 timeBonus = 10;
 gameStarted = false;
 
@@ -33,7 +33,7 @@ function runTimer(){
             setTimeout(function(){
                 music.setAttribute('sound', 'volume', '.3');
                 disappointedCrowd.components['sound'].playSound();
-            }, 500);
+            }, 200);
             setTimeout(function(){
                 window.location.href='/index.html';
                 NAF.connection.broadcastData('reset');

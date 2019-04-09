@@ -74,6 +74,15 @@ AFRAME.registerComponent('object-place', {
             object.setAttribute('dynamic-body', {});
         }
 
+        if(object.classList[0] == "bowl")
+        {
+            scene.components['recipe-system'].setRecipeDelivered();
+            NAF.connection.broadcastData('recipeDelivered');
+        }
+
+        //play pickup sound (they use the same sound)
+        pickupSound = document.querySelector('#pickupSound');
+        pickupSound.components['sound'].playSound();        
         
         // hide placeholderss
         let placeholders = document.getElementsByClassName("placeholder");

@@ -139,6 +139,11 @@ AFRAME.registerComponent('object-pickup', {
             el.removeAttribute('dynamic-body');
             el.setAttribute('static-body', {});
 
+            //play pickup sound
+            pickupSound = document.querySelector('#pickupSound');
+            pickupSound.components['sound'].playSound();
+
+
             // show the placeholder object
             let placeholders = document.getElementsByClassName("placeholder");
             for(i = 0; i < data.numPlaceholders; i++) {
