@@ -102,40 +102,24 @@ AFRAME.registerComponent('recipe-system', {
         const Context_AF = this;
 
         ingredientCount = 0;
+        numForCompletion = Context_AF.currentRecipe.numIngredients;
+        incriment = 1 / numForCompletion;
+        currentYPos = 0.5;
 
-        for(j = 0; j < Context_AF.currentRecipe.numIngredients; j++){
+        for(j = 0; j < numForCompletion; j++){
             if (Context_AF.currentRecipe.inStew[j] == true) {
                 ingredientCount = ingredientCount + 1;
+                stewLiquid.object3D.position.set(0, currentYPos, 0);
+                currentYPos += incriment;
+                stewLiquid = document.querySelector('#stewLiquid');
+                stewLiquid.components['sound'].stopSound();
+                stewLiquid.components['sound'].playSound();
             }
         }
-        
-        if (ingredientCount == 0) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.object3D.position.set(0, -10, 0);
-        }
-
-        if (ingredientCount == 1) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.components['sound'].stopSound();
-            stewLiquid.components['sound'].playSound();
-            stewLiquid.object3D.position.set(0, 0.5, 0);
-        }
-
-        if (ingredientCount == 2) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.components['sound'].stopSound();
-            stewLiquid.components['sound'].playSound();
-            stewLiquid.object3D.position.set(0, 1, 0);
-        }
-
-        if (ingredientCount == 3) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.components['sound'].stopSound();
-            stewLiquid.components['sound'].playSound();
+        if(ingredientCount == numForCompletion){
             stewLiquid.object3D.position.set(0, 1.3, 0);
             stewLiquid.setAttribute('material', {color: '#9D4815'});
         }
-
     },
     updateChits : function(){
         const Context_AF = this;
