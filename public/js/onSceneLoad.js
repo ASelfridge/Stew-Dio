@@ -23,17 +23,18 @@ function onSceneLoad(){
            
             console.log("Host has began a game");
             for (entity in ntw_objs){
-                //console.log(ntw_objs[entity]);
                 let obj_wrapper = document.querySelector('#' + ntw_objs[entity].id + '_wrapper');
                 let obj = document.createElement('a-entity');
                 for(attribute in ntw_objs[entity]){
-                   // console.log(attribute);
-                   // console.log(ntw_objs[entity][attribute])
+                   
                     obj.setAttribute(attribute, ntw_objs[entity][attribute]);
                 }
                 obj_wrapper.appendChild(obj);
             }
         }
+    });
+    NAF.connection.subscribeToDataChannel('recipeDelivered', function(senderId, dataType, data, targetId){     
+        scene.components['recipe-system'].setRecipeDelivered();
     });
     NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
         document.querySelector('#character1').components['new-recipe'].updateRS();
@@ -41,6 +42,7 @@ function onSceneLoad(){
     NAF.connection.subscribeToDataChannel('updateRecipe', function(senderId, dataType, data, targetId){     
         document.querySelector('.' + data.target).components['detect-collision'].updateRS(data);
     });
+
     document.body.addEventListener('connected', function (evt) {
         clientId = evt.detail.clientId
         NAF.connection.broadcastData('Player Joined');

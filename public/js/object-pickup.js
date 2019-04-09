@@ -20,7 +20,6 @@ AFRAME.registerComponent('object-pickup', {
         const Context_AF = this;
         const el = Context_AF.el;
         const data = Context_AF.data;
-
         let scene = document.querySelector('a-scene');
 
         el.ogPos = JSON.parse(JSON.stringify( (Context_AF.el.object3D.position) ));  // have to clone so that this value wont change constantly
@@ -29,12 +28,15 @@ AFRAME.registerComponent('object-pickup', {
         el.ogParent = Context_AF.el.object3D.parent;    // will need when object can be placed back in og spot
 
         // pickup functionality for oculus go
-       if(oculusGo) {
+        if(oculusGo) {
             el.addEventListener('raycaster-intersected', function(e) {
-                // check that no object is currently being held
+                // check that no object is currently being held and object is not being held by someone else
                 if(scene.selectedObject == null) {
                     // check that user is holding the trigger down
                     if(scene.triggerDown){
+                        if(el.components['tool'].data.available) { 
+                            el.setAttribute('tool', 'available', false);
+                        }
                         Context_AF.pickup(e, true);
                     }
                 }
@@ -44,8 +46,19 @@ AFRAME.registerComponent('object-pickup', {
         // pickup functionality for mobile/desktop
         else {
             el.addEventListener('mousedown', function(e) {
-                if(scene.selectedObject == null){
-                    Context_AF.pickup(e, false)
+                if(scene.selectedObject == null){ 
+                    if(el.components['tool']) { 
+                        if(!el.components['tool'].data.available) { 
+                            console.warn("Object is already being held");
+                        }
+                        else{
+                            el.setAttribute('tool', 'available', false);
+                            Context_AF.pickup(e, false);
+                        }
+                    }
+                    else {
+                        Context_AF.pickup(e, false);
+                    }
                 }
             });
         }
@@ -58,7 +71,10 @@ AFRAME.registerComponent('object-pickup', {
         //check that not outside of maxDistance range
         if(e.detail.intersection.distance <= maxDistance) {
             //remove physics from element as it is being carried
-            Context_AF.el.removeAttribute('dynamic-body');
+            el.removeAttribute('dynamic-body');
+            el.removeAttribute('static-body');
+            //el.removeAttribute('constraint');
+            el.removeAttribute('mdmu-parent-constraint');
 
             // set selected object to this
             scene.selectedObject = el.id;
