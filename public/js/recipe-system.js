@@ -19,12 +19,14 @@ AFRAME.registerComponent('recipe-system', {
             runTimer();
             this.currentRecipe = this.recipe1;
             this.updateChits();
+            this.setChopped([true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
         if(numCustomers == 2){
             this.currentRecipe = this.recipe2;
             this.updateChits();
+            this.setChopped([true, false, true, true]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
@@ -80,12 +82,12 @@ AFRAME.registerComponent('recipe-system', {
             bubblingSound.components['sound'].playSound();
             
             // change ladle to be filled
-            let ladle = document.querySelector('#ladle');
+            let ladle = document.querySelector('.ladle');
             ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
             // make bowl collidable
-            let bowl = document.querySelector('#bowl');
+            let bowl = document.querySelector('.bowl');
             bowl.setAttribute('dynamic-body', {});
-            bowl.setAttribute('constraint', {target: '#bowlConstraint'});
+            bowl.setAttribute('constraint', {'target': '#bowlConstraint'});
             
             Context_AF.currentRecipe.completed = true;
         }
@@ -307,12 +309,8 @@ AFRAME.registerComponent('recipe-system', {
             }
 
         }
-
-
     },
-
     resetChits : function(){
-            
         garlicChit.setAttribute('material', {src: "#Garlic_Chit_texture"});
         squashChit.setAttribute('material', {src: "#Squash_Chit_texture"});
         onionChit.setAttribute('material', {src: "#Onion_Chit_texture"});
@@ -326,8 +324,22 @@ AFRAME.registerComponent('recipe-system', {
         pastaChit.setAttribute('material', {src: "#Pasta_Chit_texture"});
         chickenChit.setAttribute('material', {src: "#Chicken_Chit_texture"});
 
-    }
+    },
+    setChopped : function(canChop) {
+        let potPlaceholder = '-0.5 3.1 0'
+        let chopPlaceholder = '6.015 2.417 -4.712'
 
+        // loop through each ingredient in recipe and set chop placeholders
+        for(var i = 0; i < canChop.length; i++) {
+            if(canChop[i]) {
+                let ing = document.querySelector('.' + this.currentRecipe.ingredients[i]);
+                ing.setAttribute('object-pickup', 
+                    {'numPlaceholders': '1'},
+                    {'placeholderPos': chopPlaceholder + ', ' + potPlaceholder}
+                )
+            }
+        }
+    }
 });
 
 

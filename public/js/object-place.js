@@ -50,6 +50,7 @@ AFRAME.registerComponent('object-place', {
 
         // store held object
         let object = document.querySelector('#' + scene.selectedObject);
+        console.log(scene.selectedObject);
 
         el.intersected = false;
         
@@ -68,7 +69,6 @@ AFRAME.registerComponent('object-place', {
         if(object.components['object-pickup'].data.hasCollision){
             object.removeAttribute('static-body');
             object.setAttribute('dynamic-body', {});
-            console.log(object);
         }
 
         
@@ -81,7 +81,6 @@ AFRAME.registerComponent('object-place', {
 
         // set selectedObject back to null
         scene.selectedObject = null;
-
     },
     drop : function() {
         let Context_AF = this;
