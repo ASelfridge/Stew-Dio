@@ -37,6 +37,15 @@
                         <img id="Garlic_Chit_Completed_texture" src="assets/textures/Garlic_Chit_Completed.png" />
                         <img id="Squash_Chit_Completed_texture" src="assets/textures/Squash_Chit_Completed.png" />
                         <img id="Onion_Chit_Completed_texture" src="assets/textures/Onion_Chit_Completed.png" />
+                        <img id="Mushroom_Chit_Completed_texture" src="assets/textures/Mushroom_Chit_Completed.png" />
+                        <img id="Potato_Chit_Completed_texture" src="assets/textures/Potato_Chit_Completed.png" />
+                        <img id="Corn_Chit_Completed_texture" src="assets/textures/Corn_Chit_Completed.png" />
+                        <img id="Carrot_Chit_Completed_texture" src="assets/textures/Carrot_Chit_Completed.png" />
+                        <img id="Celery_Chit_Completed_texture" src="assets/textures/Celery_Chit_Completed.png" />
+                        <img id="blackBeans_Chit_Completed_texture" src="assets/textures/blackBeans_Chit_Completed.png" />
+                        <img id="lentils_Chit_Completed_texture" src="assets/textures/Lentils_Chit_Completed.png" />
+                        <img id="Pasta_Chit_Completed_texture" src="assets/textures/Pasta_Chit_Completed.png" />
+                        <img id="Chicken_Chit_Completed_texture" src="assets/textures/Chicken_Chit_Completed.png" />
                         <img id="hat_texture" src="assets/textures/hat.jpg" />
                         <img id="Pine_texture" src="assets/textures/pine.jpg" />
 
@@ -233,7 +242,7 @@
 
             <template id="garlic_template">
                 <a-entity class="garlic collidable" 
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  -0.5 3.1 0, 6.015 2.417 -4.712; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#garlicWhole_model" 
                             material="src:#Garlic_texture" 
                             scale="" 
@@ -681,26 +690,77 @@
        <!-- RECIPIE AREA -->
        <a-entity id="garlic_chit" 
                 obj-model="obj:#chit_model" 
-                position="-4.77195 3.14757 6.42" 
+                position="-4.77195 -2 6.42" 
                 rotation="0 57.44474853981633 0" 
-                material="src: #Blank_Chit_texture">
+                material="src: #Garlic_Chit_texture">
         </a-entity>
        <a-entity id="squash_chit" 
                 obj-model="obj:#chit_model" 
-                position="-5.77195 3.14757 5.75577" 
+                position="-5.77195 -2 5.75577" 
                 rotation="0 57.44474853981633 0" 
-                material="src: #Blank_Chit_texture">
+                material="src: #Squash_Chit_texture">
         </a-entity>
         <a-entity id="onion_chit" 
                 obj-model="obj:#chit_model" 
-                position="-6.81907 3.13654 5.05183" 
+                position="-6.81907 -2 5.05183" 
                 rotation="0 56.32977267049176 0" 
-                material="src:#Blank_Chit_texture"  
-                scale="" 
-                shadow="">
+                material="src:#Onion_Chit_texture">
         </a-entity>
-
-        
+        <a-entity id="mushroom_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Mushroom_Chit_texture">
+        </a-entity>
+        <a-entity id="potato_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Potato_Chit_texture">
+        </a-entity>
+        <a-entity id="corn_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Corn_Chit_texture">
+        </a-entity>
+        <a-entity id="carrot_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Carrot_Chit_texture">
+        </a-entity>
+        <a-entity id="celery_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Celery_Chit_texture">
+        </a-entity>
+        <a-entity id="blackBeans_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#blackBeans_Chit_texture">
+        </a-entity>
+        <a-entity id="lentils_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #lentils_Chit_texture">
+        </a-entity>
+        <a-entity id="pasta_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Pasta_Chit_texture">
+        </a-entity>
+        <a-entity id="chicken_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Chicken_Chit_texture">
+        </a-entity>
+       
 
         <!-- STEW AREA -->
          <a-entity id="stewPot" class="stewPot"
