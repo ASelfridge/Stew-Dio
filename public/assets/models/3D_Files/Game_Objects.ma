@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Game_Objects.ma
-//Last modified: Mon, Apr 08, 2019 06:10:02 PM
+//Last modified: Mon, Apr 08, 2019 07:04:55 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -11084,6 +11084,7 @@ createNode transform -n "Garlic2";
 	rename -uid "D27B0B0F-4A11-8507-3F7E-08A0EF5F73AC";
 createNode transform -n "Garlic1" -p "Garlic2";
 	rename -uid "3DEC82B1-405D-ACFB-A3A0-4A8E149C0F96";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.0019396501299244751 0.076117469229090406 0 ;
 	setAttr ".s" -type "double3" 0.11176377731177162 0.09073627928116712 0.11176377731177162 ;
 createNode mesh -n "GarlicShape1" -p "Garlic1";
@@ -12964,7 +12965,6 @@ createNode mesh -n "polySurfaceShape19" -p "|Garlic2|Garlic3|chop_1|polySurface7
 	setAttr ".dr" 1;
 createNode transform -n "Garlic4" -p "Garlic2";
 	rename -uid "E58370B5-4FCC-35F1-4A76-51B33448F641";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.0019396501299244751 0.076117469229090406 0 ;
 	setAttr ".s" -type "double3" 0.11176377731177162 0.09073627928116712 0.11176377731177162 ;
 createNode mesh -n "polySurfaceShape2" -p "Garlic4";
@@ -43896,23 +43896,23 @@ createNode mesh -n "LentilsShape" -p "Lentils";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "30E34E2B-4614-1F00-0728-B386A9717F98";
+	rename -uid "738BBD37-45A1-45D2-D3F2-DCB93C8220D4";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "2E272DF6-41BC-2832-42CC-FEB6B55FB110";
+	rename -uid "3A8CC68D-4413-E61B-A563-1194D0E94507";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "21432F1E-4B71-FC66-CB4E-E6B79970CD6B";
+	rename -uid "3E8110B7-4F15-F298-551E-B4AA1A5F0372";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "09D4ABF0-43B9-A494-C46D-DC975220F7DB";
-	setAttr ".cdl" 12;
-	setAttr -s 16 ".dli[1:15]"  1 2 3 4 5 6 7 8 
-		9 10 12 11 13 14 15;
-	setAttr -s 16 ".dli";
+	rename -uid "1F4C9F3D-4F07-30EB-363E-C1A339127D5D";
+	setAttr ".cdl" 16;
+	setAttr -s 17 ".dli[1:16]"  1 2 3 4 5 6 7 8 
+		9 10 12 11 13 14 15 16;
+	setAttr -s 17 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "B6CA197E-4EB6-73D4-AA3D-9EA522653F96";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "523362FE-4EFB-E204-F5E5-ADAC57C3DE78";
+	rename -uid "82D58FB2-4010-0EA4-864F-51AAD8AE67E7";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "7692F52B-4CBB-ECD1-537D-4D83A67A3B5E";
 	setAttr ".g" yes;
@@ -44873,7 +44873,6 @@ createNode polyTweakUV -n "polyTweakUV11";
 		 -0.003378476 -0.2971549 0.27556875 -0.22804809 0.2155184 -0.25572813 0.31808791;
 createNode displayLayer -n "Garlic";
 	rename -uid "43D71994-476D-43B4-A461-08B86D8874DF";
-	setAttr ".v" no;
 	setAttr ".do" 1;
 createNode displayLayer -n "Mushroom_Layer";
 	rename -uid "127F8C17-438A-2243-CB08-E2ADED42EBA2";
@@ -49046,6 +49045,10 @@ createNode polyTweak -n "polyTweak40";
 		 1.37750959 0 -0.069918253 1.25326908 0 -0.077411264 1.21273196 0 -0.058266055 1.254053
 		 0 -0.02575874 1.2621057 0 -8.0175087e-06 0.87730312 0 -0.0012373062 1.33180952 0
 		 -0.0006288389;
+createNode displayLayer -n "lentils_layer";
+	rename -uid "E36CAD08-4F2C-466A-FE63-699C4A6AFFE2";
+	setAttr ".v" no;
+	setAttr ".do" 16;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -49075,8 +49078,6 @@ select -ne :defaultResolution;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "vegetables:groupId3.id" "vegetables:pSphereShape1.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "vegetables:pSphereShape1.iog.og[0].gco";
 connectAttr "vegetables:groupParts2.og" "vegetables:pSphereShape1.i";
@@ -49492,6 +49493,7 @@ connectAttr "default1.mwc" "|Pasta|polySurface1|polySurfaceShape1.iog.og[30].gco
 		;
 connectAttr "Beans_layer.di" "Beans.do";
 connectAttr "polyPlanarProj24.out" "pSphereShape4.i";
+connectAttr "lentils_layer.di" "Lentils.do";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "vegetables:aiStandardSurface1SG.message" ":defaultLightSet.message";
@@ -50129,6 +50131,7 @@ connectAttr "layerManager.dli[15]" "Beans_layer.id";
 connectAttr "polyTweak40.out" "polyPlanarProj24.ip";
 connectAttr "pSphereShape4.wm" "polyPlanarProj24.mp";
 connectAttr "polySphere4.out" "polyTweak40.ip";
+connectAttr "layerManager.dli[16]" "lentils_layer.id";
 connectAttr "vegetables:aiStandardSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "vegetables:potatoSG.pa" ":renderPartition.st" -na;
 connectAttr "garlic_initialShadingGroup.pa" ":renderPartition.st" -na;

@@ -93,6 +93,8 @@
 
                         <img id="knife_texture" src="assets/textures/Knife_Ladel.jpg" />
                         <img id="character_texture" src="assets/textures/character.jpg" />
+                        <img id="character2_texture" src="assets/textures/character_2.jpg" />
+                        <img id="character3_texture" src="assets/textures/character_3.jpg" />
 
                         <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
                         <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
@@ -124,6 +126,8 @@
                         <!-- Players/NPCs -->
                         <a-asset-item id="hat_model" src="assets/models/hat.obj"></a-asset-item>
                         <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
+                        <a-asset-item id="character2_model" src="assets/models/character_2.obj"></a-asset-item>
+                        <a-asset-item id="character3_model" src="assets/models/character_3.obj"></a-asset-item>
                        
                         <!-- Stew -->
                         <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
@@ -401,8 +405,8 @@
 
 
         <!---------------- LIGHTING ---------------->
-        <a-light type="ambient" color="white" position="35 5 0" intensity="0.6"></a-light>
-        <a-light type="ambient" color="white" position="-0.15682 5.09305 0" intensity="0.4" light="type:point;color:#f7a83e"></a-light>
+        <a-light type="ambient" color="white" position="35 4 0" intensity="0.4"></a-light>
+        <a-light type="ambient" color="white" position="-0.15682 4.3 0" intensity="0.7" light="type:point;color:#f7a83e"></a-light>
 
 
 
@@ -489,6 +493,30 @@
                 obj-model="obj:#character_model" 
                 material="src: #character_texture"
                 position="-9.59681 -0.01024 0.12693" 
+                rotation="0 0.07620338675239949 0" 
+                scale="" 
+                shadow="" 
+
+                new-recipe=""
+                sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+        </a-entity>
+
+        <a-entity id="character2" 
+                obj-model="obj:#character2_model" 
+                material="src: #character2_texture"
+                position="-12.59681 -0.01024 0.12693" 
+                rotation="0 0.07620338675239949 0" 
+                scale="" 
+                shadow="" 
+
+                new-recipe=""
+                sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+        </a-entity>
+
+        <a-entity id="character3" 
+                obj-model="obj:#character3_model" 
+                material="src: #character3_texture"
+                position="-15.59681 -0.01024 0.12693" 
                 rotation="0 0.07620338675239949 0" 
                 scale="" 
                 shadow="" 
@@ -813,9 +841,9 @@
         </a-entity>
 
 
-       <!-- GROUND & SKY -->
-       <!-- <a-plane static-body id="ground" position="0 0 5" width="30" height="30" rotation="-90 0 0" color="#a5a5a5" shadow></a-plane> -->
-            
+       <!-- GROUND & SKY -->     
+       <a-plane static-body geometry="primitive:circle;radius:45" id="ground" position="0 -0.5 0" width="40" height="40" rotation="-90 0 0" color="#074f39" shadow></a-plane>
+     
        <a-sky color="#ECECEC" ></a-sky>
         <a-entity   id="sky"
                     rotation="0 180 0"
