@@ -26,19 +26,21 @@ AFRAME.registerComponent('recipe-system', {
         if(numCustomers == 2){
             this.currentRecipe = this.recipe2;
             this.updateChits();
-            this.setChopped([true, false, true, true]);
+            this.setChopped([true, true, true, false]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers == 3){
             this.currentRecipe = this.recipe3;
             this.updateChits();
+            this.setChopped([false, true, true, true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
             this.currentRecipe = this.recipe4;
             this.updateChits();
+            this.setChopped([true, true, true, true, false]);
             console.log("customer number " + numCustomers + " order recieved");
         }
         console.log(this.currentRecipe.ingredients);
@@ -333,10 +335,22 @@ AFRAME.registerComponent('recipe-system', {
         for(var i = 0; i < canChop.length; i++) {
             if(canChop[i]) {
                 let ing = document.querySelector('.' + this.currentRecipe.ingredients[i]);
+
+                let pos = ing.components['object-pickup'].data.placeholderPos;
+                pos[1] = chopPlaceholder;
+                pos[2] = potPlaceholder;
+                let posString = '';
+                for (var j = 0; j < pos.length; j++) {
+                    posString = posString + pos[j];
+                    if(j != pos.length - 1) {
+                        posString = posString + ', '
+                    }
+                }
+
                 ing.setAttribute('object-pickup', 
-                    {'numPlaceholders': '1'},
-                    {'placeholderPos': chopPlaceholder + ', ' + potPlaceholder}
+                    {'placeholderPos': posString}
                 )
+                ing.setAttribute('detect-collision', {'removeOnDrop': false});
             }
         }
     }

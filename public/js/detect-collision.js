@@ -40,8 +40,11 @@ AFRAME.registerComponent('detect-collision', {
                     
                     // reset chopping attributes
                     el.setAttribute('obj-model', {'obj': '#' + el.classList[0] + 'Whole_model'});
-                    data.removeOnDrop = false;
                     data.chop = 0;
+
+                    // reset placeholders
+                    let posString = el.components['object-pickup'].data.placeholderPos[0] + ', -0.5 3.1 0';
+                    el.setAttribute('object-pickup', {'placeholderPos': posString});
                 }
             }, 1000);     
         }
@@ -71,7 +74,8 @@ AFRAME.registerComponent('detect-collision', {
         if(data.chop == data.chopStates.length) {
             data.removeOnDrop = true;
             data.chop++;
-            el.setAttribute('object-pickup', {'numPlaceholders': 2});
+            let placeholders = el.components['object-pickup'].data.numPlaceholders + 1;
+            el.setAttribute('object-pickup', {'numPlaceholders': placeholders});
             setTimeout(function() {
                 el.removeAttribute('dynamic-body');
                 el.removeAttribute('constraint');
