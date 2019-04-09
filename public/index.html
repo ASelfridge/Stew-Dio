@@ -101,6 +101,7 @@
                         <img id="character_texture" src="assets/textures/character.jpg" />
                         <img id="character2_texture" src="assets/textures/character_2.jpg" />
                         <img id="character3_texture" src="assets/textures/character_3.jpg" />
+                        <img id="character4_texture" src="assets/textures/character_4.jpg" />
 
                         <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
                         <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
@@ -134,6 +135,7 @@
                         <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
                         <a-asset-item id="character2_model" src="assets/models/character_2.obj"></a-asset-item>
                         <a-asset-item id="character3_model" src="assets/models/character_3.obj"></a-asset-item>
+                        <a-asset-item id="character4_model" src="assets/models/character_4.obj"></a-asset-item>
                        
                         <!-- Stew -->
                         <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
@@ -530,6 +532,18 @@
                 new-recipe=""
                 sound="src: #customerGreetingSrc; volume: 10; positional: true;">
         </a-entity>
+
+        <a-entity id="character3" 
+                obj-model="obj:#character4_model" 
+                material="src: #character4_texture"
+                position="-18.59681 -0.01024 0.12693" 
+                rotation="0 0.07620338675239949 0" 
+                scale="" 
+                shadow="" 
+
+                new-recipe=""
+                sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+        </a-entity>
      
         
         <a-entity id="speechBubble" 
@@ -716,6 +730,7 @@
             position=".4 2.58 -8.3" 
             rotation="0 180 0" 
             scale="0.5 0.5 0.5" 
+            material="color:black" 
             shadow=""
 
             body="type: static; shape:none;"
