@@ -19,26 +19,32 @@ AFRAME.registerComponent('recipe-system', {
             runTimer();
             this.currentRecipe = this.recipe1;
             this.updateChits();
-            this.setChopped([true, true, true]);
+            this.updateStewLiquid();
+            this.setChopped([false, false, false]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
         if(numCustomers == 2){
             this.currentRecipe = this.recipe2;
             this.updateChits();
-            this.setChopped([true, false, true, true]);
+            this.updateStewLiquid();
+            this.setChopped([true, true, true, false]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers == 3){
             this.currentRecipe = this.recipe3;
             this.updateChits();
+            this.updateStewLiquid();
+            this.setChopped([false, true, true, true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
             this.currentRecipe = this.recipe4;
             this.updateChits();
+            this.updateStewLiquid();
+            this.setChopped([true, true, true, true, false]);
             console.log("customer number " + numCustomers + " order recieved");
         }
         console.log(this.currentRecipe.ingredients);
@@ -71,6 +77,7 @@ AFRAME.registerComponent('recipe-system', {
     checkRecipeStatus : function() {
         const Context_AF = this;
 
+        console.log(this.currentRecipe.delivered);
        if(!Context_AF.currentRecipe.completed) {
             for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
                 if(!Context_AF.currentRecipe.inStew[i]) {
@@ -91,6 +98,8 @@ AFRAME.registerComponent('recipe-system', {
             
             Context_AF.currentRecipe.completed = true;
         }
+
+        console.log(this.currentRecipe.delivered);
         
         // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
         //if(XXXXXXXXXXXXXXX)
@@ -102,40 +111,48 @@ AFRAME.registerComponent('recipe-system', {
         const Context_AF = this;
 
         ingredientCount = 0;
+        numForCompletion = Context_AF.currentRecipe.numIngredients;
+        incriment = 1 / numForCompletion;
+        currentYPos = 0.5;
 
-        for(j = 0; j < Context_AF.currentRecipe.numIngredients; j++){
+        for(j = 0; j < numForCompletion; j++){
             if (Context_AF.currentRecipe.inStew[j] == true) {
                 ingredientCount = ingredientCount + 1;
+                stewLiquid.object3D.position.set(0, currentYPos, 0);
+                currentYPos += incriment;
+                stewLiquid = document.querySelector('#stewLiquid');
+                stewLiquid.components['sound'].stopSound();
+                stewLiquid.components['sound'].playSound();
             }
         }
-        
-        if (ingredientCount == 0) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.object3D.position.set(0, -10, 0);
+        if(ingredientCount == 0){
+            stewLiquid.object3D.position.set(0, -5, 0);
+            stewLiquid.setAttribute('material', {src: "#stewLiquid_texture"})
         }
-
-        if (ingredientCount == 1) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.components['sound'].stopSound();
-            stewLiquid.components['sound'].playSound();
-            stewLiquid.object3D.position.set(0, 0.5, 0);
-        }
-
-        if (ingredientCount == 2) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.components['sound'].stopSound();
-            stewLiquid.components['sound'].playSound();
-            stewLiquid.object3D.position.set(0, 1, 0);
-        }
-
-        if (ingredientCount == 3) {
-            stewLiquid = document.querySelector('#stewLiquid');
-            stewLiquid.components['sound'].stopSound();
-            stewLiquid.components['sound'].playSound();
+        if(ingredientCount == numForCompletion){
+            if(numCustomers == 1){
+                stewLiquid.setAttribute('material', {src: "#Recipe1_Completed_texture"})
+            }
+            else if(numCustomers == 2){
+                stewLiquid.setAttribute('material', {src: "#Recipe2_Completed_texture"})
+            }
+            else if(numCustomers == 3){
+                stewLiquid.setAttribute('material', {src: "#Recipe3_Completed_texture"})
+            }
+            else if(numCustomers == 4){
+                stewLiquid.setAttribute('material', {src: "#Recipe4_Completed_texture"})
+            }
             stewLiquid.object3D.position.set(0, 1.3, 0);
-            stewLiquid.setAttribute('material', {color: '#9D4815'});
         }
-
+        if(this.currentRecipe.delivered == true){
+            stewLiquid.object3D.position.set(0, -5, 0);
+        }
+    },
+    setRecipeDelivered : function () {
+        const Context_AF = this;
+        console.log("execute");
+        Context_AF.currentRecipe.delivered = true;
+        
     },
     updateChits : function(){
         const Context_AF = this;
@@ -333,10 +350,22 @@ AFRAME.registerComponent('recipe-system', {
         for(var i = 0; i < canChop.length; i++) {
             if(canChop[i]) {
                 let ing = document.querySelector('.' + this.currentRecipe.ingredients[i]);
+
+                let pos = ing.components['object-pickup'].data.placeholderPos;
+                pos[1] = chopPlaceholder;
+                pos[2] = potPlaceholder;
+                let posString = '';
+                for (var j = 0; j < pos.length; j++) {
+                    posString = posString + pos[j];
+                    if(j != pos.length - 1) {
+                        posString = posString + ', '
+                    }
+                }
+
                 ing.setAttribute('object-pickup', 
-                    {'numPlaceholders': '1'},
-                    {'placeholderPos': chopPlaceholder + ', ' + potPlaceholder}
+                    {'placeholderPos': posString}
                 )
+                ing.setAttribute('detect-collision', {'removeOnDrop': false});
             }
         }
     }

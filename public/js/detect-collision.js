@@ -35,15 +35,18 @@ AFRAME.registerComponent('detect-collision', {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
                 // move object back to original state if dropping into
-                if(e.body == 'stewPot') {
+                if(e.body == 'stewPot' && el.classList[0] != 'ladle') {
                     el.object3D.position.set(el.ogPos.x, el.ogPos.y, el.ogPos.z);
                     el.object3D.rotation.set(el.ogRot._x, el.ogRot._y, el.ogRot._z);
                     el.object3D.scale.set(el.ogScale.x, el.ogScale.y, el.ogScale.z);
                     
                     // reset chopping attributes
                     el.setAttribute('obj-model', {'obj': '#' + el.classList[0] + 'Whole_model'});
-                    data.removeOnDrop = false;
                     data.chop = 0;
+
+                    // reset placeholders
+                    let posString = el.components['object-pickup'].data.placeholderPos[0] + ', -0.5 3.1 0';
+                    el.setAttribute('object-pickup', {'placeholderPos': posString});
                 }
             }, 1000);     
         }
@@ -72,7 +75,8 @@ AFRAME.registerComponent('detect-collision', {
         if(data.chop == data.chopStates.length) {
             data.removeOnDrop = true;
             data.chop++;
-            el.setAttribute('object-pickup', {'numPlaceholders': 2});
+            let placeholders = el.components['object-pickup'].data.numPlaceholders + 1;
+            el.setAttribute('object-pickup', {'numPlaceholders': placeholders});
             setTimeout(function() {
                 el.removeAttribute('dynamic-body');
                 el.removeAttribute('constraint');
@@ -83,14 +87,14 @@ AFRAME.registerComponent('detect-collision', {
         
         if (e.body == data.colliders[data.stewed] && scene.components['recipe-system'].currentRecipe.completed) {
             el.setAttribute('obj-model', {'obj': data.stewState[data.stewed]});
-            el.setAttribute('object-pickup', {
-                position: '0 -0.8 0',
-                placeholderPos: '-8.2 1.933 0.1'
-            });
             if(e.target == 'bowl') {
+                el.setAttribute('object-pickup', {
+                    position: '0 -0.8 0',
+                    placeholderPos: '-8.2 1.933 0.1'
+                });
                 setTimeout(function() {
                     el.removeAttribute('dynamic-body');
-                }, 1000)  
+                }, 1000)
             }
             data.stewed++;
         }
