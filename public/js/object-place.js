@@ -79,6 +79,10 @@ AFRAME.registerComponent('object-place', {
             scene.components['recipe-system'].setRecipeDelivered();
             NAF.connection.broadcastData('recipeDelivered');
         }
+
+        //play pickup sound (they use the same sound)
+        pickupSound = document.querySelector('#pickupSound');
+        pickupSound.components['sound'].playSound();        
         
         // hide placeholderss
         let placeholders = document.getElementsByClassName("placeholder");

@@ -121,6 +121,8 @@
                         <a-asset-item crossorigin="anonymous" id="disappointed-crowdSrc" src="assets/sounds/disappointed-crowd.mp3" response-type="arraybuffer"></a-asset-item>
                         <a-asset-item crossorigin="anonymous" id="chopSrc" src="assets/sounds/chop.mp3" response-type="arraybuffer"></a-asset-item>
                         <a-asset-item crossorigin="anonymous" id="bubblingSrc" src="assets/sounds/bubbling.mp3" response-type="arraybuffer"></a-asset-item>
+                        <a-asset-item crossorigin="anonymous" id="pickupSoundSrc" src="assets/sounds/pickup.mp3" response-type="arraybuffer"></a-asset-item>
+                        
 
                     </a-assets>
                   
@@ -482,9 +484,10 @@
 
         <!-- SOUNDS ENTITIES -->
         <a-entity id="music" sound="src:#musicSrc; volume: 0.7; loop: true; positional:false" ></a-entity>
-        <a-entity id="ambience" sound="src:#ambienceSrc; volume: 1; loop: true; positional:false"></a-entity>
+        <a-entity id="ambience" sound="src:#ambienceSrc; volume: 4; loop: true; positional:true" position="0 0 0" ></a-entity>
         <a-entity id="disappointed-crowd" sound="src:#disappointed-crowdSrc; volume: 1.5; loop: false; positional:false"></a-entity>
         <a-entity id="bell" sound="src:#customerBellSrc; volume: 1.5; loop: false; positional:false"></a-entity>
+        <a-entity id="pickupSound" sound="src:#pickupSoundSrc; volume: 3; loop: false; positional:false"></a-entity>
 
         
         
@@ -498,7 +501,7 @@
                 material="color:#F5E1A4" 
                 shadow=""
 
-                sound="src: #stewFillSrc; volume: 10; positional: true;">
+                sound="src: #stewFillSrc; volume: 5; positional: true;">
         </a-entity>
       
         <!-- CUSTOMER SERVICE -->
@@ -511,7 +514,7 @@
                 shadow="" 
 
                 new-recipe=""
-                sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+                sound="src: #customerGreetingSrc; volume: 5; positional: true;">
         </a-entity>
 
         <a-entity id="character2" 
@@ -729,7 +732,7 @@
                 scale="3 0.1 1.7"
                 material="color: white; opacity: 0;" 
                 shadow=""
-                sound="src: #chopSrc; volume: 20; loop: false; positional: true;"
+                sound="src: #chopSrc; volume: 10; loop: false; positional: true;"
                 
                 body="type: static; shape:none;"
 
@@ -896,7 +899,7 @@
             position="-7.550 5.4 -3.238" 
             rotation="0 90 0" 
             material="src: #timer9_texture"
-            sound="src: #timerSrc; volume: 20">
+            sound="src: #timerSrc; volume: 1; positional: false;">
         </a-entity>
 
         <a-entity id="timer2" 
@@ -904,7 +907,7 @@
             position="-7.536 5.4 -2.665" 
             rotation="0 90 0" 
             material="src: #timer9_texture"
-            sound="src: #buzzerSrc; volume: 20; loop: false;">
+            sound="src: #buzzerSrc; volume: 1; loop: false; positional: false;">
         </a-entity>
 
 
