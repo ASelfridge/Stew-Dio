@@ -1,112 +1,90 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Landing Page</title>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" context="width=device-width, initial-scale=1.0">
+        
+        <!--not actually sure what this does-->
+        <meta http-equiv="X-UA-Compatible" content="id=edge">
+
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <script src="js/aframe-v0.8.2.min.js"></script>
         <script src="js/socket.io.min.js"></script>
         <script src="js/easyrtc.js"></script>
         <script src="js/networked-aframe.min.js"></script>
-        <style>
-                body{
-                    background-image: url("assets/textures/sunsetGradient.png");
-                }
-                .title-header{
-                    text-align: center;
-                    padding-top: 60px;
-                    padding-bottom: 50px;
-                }
-                .container{
-                    display:inline;
-                    padding-right: 30px;
-        
-                }
-                h1{
-                    text-align: center;
-                    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-                    font-size: 3em;
-                    color: white;
-        
-                }
-                .button {
-                    background-color:transparent; 
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    border-radius: 12px;
-                    -webkit-transition-duration: 0.4s; 
-                    transition-duration: 0.4s;
-                }
-                .button:hover{
-                    background-color: #e7e7e7;
-                    color: #5679a6;
-        
-                }
-                .button:active {
-                    background-color:#008CBA;
-                    box-shadow: 0 5px rgba(0,0,0,0.19);
-                    transform: translateY(4px);
-                    }
-            </style>
-    </head>
-        
-    <body>
-        <a-scene networked-scene="room: lander; debug: true; connectOnLoad:true;"> 
-                <!-- <a-entity id="cameraRig" position="0 2 0" rotation="0 0 0" networked="template:#camRig_template;attachTemplateToLocal:true;"> 
-                    networked="template:#avatar_template;attachTemplateToLocal:true;"-->
-                        <a-camera id="sceneCamera" > 
-                            <a-entity id="cursor" cursor="rayOrigin: mouse" position="0 0 -1"></a-entity>
-                        </a-camera>
-                    <!-- </a-entity> -->
-            <div class="title-header">
-                </div>
-            <div class="title-header">
-            </div>
-            <div class="title-header">
-            <h1>
-                Click the button to begin!
-            </h1>
-            </div>
-            <a-text id="button" value="Play" position="0 2 -2" geometry="primitive:plane" material="color:black"></a-text>
-    
-        </a-scene>
-    </body>
-    <script>
-        clientList = [];
-        function sendSelf(){
-            window.location.href='/game.html';
-        }        
-        document.body.addEventListener('clientConnected', function (evt) {
-            clientList.push(evt.detail.clientId);
-            //console.log("Connect", clientList);
-        });
-        document.body.addEventListener('clientDisconnected', function (evt) {
-            //console.log("Disconnect",  clientList[0], evt.detail.clientId);
-            clientList.splice(0, 1);
-            
-        });
-        document.getElementById('button').addEventListener('mousedown', function (evt) {
-            start();
-        });
-        NAF.connection.subscribeToDataChannel('joinGame', function(senderId, dataType, data, targetId){
-            window.location.href='/game.html';
+        <script src="lottie.js"></script>
 
-        });
-        function start(){
-            setTimeout(function(){
-                //console.log('Sending Client', clientList[0]);
-                NAF.connection.sendData(clientList[0], 'joinGame');
-                if (clientList.length > 0)
-                { 
-                    start();
-                } 
-                else 
-                { 
-                    sendSelf();
-                } 
-            }, 1000)
-        };
+    </head>
+
+    <body>
+        <div id="contentWrapper">
+                <div id="mainContent"></div>
+                <img id="begin" src="assets/textures/SVG/beginAsset 1.svg" height="250" width="500"/>
+
+                <div id="anim"></div>
+        </div>
+
+        <a-scene networked-scene="room: lander; debug: true; connectOnLoad:true;">  
+            
+        </a-scene>
+        
+    </body>
+    
+    
+    <script>  
+            var buttonAnimation = bodymovin.loadAnimation({
+                container: document.getElementById('anim'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'pot.json'
+            })
+
+            button = document.getElementById('anim');
+            buttonAnimation.play();
+
+            button.addEventListener('pageload', function() {
+                buttonAnimation.play();
+            })
+    </script>
+
+    <script>
+            clientList = [];
+            function sendSelf(){
+                window.location.href='/game.html';
+            }        
+            document.body.addEventListener('clientConnected', function (evt) {
+                clientList.push(evt.detail.clientId);
+                //console.log("Connect", clientList);
+            });
+            document.body.addEventListener('clientDisconnected', function (evt) {
+                //console.log("Disconnect",  clientList[0], evt.detail.clientId);
+                clientList.splice(0, 1);
+                
+            });
+            document.querySelector('#begin').addEventListener('mousedown', function (evt) {
+                console.log("listener");
+                start();
+            });
+            NAF.connection.subscribeToDataChannel('joinGame', function(senderId, dataType, data, targetId){
+                window.location.href='/game.html';
+
+            });
+            function start(){
+                console.log("called");
+                setTimeout(function(){
+                    //console.log('Sending Client', clientList[0]);
+                    NAF.connection.sendData(clientList[0], 'joinGame');
+                    if (clientList.length > 0)
+                    { 
+                        start();
+                    } 
+                    else 
+                    { 
+                        sendSelf();
+                    } 
+                }, 800)
+            };
     </script>
 </html>
