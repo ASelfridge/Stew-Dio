@@ -125,9 +125,21 @@ AFRAME.registerComponent('recipe-system', {
         }
         if(ingredientCount == 0){
             stewLiquid.object3D.position.set(0, -5, 0);
-            stewLiquid.setAttribute('material', {color: '#9D4815'});
+            stewLiquid.setAttribute('material', {src: "#stewLiquid_texture"})
         }
         if(ingredientCount == numForCompletion){
+            if(numCustomers == 1){
+                stewLiquid.setAttribute('material', {src: "#Recipe1_Completed_texture"})
+            }
+            else if(numCustomers == 2){
+                stewLiquid.setAttribute('material', {src: "#Recipe2_Completed_texture"})
+            }
+            else if(numCustomers == 3){
+                stewLiquid.setAttribute('material', {src: "#Recipe3_Completed_texture"})
+            }
+            else if(numCustomers == 4){
+                stewLiquid.setAttribute('material', {src: "#Recipe4_Completed_texture"})
+            }
             stewLiquid.object3D.position.set(0, 1.3, 0);
         }
         if(this.currentRecipe.delivered == true){
