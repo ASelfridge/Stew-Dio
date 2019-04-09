@@ -23,12 +23,10 @@ function onSceneLoad(){
            
             console.log("Host has began a game");
             for (entity in ntw_objs){
-                //console.log(ntw_objs[entity]);
                 let obj_wrapper = document.querySelector('#' + ntw_objs[entity].id + '_wrapper');
                 let obj = document.createElement('a-entity');
                 for(attribute in ntw_objs[entity]){
-                   // console.log(attribute);
-                   // console.log(ntw_objs[entity][attribute])
+                   
                     obj.setAttribute(attribute, ntw_objs[entity][attribute]);
                 }
                 obj_wrapper.appendChild(obj);

@@ -33,10 +33,24 @@
                     <a-assets>
                         <img id="skymap" src="assets/textures/sunsetGradient.png" />
                         <img id="area_texture" src="assets/textures/mainTexture.jpg" />
+                        <img id="book_blank_texture" src="assets/textures/blank_recipe.png" />
+                        <img id="book_BS_texture" src="assets/textures/BS_recipe.png" />
+                        <img id="book_CNS_texture" src="assets/textures/CNS_recipe.png" />
+                        <img id="book_LM_texture" src="assets/textures/LM_recipe.png" />
+                        <img id="book_BBS_texture" src="assets/textures/BBS_recipe.png" />
                         <img id="Blank_Chit_texture" src="assets/textures/Blank_Chit.png" />
                         <img id="Garlic_Chit_Completed_texture" src="assets/textures/Garlic_Chit_Completed.png" />
                         <img id="Squash_Chit_Completed_texture" src="assets/textures/Squash_Chit_Completed.png" />
                         <img id="Onion_Chit_Completed_texture" src="assets/textures/Onion_Chit_Completed.png" />
+                        <img id="Mushroom_Chit_Completed_texture" src="assets/textures/Mushroom_Chit_Completed.png" />
+                        <img id="Potato_Chit_Completed_texture" src="assets/textures/Potato_Chit_Completed.png" />
+                        <img id="Corn_Chit_Completed_texture" src="assets/textures/Corn_Chit_Completed.png" />
+                        <img id="Carrot_Chit_Completed_texture" src="assets/textures/Carrot_Chit_Completed.png" />
+                        <img id="Celery_Chit_Completed_texture" src="assets/textures/Celery_Chit_Completed.png" />
+                        <img id="blackBeans_Chit_Completed_texture" src="assets/textures/blackBeans_Chit_Completed.png" />
+                        <img id="lentils_Chit_Completed_texture" src="assets/textures/Lentils_Chit_Completed.png" />
+                        <img id="Pasta_Chit_Completed_texture" src="assets/textures/Pasta_Chit_Completed.png" />
+                        <img id="Chicken_Chit_Completed_texture" src="assets/textures/Chicken_Chit_Completed.png" />
                         <img id="hat_texture" src="assets/textures/hat.jpg" />
                         <img id="Pine_texture" src="assets/textures/pine.jpg" />
 
@@ -105,7 +119,8 @@
                     <!---------------- MODELS ---------------->
                     <a-assets>
                         <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
-                        
+                        <a-asset-item id="book_model" src="assets/models/recipeBook.obj"></a-asset-item>
+
                         <a-asset-item id="pine_model" src="assets/models/pine.obj"></a-asset-item>
                        
                         <!-- Players/NPCs -->
@@ -237,7 +252,7 @@
 
             <template id="garlic_template">
                 <a-entity class="garlic collidable" 
-                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.015 2.417 -4.712, -0.5 3.1 0; angledPlaceholder: false, true; hasCollision: true" 
+                            object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  -0.5 3.1 0, 6.015 2.417 -4.712; angledPlaceholder: false, true; hasCollision: true" 
                             obj-model="obj:#garlicWhole_model" 
                             material="src:#Garlic_texture" 
                             scale="" 
@@ -344,10 +359,12 @@
                             obj-model="obj:#knife_model" 
                             material="src: #knife_texture" 
                             shadow=""
+                            
                             object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; placeholderPos: 8.5 2 0" 
                             shape__main="shape: box;
                             halfExtents: 0.1 0.05 1;
-                            offset: 0 0 -0.8;">
+                            offset: 0 0 -0.8;"
+                            >
                 </a-entity>
             </template>
 
@@ -472,8 +489,6 @@
         </a-entity>
       
         <!-- CUSTOMER SERVICE -->
-        <a-entity id="recipeSystem_wrapper"></a-entity>
-
         <a-entity id="character1" 
                 obj-model="obj:#character_model" 
                 material="src: #character_texture"
@@ -707,28 +722,88 @@
 
 
        <!-- RECIPIE AREA -->
-       <a-entity id="garlic_chit" 
-                obj-model="obj:#chit_model" 
-                position="-4.77195 3.14757 6.42" 
-                rotation="0 57.44474853981633 0" 
-                material="src: #Blank_Chit_texture">
-        </a-entity>
-       <a-entity id="squash_chit" 
-                obj-model="obj:#chit_model" 
-                position="-5.77195 3.14757 5.75577" 
-                rotation="0 57.44474853981633 0" 
-                material="src: #Blank_Chit_texture">
-        </a-entity>
-        <a-entity id="onion_chit" 
-                obj-model="obj:#chit_model" 
-                position="-6.81907 3.13654 5.05183" 
-                rotation="0 56.32977267049176 0" 
-                material="src:#Blank_Chit_texture"  
+       <a-entity id="recipeBook" 
+                obj-model="obj:#book_model" 
+                material="src: #book_blank_texture" 
+                position="-0.97 1.92 7.12" 
+                rotation="0 -16.05 0" 
                 scale="" 
                 shadow="">
         </a-entity>
 
-        
+       <a-entity id="garlic_chit" 
+                obj-model="obj:#chit_model" 
+                position="-4.77195 -2 6.42" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Garlic_Chit_texture">
+        </a-entity>
+       <a-entity id="squash_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Squash_Chit_texture">
+        </a-entity>
+        <a-entity id="onion_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Onion_Chit_texture">
+        </a-entity>
+        <a-entity id="mushroom_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Mushroom_Chit_texture">
+        </a-entity>
+        <a-entity id="potato_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Potato_Chit_texture">
+        </a-entity>
+        <a-entity id="corn_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Corn_Chit_texture">
+        </a-entity>
+        <a-entity id="carrot_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Carrot_Chit_texture">
+        </a-entity>
+        <a-entity id="celery_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Celery_Chit_texture">
+        </a-entity>
+        <a-entity id="blackBeans_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#blackBeans_Chit_texture">
+        </a-entity>
+        <a-entity id="lentils_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #lentils_Chit_texture">
+        </a-entity>
+        <a-entity id="pasta_chit" 
+                obj-model="obj:#chit_model" 
+                position="-6.81907 -2 5.05183" 
+                rotation="0 56.32977267049176 0" 
+                material="src:#Pasta_Chit_texture">
+        </a-entity>
+        <a-entity id="chicken_chit" 
+                obj-model="obj:#chit_model" 
+                position="-5.77195 -2 5.75577" 
+                rotation="0 57.44474853981633 0" 
+                material="src: #Chicken_Chit_texture">
+        </a-entity>
+       
 
         <!-- STEW AREA -->
          <a-entity id="stewPot" class="stewPot"
@@ -809,8 +884,118 @@
           'obj-model',
         ]
       });
-    
-
+      NAF.schemas.add({
+        template: '#onion_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#garlic_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#mushroom_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#potato_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#corn_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#carrot_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#celery_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#blackBeans_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#lentils_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#pasta_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#chicken_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#knife_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#ladle_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
+      NAF.schemas.add({
+        template: '#bowl_template',
+        components: [
+          'position',
+          'rotation',
+          'tool',
+        ]
+      });
       document.querySelector('a-scene').addEventListener('loaded', onSceneLoad)
 
      

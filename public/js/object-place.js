@@ -36,7 +36,6 @@ AFRAME.registerComponent('object-place', {
                 // clicked placeholder and close enough
                 //scene.selectedObject == Context_OBJ[0].id && e
                 if(e.detail.intersection.distance <= maxDistance) {
-                    //Context_OBJ[0].removeAttribute('static-body');
                     Context_AF.place();
                 }
             })
@@ -55,7 +54,12 @@ AFRAME.registerComponent('object-place', {
         el.intersected = false;
         
         //Remove parent constraint
+        object.removeAttribute('static-body');
+        object.removeAttribute('dynamic-body');
         object.removeAttribute('mdmu-parent-constraint');
+
+        //Set availability to true
+        object.setAttribute('tool', 'available', true);
 
 
         // move object to placeholder location
@@ -67,7 +71,6 @@ AFRAME.registerComponent('object-place', {
 
         // assign physics if necessary
         if(object.components['object-pickup'].data.hasCollision){
-            object.removeAttribute('static-body');
             object.setAttribute('dynamic-body', {});
         }
 
@@ -93,6 +96,9 @@ AFRAME.registerComponent('object-place', {
 
         //Remove parent constraint
         object.removeAttribute('mdmu-parent-constraint');
+        
+        //Set availability to true
+        object.setAttribute('tool', 'available', true);
 
         // assigning starting attributes
         object.object3D.position.set(object.ogPos.x, object.ogPos.y, object.ogPos.z);
