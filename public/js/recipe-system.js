@@ -20,7 +20,7 @@ AFRAME.registerComponent('recipe-system', {
             this.currentRecipe = this.recipe1;
             this.updateChits();
             this.updateStewLiquid();
-            this.setChopped([false, false, false]);
+            this.setChopped([true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
