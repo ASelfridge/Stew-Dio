@@ -2,6 +2,7 @@ let headSet = AFRAME.utils.device.checkHeadsetConnected ();
 console.log(mobile);
 function onSceneLoad(){
     let createObjs= true;
+    let scene = document.querySelector('a-scene');
     //Playing background track
     bgSound = document.querySelector('#ambience');
     bgSound.components['sound'].playSound();
