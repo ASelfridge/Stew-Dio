@@ -14,7 +14,6 @@ AFRAME.registerComponent('new-recipe', {
     },
     updateRS: function(){
         const Context_AF = this;
-        
 
         let scene = document.querySelector('a-scene');
         if (Context_AF.data.recipeAvailable) {
