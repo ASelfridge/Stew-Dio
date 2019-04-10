@@ -75,9 +75,9 @@ AFRAME.registerComponent('recipe-system', {
         }
     },
     checkRecipeStatus : function() {
+        console.log(this.currentRecipe.delivered);
         const Context_AF = this;
 
-       // console.log(this.currentRecipe.delivered);
        if(!Context_AF.currentRecipe.completed) {
             for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
                 if(!Context_AF.currentRecipe.inStew[i]) {
@@ -92,19 +92,13 @@ AFRAME.registerComponent('recipe-system', {
             ladle.setAttribute('obj-model', {'obj': '#ladle_full_model'});
             // make bowl collidable
             let bowl = document.querySelector('.bowl');
+            console.log(bowl);
             bowl.setAttribute('dynamic-body', {});
             bowl.setAttribute('constraint', {'target': '#bowlConstraint'});
             
             Context_AF.currentRecipe.completed = true;
         }
-
-        //console.log(this.currentRecipe.delivered);
         
-        // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
-        //if(XXXXXXXXXXXXXXX)
-        //{
-        //    this.currentRecipe.delivered = true;
-        //}
     },
     updateStewLiquid : function () {
         const Context_AF = this;
@@ -153,8 +147,29 @@ AFRAME.registerComponent('recipe-system', {
     },
     setRecipeDelivered : function () {
         const Context_AF = this;
-        //console.log("execute");
+        let scene = document.querySelector('a-scene');
         Context_AF.currentRecipe.delivered = true;
+
+        // move characters
+        scene.components['customer-line'].updateLine();
+
+        // wait for customer animation to finish
+        setTimeout(function() {
+            // reset bowl
+            let bowl = document.querySelector('.bowl');
+            bowl.object3D.position.set(bowl.ogPos.x, bowl.ogPos.y, bowl.ogPos.z);
+            bowl.object3D.rotation.set(bowl.ogRot._x, bowl.ogRot._y, bowl.ogRot._z);
+            bowl.object3D.scale.set(bowl.ogScale.x, bowl.ogScale.y, bowl.ogScale.z);
+            bowl.setAttribute('obj-model', {'obj': '#bowl_model'});
+            bowl.components['detect-collision'].data.stewed = 0;
+            let ladle = document.querySelector('.ladle');
+            ladle.components['detect-collision'].data.stewed = 0;
+
+            // start new recipe
+            let char = document.querySelector('#character1');
+            char.components['new-recipe'].updateRS();
+       }, 2000);
+
         
     },
     updateChits : function(){
