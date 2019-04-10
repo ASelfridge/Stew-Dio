@@ -68,7 +68,7 @@
                 
             });
             document.querySelector('#begin').addEventListener('mousedown', function (evt) {
-                console.log("listener");
+                //console.log("listener");
                 start();
             });
             NAF.connection.subscribeToDataChannel('joinGame', function(senderId, dataType, data, targetId){
@@ -88,7 +88,7 @@
                     { 
                         sendSelf();
                     } 
-                }, 800)
+                }, 1000)
             };
     </script>
 </html>

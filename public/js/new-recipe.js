@@ -14,6 +14,8 @@ AFRAME.registerComponent('new-recipe', {
     },
     updateRS: function(){
         const Context_AF = this;
+        
+
         let scene = document.querySelector('a-scene');
         if (Context_AF.data.recipeAvailable) {
             Context_AF.data.recipeAvailable = false;
@@ -26,9 +28,7 @@ AFRAME.registerComponent('new-recipe', {
             speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
             speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
             
-            let customer = Context_AF.el;
-            console.log(customer);
-            customer.setAttribute('visible', false);
+         
 
             // play greeting sound
             Context_AF.el.components['sound'].stopSound();
