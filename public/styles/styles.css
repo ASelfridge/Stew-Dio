@@ -13,25 +13,34 @@ body{
     flex-direction: column;
     overflow: hidden;
  }
-
- #titleAnim{
+ /* #titleAnim{
     margin-top: 100px;
 
     
- }
+ } */
+ 
 
  #anim{
-    margin-top: auto;
+    margin-top: 10px;
     overflow: hidden;
+ }
+ #stewIt{
+    margin: auto;
+    margin-top: 60px;
  }
  #begin{
     margin: auto;
-    margin-top: 100px;
+    margin-top: 60px;
     overflow: hidden;
     z-index: 1;
     position:relative;
  }
+#begin:hover{
+    transform: scale(1.1, 1.1);
+    transform: move(1, -1);
+    opacity: 0.8;
 
+}
  @media only screen and (min-width: 981px) {
     #anim{
         margin-bottom: -30%;
