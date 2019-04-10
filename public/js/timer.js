@@ -35,7 +35,8 @@ function runTimer(){
                 disappointedCrowd.components['sound'].playSound();
             }, 200);
             setTimeout(function(){
-                console.log("this is where we kick them out");   
+                // window.location.href='/index.html';
+                // NAF.connection.broadcastData('reset');
             }, 5000);    
         }
 

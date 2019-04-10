@@ -21,7 +21,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([true, true, true]);
-            console.log("customer number " + numCustomers + " order recieved");  
+            //console.log("customer number " + numCustomers + " order recieved");  
         }
 
         if(numCustomers == 2){
@@ -29,7 +29,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([true, true, true, false]);
-            console.log("customer number " + numCustomers + " order recieved");
+            //console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers == 3){
@@ -37,7 +37,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([false, true, true, true, true, true]);
-            console.log("customer number " + numCustomers + " order recieved");
+            //console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
@@ -45,9 +45,9 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([true, true, true, true, false]);
-            console.log("customer number " + numCustomers + " order recieved");
+           // console.log("customer number " + numCustomers + " order recieved");
         }
-        console.log(this.currentRecipe.ingredients);
+        //console.log(this.currentRecipe.ingredients);
     },
     updateRecipeSystem : function(data) {
         const Context_AF = this;
@@ -64,7 +64,7 @@ AFRAME.registerComponent('recipe-system', {
                 
                     Context_AF.currentRecipe.inStew[i] = true;
                     Context_AF.updateStewLiquid();
-                    console.log("ingredient is in slot " + i + ": " + Context_AF.currentRecipe.ingredients[i]);
+                    //console.log("ingredient is in slot " + i + ": " + Context_AF.currentRecipe.ingredients[i]);
             
                     Context_AF.updateChits();
                     return;
@@ -77,7 +77,7 @@ AFRAME.registerComponent('recipe-system', {
     checkRecipeStatus : function() {
         const Context_AF = this;
 
-        console.log(this.currentRecipe.delivered);
+       // console.log(this.currentRecipe.delivered);
        if(!Context_AF.currentRecipe.completed) {
             for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
                 if(!Context_AF.currentRecipe.inStew[i]) {
@@ -98,7 +98,7 @@ AFRAME.registerComponent('recipe-system', {
             Context_AF.currentRecipe.completed = true;
         }
 
-        console.log(this.currentRecipe.delivered);
+        //console.log(this.currentRecipe.delivered);
         
         // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
         //if(XXXXXXXXXXXXXXX)
@@ -153,11 +153,13 @@ AFRAME.registerComponent('recipe-system', {
     },
     setRecipeDelivered : function () {
         const Context_AF = this;
-        console.log("execute");
+        //console.log("execute");
         Context_AF.currentRecipe.delivered = true;
         
     },
     updateChits : function(){
+        let book = document.querySelector('#recipeBook');
+
         const Context_AF = this;
 
         garlicChit = document.querySelector('#garlic_chit');
@@ -173,7 +175,7 @@ AFRAME.registerComponent('recipe-system', {
         pastaChit = document.querySelector('#pasta_chit');
         chickenChit = document.querySelector('#chicken_chit');
    
-        console.log("chit updating");
+        //console.log("chit updating");
         if(numCustomers == 1){
 
             //in recipe
@@ -191,6 +193,8 @@ AFRAME.registerComponent('recipe-system', {
             lentilsChit.setAttribute('position', "0 -5 0");
             pastaChit.setAttribute('position', "0 -5 0");
             chickenChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_BS_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 garlicChit.setAttribute('material', {src: "#Garlic_Chit_Completed_texture"});
@@ -226,6 +230,8 @@ AFRAME.registerComponent('recipe-system', {
             blackBeansChit.setAttribute('position', "0 -5 0");
             pastaChit.setAttribute('position', "0 -5 0");
             chickenChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_LM_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 mushroomChit.setAttribute('material', {src: "#Mushroom_Chit_Completed_texture"});
@@ -266,6 +272,8 @@ AFRAME.registerComponent('recipe-system', {
             lentilsChit.setAttribute('position', "0 -5 0");
             pastaChit.setAttribute('position', "0 -5 0");
             chickenChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_BBS_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 blackBeansChit.setAttribute('material', {src: "#blackBeans_Chit_Completed_texture"});
@@ -311,6 +319,8 @@ AFRAME.registerComponent('recipe-system', {
             celeryChit.setAttribute('position', "0 -5 0");
             blackBeansChit.setAttribute('position', "0 -5 0");
             lentilsChit.setAttribute('position', "0 -5 0");
+
+            book.setAttribute('material', {src: '#book_CNS_texture'});
 
             if(Context_AF.currentRecipe.inStew[0] == true){
                 chickenChit.setAttribute('material', {src: "#Chicken_Chit_Completed_texture"});

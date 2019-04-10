@@ -34,10 +34,19 @@ AFRAME.registerComponent('object-pickup', {
                 if(scene.selectedObject == null) {
                     // check that user is holding the trigger down
                     if(scene.triggerDown){
-                        if(el.components['tool'].data.available) { 
-                            el.setAttribute('tool', 'available', false);
+                        //Check if object has tool component
+                        if(el.components['tool']) { 
+                            // If it's set to unavailable, user may not pick it up
+                            if(!el.components['tool'].data.available) { 
+                                console.warn("Object is already being held");
+                            }
+                            else{
+                                Context_AF.pickup(e, false);
+                            }
                         }
-                        Context_AF.pickup(e, true);
+                        else {
+                            Context_AF.pickup(e, false);
+                        }
                     }
                 }
                 // need to add support for picking up if trigger down after instersect happens !!!!!!!!!!!!!
@@ -47,12 +56,13 @@ AFRAME.registerComponent('object-pickup', {
         else {
             el.addEventListener('mousedown', function(e) {
                 if(scene.selectedObject == null){ 
+                    // Check for tool component
                     if(el.components['tool']) { 
-                        if(!el.components['tool'].data.available) { 
-                            console.warn("Object is already being held");
+                        // If it's set to unavailable, user may not pick it up
+                        if(el.components['tool'].data.available == false) { 
+                            console.log("Object is already being held");
                         }
                         else{
-                            el.setAttribute('tool', 'available', false);
                             Context_AF.pickup(e, false);
                         }
                     }
@@ -70,6 +80,11 @@ AFRAME.registerComponent('object-pickup', {
         let scene = document.querySelector('a-scene');
         //check that not outside of maxDistance range
         if(e.detail.intersection.distance <= maxDistance) {
+            // Change Networking ownership of object 
+            if (!NAF.utils.isMine(el)){
+                NAF.utils.takeOwnership(el);
+            }
+
             //remove physics from element as it is being carried
             el.removeAttribute('dynamic-body');
             el.removeAttribute('static-body');
@@ -78,11 +93,10 @@ AFRAME.registerComponent('object-pickup', {
 
             // set selected object to this
             scene.selectedObject = el.id;
+            
+            // Set availability to false
+            el.setAttribute('tool', 'available', false);
 
-             // Change Networking ownership of object 
-             if (!NAF.utils.isMine(el)){
-                NAF.utils.takeOwnership(el);
-            }
 
             // reformat data
             let pos = data.position.split(" ");
