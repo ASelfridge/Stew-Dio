@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Starting Environment</title>
+    
+        <script src="js/aframe-v0.8.2.min.js"></script>
+        <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+        <script src="js/master.js"></script>
+        <script src="js/timer.js"></script>
+        <script src="js/socket.io.min.js"></script>
+        <script src="js/easyrtc.js"></script>
+        <script src="js/networked-aframe.min.js"></script>
+        <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+        <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/tilt-turn/tilt-turn.js"></script>
+        <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+        <script src="js/trigger.js"></script>
+        <script src="js/object-pickup.js"></script>
+        <script src="js/object-place.js"></script>
+        <script src="js/new-recipe.js"></script>
+        <script src="js/tool-component.js"></script>
+        <script src="js/parent-constraint.js"></script>
+        <script src="js/detect-collision.js"></script>
+        <script src="js/onSceneLoad.js"></script>
+        <script src="js/recipe-system.js"></script>
+        <script src="js/recipes.js"></script>
+        <script src="js/customer-line.js"></script>
+        <script src="js/texture-update.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    </head>
+      
+    <body>
+        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;" recipe-system customer-line> 
+
+            <!-------------- TEXTURES ---------------->
+            <a-assets>
+                <img id="skymap" src="assets/textures/sunsetGradient.png" />
+                <img id="area_texture" src="assets/textures/mainTexture.jpg" />
+                <img id="book_blank_texture" src="assets/textures/blank_recipe.png" />
+                <img id="book_BS_texture" src="assets/textures/BS_recipe.jpg" />
+                <img id="book_BBS_texture" src="assets/textures/BBS_recipe.jpg" />
+                <img id="book_CNS_texture" src="assets/textures/CNS_recipe.jpg" />
+                <img id="book_LM_texture" src="assets/textures/LM_recipe.jpg" />
+                <img id="Blank_Chit_texture" src="assets/textures/Blank_Chit.png" />
+                <img id="Garlic_Chit_Completed_texture" src="assets/textures/Garlic_Chit_Completed.png" />
+                <img id="Squash_Chit_Completed_texture" src="assets/textures/Squash_Chit_Completed.png" />
+                <img id="Onion_Chit_Completed_texture" src="assets/textures/Onion_Chit_Completed.png" />
+                <img id="Mushroom_Chit_Completed_texture" src="assets/textures/Mushroom_Chit_Completed.png" />
+                <img id="Potato_Chit_Completed_texture" src="assets/textures/Potato_Chit_Completed.png" />
+                <img id="Corn_Chit_Completed_texture" src="assets/textures/Corn_Chit_Completed.png" />
+                <img id="Carrot_Chit_Completed_texture" src="assets/textures/Carrot_Chit_Completed.png" />
+                <img id="Celery_Chit_Completed_texture" src="assets/textures/Celery_Chit_Completed.png" />
+                <img id="blackBeans_Chit_Completed_texture" src="assets/textures/blackBeans_Chit_Completed.png" />
+                <img id="lentils_Chit_Completed_texture" src="assets/textures/Lentils_Chit_Completed.png" />
+                <img id="Pasta_Chit_Completed_texture" src="assets/textures/Pasta_Chit_Completed.png" />
+                <img id="Chicken_Chit_Completed_texture" src="assets/textures/Chicken_Chit_Completed.png" />
+                <img id="hat_texture" src="assets/textures/hat.jpg" />
+                <img id="Pine_texture" src="assets/textures/pine.jpg" />
+                <img id="Bowl_texture" src="assets/textures/Bowl.jpg" />
+
+                <img id="Recipe1_Completed_texture" src="assets/textures/Recipe1_Completed_texture.jpg" />
+                <img id="Recipe2_Completed_texture" src="assets/textures/Recipe2_Completed_texture.jpg" />
+                <img id="Recipe3_Completed_texture" src="assets/textures/Recipe3_Completed_texture.jpg" />
+                <img id="Recipe4_Completed_texture" src="assets/textures/Recipe4_Completed_texture.jpg" />
+                <img id="stewLiquid_texture" src="assets/textures/stewLiquid_texture.jpg" />
+
+                <img id="Squash_texture" src="assets/textures/Squash.jpg" />
+                <img id="Carrot_texture" src="assets/textures/Carrot.jpg" />
+                <img id="Celery_texture" src="assets/textures/Celery.jpg" />
+                <img id="Corn_texture" src="assets/textures/Corn.jpg" />
+                <img id="Mushroom_texture" src="assets/textures/Mushroom.jpg" />
+                <img id="Garlic_texture" src="assets/textures/Garlic.jpg" />
+                <img id="Onion_texture" src="assets/textures/Onion.jpg" />
+                <img id="Chicken_texture" src="assets/textures/Chicken.jpg" />
+                <img id="Potatoe_texture" src="assets/textures/Potatoe.jpg" />
+                <img id="Pasta_texture" src="assets/textures/Pasta.jpg" />
+                <img id="Bean_texture" src="assets/textures/Beans.jpg" />
+                <img id="Lentil_texture" src="assets/textures/Lentils.jpg" />
+
+                <img id="Onion_Chit_texture" src="assets/textures/Onion_Chit.png" />
+                <img id="Squash_Chit_texture" src="assets/textures/Squash_Chit.png" />
+                <img id="Garlic_Chit_texture" src="assets/textures/Garlic_Chit.png" />
+                <img id="Mushroom_Chit_texture" src="assets/textures/Mushroom_Chit.png" />
+                <img id="Potato_Chit_texture" src="assets/textures/Potato_Chit.png" />
+                <img id="Corn_Chit_texture" src="assets/textures/Corn_Chit.png" />
+                <img id="Carrot_Chit_texture" src="assets/textures/Carrot_Chit.png" />
+                <img id="Celery_Chit_texture" src="assets/textures/Celery_Chit.png" />
+                <img id="blackBeans_Chit_texture" src="assets/textures/blackBeans_Chit.png" />
+                <img id="lentils_Chit_texture" src="assets/textures/Lentils_Chit.png" />
+                <img id="Pasta_Chit_texture" src="assets/textures/Pasta_Chit.png" />
+                <img id="Chicken_Chit_texture" src="assets/textures/Chicken_Chit.png" />
+
+                <img id="timer0_texture" src="assets/textures/timer/timer0.png" />
+                <img id="timer1_texture" src="assets/textures/timer/timer1.png" />
+                <img id="timer2_texture" src="assets/textures/timer/timer2.png" />
+                <img id="timer3_texture" src="assets/textures/timer/timer3.png" />
+                <img id="timer4_texture" src="assets/textures/timer/timer4.png" />
+                <img id="timer5_texture" src="assets/textures/timer/timer5.png" />
+                <img id="timer6_texture" src="assets/textures/timer/timer6.png" />
+                <img id="timer7_texture" src="assets/textures/timer/timer7.png" />
+                <img id="timer8_texture" src="assets/textures/timer/timer8.png" />
+                <img id="timer9_texture" src="assets/textures/timer/timer9.png" />
+
+                <img id="knife_texture" src="assets/textures/Knife_Ladel.jpg" />
+                <img id="character_texture" src="assets/textures/character.jpg" />
+                <img id="character2_texture" src="assets/textures/character_2.jpg" />
+                <img id="character3_texture" src="assets/textures/character_3.jpg" />
+                <img id="character4_texture" src="assets/textures/character_4.jpg" />
+
+                <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
+                <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+            </a-assets>
+    
+            <!-------------- SOUNDS ---------------->
+            <a-assets>
+                <!--<a-asset-item crossorigin="anonymous" id="ambianceSrc" src="assets/sounds/stewIt_ambience.mp3" response-type="arraybuffer"></a-asset-item>-->
+                <a-asset-item crossorigin="anonymous" id="musicSrc" src="assets/sounds/Whimsical-Popsicle.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="ambienceSrc" src="assets/sounds/ambience.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="stewFillSrc" src="assets/sounds/stewFill.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="timerSrc" src="assets/sounds/countdown.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="buzzerSrc" src="assets/sounds/buzzer.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="disappointed-crowdSrc" src="assets/sounds/disappointed-crowd.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="chopSrc" src="assets/sounds/chop.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="bubblingSrc" src="assets/sounds/bubbling.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="pickupSoundSrc" src="assets/sounds/pickup.mp3" response-type="arraybuffer"></a-asset-item>
+                
+
+            </a-assets>
+          
+            <!---------------- MODELS ---------------->
+            <a-assets>
+                <a-asset-item id="area_model" src="assets/models/area.obj"></a-asset-item>
+                <a-asset-item id="book_model" src="assets/models/recipeBook.obj"></a-asset-item>
+
+                <a-asset-item id="pine_model" src="assets/models/pine.obj"></a-asset-item>
+               
+                <!-- Players/NPCs -->
+                <a-asset-item id="hat_model" src="assets/models/hat.obj"></a-asset-item>
+                <a-asset-item id="character_model" src="assets/models/character.obj"></a-asset-item>
+                <a-asset-item id="character2_model" src="assets/models/character_2.obj"></a-asset-item>
+                <a-asset-item id="character3_model" src="assets/models/character_3.obj"></a-asset-item>
+                <a-asset-item id="character4_model" src="assets/models/character_4.obj"></a-asset-item>
+               
+                <!-- Stew -->
+                <a-asset-item id="stewLiquid_model" src="assets/models/stewLiquid.obj"></a-asset-item>
+
+                <!-- Tools/Utensils -->
+                <a-asset-item id="knife_model" src="assets/models/knife.obj"></a-asset-item>
+                <a-asset-item id="ladle_model" src="assets/models/ladle.obj"></a-asset-item>
+                <a-asset-item id="ladle_full_model" src="assets/models/ladle_full.obj"></a-asset-item>            
+                <a-asset-item id="bowl_model" src="assets/models/bowl.obj"></a-asset-item> 
+                <a-asset-item id="bowl_full_model" src="assets/models/bowl_full.obj"></a-asset-item>  
+                <a-asset-item id="fryingPan_model" src="assets/models/fryingPan.obj"></a-asset-item> 
+                
+                <!-- Ingredients -->
+                <a-asset-item id="squashWhole_model" src="assets/models/squash.obj"></a-asset-item>
+                <a-asset-item id="squash_chop_1_model" src="assets/models/squash_chop_1.obj"></a-asset-item>
+                <a-asset-item id="squash_chop_2_model" src="assets/models/squash_chop_2.obj"></a-asset-item>
+                <a-asset-item id="squash_chop_3_model" src="assets/models/squash_chop_3.obj"></a-asset-item>
+                
+                <a-asset-item id="onionWhole_model" src="assets/models/onion.obj"></a-asset-item>
+                <a-asset-item id="onion_chop_1_model" src="assets/models/onion_chop_1.obj"></a-asset-item>
+                <a-asset-item id="onion_chop_2_model" src="assets/models/onion_chop_2.obj"></a-asset-item>
+                <a-asset-item id="onion_chop_3_model" src="assets/models/onion_chop_3.obj"></a-asset-item>
+
+                <a-asset-item id="garlicWhole_model" src="assets/models/garlic.obj"></a-asset-item>
+                <a-asset-item id="garlic_chop_1_model" src="assets/models/garlic_chop_1.obj"></a-asset-item>
+                <a-asset-item id="garlic_chop_2_model" src="assets/models/garlic_chop_2.obj"></a-asset-item>
+                <a-asset-item id="garlic_chop_3_model" src="assets/models/garlic_chop_3.obj"></a-asset-item>
+
+                <a-asset-item id="mushroomWhole_model" src="assets/models/mushroom.obj"></a-asset-item>
+                <a-asset-item id="mushroom_chop_1_model" src="assets/models/mushroom_chop_1.obj"></a-asset-item>
+                <a-asset-item id="mushroom_chop_2_model" src="assets/models/mushroom_chop_2.obj"></a-asset-item>
+                <a-asset-item id="mushroom_chop_3_model" src="assets/models/mushroom_chop_3.obj"></a-asset-item>
+
+                <a-asset-item id="potatoWhole_model" src="assets/models/potato.obj"></a-asset-item>
+                <a-asset-item id="potato_chop_1_model" src="assets/models/potato_chop_1.obj"></a-asset-item>
+                <a-asset-item id="potato_chop_2_model" src="assets/models/potato_chop_2.obj"></a-asset-item>
+                <a-asset-item id="potato_chop_3_model" src="assets/models/potato_chop_3.obj"></a-asset-item>
+
+                <a-asset-item id="cornWhole_model" src="assets/models/corn.obj"></a-asset-item>
+                <a-asset-item id="corn_chop_1_model" src="assets/models/corn_chop_1.obj"></a-asset-item>
+                <a-asset-item id="corn_chop_2_model" src="assets/models/corn_chop_2.obj"></a-asset-item>
+                <a-asset-item id="corn_chop_3_model" src="assets/models/corn_chop_3.obj"></a-asset-item>
+                
+                <a-asset-item id="carrotWhole_model" src="assets/models/carrot.obj"></a-asset-item>
+                <a-asset-item id="carrot_chop_1_model" src="assets/models/carrot_chop_1.obj"></a-asset-item>
+                <a-asset-item id="carrot_chop_2_model" src="assets/models/carrot_chop_2.obj"></a-asset-item>
+                <a-asset-item id="carrot_chop_3_model" src="assets/models/carrot_chop_3.obj"></a-asset-item>
+
+                <a-asset-item id="celeryWhole_model" src="assets/models/celery.obj"></a-asset-item>
+                <a-asset-item id="celery_chop_1_model" src="assets/models/celery_chop_1.obj"></a-asset-item>
+                <a-asset-item id="celery_chop_2_model" src="assets/models/celery_chop_2.obj"></a-asset-item>
+                <a-asset-item id="celery_chop_3_model" src="assets/models/celery_chop_3.obj"></a-asset-item>
+
+                <a-asset-item id="blackBeansWhole_model" src="assets/models/blackBeans.obj"></a-asset-item>
+
+                <a-asset-item id="lentilsWhole_model" src="assets/models/lentils.obj"></a-asset-item>
+
+                <a-asset-item id="pastaWhole_model" src="assets/models/pasta.obj"></a-asset-item>
+
+                <a-asset-item id="chickenWhole_model" src="assets/models/chicken.obj"></a-asset-item>
+                <a-asset-item id="chicken_chop_1_model" src="assets/models/chicken_chop_1.obj"></a-asset-item>
+                <a-asset-item id="chicken_chop_2_model" src="assets/models/chicken_chop_2.obj"></a-asset-item>
+                <a-asset-item id="chicken_chop_3_model" src="assets/models/chicken_chop_3.obj"></a-asset-item>
+                
+                <!-- Chits -->
+                <a-asset-item id="chit_model" src="assets/models/chit.obj"></a-asset-item>
+                <a-asset-item id="paddle_model" src="assets/models/paddle.obj"></a-asset-item>
+                <a-asset-item id="speechBubble_model" src="assets/models/speechBubble.obj"></a-asset-item>
+
+                <!-- Timer -->
+                <a-asset-item id="timer_model" src="assets/models/timer.obj"></a-asset-item>
+
+               
+    
+    <!-- 
+        <a-asset-item id="carrot_model" src="assets/models/carrot.obj"></a-asset-item>              
+        <a-asset-item id="cuttingBoard_model" src="assets/models/cuttingBoard.obj"></a-asset-item>
+        <a-asset-item id="lantern_model" src="assets/models/lantern.obj"></a-asset-item>
+     -->
+
+    
+
+</a-assets>
+
+<!---------------- NETWORK TEMPLATES ---------------->
+<a-assets>
+    <template id="camRig_template"> 
+        <a-entity class="camRig">
+        </a-entity>
+        </a-entity>
+    </template>
+
+    <template id="avatar_template"> 
+        <a-entity class="avatar" position="0 1.5 3">
+            <a-entity class="hat"
+                    obj-model="obj:#hat_model"
+                    material="src:#hat_texture" 
+                    position="0 0.3 0"
+                    rotation="0 180 0"
+                   >
+            </a-entity>
+        </a-entity>
+    </template>
+
+    <template id="squash_template">
+            <a-entity class="squash collidable"
+                        material="src:#Squash_texture" 
+                        shadow=""
+                        object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 4.077 1.974 7.522, -0.5 3 0; angledPlaceholder: false, true, true; hasCollision: true"
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #squash_chop_1_model, #squash_chop_2_model, #squash_chop_3_model"
+                        > </a-entity>
+        </template>
+
+        <template id="onion_template">
+                <a-entity class="onion collidable" 
+                            obj-model="obj:#onionWhole_model" 
+                            material="src:#Onion_texture" 
+                            object-pickup="position:0.006 -.87 -.5; rotation: 0 0 0; numPlaceholders: 2; placeholderPos: 3.476 1.974 8.232, 0.5 3 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                            shadow=""
+                            detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #onion_chop_1_model, #onion_chop_2_model, #onion_chop_3_model"></a-entity>
+        </template>
+
+        <template id="garlic_template">
+            <a-entity class="garlic collidable" 
+                        object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos: 4.612 1.964 6.880, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#garlicWhole_model" 
+                        material="src:#Garlic_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #garlic_chop_1_model, #garlic_chop_2_model, #garlic_chop_3_model"> </a-entity>
+        </template>
+
+        <template id="mushroom_template">
+            <a-entity class="mushroom collidable" 
+                        object-pickup="position: 0 -0.5 -.5; numPlaceholders: 2; placeholderPos: 5.089 1.964 6.154, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#mushroomWhole_model" 
+                        material="src:#Mushroom_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #mushroom_chop_1_model, #mushroom_chop_2_model, #mushroom_chop_3_model"> </a-entity>
+        </template>
+
+        <template id="potato_template">
+            <a-entity class="potato collidable" 
+                        object-pickup="position:0.3 -0.6 -0.2; numPlaceholders: 2; placeholderPos:  5.515 2.004 5.366, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#potatoWhole_model" 
+                        material="src:#Potatoe_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #potato_chop_1_model, #potato_chop_2_model, #potato_chop_3_model"> </a-entity>
+        </template>
+
+        <template id="corn_template">
+            <a-entity class="corn collidable" 
+                        object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  5.979 2.002 4.605, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#cornWhole_model" 
+                        material="src:#Corn_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #corn_chop_1_model, #corn_chop_2_model, #corn_chop_3_model"> </a-entity>
+        </template>
+
+        <template id="carrot_template">
+            <a-entity class="carrot collidable" 
+                        object-pickup="position:0.006 -.87 -.5; numPlaceholders: 2; placeholderPos:  6.686 1.994 4.088, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#carrotWhole_model" 
+                        material="src:#Carrot_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #carrot_chop_1_model, #carrot_chop_2_model, #carrot_chop_3_model"> </a-entity>
+        </template>
+
+        <template id="celery_template">
+            <a-entity class="celery collidable" 
+                        object-pickup="position:0 -.6 -0.5; numPlaceholders: 2; placeholderPos:  7.223 2.006 3.157, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#celeryWhole_model" 
+                        material="src:#Celery_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #celery_chop_1_model, #celery_chop_2_model, #celery_chop_3_model"> </a-entity>
+        </template>
+
+        <template id="blackBeans_template">
+            <a-entity class="blackBeans collidable" 
+                        object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos: 7.665 1.964 2.523, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#blackBeansWhole_model" 
+                        material="src:#Bean_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision> 
+                    </a-entity>
+        </template>
+
+        <template id="lentils_template">
+            <a-entity class="lentils collidable" 
+                        object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos: 8.150 1.964 1.875, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#lentilsWhole_model" 
+                        material="src:#Lentil_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision> 
+                    </a-entity>
+        </template>
+
+        <template id="pasta_template">
+            <a-entity class="pasta collidable" 
+                        object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  8.670 1.964 1.198, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#pastaWhole_model" 
+                        material="src:#Pasta_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision> 
+                    </a-entity>
+        </template>
+
+        <template id="chicken_template">
+            <a-entity class="chicken collidable" 
+                        object-pickup="position:0 -.4 -0.5; numPlaceholders: 2; placeholderPos:  9.160 1.984 0.558, -0.5 3.1 0; angledPlaceholder: false, true, true; hasCollision: true" 
+                        obj-model="obj:#chickenWhole_model" 
+                        material="src:#Chicken_texture" 
+                        scale="" 
+                        shadow=""
+                        detect-collision="constraint: #cuttingBoard; choppable: true; chopStates: #chicken_chop_1_model, #chicken_chop_2_model, #chicken_chop_3_model"> 
+                    </a-entity>
+        </template>
+
+        <template id="knife_template">
+            <a-entity class="knife collidable" 
+                        obj-model="obj:#knife_model" 
+                        material="src: #knife_texture" 
+                        shadow=""
+                        
+                        object-pickup="position: 0.755 -0.871 -0.357; rotation: 40 20 90; placeholderPos: 8.2 2 -0.786" 
+                        shape__main="shape: box;
+                        halfExtents: 0.1 0.05 1;
+                        offset: 0 0 -0.8;"
+                        >
+            </a-entity>
+        </template>
+
+        <template id="ladle_template">
+            <a-entity class="ladle collidable" 
+                        obj-model="obj:#ladle_model" 
+                        material="src: #knife_texture"
+                        shadow=""
+
+                        raycaster=""
+                        object-pickup="position:0.826 -1.509 -0.711;rotation:-30 180 -12; placeholderPos: 0.07973 2.91157 -0.51171; dynamic: true; hasCollision: true"
+                        detect-collision="colliders: bowl; stewState: #ladle_model"
+                        ></a-entity>
+        </template>
+
+        <template id="bowl_template">
+            <a-entity class="bowl collidable" 
+                        obj-model="obj:#bowl_model"
+                        material="src: #Bowl_texture"
+                        shadow=""
+
+                        raycaster=""
+                        detect-collision="removeOnDrop: false; constraint: #bowlConstraint; colliders: ladle; stewState: #bowl_full_model;"
+                        ></a-entity>
+        </template>
+    <!-- texture-update="textures: #Blank_Chit_texture, #Garlic_Chit_texture, #Garlic_Chit_Completed_texture; setTexture: 0" -->
+    
+ </a-assets>
+
+
+
+ <!---------------- CAMERA ---------------->
+ <a-entity id="cameraRig" position="0 2 0" rotation="0 0 0" networked="template:#camRig_template;attachTemplateToLocal:true;">
+        <a-camera id="sceneCamera" networked="template:#avatar_template;attachTemplateToLocal:true;">
+            <a-entity id="cursor" cursor="rayOrigin: mouse" static-body position="0 0 -1"></a-entity>
+        </a-camera>
+    </a-entity>
+
+
+    <!---------------- LIGHTING ---------------->
+    <a-light type="ambient" color="white" position="35 4 0" intensity="0.4"></a-light>
+    <a-light type="ambient" color="white" position="-0.15682 4.3 0" intensity="0.7" light="type:point;color:#f7a83e"></a-light>
+
+
+
+   <!---------------- A-FRAME ENTITIES ---------------->
+   <a-entity id="area" obj-model="obj:#area_model" material="src: #area_texture" position="" rotation="" scale="" shadow=""></a-entity>
+
+   <!-- PLACEHOLDERS -->
+    <a-entity id="placeholder_1" object-place class="placeholder collidable" position="0 0 0" visible="false">
+        <a-entity geometry="primitive:ring;radiusInner:2.8;radiusOuter:3" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity geometry="primitive:circle" scale="0.6 0.6 1" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+    </a-entity>
+    <a-entity id="placeholder_2" object-place class="placeholder collidable" position="0 0 0" visible="false">
+        <a-entity geometry="primitive:ring;radiusInner:2.8;radiusOuter:3" rotation="-52 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity geometry="primitive:circle" scale="0.6 0.6 1" rotation="-52 0 0" material="color:#ffffff;opacity:0.2;side:double;emissive:#ffffff"></a-entity>
+    </a-entity>
+    <a-entity id="placeholder_3" object-place class="placeholder collidable" position="0 0 0" visible="false">
+        <a-entity geometry="primitive:ring;radiusInner:2.8 ;radiusOuter:3" rotation="80 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity geometry="primitive:circle" scale="0.6 0.6 1" rotation="80 0 0" material="color:#ffffff;opacity:0.2;side:double;emissive:#ffffff"></a-entity>
+    </a-entity>
+    <!-- <a-entity id="placeholder_3" object-place class="placeholder collidable" position="0 0 0" visible="false">
+        <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+    </a-entity> -->
+    <a-entity id="placeholder_4" object-place class="placeholder collidable" position="0 0 0" visible="false">
+        <a-entity geometry="primitive:ring;radiusInner:0.75;radiusOuter:0.85" rotation="90 0 0" material="color:#ffffff;side:double;emissive:#ffffff" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity geometry="primitive:circle" scale="0.15 0.15 0.15" rotation="90 0 0" material="color:#ffffff;opacity:0.4;side:double;emissive:#ffffff"></a-entity>
+    </a-entity>
+
+   
+     <!-- FOREST -->
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-16.58483 -0.825 -5.79915" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-12.953 -0.825 10.983" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-11.615 -0.825 -14.178" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.431 -0.825 12.559" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="8.715 -0.825 -14.971" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.965 -0.825 -24.713" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-15.051 -0.825 -33.571" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-27.710 -0.825 8.213" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.665 -0.825 19.396" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.693 -0.825 -24.929" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-14.456 -0.825 -23.729" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-28.994 -0.825 -17.946" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.044 -0.825 6.297" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-39.404 -0.825 -7.133" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-20.639 -0.825 -18.474" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="0.643 -0.825 -14.725" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-19.077 -0.825 -12.747" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-30.921 -0.825 -11.611" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-22.627 -0.825 10.878" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.924 -0.825 24.953" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-7.725 -0.825 18.688" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.601 -0.825 12.268" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.904 -0.825 9.461" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-5.818 -0.825 -12.185" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-17.424 -0.825 17.666" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-4.195 -0.825 25.139" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="11.318 -0.825 20.869" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="5.115 -0.825 25.941" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="-2.758 -0.825 15.923" rotation="" scale="0.7 0.7 0.7" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="17.939 -0.825 4.565" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="14.570 -0.825 -8.824" rotation="" scale="" shadow=""></a-entity>
+     <a-entity id="pine" obj-model="obj:#pine_model" material="src: #Pine_texture" position="15.934 -0.825 -0.492" rotation="" scale="" shadow=""></a-entity>
+
+
+    <!-- SOUNDS ENTITIES -->
+    <a-entity id="music" sound="src:#musicSrc; volume: 0.7; loop: true; positional:false" ></a-entity>
+    <a-entity id="ambience" sound="src:#ambienceSrc; volume: 4; loop: true; positional:true" position="0 0 0" ></a-entity>
+    <a-entity id="disappointed-crowd" sound="src:#disappointed-crowdSrc; volume: 1.5; loop: false; positional:false"></a-entity>
+    <a-entity id="bell" sound="src:#customerBellSrc; volume: 1.5; loop: false; positional:false"></a-entity>
+    <a-entity id="pickupSound" sound="src:#pickupSoundSrc; volume: 3; loop: false; positional:false"></a-entity>
+
+    
+    
+    
+
+    <a-entity id="stewLiquid" 
+            obj-model="obj:#stewLiquid_model" 
+            position="0 -10 0" 
+            rotation="" 
+            scale="" 
+            material="color:#F5E1A4" 
+            shadow=""
+
+            sound="src: #stewFillSrc; volume: 5; positional: true;">
+    </a-entity>
+  
+    <!-- CUSTOMER SERVICE -->
+    <a-entity id="character1" 
+            class="customer"
+            obj-model="obj:#character_model" 
+            material="src: #character_texture"
+            position="-9.59681 -0.01024 0.12693" 
+            rotation="0 0.07620338675239949 0" 
+            scale="" 
+            shadow="" 
+
+            new-recipe=""
+            sound="src: #customerGreetingSrc; volume: 5; positional: true;">
+    </a-entity>
+
+    <a-entity id="character2" 
+            class="customer"
+            obj-model="obj:#character2_model" 
+            material="src: #character2_texture"
+            position="-12.59681 -0.01024 0.12693" 
+            rotation="0 0.07620338675239949 0" 
+            scale="" 
+            shadow="" 
+
+            new-recipe=""
+            sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+    </a-entity>
+
+    <a-entity id="character3" 
+            class="customer"
+            obj-model="obj:#character3_model" 
+            material="src: #character3_texture"
+            position="-15.59681 -0.01024 0.12693" 
+            rotation="0 0.07620338675239949 0" 
+            scale="" 
+            shadow="" 
+
+            new-recipe=""
+            sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+    </a-entity>
+
+    <a-entity id="character4" 
+            class="customer"
+            obj-model="obj:#character4_model" 
+            material="src: #character4_texture"
+            position="-18.59681 -0.01024 0.12693" 
+            rotation="0 0.07620338675239949 0" 
+            scale="" 
+            shadow="" 
+
+            new-recipe=""
+            sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+    </a-entity>
+ 
+    
+    <a-entity id="speechBubble" 
+            obj-model="obj:#speechBubble_model" 
+            position="1.285 -2 -1.975" 
+            rotation="0 60.801 0" 
+            scale="1.2 1.2 1.2" 
+            material="color:#ffffff" 
+            shadow="">
+    </a-entity>
+    
+    <!-- INGREDIENT STATION-->
+    
+
+    <a-entity id="onion_wrapper"></a-entity>
+
+    <a-entity id="squash_wrapper"></a-entity> 
+
+    <a-entity id="garlic_wrapper" ></a-entity>
+
+    <a-entity id="mushroom_wrapper" ></a-entity>
+
+    <a-entity id="potato_wrapper" ></a-entity>
+
+    <a-entity id="corn_wrapper" ></a-entity>
+
+    <a-entity id="carrot_wrapper" ></a-entity>
+
+    <a-entity id="celery_wrapper" ></a-entity>
+
+    <a-entity id="blackBeans_wrapper" ></a-entity>
+
+    <a-entity id="lentils_wrapper" ></a-entity>
+
+    <a-entity id="pasta_wrapper" ></a-entity>
+
+    <a-entity id="chicken_wrapper" ></a-entity>
+
+    <a-entity 
+        id="paddle_onion" 
+        obj-model="obj:#paddle_model" 
+        position="4.466 1.9 8.876" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Onion_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_squash" 
+        obj-model="obj:#paddle_model" 
+        position="4.964 1.9 8.171" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Squash_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_garlic" 
+        obj-model="obj:#paddle_model" 
+        position="5.457 1.9 7.464" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Garlic_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_mushroom" 
+        obj-model="obj:#paddle_model" 
+        position="6.019 1.9 6.765" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Mushroom_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_potato" 
+        obj-model="obj:#paddle_model" 
+        position="6.504 1.9 6.006" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Potato_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_corn" 
+        obj-model="obj:#paddle_model" 
+        position="7.105 1.9 5.312" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Corn_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_carrot" 
+        obj-model="obj:#paddle_model" 
+        position="7.579 1.9 4.588" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Carrot_Chit_texture" 
+        shadow="">
+    </a-entity>      
+    
+    <a-entity 
+        id="paddle_celery" 
+        obj-model="obj:#paddle_model" 
+        position="8.072 1.9 3.888" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Celery_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_blackBeans" 
+        obj-model="obj:#paddle_model" 
+        position="8.570 1.9 3.177" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #blackBeans_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_lentils" 
+        obj-model="obj:#paddle_model" 
+        position="9.074 1.9 2.486" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #lentils_Chit_texture" 
+        shadow="">
+    </a-entity>   
+    
+    <a-entity 
+        id="paddle_pasta" 
+        obj-model="obj:#paddle_model" 
+        position="9.559 1.9 1.800" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Pasta_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity 
+        id="paddle_chicken" 
+        obj-model="obj:#paddle_model" 
+        position="10.058 1.9 1.100" 
+        rotation="0 56.794 0" 
+        scale="1 1 1" 
+        material="src: #Chicken_Chit_texture" 
+        shadow="">
+    </a-entity>
+
+    <a-entity
+            id="ingredientTable"
+            geometry="primitive: box"
+            position="6.07 1.89 5.03"
+            rotation="0 54.3680"
+            scale="11.304 0.1 2.048"
+            material="opacity: 0"
+            
+            static-body>
+    </a-entity>
+
+
+    <!-- PREPERATION STATION-->
+    <a-entity id="knife_wrapper"></a-entity>
+    
+    <a-entity id="cuttingBoard" class="cuttingBoard"
+            geometry="primitive: box"  
+            position="6.1 2 -4.7" 
+            rotation="0 -53.72 0"
+            scale="3 0.1 1.7"
+            material="color: white; opacity: 0;" 
+            shadow=""
+            sound="src: #chopSrc; volume: 10; loop: false; positional: true;"
+            
+            body="type: static; shape:none;"
+
+            shape__main="shape: box;
+            halfExtents: 0.5 0.5 0.5;
+            offset: 0 0 0;">
+    </a-entity>
+
+
+    <!-- COOKING AREA -->
+
+    <a-entity id="fryingPan" 
+        obj-model="obj:#fryingPan_model" 
+        position=".4 2.58 -8.3" 
+        rotation="0 180 0" 
+        scale="0.5 0.5 0.5" 
+        material="color:black" 
+        shadow=""
+
+        body="type: static; shape:none;"
+
+        shape__main="shape: box;
+        height: 0.1;
+        halfExtents: 1 0.5 1;
+        offset: 0 -0.5 0;">
+    </a-entity>
+
+
+   <!-- RECIPIE AREA -->
+   <a-entity id="recipeBook" 
+            obj-model="obj:#book_model" 
+            material="src: #book_blank_texture" 
+            position="-0.97 1.92 7.12" 
+            rotation="0 -16.05 0" 
+            scale="" 
+            shadow="">
+    </a-entity>
+
+   <a-entity id="garlic_chit" 
+            obj-model="obj:#chit_model" 
+            position="-4.77195 -2 6.42" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #Garlic_Chit_texture">
+    </a-entity>
+   <a-entity id="squash_chit" 
+            obj-model="obj:#chit_model" 
+            position="-5.77195 -2 5.75577" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #Squash_Chit_texture">
+    </a-entity>
+    <a-entity id="onion_chit" 
+            obj-model="obj:#chit_model" 
+            position="-6.81907 -2 5.05183" 
+            rotation="0 56.32977267049176 0" 
+            material="src:#Onion_Chit_texture">
+    </a-entity>
+    <a-entity id="mushroom_chit" 
+            obj-model="obj:#chit_model" 
+            position="-5.77195 -2 5.75577" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #Mushroom_Chit_texture">
+    </a-entity>
+    <a-entity id="potato_chit" 
+            obj-model="obj:#chit_model" 
+            position="-6.81907 -2 5.05183" 
+            rotation="0 56.32977267049176 0" 
+            material="src:#Potato_Chit_texture">
+    </a-entity>
+    <a-entity id="corn_chit" 
+            obj-model="obj:#chit_model" 
+            position="-5.77195 -2 5.75577" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #Corn_Chit_texture">
+    </a-entity>
+    <a-entity id="carrot_chit" 
+            obj-model="obj:#chit_model" 
+            position="-6.81907 -2 5.05183" 
+            rotation="0 56.32977267049176 0" 
+            material="src:#Carrot_Chit_texture">
+    </a-entity>
+    <a-entity id="celery_chit" 
+            obj-model="obj:#chit_model" 
+            position="-5.77195 -2 5.75577" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #Celery_Chit_texture">
+    </a-entity>
+    <a-entity id="blackBeans_chit" 
+            obj-model="obj:#chit_model" 
+            position="-6.81907 -2 5.05183" 
+            rotation="0 56.32977267049176 0" 
+            material="src:#blackBeans_Chit_texture">
+    </a-entity>
+    <a-entity id="lentils_chit" 
+            obj-model="obj:#chit_model" 
+            position="-5.77195 -2 5.75577" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #lentils_Chit_texture">
+    </a-entity>
+    <a-entity id="pasta_chit" 
+            obj-model="obj:#chit_model" 
+            position="-6.81907 -2 5.05183" 
+            rotation="0 56.32977267049176 0" 
+            material="src:#Pasta_Chit_texture">
+    </a-entity>
+    <a-entity id="chicken_chit" 
+            obj-model="obj:#chit_model" 
+            position="-5.77195 -2 5.75577" 
+            rotation="0 57.44474853981633 0" 
+            material="src: #Chicken_Chit_texture">
+    </a-entity>
+   
+
+    <!-- STEW AREA -->
+     <a-entity id="stewPot" class="stewPot"
+        position="0 0 0" 
+        rotation="0 90 0" 
+        scale="0.8 0.8 0.8" 
+        shadow=""
+        sound="src: #bubblingSrc; volume: 20; loop: true; positional: true;"
+
+        body="type: static; shape:none;"
+
+        shape__main="shape: cylinder;
+        height: 4;
+        radiusTop: 1.3;
+        radiusBottom: 1.3;">
+    </a-entity>
+   
+    <a-entity id="ladle_wrapper"></a-entity>
+
+    <a-entity id="bowl_wrapper" position="0 -0.02 0"></a-entity>
+
+    <a-entity id="bowlConstraint"
+            geometry="primitive: box"  
+            position="-5.483 1.926 -6.243" 
+            rotation="0 17.636 0"
+            scale="2.041 0.044 1.31"
+            material="opacity: 0" 
+            shadow=""
+
+            body="type: static; shape:none;"
+
+            shape__main="shape: box;
+            halfExtents: 0.5 0.5 0.5;
+            offset: 0 0 0;">
+    </a-entity>
+
+
+   <!-- GROUND & SKY -->     
+   <a-plane static-body geometry="primitive:circle;radius:45" id="ground" position="0 -0.5 0" width="40" height="40" rotation="-90 0 0" color="#074f39" shadow></a-plane>
+ 
+   <a-sky color="#ECECEC" ></a-sky>
+    <a-entity   id="sky"
+                rotation="0 180 0"
+                geometry="primitive: sphere; radius: 1000"
+                material="shader: flat; src: #skymap; side: back"
+                loadscripts>
+    </a-entity>
+
+
+    <!-- timer -->
+    <a-entity id="timer1" 
+        obj-model="obj:#timer_model" 
+        position="-7.550 5.4 -3.238" 
+        rotation="0 90 0" 
+        material="src: #timer9_texture"
+        sound="src: #timerSrc; volume: 1; positional: false;">
+    </a-entity>
+
+    <a-entity id="timer2" 
+        obj-model="obj:#timer_model" 
+        position="-7.536 5.4 -2.665" 
+        rotation="0 90 0" 
+        material="src: #timer9_texture"
+        sound="src: #buzzerSrc; volume: 1; loop: false; positional: false;">
+    </a-entity>
+
+</a-scene>
+<script>
+        // Define custom schema for syncing avatar color, set by random-color
+        NAF.schemas.add({
+          template: '#squash_template',
+          components: [
+            'position',
+            'rotation',
+            'obj-model',
+            'tool'
+          ]
+        });
+        NAF.schemas.add({
+          template: '#onion_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#garlic_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#mushroom_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#potato_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#corn_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#carrot_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#celery_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#blackBeans_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#lentils_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#pasta_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#chicken_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#knife_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#ladle_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        NAF.schemas.add({
+          template: '#bowl_template',
+          components: [
+            'position',
+            'rotation',
+            'tool',
+          ]
+        });
+        document.querySelector('a-scene').addEventListener('loaded', onSceneLoad)
+       
+      </script>
+    </body>
+  </html>
