@@ -40,7 +40,7 @@ function onSceneLoad(){
         scene.components['recipe-system'].setRecipeDelivered();
     });
     NAF.connection.subscribeToDataChannel('numCustomersIncrease', function(senderId, dataType, data, targetId){     
-        document.querySelector('#character1').components['new-recipe'].updateRS();
+        document.querySelector('#start_chit').components['new-recipe'].updateRS();
     });
     NAF.connection.subscribeToDataChannel('updateRecipe', function(senderId, dataType, data, targetId){     
         document.querySelector('.' + data.target).components['detect-collision'].updateRS(data);
@@ -81,7 +81,7 @@ function deviceControls(){
     } else if (mobile && !(oculusGo)) {
         console.log("Mobile Device Detected");
 
-        camera.setAttribute("twoway-motion", "speed", 35);
+        camera.setAttribute("twoway-motion", "speed", 50);
         camera.setAttribute("tilt-turn", "criticalAngle", 12);
 
         console.log("Mobile Controls Enabled");

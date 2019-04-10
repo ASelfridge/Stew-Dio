@@ -6,17 +6,32 @@ AFRAME.registerComponent('new-recipe', {
         // whether or not a new recipe is pending
         const Context_AF = this;
         const el = Context_AF.el;
-        el.addEventListener('mousedown', function() {
-            Context_AF.updateRS();
-            NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
-            
-        });
+        let scene = document.querySelector('a-scene');
+
+        // functionality for oculus go
+        if(oculusGo) {
+            el.addEventListener('raycaster-intersected', function(e) {
+                if(scene.triggerDown){
+                    // start new recipe
+                    Context_AF.updateRS();
+                    NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
+                }
+            });
+        }
+        // pickup functionality for mobile/desktop
+        else {
+            el.addEventListener('mousedown', function(e) {
+                Context_AF.updateRS();
+                NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
+            });
+        }
     },
     updateRS: function(){
         const Context_AF = this;
 
         let scene = document.querySelector('a-scene');
         if (Context_AF.data.recipeAvailable) {
+
             Context_AF.data.recipeAvailable = false;
 
             customerID = numCustomers;
@@ -26,14 +41,25 @@ AFRAME.registerComponent('new-recipe', {
 
             speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
             speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
-            
-         
+
+            if(numCustomers == 0) {
+                Context_AF.el.object3D.visible = false;
+            }
 
             // play greeting sound
-            Context_AF.el.components['sound'].stopSound();
-            Context_AF.el.components['sound'].playSound();
+            let char = document.querySelector('#character' + (numCustomers + 1));
+            console.warn('#character' + (numCustomers + 1));
+            //char.components['sound'].stopSound();
+            char.components['sound'].playSound();
 
             numCustomers++;
+
+            if (numCustomers > 4) {
+                setTimeout(function(){
+                    window.location.href='/index.html';
+                    NAF.connection.broadcastData('reset');
+                }, 5000); 
+            }
             
             if(numCustomers != 1){
                 addTime();
@@ -44,5 +70,9 @@ AFRAME.registerComponent('new-recipe', {
             
             scene.components['recipe-system'].newRecipe();
         }
+    },
+    hideStartChit : function() {
+        let start_chit = document.querySelector('#start_chit');
+        start_chit.object3D.visible = false;
     }
 });

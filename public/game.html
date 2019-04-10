@@ -29,7 +29,7 @@
     </head>
       
     <body>
-        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;" recipe-system customer-line> 
+        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="restitution: 0.3;" recipe-system customer-line> 
 
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -88,6 +88,7 @@
                 <img id="lentils_Chit_texture" src="assets/textures/Lentils_Chit.png" />
                 <img id="Pasta_Chit_texture" src="assets/textures/Pasta_Chit.png" />
                 <img id="Chicken_Chit_texture" src="assets/textures/Chicken_Chit.png" />
+                <img id="Start_Chit_texture" src="assets/textures/Start.png" />
 
                 <img id="timer0_texture" src="assets/textures/timer/timer0.png" />
                 <img id="timer1_texture" src="assets/textures/timer/timer1.png" />
@@ -108,6 +109,8 @@
 
                 <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
                 <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+                <img crossorigin="anonymous" id="speechBubble3_map" src="assets/textures/speechBubble3_map.png">
+                <img crossorigin="anonymous" id="speechBubble4_map" src="assets/textures/speechBubble4_map.png">
             </a-assets>
     
             <!-------------- SOUNDS ---------------->
@@ -117,6 +120,9 @@
                 <a-asset-item crossorigin="anonymous" id="ambienceSrc" src="assets/sounds/ambience.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerBellSrc" src="assets/sounds/customer-bell.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="customerGreetingSrc" src="assets/sounds/customer-hello.wav" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="customerGreetingSrc2" src="assets/sounds/customer_2.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="customerGreetingSrc3" src="assets/sounds/customer_3.mp3" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item crossorigin="anonymous" id="customerGreetingSrc4" src="assets/sounds/customer_4.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="stewFillSrc" src="assets/sounds/stewFill.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="timerSrc" src="assets/sounds/countdown.mp3" response-type="arraybuffer"></a-asset-item>
                 <a-asset-item crossorigin="anonymous" id="buzzerSrc" src="assets/sounds/buzzer.mp3" response-type="arraybuffer"></a-asset-item>
@@ -517,7 +523,6 @@
             scale="" 
             shadow="" 
 
-            new-recipe=""
             sound="src: #customerGreetingSrc; volume: 5; positional: true;">
     </a-entity>
 
@@ -530,8 +535,7 @@
             scale="" 
             shadow="" 
 
-            new-recipe=""
-            sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+            sound="src: #customerGreetingSrc2; volume: 5; positional: true;">
     </a-entity>
 
     <a-entity id="character3" 
@@ -543,8 +547,7 @@
             scale="" 
             shadow="" 
 
-            new-recipe=""
-            sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+            sound="src: #customerGreetingSrc3; volume: 5; positional: true;">
     </a-entity>
 
     <a-entity id="character4" 
@@ -556,8 +559,7 @@
             scale="" 
             shadow="" 
 
-            new-recipe=""
-            sound="src: #customerGreetingSrc; volume: 10; positional: true;">
+            sound="src: #customerGreetingSrc4; volume: 5; positional: true;">
     </a-entity>
  
     
@@ -751,7 +753,7 @@
 
     <!-- COOKING AREA -->
 
-    <a-entity id="fryingPan" 
+    <!-- <a-entity id="fryingPan" 
         obj-model="obj:#fryingPan_model" 
         position=".4 2.58 -8.3" 
         rotation="0 180 0" 
@@ -765,7 +767,7 @@
         height: 0.1;
         halfExtents: 1 0.5 1;
         offset: 0 -0.5 0;">
-    </a-entity>
+    </a-entity> -->
 
 
    <!-- RECIPIE AREA -->
@@ -778,7 +780,15 @@
             shadow="">
     </a-entity>
 
-   <a-entity id="garlic_chit" 
+    <a-entity id="start_chit" 
+              new-recipe=""
+              obj-model="obj:#chit_model" 
+              position="-5.657 3.135 5.859" 
+              rotation="0 57.44474853981633 0" 
+              material="src: #Start_Chit_texture">
+  </a-entity>
+   
+    <a-entity id="garlic_chit" 
             obj-model="obj:#chit_model" 
             position="-4.77195 -2 6.42" 
             rotation="0 57.44474853981633 0" 

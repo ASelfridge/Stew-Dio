@@ -1,7 +1,7 @@
 var timerTextures = ["#timer0_texture", "#timer1_texture", "#timer2_texture", "#timer3_texture", "#timer4_texture", "#timer5_texture", "#timer6_texture", "#timer7_texture", "#timer8_texture", "#timer9_texture"];
 
-startTime = 60;
-timeBonus = 10;
+startTime = 80;
+timeBonus = 40;
 gameStarted = false;
 
 counter = 0;
@@ -27,6 +27,9 @@ function runTimer(){
         if(timer <= 10 && timer >= 0){
             timer1.components['sound'].playSound();
         }
+        else {
+            timer1.components['sound'].stopSound();
+        }
     
         if (timer === 0){
             timer2.components['sound'].playSound();
@@ -35,8 +38,8 @@ function runTimer(){
                 disappointedCrowd.components['sound'].playSound();
             }, 200);
             setTimeout(function(){
-                // window.location.href='/index.html';
-                // NAF.connection.broadcastData('reset');
+                window.location.href='/index.html';
+                NAF.connection.broadcastData('reset');
             }, 5000);    
         }
 

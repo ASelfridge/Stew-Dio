@@ -70,12 +70,9 @@ AFRAME.registerComponent('recipe-system', {
                     return;
                 }
             }
-            // ingredient not in recipe
-            console.log('WRONG!');
         }
     },
     checkRecipeStatus : function() {
-        console.log(this.currentRecipe.delivered);
         const Context_AF = this;
 
        if(!Context_AF.currentRecipe.completed) {
@@ -153,6 +150,10 @@ AFRAME.registerComponent('recipe-system', {
         // move characters
         scene.components['customer-line'].updateLine();
 
+        // hide speech bubble
+        let speechBubble = document.querySelector('#speechBubble');
+        speechBubble.object3D.visible = false;
+
         // wait for customer animation to finish
         setTimeout(function() {
             // reset bowl
@@ -166,8 +167,11 @@ AFRAME.registerComponent('recipe-system', {
             ladle.components['detect-collision'].data.stewed = 0;
 
             // start new recipe
-            let char = document.querySelector('#character1');
-            char.components['new-recipe'].updateRS();
+            let startChit = document.querySelector('#start_chit');
+            startChit.components['new-recipe'].updateRS();
+
+            // show speech bubble
+            speechBubble.object3D.visible = true;
        }, 2000);
 
         
