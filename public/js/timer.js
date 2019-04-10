@@ -27,6 +27,9 @@ function runTimer(){
         if(timer <= 10 && timer >= 0){
             timer1.components['sound'].playSound();
         }
+        else {
+            timer1.components['sound'].stopSound();
+        }
     
         if (timer === 0){
             timer2.components['sound'].playSound();
