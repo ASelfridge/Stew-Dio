@@ -38,8 +38,8 @@ function runTimer(){
                 disappointedCrowd.components['sound'].playSound();
             }, 200);
             setTimeout(function(){
-                window.location.href='/index.html';
-                NAF.connection.broadcastData('reset');
+                // window.location.href='/index.html';
+                // NAF.connection.broadcastData('reset');
             }, 5000);    
         }
 
