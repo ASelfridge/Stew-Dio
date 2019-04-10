@@ -4,6 +4,7 @@
         <title>Starting Environment</title>
     
         <script src="js/aframe-v0.8.2.min.js"></script>
+        <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
         <script src="js/master.js"></script>
         <script src="js/timer.js"></script>
         <script src="js/socket.io.min.js"></script>
@@ -22,12 +23,13 @@
         <script src="js/onSceneLoad.js"></script>
         <script src="js/recipe-system.js"></script>
         <script src="js/recipes.js"></script>
+        <script src="js/customer-line.js"></script>
         <script src="js/texture-update.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     </head>
       
     <body>
-        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;" recipe-system> 
+        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;" recipe-system customer-line> 
 
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -506,6 +508,7 @@
   
     <!-- CUSTOMER SERVICE -->
     <a-entity id="character1" 
+            class="customer"
             obj-model="obj:#character_model" 
             material="src: #character_texture"
             position="-9.59681 -0.01024 0.12693" 
@@ -518,6 +521,7 @@
     </a-entity>
 
     <a-entity id="character2" 
+            class="customer"
             obj-model="obj:#character2_model" 
             material="src: #character2_texture"
             position="-12.59681 -0.01024 0.12693" 
@@ -530,6 +534,7 @@
     </a-entity>
 
     <a-entity id="character3" 
+            class="customer"
             obj-model="obj:#character3_model" 
             material="src: #character3_texture"
             position="-15.59681 -0.01024 0.12693" 
@@ -541,7 +546,8 @@
             sound="src: #customerGreetingSrc; volume: 10; positional: true;">
     </a-entity>
 
-    <a-entity id="character3" 
+    <a-entity id="character4" 
+            class="customer"
             obj-model="obj:#character4_model" 
             material="src: #character4_texture"
             position="-18.59681 -0.01024 0.12693" 

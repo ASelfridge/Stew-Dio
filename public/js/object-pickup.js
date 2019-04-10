@@ -41,11 +41,11 @@ AFRAME.registerComponent('object-pickup', {
                                 console.warn("Object is already being held");
                             }
                             else{
-                                Context_AF.pickup(e, false);
+                                Context_AF.pickup(e, true);
                             }
                         }
                         else {
-                            Context_AF.pickup(e, false);
+                            Context_AF.pickup(e, true);
                         }
                     }
                 }
