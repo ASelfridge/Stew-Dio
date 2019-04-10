@@ -6,36 +6,25 @@ AFRAME.registerComponent('new-recipe', {
         // whether or not a new recipe is pending
         const Context_AF = this;
         const el = Context_AF.el;
-        el.addEventListener('mousedown', function() {
-            Context_AF.updateRS();
-            NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
-            
-        });
 
         // functionality for oculus go
-        // if(oculusGo) {
-        //     el.addEventListener('raycaster-intersected', function(e) {
-        //         if(scene.triggerDown){
-        //             // start new recipe
-        //             let char = document.querySelector('#character1');
-        //             char.components['new-recipe'].updateRS();
-        //             NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
-
-        //             el.object3D.visible = false;
-        //         }
-        //         // need to add support for picking up if trigger down after instersect happens !!!!!!!!!!!!!
-        //     });
-        // }
-        // // pickup functionality for mobile/desktop
-        // else {
-        //     el.addEventListener('mousedown', function(e) {
-        //         let char = document.querySelector('#character1');
-        //         char.components['new-recipe'].updateRS();
-        //         NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
-
-        //         char.components['new-recipe'].hideStartChit();
-        //     });
-        // }
+        if(oculusGo) {
+            el.addEventListener('raycaster-intersected', function(e) {
+                if(scene.triggerDown){
+                    // start new recipe
+                    Context_AF.updateRS();
+                    NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
+                }
+                // need to add support for picking up if trigger down after instersect happens !!!!!!!!!!!!!
+            });
+        }
+        // pickup functionality for mobile/desktop
+        else {
+            el.addEventListener('mousedown', function(e) {
+                Context_AF.updateRS();
+                NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
+            });
+        }
     },
     updateRS: function(){
         const Context_AF = this;
