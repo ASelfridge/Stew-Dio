@@ -109,7 +109,7 @@ AFRAME.registerComponent('recipe-system', {
         ingredientCount = 0;
         numForCompletion = Context_AF.currentRecipe.numIngredients;
         incriment = 1 / numForCompletion;
-        currentYPos = 0.5;
+        currentYPos = 0;
 
         for(j = 0; j < numForCompletion; j++){
             if (Context_AF.currentRecipe.inStew[j] == true) {
@@ -142,7 +142,7 @@ AFRAME.registerComponent('recipe-system', {
             else if(numCustomers == 4){
                 stewLiquid.setAttribute('material', {src: "#Recipe4_Completed_texture"})
             }
-            stewLiquid.object3D.position.set(0, 1.3, 0);
+            stewLiquid.object3D.position.set(0, 1, 0);
         }
         if(this.currentRecipe.delivered == true){
             stewLiquid.object3D.position.set(0, -5, 0);
@@ -364,8 +364,8 @@ AFRAME.registerComponent('recipe-system', {
 
     },
     setChopped : function(canChop) {
-        let potPlaceholder = '-0.5 3.1 0'
-        let chopPlaceholder = '6.015 2.417 -4.712'
+        let potPlaceholder = '0 3 0'
+        let chopPlaceholder = '6.0 3 -4.7'
 
         // loop through each ingredient in recipe and set chop placeholders
         for(var i = 0; i < canChop.length; i++) {
