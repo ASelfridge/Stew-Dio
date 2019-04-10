@@ -49,7 +49,7 @@ AFRAME.registerComponent('new-recipe', {
             // play greeting sound
             let char = document.querySelector('#character' + (numCustomers + 1));
             console.warn('#character' + (numCustomers + 1));
-            char.components['sound'].stopSound();
+            //char.components['sound'].stopSound();
             char.components['sound'].playSound();
 
             numCustomers++;
