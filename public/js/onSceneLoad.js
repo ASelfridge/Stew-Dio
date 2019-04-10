@@ -81,7 +81,7 @@ function deviceControls(){
     } else if (mobile && !(oculusGo)) {
         console.log("Mobile Device Detected");
 
-        camera.setAttribute("twoway-motion", "speed", 35);
+        camera.setAttribute("twoway-motion", "speed", 50);
         camera.setAttribute("tilt-turn", "criticalAngle", 12);
 
         console.log("Mobile Controls Enabled");

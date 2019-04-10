@@ -29,7 +29,7 @@
     </head>
       
     <body>
-        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="debug:true; restitution: 0.3;" recipe-system customer-line> 
+        <a-scene networked-scene="room: StewDio; debug: true; connectOnLoad:false;" physics="restitution: 0.3;" recipe-system customer-line> 
 
             <!-------------- TEXTURES ---------------->
             <a-assets>
@@ -109,6 +109,8 @@
 
                 <img crossorigin="anonymous" id="speechBubble1_map" src="assets/textures/speechBubble1_map.png">
                 <img crossorigin="anonymous" id="speechBubble2_map" src="assets/textures/speechBubble2_map.png">
+                <img crossorigin="anonymous" id="speechBubble3_map" src="assets/textures/speechBubble3_map.png">
+                <img crossorigin="anonymous" id="speechBubble4_map" src="assets/textures/speechBubble4_map.png">
             </a-assets>
     
             <!-------------- SOUNDS ---------------->
@@ -748,7 +750,7 @@
 
     <!-- COOKING AREA -->
 
-    <a-entity id="fryingPan" 
+    <!-- <a-entity id="fryingPan" 
         obj-model="obj:#fryingPan_model" 
         position=".4 2.58 -8.3" 
         rotation="0 180 0" 
@@ -762,7 +764,7 @@
         height: 0.1;
         halfExtents: 1 0.5 1;
         offset: 0 -0.5 0;">
-    </a-entity>
+    </a-entity> -->
 
 
    <!-- RECIPIE AREA -->

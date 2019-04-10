@@ -6,6 +6,7 @@ AFRAME.registerComponent('new-recipe', {
         // whether or not a new recipe is pending
         const Context_AF = this;
         const el = Context_AF.el;
+        let scene = document.querySelector('a-scene');
 
         // functionality for oculus go
         if(oculusGo) {
@@ -15,7 +16,6 @@ AFRAME.registerComponent('new-recipe', {
                     Context_AF.updateRS();
                     NAF.connection.broadcastData('numCustomersIncrease', numCustomers);
                 }
-                // need to add support for picking up if trigger down after instersect happens !!!!!!!!!!!!!
             });
         }
         // pickup functionality for mobile/desktop
@@ -41,8 +41,6 @@ AFRAME.registerComponent('new-recipe', {
 
             speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
             speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
-            
-         
 
             if(numCustomers == 0) {
                 Context_AF.el.object3D.visible = false;
@@ -55,6 +53,13 @@ AFRAME.registerComponent('new-recipe', {
             char.components['sound'].playSound();
 
             numCustomers++;
+
+            if (numCustomers > 4) {
+                setTimeout(function(){
+                    window.location.href='/index.html';
+                    NAF.connection.broadcastData('reset');
+                }, 5000); 
+            }
             
             if(numCustomers != 1){
                 addTime();
