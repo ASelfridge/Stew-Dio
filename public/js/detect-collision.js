@@ -45,6 +45,7 @@ AFRAME.registerComponent('detect-collision', {
                     // reset placeholders
                     let posString = el.components['object-pickup'].data.placeholderPos[0] + ', -0.5 3.1 0';
                     el.setAttribute('object-pickup', {'placeholderPos': posString});
+                    el.setAttribute('object-pickup', {'numPlaceholders': '2'});
                 }
             }, 1000);     
         }

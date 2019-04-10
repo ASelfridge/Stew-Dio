@@ -8,10 +8,8 @@ AFRAME.registerComponent('recipe-system', {
 
         Context_AF.currentRecipe;
         this.currentRecipe = new Recipe(["garlic", "squash", "onion"]);
-        // this.recipe1 = new Recipe(["garlic", "squash", "onion"]);
-        this.recipe1 = new Recipe(["garlic"]);
-        // this.recipe2 = new Recipe(["mushroom", "onion", "carrot", "lentils"]);
-        this.recipe2 = new Recipe(["mushroom"]);
+        this.recipe1 = new Recipe(["garlic", "squash", "onion"]);
+        this.recipe2 = new Recipe(["mushroom", "onion", "carrot", "lentils"]);
         this.recipe3 = new Recipe(["blackBeans", "onion", "celery", "carrot", "potato", "corn"]);
         this.recipe4 = new Recipe(["chicken", "onion", "carrot", "garlic", "pasta"]);
     },
@@ -22,7 +20,7 @@ AFRAME.registerComponent('recipe-system', {
             this.currentRecipe = this.recipe1;
             this.updateChits();
             this.updateStewLiquid();
-            this.setChopped([false]);
+            this.setChopped([true, true, true]);
             console.log("customer number " + numCustomers + " order recieved");  
         }
 
@@ -30,8 +28,7 @@ AFRAME.registerComponent('recipe-system', {
             this.currentRecipe = this.recipe2;
             this.updateChits();
             this.updateStewLiquid();
-            // this.setChopped([true, true, true, false]);
-            this.setChopped([false]);
+            this.setChopped([true, true, true, false]);
             console.log("customer number " + numCustomers + " order recieved");
         }
 
