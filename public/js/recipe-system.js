@@ -346,8 +346,8 @@ AFRAME.registerComponent('recipe-system', {
 
     },
     setChopped : function(canChop) {
-        let potPlaceholder = '-0.5 3.1 0'
-        let chopPlaceholder = '6.015 2.417 -4.712'
+        let potPlaceholder = '0 3 0'
+        let chopPlaceholder = '6.0 3 -4.7'
 
         // loop through each ingredient in recipe and set chop placeholders
         for(var i = 0; i < canChop.length; i++) {
