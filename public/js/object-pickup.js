@@ -1,6 +1,7 @@
 AFRAME.registerComponent('object-pickup', {
     schema: {
         position: {default: '0 -1 0'},
+        goPos: {default: '0 -1 0'},
         rotation: {default: '0 0 0'},
         numPlaceholders: {default: 1},
         placeholderPos: {
@@ -120,10 +121,10 @@ AFRAME.registerComponent('object-pickup', {
                 el.setAttribute('mdmu-parent-constraint',
                 {
                     parent: '#gearControls',
-                    positionOffset: data.position,
+                    positionOffset: data.goPos,
                     rotationOffset: data.rotation,
                 });
-                el.object3D.position.set(0,0,-1);
+                //el.object3D.position.set(0,0,-1);
                 
             }
            

@@ -39,6 +39,7 @@ AFRAME.registerComponent('new-recipe', {
     },
     updateRS: function(){
         const Context_AF = this;
+
         let scene = document.querySelector('a-scene');
         if (Context_AF.data.recipeAvailable) {
 
@@ -51,7 +52,8 @@ AFRAME.registerComponent('new-recipe', {
 
             speechBubble.setAttribute('material', {src: customerQuoteTextures[numCustomers]});
             speechBubble.object3D.position.set(-9.099, 3.876, -1.492);
-
+            
+         
 
             if(numCustomers == 0) {
                 Context_AF.el.object3D.visible = false;
