@@ -18,7 +18,6 @@ AFRAME.registerComponent('detect-collision', {
         
         el.addEventListener("collide", (event)=>{
             let ntw_data = {target: event.target.classList[0], body: event.detail.body.el.classList[0]}
-            console.log(ntw_data);
             Context_AF.updateRS(ntw_data);
             NAF.connection.broadcastData('updateRecipe', ntw_data);
         });
@@ -30,8 +29,7 @@ AFRAME.registerComponent('detect-collision', {
 
         let scene = document.querySelector('a-scene');                                                               
        
-
-        if(data.removeOnDrop) {
+        if(data.removeOnDrop && el.classList[0] != 'bowl') {
             setTimeout(function(){
                 el.removeAttribute('dynamic-body');
                 // move object back to original state if dropping into

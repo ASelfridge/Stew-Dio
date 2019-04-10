@@ -78,6 +78,7 @@ AFRAME.registerComponent('object-place', {
         {
             scene.components['recipe-system'].setRecipeDelivered();
             NAF.connection.broadcastData('recipeDelivered');
+            el.removeAttribute('object-pickup');
         }
 
         //play pickup sound (they use the same sound)
