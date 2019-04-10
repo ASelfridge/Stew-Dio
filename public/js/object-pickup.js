@@ -41,12 +41,6 @@ AFRAME.registerComponent('object-pickup', {
                                 console.warn("Object is already being held");
                             }
                             else{
-                                // Change Networking ownership of object 
-                                if (!NAF.utils.isMine(el)){
-                                    NAF.utils.takeOwnership(el);
-                                }
-                                // Set availability to false
-                                el.setAttribute('tool', 'available', false);
                                 Context_AF.pickup(e, false);
                             }
                         }
@@ -64,17 +58,11 @@ AFRAME.registerComponent('object-pickup', {
                 if(scene.selectedObject == null){ 
                     // Check for tool component
                     if(el.components['tool']) { 
-                        // Obj unavailable
-                        if(!el.components['tool'].data.available) { 
+                        // If it's set to unavailable, user may not pick it up
+                        if(el.components['tool'].data.available == false) { 
                             console.log("Object is already being held");
                         }
                         else{
-                            // Change Networking ownership of object 
-                            if (!NAF.utils.isMine(el)){
-                                NAF.utils.takeOwnership(el);
-                            }
-                            // Set availability to false
-                            el.setAttribute('tool', 'available', false);
                             Context_AF.pickup(e, false);
                         }
                     }
@@ -92,6 +80,11 @@ AFRAME.registerComponent('object-pickup', {
         let scene = document.querySelector('a-scene');
         //check that not outside of maxDistance range
         if(e.detail.intersection.distance <= maxDistance) {
+            // Change Networking ownership of object 
+            if (!NAF.utils.isMine(el)){
+                NAF.utils.takeOwnership(el);
+            }
+
             //remove physics from element as it is being carried
             el.removeAttribute('dynamic-body');
             el.removeAttribute('static-body');
@@ -100,11 +93,10 @@ AFRAME.registerComponent('object-pickup', {
 
             // set selected object to this
             scene.selectedObject = el.id;
+            
+            // Set availability to false
+            el.setAttribute('tool', 'available', false);
 
-            //  // Change Networking ownership of object 
-            //  if (!NAF.utils.isMine(el)){
-            //     NAF.utils.takeOwnership(el);
-            // }
 
             // reformat data
             let pos = data.position.split(" ");

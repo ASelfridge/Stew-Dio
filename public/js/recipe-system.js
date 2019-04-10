@@ -21,7 +21,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([true, true, true]);
-            console.log("customer number " + numCustomers + " order recieved");  
+            //console.log("customer number " + numCustomers + " order recieved");  
         }
 
         if(numCustomers == 2){
@@ -29,7 +29,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([true, true, true, false]);
-            console.log("customer number " + numCustomers + " order recieved");
+            //console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers == 3){
@@ -37,7 +37,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([false, true, true, true, true, true]);
-            console.log("customer number " + numCustomers + " order recieved");
+            //console.log("customer number " + numCustomers + " order recieved");
         }
 
         if(numCustomers > 3){
@@ -45,7 +45,7 @@ AFRAME.registerComponent('recipe-system', {
             this.updateChits();
             this.updateStewLiquid();
             this.setChopped([true, true, true, true, false]);
-            console.log("customer number " + numCustomers + " order recieved");
+           // console.log("customer number " + numCustomers + " order recieved");
         }
         //console.log(this.currentRecipe.ingredients);
     },
@@ -77,7 +77,7 @@ AFRAME.registerComponent('recipe-system', {
     checkRecipeStatus : function() {
         const Context_AF = this;
 
-        console.log(this.currentRecipe.delivered);
+       // console.log(this.currentRecipe.delivered);
        if(!Context_AF.currentRecipe.completed) {
             for(i = 0; i < Context_AF.currentRecipe.numIngredients; i++){
                 if(!Context_AF.currentRecipe.inStew[i]) {
@@ -98,7 +98,7 @@ AFRAME.registerComponent('recipe-system', {
             Context_AF.currentRecipe.completed = true;
         }
 
-        console.log(this.currentRecipe.delivered);
+        //console.log(this.currentRecipe.delivered);
         
         // THIS IS WHERE WE PUT A CHECK FOR WHETHER THIS STEW HAS BEEN DELIVERED OR NOT
         //if(XXXXXXXXXXXXXXX)
@@ -153,7 +153,7 @@ AFRAME.registerComponent('recipe-system', {
     },
     setRecipeDelivered : function () {
         const Context_AF = this;
-        console.log("execute");
+        //console.log("execute");
         Context_AF.currentRecipe.delivered = true;
         
     },
